@@ -1,0 +1,84 @@
+\documentclass[12pt,reqno]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\graphicspath{ {figures/} }
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amssymb}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{pdflscape}
+\usepackage{natbib}
+\usepackage{verbatim}
+\usepackage{gensymb}
+
+\usepackage{bm}
+\usepackage{changepage}
+%\usepackage{amsart}
+\usepackage{lscape}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[color]{changebar}
+\linespread{.5}
+\numberwithin{equation}{section}
+\usepackage{appendix}
+\usepackage{authblk}
+\usepackage{hyperref}
+\usepackage[most]{tcolorbox}
+
+
+
+\hypersetup{colorlinks,allcolors=blue}
+\title{Adaptive Learning at the Zero Lower Bound}
+\author{Tolga Ozden}
+\begin{document}
+%\maketitle
+
+\section*{ MSV closed form } 
+
+
+\begin{table}[H]
+\begin{tabular}{l|lll|l}
+Parameter & Prior &  &  & Posterior \\
+ & Dist & Mean & St. Dev & Mode \\
+$\bar{y}$ & Normal & 0 & 0.25 & -0.03 \\
+$\bar{\pi}$ & Gamma & 0.62 & 0.25 & 0.54 \\
+$\bar{r1}$ & Gamma & 1 & 0.25 & 0.99 \\
+$\kappa$ & Beta & 0.3 & 0.15 & 0.01 \\
+$\tau$ & Gamma & 2 & 0.5 & 3.15 \\
+$\phi_{\pi}$ & Gamma & 1.5 & 0.25 & 1.27 \\
+$\phi_y$ & Gamma & 0.5 & 0.25 & 0.37 \\
+$\rho_y$ & Beta & 0.5 & 0.2 & 0.5 \\
+$\rho_{\pi}$ & Beta & 0.5 & 0.2 & 0.5 \\
+$\rho_r$ & Beta & 0.5 & 0.2 & 0.82 \\
+$\eta_y$ & Inv. Gamma & 0.1 & 2 & 0.16 \\
+$\eta_{\pi}$ & Inv. Gamma & 0.1 & 2 & 0.04 \\
+$\eta_{r1}$ & Inv. Gamma & 0.1 & 2 & 0.31 \\
+$\bar{r2}$ & Normal & 0 & 0.25 & 0.04 \\
+$\eta_{r2}$ & Inv. Gamma & 0.01 & 0.2 & 0 \\
+$1-p_{11}$ & Beta & 0.1 & 0.05 & 0.02 \\
+$1-p_{22}$ & Beta & 0.3 & 0.1 & 0.1 \\
+gain & Gamma & 0.035 & 0.015 & 0.005 \\
+ &  &  &  &  \\
+ &  &  &  & 354.6730732
+\end{tabular}
+\end{table}
+
+
+\begin{figure}[H]
+\includegraphics[scale=0.4]{estimation_msv_regime.pdf}
+\includegraphics[scale=0.4]{estimation_msv_regimeProb.pdf}\\
+\includegraphics[scale=0.4]{estimation_msv_learning1.pdf}
+\includegraphics[scale=0.4]{estimation_msv_learning2.pdf} \\
+\includegraphics[scale=0.4]{estimation_msv_learning3.pdf}\\
+
+\end{figure}
+
+
+
+\end{document}
+

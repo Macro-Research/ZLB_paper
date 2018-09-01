@@ -1,0 +1,127 @@
+Starting Dynare (version 4.5.4).
+Starting preprocessing of the model file ...
+Found 8 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+ - order 2
+Processing outputs ...
+done
+Preprocessing completed.
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('set_state_space', 'C:\dynare\4.5.4\matlab\set_state_space.m', 105)" style="font-weight:bold">set_state_space</a> (<a href="matlab: opentoline('C:\dynare\4.5.4\matlab\set_state_space.m',105,0)">line 105</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'C:\dynare\4.5.4\matlab\stoch_simul.m', 74)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline('C:\dynare\4.5.4\matlab\stoch_simul.m',74,0)">line 74</a>)
+oo_.dr=set_state_space(dr,M_,options_);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('NKPC_REE_Estimation', 'c:\users\tolga\desktop\ZLB_paper\NKPC_estimations\REE_based_initialization\estimation_MSV\NKPC_REE_Estimation.m', 185)" style="font-weight:bold">NKPC_REE_Estimation</a> (<a href="matlab: opentoline('c:\users\tolga\desktop\ZLB_paper\NKPC_estimations\REE_based_initialization\estimation_MSV\NKPC_REE_Estimation.m',185,0)">line 185</a>)
+info = stoch_simul(var_list_);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.5.4\matlab\dynare.m', 223)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.5.4\matlab\dynare.m',223,0)">line 223</a>)
+evalin('base',fname) ;
+} 
+dynare NKPC_REE_Estimation
+
+Configuring Dynare ...
+[mex] Generalized QZ.
+[mex] Sylvester equation solution.
+[mex] Kronecker products.
+[mex] Sparse kronecker products.
+[mex] Local state space iteration (second order).
+[mex] Bytecode evaluation.
+[mex] k-order perturbation solver.
+[mex] k-order solution simulation.
+[mex] Quasi Monte-Carlo sequence (Sobol).
+[mex] Markov Switching SBVAR.
+
+Using 64-bit preprocessor
+Starting Dynare (version 4.5.4).
+Starting preprocessing of the model file ...
+Found 8 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+ - order 2
+Processing outputs ...
+done
+Preprocessing completed.
+
+
+MODEL SUMMARY
+
+  Number of variables:         8
+  Number of stochastic shocks: 3
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  3
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables       eps_y    eps_pi     eps_r
+eps_y        0.040000  0.000000  0.000000
+eps_pi       0.000000  0.010000  0.000000
+eps_r        0.000000  0.000000  0.000000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y              pi               r             u_y            u_pi         gap_cbo         pinfobs            robs
+u_y(-1)                     0.463303        0.036697        0.286697        0.500000               0        0.463303        0.036697        0.286697
+u_pi(-1)                   -0.917431        0.917431        0.917431               0        0.500000       -0.917431        0.917431        0.917431
+eps_y                       0.926606        0.073394        0.573394        1.000000               0        0.926606        0.073394        0.573394
+eps_pi                     -1.834862        1.834862        1.834862               0        1.000000       -1.834862        1.834862        1.834862
+eps_r                      -0.641026       -0.025641        0.641026               0               0       -0.641026       -0.025641        0.641026
+
+
+MOMENTS OF SIMULATED VARIABLES
+VARIABLE              MEAN       STD. DEV.        VARIANCE        SKEWNESS        KURTOSIS
+y                -0.002074        0.293327        0.086041        0.041484       -0.014049
+pi                0.000779        0.209051        0.043702       -0.072465       -0.002750
+r                 0.000132        0.249837        0.062418       -0.053824        0.024454
+u_y              -0.001295        0.230609        0.053181        0.024177       -0.031991
+u_pi              0.000477        0.113267        0.012829       -0.071875       -0.008124
+gap_cbo          -0.002074        0.293327        0.086041        0.041484       -0.014049
+pinfobs           0.000779        0.209051        0.043702       -0.072465       -0.002750
+robs              0.000132        0.249837        0.062418       -0.053824        0.024454
+
+
+CORRELATION OF SIMULATED VARIABLES
+VARIABLE          y       pi        r      u_y     u_pi  gap_cbo  pinfobs     robs
+y            1.0000  -0.6243  -0.1965   0.7060  -0.6855   1.0000  -0.6243  -0.1965
+pi          -0.6243   1.0000   0.8886   0.1124   0.9967  -0.6243   1.0000   0.8886
+r           -0.1965   0.8886   1.0000   0.5556   0.8486  -0.1965   0.8886   1.0000
+u_y          0.7060   0.1124   0.5556   1.0000   0.0317   0.7060   0.1124   0.5556
+u_pi        -0.6855   0.9967   0.8486   0.0317   1.0000  -0.6855   0.9967   0.8486
+gap_cbo      1.0000  -0.6243  -0.1965   0.7060  -0.6855   1.0000  -0.6243  -0.1965
+pinfobs     -0.6243   1.0000   0.8886   0.1124   0.9967  -0.6243   1.0000   0.8886
+robs        -0.1965   0.8886   1.0000   0.5556   0.8486  -0.1965   0.8886   1.0000
+
+
+AUTOCORRELATION OF SIMULATED VARIABLES
+VARIABLE         1       2       3       4       5       6       7       8       9      10
+y           0.5008  0.2455  0.1308  0.0691  0.0381  0.0389  0.0206  0.0111  0.0097  0.0253
+pi          0.4954  0.2428  0.1253  0.0585  0.0292  0.0288  0.0128  0.0115  0.0019  0.0032
+r           0.4978  0.2382  0.1198  0.0481  0.0175  0.0101 -0.0025  0.0018 -0.0031 -0.0098
+u_y         0.5051  0.2384  0.1225  0.0538  0.0205  0.0105 -0.0027 -0.0040  0.0024  0.0067
+u_pi        0.4954  0.2436  0.1264  0.0604  0.0312  0.0318  0.0153  0.0127  0.0030  0.0061
+gap_cbo     0.5008  0.2455  0.1308  0.0691  0.0381  0.0389  0.0206  0.0111  0.0097  0.0253
+pinfobs     0.4954  0.2428  0.1253  0.0585  0.0292  0.0288  0.0128  0.0115  0.0019  0.0032
+robs        0.4978  0.2382  0.1198  0.0481  0.0175  0.0101 -0.0025  0.0018 -0.0031 -0.0098
+
+
+
+VARIANCE DECOMPOSITION SIMULATING ONE SHOCK AT A TIME (in percent)
+                      eps_y            eps_pi             eps_r  Tot. lin. contr.
+y                     53.07             50.21              0.00            103.28
+pi                     0.66             98.84              0.00             99.50
+r                     28.02             69.21              0.00             97.22
+u_y                  100.01              0.00              0.00            100.01
+u_pi                   0.00            100.01              0.00            100.01
+gap_cbo               53.07             50.21              0.00            103.28
+pinfobs                0.66             98.84              0.00             99.50
+robs                  28.02             69.21              0.00             97.22
+Note: numbers do not add up to 100 due to non-zero correlation of simulated shocks in small samples
+
+Total computing time : 0h00m01s
