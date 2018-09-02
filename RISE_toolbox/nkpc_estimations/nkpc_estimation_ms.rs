@@ -22,7 +22,7 @@ coef_tp_1_2,0.1,0.1,0.05,beta_pdf;
 coef_tp_2_1,0.3,0.3,0.1,beta_pdf;
 y_bar,0.24,0,0.25,normal_pdf;
 pi_bar,0.65,0.62,0.25,gamma_pdf;
-r_bar(coef,1),1.05,0.5,0.25,gamma_pdf;
+r_bar(coef,1),1.05,1,0.25,gamma_pdf;
 r_bar(coef,2),0.01,0.1,0.25,normal_pdf;
 kappa,0.0073,0.3,0.15,beta_pdf;
 tau,4,2,0.5,gamma_pdf;
