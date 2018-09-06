@@ -161,13 +161,13 @@ pp_filtered(tt)=pp_collapse1;
 
 
 
-    for jj=1:2
-    [alpha1(jj) beta1(jj,jj) rr(:,:,jj)] =...
-         msv_learning(S_filtered(tt,jj)',[1,S_filtered(tt-1,jj)]',...
-      alpha1(jj),beta1(jj,jj),rr(:,:,jj),gain);
-  alpha_tt(jj,tt)=alpha1(jj);
-  beta_tt(jj,tt)=beta1(jj,jj);
-      end
+        for jj=1:2
+        [alpha1(jj) beta1(jj,jj) rr(:,:,jj)] =...
+             msv_learning(S_filtered(tt,jj)',[1,S_filtered(tt-1,jj)]',...
+          alpha1(jj),beta1(jj,jj),rr(:,:,jj),gain);
+      alpha_tt(jj,tt)=alpha1(jj);
+      beta_tt(jj,tt)=beta1(jj,jj);
+          end
 
 error11(:,tt)=v11;
 error12(:,tt)=v12;

@@ -1,0 +1,1 @@
+dynare T_5Mod_no4_FIX.mod

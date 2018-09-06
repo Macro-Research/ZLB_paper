@@ -1,0 +1,76 @@
+Starting Dynare (version 4.5.4).
+Starting preprocessing of the model file ...
+Found 5 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+ - order 2
+Processing outputs ...
+done
+Preprocessing completed.
+
+MODEL SUMMARY
+
+  Number of variables:         5
+  Number of stochastic shocks: 3
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  0
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables       eps_y    eps_pi     eps_r
+eps_y        0.025600  0.000000  0.000000
+eps_pi       0.000000  0.001444  0.000000
+eps_r        0.000000  0.000000  0.090000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   y              pi               r             u_y            u_pi
+r(-1)                      -0.637383       -0.016663        0.728041               0               0
+u_y(-1)                     0.855121        0.009616        0.084029        0.500000               0
+u_pi(-1)                   -0.225329        0.978364        0.259546               0        0.500000
+eps_y                       1.710243        0.019233        0.168058        1.000000               0
+eps_pi                     -0.450657        1.956727        0.519092               0        1.000000
+eps_r                      -0.803356       -0.021002        0.917621               0               0
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+y              0.0000     0.4660     0.2172
+pi             0.0000     0.0861     0.0074
+r              0.0000     0.4099     0.1680
+u_y            0.0000     0.1848     0.0341
+u_pi           0.0000     0.0439     0.0019
+
+
+
+VARIANCE DECOMPOSITION (in percent)
+         eps_y  eps_pi   eps_r
+y        42.26    0.83   56.91
+pi        0.15   98.71    1.14
+r         2.62    1.41   95.97
+u_y     100.00    0.00    0.00
+u_pi      0.00  100.00    0.00
+
+
+
+MATRIX OF CORRELATIONS
+Variables         y      pi       r     u_y    u_pi
+y            1.0000  0.0391 -0.6823  0.6446 -0.0669
+pi           0.0391  1.0000 -0.0154  0.0365  0.9935
+r           -0.6823 -0.0154  1.0000  0.1191  0.0874
+u_y          0.6446  0.0365  0.1191  1.0000  0.0000
+u_pi        -0.0669  0.9935  0.0874  0.0000  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order         1       2       3       4       5       6       7       8       9      10
+y        0.6024  0.3758  0.2422  0.1606  0.1091  0.0755  0.0530  0.0376  0.0269  0.0193
+pi       0.4972  0.2466  0.1218  0.0598  0.0291  0.0140  0.0066  0.0030  0.0013  0.0005
+r        0.7350  0.5386  0.3938  0.2876  0.2098  0.1530  0.1115  0.0812  0.0592  0.0431
+u_y      0.5000  0.2500  0.1250  0.0625  0.0313  0.0156  0.0078  0.0039  0.0020  0.0010
+u_pi     0.5000  0.2500  0.1250  0.0625  0.0313  0.0156  0.0078  0.0039  0.0020  0.0010
+Total computing time : 0h00m01s
