@@ -18,9 +18,9 @@ dseries('initialize');
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
 options_ = [];
 M_.fname = 'usmodel';
-M_.dynare_version = '4.5.4';
-oo_.dynare_version = '4.5.4';
-options_.dynare_version = '4.5.4';
+M_.dynare_version = '4.5.1';
+oo_.dynare_version = '4.5.1';
+options_.dynare_version = '4.5.1';
 %
 % Some global variables initialization
 %
@@ -372,7 +372,6 @@ erase_compiled_function('usmodel_dynamic');
 M_.orig_eq_nbr = 40;
 M_.eq_nbr = 40;
 M_.ramsey_eq_nbr = 0;
-M_.set_auxiliary_variables = exist(['./' M_.fname '_set_auxiliary_variables.m'], 'file') == 2;
 M_.lead_lag_incidence = [
  0 21 0;
  0 22 0;
@@ -552,6 +551,7 @@ M_.Sigma_e(4, 4) = (0.6017)^2;
 M_.Sigma_e(5, 5) = (0.2397)^2;
 M_.Sigma_e(6, 6) = (0.1455)^2;
 M_.Sigma_e(7, 7) = (0.2089)^2;
+global estim_params_
 estim_params_.var_exo = [];
 estim_params_.var_endo = [];
 estim_params_.corrx = [];
@@ -605,7 +605,7 @@ options_.prefilter = 0;
 options_.presample = 4;
 options_.datafile = 'raf_dataset';
 options_.optim_opt = '''MaxIter'',500';
-options_.first_obs = 1;
+options_.first_obs = 71;
 options_.order = 1;
 var_list_ = char();
 oo_recursive_=dynare_estimation(var_list_);

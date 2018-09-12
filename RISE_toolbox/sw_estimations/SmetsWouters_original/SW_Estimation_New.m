@@ -18,9 +18,9 @@ dseries('initialize');
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
 options_ = [];
 M_.fname = 'SW_Estimation_New';
-M_.dynare_version = '4.5.4';
-oo_.dynare_version = '4.5.4';
-options_.dynare_version = '4.5.4';
+M_.dynare_version = '4.5.1';
+oo_.dynare_version = '4.5.1';
+options_.dynare_version = '4.5.1';
 %
 % Some global variables initialization
 %
@@ -325,7 +325,6 @@ erase_compiled_function('SW_Estimation_New_dynamic');
 M_.orig_eq_nbr = 27;
 M_.eq_nbr = 29;
 M_.ramsey_eq_nbr = 0;
-M_.set_auxiliary_variables = exist(['./' M_.fname '_set_auxiliary_variables.m'], 'file') == 2;
 M_.lead_lag_incidence = [
  0 17 0;
  0 18 0;
@@ -487,6 +486,7 @@ M_.Sigma_e(4, 4) = (0.6017)^2;
 M_.Sigma_e(5, 5) = (0.2397)^2;
 M_.Sigma_e(6, 6) = (0.1455)^2;
 M_.Sigma_e(7, 7) = (0.2089)^2;
+global estim_params_
 estim_params_.var_exo = [];
 estim_params_.var_endo = [];
 estim_params_.corrx = [];
@@ -496,7 +496,7 @@ estim_params_.param_vals = [estim_params_.param_vals; 14, 6.3325, 2, 15, 3, 4, 1
 estim_params_.param_vals = [estim_params_.param_vals; 21, 1.2312, 0.25, 3, 3, 1.50, 0.375, NaN, NaN, NaN ];
 estim_params_.param_vals = [estim_params_.param_vals; 15, 0.7205, 0.001, 0.99, 1, 0.7, 0.1, NaN, NaN, NaN ];
 estim_params_.param_vals = [estim_params_.param_vals; 18, 0.7937, 0.3, 0.95, 1, 0.5, 0.1, NaN, NaN, NaN ];
-estim_params_.param_vals = [estim_params_.param_vals; 22, 2.8401, 0.25, 10, 3, 2, 0.75, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 22, 5, 0.5, 10, 3, 2, 0.75, NaN, NaN, NaN ];
 estim_params_.param_vals = [estim_params_.param_vals; 20, 0.7813, 0.5, 0.95, 1, 0.5, 0.10, NaN, NaN, NaN ];
 estim_params_.param_vals = [estim_params_.param_vals; 17, 0.4425, 0.01, 0.99, 1, 0.5, 0.15, NaN, NaN, NaN ];
 estim_params_.param_vals = [estim_params_.param_vals; 19, 0.3291, 0.01, 0.99, 1, 0.5, 0.15, NaN, NaN, NaN ];
@@ -540,7 +540,7 @@ options_.prefilter = 0;
 options_.presample = 4;
 options_.datafile = 'raf_dataset';
 options_.optim_opt = '''MaxIter'',500';
-options_.first_obs = 1;
+options_.first_obs = 71;
 options_.order = 1;
 var_list_ = char();
 oo_recursive_=dynare_estimation(var_list_);

@@ -15,13 +15,12 @@ NumEndo=17;
 NumExo=7;
 NumShock=7;
 
-
-cpie=1+pi_bar/100;
-gamma = 1 + gamma_bar/100 ;
-beta1 = 1/(1 + beta1_const/100);
-beta1_bar=beta1*gamma^(-sigma_c);
-cr=cpie/(beta1*gamma^(-sigma_c));
+beta1=0.9995;
+gamma=1+(gamma_bar/100);%ok
+cpie=1+(pi_bar/100);%ok
+cr=cpie/(beta1*gamma^(-sigma_c));%ok
 r_bar=(cr-1)*100;
+beta1_bar=beta1*gamma^(-sigma_c);%what is beta?
 crk=(beta1^(-1))*(gamma^sigma_c) - (1-delta);
 cw = (alpha^alpha*(1-alpha)^(1-alpha)/(phi_p*crk^alpha))^(1/(1-alpha));
 cikbar=(1-(1-delta)/gamma);
@@ -33,8 +32,6 @@ ccy=1-G-cik*cky;
 crkky=crk*cky;
 cwhlc=(1/phi_w)*(1-alpha)/alpha*crk*cky/ccy;
 cwly=1-crk*cky;
-
-
 
 
 fs1=-mc +  alpha*rk+(1-alpha)*(w) - 1*eps_a - 0*(1-alpha)*eps_a==0 ;%ok...
@@ -78,28 +75,41 @@ err7=-eps_w + rho_w*eps_wm + eta_w - mu_w*eta_wm==0 ;
 
 
   
-    F = [fs1,fs2,fs3,fs4,fs5,fs6,fs7,fs8,fs9,fs10,fs11,fs12,fs13 fs14 fs15 fs16 fs17...
-        err1,err2,err3,err4,err5,err6,err7];
+    equations_endo = [fs1,fs2,fs3,fs4,fs5,fs6,fs7,fs8,fs9,fs10,fs11,fs12,fs13,fs14,fs15,fs16,fs17...
+       ];
+   
+   equations_exo=[ err1,err2,err3,err4,err5,err6,err7];
     
     
-    Contemp = [mc,zcap,rk,k1,q,c,inve,y,lab,pinf,w,r,kp dy dc dinve dw...
-               eps_a,eps_b,eps_g,eps_i,eps_r,eps_p,eps_w ];
+    Contemp_endo = [mc,zcap,rk,k1,q,c,inve,y,lab,pinf,w,r,kp,dy,dc,dinve,dw]; ...
+     Contemp_exo= [eps_a,eps_b,eps_g,eps_i,eps_r,eps_p,eps_w ];
            
-     Expectation=[mcp zcapp rkp k1p   qp cp invep yp labp pinfp wp rp kpp dyp dcp dinvep dwp...
-         eps_ap  eps_bp eps_gp eps_ip  eps_rp  eps_pp eps_wp];
+     Expectation_endo=[mcp zcapp rkp k1p   qp cp invep yp labp pinfp wp rp kpp,dyp,dcp,dinvep,dwp];...
+    
      
-     Lagged=[mcm zcapm rkm k1m   qm cm invem ym labm pinfm wm rm kpm dym dcm dinvem dwm...
-         eps_am  eps_bm eps_gm eps_im  eps_rm  eps_pm eps_wm];
+     Lagged_endo=[mcm zcapm rkm k1m   qm cm invem ym labm pinfm wm rm kpm dym,dcm,dinvem,dwm];...
+    Lagged_exo=[   eps_am  eps_bm eps_gm eps_im  eps_rm  eps_pm eps_wm];
      
      Shocks = [eta_a ,eta_b ,eta_g ,eta_i ,eta_r ,eta_p ,eta_w];
      Shocks_lagged=[eta_am eta_bm eta_gm eta_im eta_rm eta_pm eta_wm];
-         
-    
-AA = equationsToMatrix(F, Contemp);   
-BB = equationsToMatrix(F, Lagged);
-CC = equationsToMatrix(F, Expectation);
-DD = equationsToMatrix(F, Shocks);
-EE = equationsToMatrix(F,Shocks_lagged);
+     
+AA = equationsToMatrix(equations_endo, Contemp_endo);   
+BB = equationsToMatrix(equations_endo, Lagged_endo);
+CC = equationsToMatrix(equations_endo, Expectation_endo);
+DD = equationsToMatrix(equations_endo, Contemp_exo);
+EE = equationsToMatrix(equations_endo,Shocks);
+RHO=equationsToMatrix(equations_exo,Lagged_exo);
+FF=equationsToMatrix(equations_exo,Shocks);
+GG=equationsToMatrix(equations_exo,Shocks_lagged);
+
+% AA=double(AA);
+% BB=double(BB);
+% CC=double(CC);
+% DD=double(DD);
+% EE=double(EE);
+% RHO=double(RHO);
+% FF=double(FF);
+% GG=double(GG);
 E =[gamma_bar;gamma_bar;gamma_bar;gamma_bar;pi_bar;r_bar;l_bar];
  F=[ 0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0;
      0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0;
@@ -108,7 +118,7 @@ E =[gamma_bar;gamma_bar;gamma_bar;gamma_bar;pi_bar;r_bar;l_bar];
      0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
      0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0;
      0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-clearvars -except AA BB CC DD EE E F;
+clearvars -except AA BB CC DD EE RHO FF GG E F;
 % AA=double(AA);
 % BB=double(BB);
 % CC=double(CC);
