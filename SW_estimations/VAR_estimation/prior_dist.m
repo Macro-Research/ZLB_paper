@@ -94,9 +94,9 @@ prior37= exp(lpdfig1(param(37),s,nu));
 prior38=gampdf(param(38),a,b);%gain
 
  mu=0.1;sigma2=0.05^2;a = (1-mu)*mu*mu/sigma2-mu;b = a*(1/mu-1);
- prior39=betapdf(param(39),a,b);%p_11
+ prior39=betapdf(param(39),a,b);%1-p_11
   mu=0.3;sigma2=0.1^2;a = (1-mu)*mu*mu/sigma2-mu;b = a*(1/mu-1);
- prior40=betapdf(param(40),a,b);%p_22
+ prior40=betapdf(param(40),a,b);%1-p_22
   prior41=normpdf(param(14),0.05,0.25);%rbar_zlb
 
 

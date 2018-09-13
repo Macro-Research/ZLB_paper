@@ -1,5 +1,5 @@
-  clear;clc;close all;
- load('param_init');
+clear;clc;close all;
+load('param_init');
 param=param_init;
 forward_indices=[3 5 6 7 9 10 11];
 numVar=24;numShocks=7;numEndo=13;numExo=7;
@@ -75,13 +75,13 @@ dataset=dataset(first_obs:last_obs,:);l=7;N=length(dataset);numVar=24;burnIn=6;
 T=size(dataset,1);numObs=7;
 alpha1=0*ones(numVar,1);
 beta1=0*eye(numVar);
-rr=repmat(eye(2),[1 1 numVar]);
-% beta1(3,3)=0.9;beta1(5,5)=0.9 ;beta1(6,6)=0.9;beta1(7,7)=0.9;beta1(9,9)=0.9;
-% beta1(10,10)=0.9;beta1(11,11)=0.9;
+rr=5*repmat(eye(2),[1 1 numVar]);
+ %beta1(3,3)=0.5;beta1(5,5)=0.5 ;beta1(6,6)=0.5;beta1(7,7)=0.5;beta1(9,9)=0.5;
+ %beta1(10,10)=0.5;beta1(11,11)=0.5;
 load('AR1_initial_beliefs.mat');
 for jj=1:length(beta_init)
-    beta1(forward_indices(jj),forward_indices(jj))=beta_init(jj);
-    rr(:,:,forward_indices(jj))=rr_init(:,:,jj);
+   beta1(forward_indices(jj),forward_indices(jj))=beta_init(jj);
+   rr(:,:,forward_indices(jj))=rr_init(:,:,jj);
 end
  
 
@@ -247,9 +247,9 @@ area(1-pp_filtered);
 figure('Name','learning coef-mean');
 index=0;
 for jj=[forward_indices]
-    figure('Name','learning coef-mean');
+  
    index=index+1;
-%    subplot(length(forward_indices),1,index);
+   subplot(length(forward_indices),1,index);
  plot(learning_filtered(jj,:,1));
 end
 

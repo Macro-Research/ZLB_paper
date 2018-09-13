@@ -1,6 +1,7 @@
 clear;clc;close all;
 load('param_init.mat');
 param=param_init;
+
 % param=x;
 % load('estimation_results.mat');
 % names=[{'phi','sigma_c' ,'lambda' ,'xi_w' ,'sigma_l', 'xi_p' , 'iota_w','iota_p',...
@@ -10,6 +11,7 @@ param=param_init;
 %            'eta_a', 'eta_b' ,'eta_g' ,'eta_i' ,'eta_r1','eta_r2', 'eta_p', 'eta_w',...
 %            'gain','1-p_11','1-p_22','rbar_zlb'} ] ; 
 
+%variable order: mc zcap rk k1   q c inve y lab pinf w r kp 
 numVar=24;numShocks=7;numEndo=17;numExo=7;numBackward=7;numForward=7;
 backward_indices=[6 7 8 10 11 12 13];
 forward_indices=[3 5 6 7 9 10 11];
@@ -69,7 +71,7 @@ parameters(41,:)=   [param(37),param(37)];   %sigma_w
 gain=param(38);
 p_11=1-param(39);p_22=1-param(40); 
 Q=[p_11,1-p_11;1-p_22,p_22];
-%ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
+ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
 
 [AA1, BB1, CC1, DD1, EE1 ,RHO1 ,FF1, GG1 ,E1 ,F1] =SW_sysmat_MSV_filter(parameters(:,1));
 [AA2, BB2, CC2, DD2, EE2, RHO2, FF2 ,GG2, E2, F2]=SW_sysmat_MSV_filter(parameters(:,2));
@@ -79,11 +81,11 @@ alpha_tt=zeros(numEndo,1);
 cc_tt=0*ones(numEndo,numShocks);
 rr_tt=5*eye(numBackward+numExo+1);
 load('initial_beliefs_msv.mat');
-% alpha_tt(forward_indices,1)=alpha_init;
- beta_tt(forward_indices,backward_indices)=beta_init;
+beta_tt(forward_indices,backward_indices)=beta_init;
 cc_tt(forward_indices,:)=cc_init;
- %rr_tt=rr_init;
+% rr_tt=rr_init;
 
+% beta_tt(1:13,1:13)=beta_init;cc_tt(1:13,:)=cc_init;
 
 E2(6)=param(41);%ss level of interest rate
 AA1_inv=AA1^(-1);AA2_inv=AA2^(-1);
@@ -98,7 +100,8 @@ gamma1_1_tilde=AA1_inv*(BB1+CC1*beta_tt^2);gamma2_1_tilde=AA1_inv*CC1*(eye(numEn
 gamma1_2_tilde=AA2_inv*(BB2+CC2*beta_tt^2);gamma2_2_tilde=AA2_inv*CC2*(eye(numEndo)+beta_tt)*alpha_tt;gamma3_2_tilde=(AA2_inv*CC2)*(beta_tt*cc_tt+cc_tt*RHO2)+AA2_inv*DD2;
 
 H1=0*eye(numObs);H2=0*eye(numObs);
-
+%H1(6,6)=0.1;
+%H2(6,6)=0.01;
 
 
 S_fore11=zeros(numVar,1);S_fore12=zeros(numVar,1);S_fore21=zeros(numVar,1);S_fore22=zeros(numVar,1);
@@ -109,6 +112,7 @@ S_upd11=zeros(numVar,1);S_upd12=zeros(numVar,1);S_upd21=zeros(numVar,1);S_upd22=
 P_upd11=zeros(numVar,numVar);P_upd12=zeros(numVar,numVar);P_upd21=zeros(numVar,numVar);P_upd22=zeros(numVar,numVar);
 ml11=0;ml12=0;ml21=0;ml22=0;
 likl=zeros(T,1);
+%pp_fore11=0;pp_fore12=0;pp_fore21=0;pp_fore22=0;
 pp_fore11=1;pp_fore12=0;pp_fore21=0;pp_fore22=0;
 pp_upd11=1;pp_upd12=0;pp_upd21=0;pp_upd22=0;
 %pp_collapse1=regime(1);pp_collapse2=1-regime(1);
@@ -120,8 +124,7 @@ S_filtered=zeros(T,numVar);
 %pp_filtered=zeros(T,1);
 pp_filtered=ones(T,1);
 
-theta=[alpha_tt(forward_indices) beta_tt(forward_indices,backward_indices) cc_tt(forward_indices,:)];
-learning_filtered(1,:,:)=theta';
+
 %----------------------------------------------------------------------------
 
 for tt=2:T
@@ -150,9 +153,9 @@ S_fore21=gamma1_1*S_collapse2+gamma2_1;%
 S_fore22=gamma1_2*S_collapse2+gamma2_2;%
 %
 P_fore11=gamma1_1*P_collapse1*gamma1_1'+gamma3_1*Sigma1*gamma3_1'+gamma4_1*Sigma1*gamma4_1';
-P_fore12=gamma1_2*P_collapse1*gamma1_2'+gamma3_2*Sigma2*gamma3_2'+gamma4_2*Sigma2*gamma4_2';  
-P_fore21=gamma1_1*P_collapse2*gamma1_1'+gamma3_1*Sigma1*gamma3_1'+gamma4_1*Sigma1*gamma4_1';
-P_fore22=gamma1_2*P_collapse2*gamma1_2'+gamma3_2*Sigma2*gamma3_2'+gamma4_2*Sigma2*gamma4_2';
+P_fore12=gamma1_2*P_collapse1*gamma1_2'+gamma3_2*Sigma2*gamma3_2'+gamma4_2*Sigma2*gamma4_2';;  
+P_fore21=gamma1_1*P_collapse2*gamma1_1'+gamma3_1*Sigma1*gamma3_1'+gamma4_1*Sigma1*gamma4_1';;
+P_fore22=gamma1_2*P_collapse2*gamma1_2'+gamma3_2*Sigma2*gamma3_2'+gamma4_2*Sigma2*gamma4_2';;
 %    
 v11=x_tt-E1-F1*S_fore11;
 v12=x_tt-E2-F2*S_fore12;
@@ -223,16 +226,16 @@ S_collapse2=(pp_upd12*S_upd12+pp_upd22*S_upd22)/pp_collapse2;
 S_filtered(tt,:)=pp_collapse1*S_collapse1+pp_collapse2*S_collapse2;
 pp_filtered(tt)=pp_collapse1;
 % 
-    alpha_old=alpha_tt;beta_old=beta_tt;cc_old=cc_tt;    
-  thetaOld=[alpha_tt(forward_indices) beta_tt(forward_indices,backward_indices) cc_tt(forward_indices,:)];
-  [theta,rr_tt ,largestEig(tt),pr_flag(tt)] =msv_learning2(S_filtered(tt,forward_indices)',[1;S_filtered(tt-1,backward_indices)';S_filtered(tt,18:24)'],thetaOld,rr_tt,gain,numBackward,backward_indices);
-% 
+   alpha_old=alpha_tt;beta_old=beta_tt;cc_old=cc_tt;    
+   thetaOld=[alpha_tt(forward_indices) beta_tt(forward_indices,backward_indices) cc_tt(forward_indices,:)];
+   [theta,rr_tt ,largestEig(tt),pr_flag(tt)] =msv_learning2(S_filtered(tt,forward_indices)',[1;S_filtered(tt-1,backward_indices)';S_filtered(tt,18:24)'],thetaOld,rr_tt,gain,numBackward,backward_indices);
+% % 
 alpha_tt(forward_indices)=theta(1,:)';
-beta_tt(forward_indices,backward_indices)=theta(2:numBackward+1,:)';
-cc_tt(forward_indices,:)=theta(numBackward+2:end,:)';
+ beta_tt(forward_indices,backward_indices)=theta(2:numBackward+1,:)';
+ cc_tt(forward_indices,:)=theta(numBackward+2:end,:)';
 
             try
-largest_eig2(tt)=abs(eigs(AA1_inv*(BB1+CC1*beta_tt^2),1));
+largest_eig2(tt)=abs(eigs(gamma1_1,1));
             catch
                 largest_eig2(tt)=1.01;
             end
@@ -242,16 +245,24 @@ largest_eig2(tt)=abs(eigs(AA1_inv*(BB1+CC1*beta_tt^2),1));
     beta_tt=beta_old;
     cc_tt=cc_old;
     pr_flag(tt)=1;
-     end
-
-learning_filtered(tt,:,:)=theta;
-
-
-
+    end
+ 
+ learning_filtered(tt,:,:)=theta;
+ 
 end
-
-
+% 
+% 
 likl=-sum(log(likl(burnIn+1:end)))
+
+
+
+
+
+
+
+
+
+
 
 
 

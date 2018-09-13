@@ -1,7 +1,7 @@
 clear;clc;close all;
-% dynare SW_Estimation_REE;
-% save('initial_ree_estimation.mat');
-load('initial_ree_estimation.mat');
+dynare SW_Estimation_REE;
+save('initial_ree_estimation.mat');
+% load('initial_ree_estimation.mat');
 %dataset=oo_.endo_simul;
 % clearvars -except dataset;
 % forward_indices=[3 5 6 7 9 10 11];
