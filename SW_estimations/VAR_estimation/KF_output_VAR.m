@@ -69,9 +69,9 @@ E2(6)=param(41);%ss level of interest rate
 AA1_inv=AA1^(-1);AA2_inv=AA2^(-1);
 Sigma1=diag(parameters(end-numShocks+1:end,1))^2;
 Sigma2=diag(parameters(end-numShocks+1:end,2))^2;
-load('full_dataset.mat');first_obs=120;last_obs=length(dy);
+load('raf_dataset.mat');first_obs=71;last_obs=length(dy);
 dataset=[dy dc dinve dw pinfobs robs labobs];
-dataset=dataset(first_obs:last_obs,:);l=7;N=length(dataset);numVar=24;burnIn=26;
+dataset=dataset(first_obs:last_obs,:);l=7;N=length(dataset);numVar=24;burnIn=6;
 T=size(dataset,1);numObs=7;
 alpha1=0*ones(numVar,1);
 beta1=0*eye(numVar);
@@ -205,13 +205,14 @@ S_collapse2=(pp_upd12*S_upd12+pp_upd22*S_upd22)/pp_collapse2;
 S_filtered(tt,:)=pp_collapse1*S_collapse1+pp_collapse2*S_collapse2;
 pp_filtered(tt)=pp_collapse1;
 
-    
+    pr_flag(tt)=0;
       beta_old=beta1;
    for jj=[forward_indices]
     [alpha1(jj) beta1(jj,jj) rr(:,:,jj)] =...
          msv_learning(S_filtered(tt,jj)',[1,S_filtered(tt-1,jj)]',...
       alpha1(jj),beta1(jj,jj),rr(:,:,jj),gain);
   if abs(beta1(jj,jj))>1
+      pr_flag(tt)=1;
       beta1(jj,jj)=beta_old(jj,jj);
   end
 learning_filtered(jj,tt-1,:)=[alpha1(jj),beta1(jj,jj)];
@@ -246,8 +247,9 @@ area(1-pp_filtered);
 figure('Name','learning coef-mean');
 index=0;
 for jj=[forward_indices]
+    figure('Name','learning coef-mean');
    index=index+1;
-   subplot(length(forward_indices),1,index);
+%    subplot(length(forward_indices),1,index);
  plot(learning_filtered(jj,:,1));
 end
 

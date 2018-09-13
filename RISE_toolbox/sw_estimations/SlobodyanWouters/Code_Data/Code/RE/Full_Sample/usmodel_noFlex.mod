@@ -202,7 +202,7 @@ calfa,0.24,0.01,1.0,NORMAL_PDF,0.3,0.05;
 end;
 
 varobs dy dc dinve labobs pinfobs dw robs;
-estimation(optim=('MaxIter',200),datafile=usmodel_data_SW_data_april2009,mode_compute=0,mode_file=T_RE_mode,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
+estimation(optim=('MaxIter',200),datafile=raf_dataset,mode_compute=1,mode_file=T_RE_mode,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
  
 //   estimation(optim=('MaxIter',500),nograph,datafile=usmodel_data,mode_compute=4,first_obs=71,presample=4,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.20,mh_drop=0.2);
 // estimation(optim=('MaxIter',200),datafile=usmodel_data,mode_compute=0,mode_file=usmodel_mode,first_obs=71,presample=4,lik_init=2,prefilter=0,mh_replic=250000,mh_nblocks=2,mh_jscale=0.20,mh_drop=0.2,bayesian_irf,irf=20,moments_varendo,filtered_vars,smoother);

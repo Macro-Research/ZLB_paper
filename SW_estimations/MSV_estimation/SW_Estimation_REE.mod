@@ -201,6 +201,6 @@ end;
 varobs dy dc dinve labobs pinfobs dw robs;
 estimation(optim=('MaxIter',500),datafile=full_dataset,nograph,mode_compute=1,first_obs=120,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
 //estimation(optim=('MaxIter',500),datafile=raf_dataset,nograph,mode_compute=1,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
- stoch_simul(periods=10000);
+ stoch_simul(periods=50000);
 
     

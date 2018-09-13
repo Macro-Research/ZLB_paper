@@ -18,9 +18,9 @@ dseries('initialize');
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
 options_ = [];
 M_.fname = 'SW_Estimation_REE';
-M_.dynare_version = '4.5.1';
-oo_.dynare_version = '4.5.1';
-options_.dynare_version = '4.5.1';
+M_.dynare_version = '4.5.4';
+oo_.dynare_version = '4.5.4';
+options_.dynare_version = '4.5.4';
 %
 % Some global variables initialization
 %
@@ -325,6 +325,7 @@ erase_compiled_function('SW_Estimation_REE_dynamic');
 M_.orig_eq_nbr = 27;
 M_.eq_nbr = 29;
 M_.ramsey_eq_nbr = 0;
+M_.set_auxiliary_variables = exist(['./' M_.fname '_set_auxiliary_variables.m'], 'file') == 2;
 M_.lead_lag_incidence = [
  0 17 0;
  0 18 0;
@@ -486,7 +487,6 @@ M_.Sigma_e(4, 4) = (0.6017)^2;
 M_.Sigma_e(5, 5) = (0.2397)^2;
 M_.Sigma_e(6, 6) = (0.1455)^2;
 M_.Sigma_e(7, 7) = (0.2089)^2;
-global estim_params_
 estim_params_.var_exo = [];
 estim_params_.var_endo = [];
 estim_params_.corrx = [];
@@ -544,7 +544,7 @@ options_.first_obs = 120;
 options_.order = 1;
 var_list_ = char();
 oo_recursive_=dynare_estimation(var_list_);
-options_.periods = 10000;
+options_.periods = 50000;
 var_list_ = char();
 info = stoch_simul(var_list_);
 save('SW_Estimation_REE_results.mat', 'oo_', 'M_', 'options_');

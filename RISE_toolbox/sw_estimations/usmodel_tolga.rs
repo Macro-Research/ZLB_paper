@@ -1,5 +1,5 @@
 var   labobs robs pinfobs dy dc dinve dw 
- mc zcap rk k q    c inve y lab pinf w r eps_a  eps_b eps_g eps_i  eps_r  eps_w eps_p kp gap
+ mc zcap rk k q    c inve y lab pinf w r eps_a  eps_b eps_g eps_i  eps_r  eps_w eps_p kp
 
 observables labobs robs pinfobs dy dc dinve dw
 
@@ -43,8 +43,8 @@ curvw,10;
 	rho_g,0.95,0.5,0.2,beta_pdf;
     rho_i,0.8,0.5,0.2,beta_pdf;
     rho_r,0.5,0.5,0.2,beta_pdf;
-    rho_p,0.5,0.5,0.2,beta_pdf;
-    rho_w,0.5,0.5,0.2,beta_pdf;
+    rho_p,0.6,0.5,0.2,beta_pdf;
+    rho_w,0.6,0.5,0.2,beta_pdf;
     rho_ga,0.5,0.5,0.2,beta_pdf;
     mu_p,0.5,0.5,0.2,beta_pdf;
     mu_w,0.5,0.5,0.2,beta_pdf;
@@ -113,7 +113,6 @@ model
                +r_dy*(y-phi_p*eps_a-y(-1)+phi_p*eps_a(-1))
                +rho*r(-1)
                +eps_r  ;
-         gap=phi_p*(alpha*kp+(1-alpha)*lab);
 	      eps_a = rho_a*eps_a(-1)  + sig_a*eta_a;
 	      eps_b = rho_b*eps_b(-1) + sig_b*eta_b;
 	      eps_g = rho_g*(eps_g(-1)) + sig_g*eta_g + rho_ga*sig_a*eta_a;

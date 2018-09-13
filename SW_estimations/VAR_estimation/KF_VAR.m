@@ -58,7 +58,7 @@ parameters(41,:)=   [param(37),param(37)];   %sigma_w
 gain=param(38);
 p_11=1-param(39);p_22=1-param(40); 
 Q=[p_11,1-p_11;1-p_22,p_22];
-ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
+%ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
 
 [AA1, BB1, CC1, DD1,EE1,E1,F1]=SW_sysmat_VAR_filter(parameters(1:end,1));
 %E1(6)=1;E2(6)=0;%ss level of interest rate
@@ -68,7 +68,7 @@ E2(6)=param(41);%ss level of interest rate
 AA1_inv=AA1^(-1);AA2_inv=AA2^(-1);
 Sigma1=diag(parameters(end-numShocks+1:end,1))^2;
 Sigma2=diag(parameters(end-numShocks+1:end,2))^2;
-load('full_dataset.mat');first_obs=120;last_obs=length(dy);
+load('raf_dataset.mat');first_obs=71;last_obs=length(dy);
 dataset=[dy dc dinve dw pinfobs robs labobs];
 dataset=dataset(first_obs:last_obs,:);l=7;N=length(dataset);numVar=24;burnIn=6;
 T=size(dataset,1);numObs=7;

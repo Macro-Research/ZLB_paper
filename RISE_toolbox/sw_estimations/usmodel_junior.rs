@@ -104,46 +104,46 @@ parameterization
 	curvw,10;
 	
 	% estimated parameters initialisation
-	sig_a,   0.4618,0.01,2,inv_gamma_pdf(0.9);
-	sig_b,   0.18185,0.01,2,inv_gamma_pdf(0.9);
-	sig_g,   0.6090,0.01,2,inv_gamma_pdf(0.9);
-	sig_qs,  0.46017,0.01,2,inv_gamma_pdf(0.9);
-	sig_m,   0.2397,0.01,2,inv_gamma_pdf(0.9);
-	sig_pinf,0.1455,0.01,2,inv_gamma_pdf(0.9);
-	sig_w,   0.2089,0.01,2,inv_gamma_pdf(0.9);
+	sig_a,   0.4618,0.1,2,inv_gamma_pdf;
+	sig_b,   0.18185,0.1,2,inv_gamma_pdf;
+	sig_g,   0.6090,0.1,2,inv_gamma_pdf;
+	sig_qs,  0.46017,0.1,2,inv_gamma_pdf;
+	sig_m,   0.2397,0.1,2,inv_gamma_pdf;
+	sig_pinf,0.1455,0.1,2,inv_gamma_pdf;
+	sig_w,   0.2089,0.1,2,inv_gamma_pdf;
 	
-	calfa,   .24, .2,.4,normal_pdf(.9);
-	csigma,   1.5,.75,2.25,normal_pdf(0.9);
-	cfc,      1.5, 1, 1.5,normal_pdf(.9);
-	cgy,      0.51,.1,1.5,normal_pdf(.9);
+	calfa,   0.24, 0.3,0.05,normal_pdf;
+	csigma,   1.5,1.5,0.375,normal_pdf;
+	cfc,      1.5, 1.5,0.125,normal_pdf;//phi_p
+	cgy,      0.51,0.5,0.25,normal_pdf;//rho_ga
 	
-	csadjcost, 6.0144,1,7,normal_pdf(0.9);
-	chabb,     0.6361,0.3,0.7,beta_pdf(.9);    
-	cprobw,    0.8087,0.3,0.7,beta_pdf(.9);
-	csigl,     1.9423,.5,3.5,normal_pdf(.9);
-	cprobp,    0.6,0.3,0.7,beta_pdf(.9);
-	cindw,     0.3243,0.3,0.7,beta_pdf(.9);
-	cindp,     0.47,0.3,0.7,beta_pdf(.9);
-	czcap,     0.2696,0.3,0.7,beta_pdf(.9);
-	crpi,      1.488,1,2,normal_pdf(.9);
-	crr,       0.8762,0.3,0.7,beta_pdf(.9);
-	cry,       0.0593,0.025,0.225,normal_pdf(.9);
-	crdy,      0.2347,0.025,0.225,normal_pdf(.9);
-	crhoa,     0.9977,0.2,0.8,beta_pdf(.9);
-	crhob,     0.5799,0.3,0.7,beta_pdf(.9);
-	crhog,     0.9957,0.2,0.8,beta_pdf(.9);
-	crhoqs,    0.7165,0.3,0.7,beta_pdf(.9);
-	crhoms,    .3,0.3,0.7,beta_pdf(.9);
-	crhopinf,  0.8,0.3,0.7,beta_pdf(.9);
-	crhow,     0.8,0.3,0.7,beta_pdf(.9);
-	cmap ,     0.7,0.3,0.7,beta_pdf(.9);
-	cmaw  ,    0.7,0.3,0.7,beta_pdf(.9);
+	csadjcost, 6.0144,4,1.5,normal_pdf;//phi
+	chabb,     0.6361,0.7,0.1,beta_pdf;//lambda    
+	cprobw,    0.8087,0.5,0.1,beta_pdf;//xi_w
+	csigl,     1.9423,2,0.75,normal_pdf;//sigma_l
+	cprobp,    0.6,0.5,0.1,beta_pdf;//xi_p
+	cindw,     0.3243,0.5,0.15,beta_pdf;//iota_w
+	cindp,     0.47,0.5,0.15,beta_pdf;//iota_p
+	czcap,     0.2696,0.5,0.15,beta_pdf;//psi
+	crpi,      1.488,1.5,0.25,normal_pdf;
+	crr,       0.8762,0.75,0.1,beta_pdf;
+	cry,       0.0593,0.125,0.05,normal_pdf;
+	crdy,      0.2347,0.125,0.05,normal_pdf;
+	crhoa,     0.9977,0.5,0.2,beta_pdf;
+	crhob,     0.5799,0.5,0.2,beta_pdf;
+	crhog,     0.9957,0.5,0.2,beta_pdf;
+	crhoqs,    0.7165,0.5,0.2,beta_pdf;
+	crhoms,    .3,0.5,0.2,beta_pdf;
+	crhopinf,  0.8,0.5,0.2,beta_pdf;
+	crhow,     0.8,0.5,0.2,beta_pdf;
+	cmap ,     0.7,0.5,0.2,beta_pdf;
+	cmaw  ,    0.7,0.5,0.2,beta_pdf;
 	% derived from steady state
-	constebeta, 0.7420,.05,.8,gamma_pdf(.9);
+	constebeta, 0.25,.25,.01,gamma_pdf;
 	
-	ctrend,     0.3982,.2,.6,normal_pdf(.9);
-	constepinf, .7,.425,.825,gamma_pdf(.9);
-	constelab,  1.2918,-4,4,normal_pdf(.9);
+	ctrend,     0.3982,0.4,0.1,normal_pdf;
+	constepinf, 0.7,0.625,0.1,gamma_pdf;
+	constelab,  1.2918,0,2,normal_pdf;
 
 
 

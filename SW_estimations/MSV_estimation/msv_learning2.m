@@ -4,8 +4,11 @@ function [theta r largestEig projectionFlag] =msv_learning2(x,regressor,thetaOld
  yy=regressor;
  
 r=rOld+gain*(yy*yy'-rOld);
-r=nearestSPD(r);
-
+%  try
+ r=nearestSPD(r);
+%  catch
+%      r=100*eye(length(r));
+%  end
 
 theta=thetaOld'+gain*r^(-1)*yy*(x-thetaOld*yy)';
 

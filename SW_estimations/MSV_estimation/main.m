@@ -28,7 +28,7 @@ load('param_init.mat');
      options=optimset('Display','iter','PlotFcns',@optimplotfval,'MaxIter',5000);
    [x fh]=fminsearch('likelihood',param_init,options);
   % H=nhess(@likelihood,x');H=inv(H);
-    %laplace1_=laplace_approximator(fh,x,H);
+  %  laplace1_=laplace_approximator(fh,x,H);
  
 %nhess(@likelihood,x);
 % [fh,x,gh,H,itct,fcount,retcodeh] = csminwel('likelihood',param',init_H,[] ,10^(-5),1000);
