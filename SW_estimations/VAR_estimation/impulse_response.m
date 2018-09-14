@@ -10,8 +10,8 @@ impulse=zeros(periods,numVars,numShocks);
 
     for ii=1:length(std)
     shock=zeros(length(std),1);
-    shock(ii)=1;
-    shock(ii)=std(ii);
+    %shock(ii)=1;
+     shock(ii)=std(ii);
 
 
 
