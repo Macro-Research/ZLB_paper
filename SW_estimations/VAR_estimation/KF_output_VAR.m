@@ -247,9 +247,9 @@ area(1-pp_filtered);
 figure('Name','learning coef-mean');
 index=0;
 for jj=[forward_indices]
-  
+ 
    index=index+1;
-   subplot(length(forward_indices),1,index);
+  subplot(length(forward_indices),1,index);
  plot(learning_filtered(jj,:,1));
 end
 

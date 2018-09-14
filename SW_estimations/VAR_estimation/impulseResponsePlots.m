@@ -24,10 +24,10 @@ gamma1_2=AA2_inv*(BB2+CC2*beta1^2);gamma2_2=AA2_inv*CC2*(eye(numVar)-beta1^2)*al
 imp11(jj,:,:,:)=impulse_response(parameters(:,1),gamma1_1,gamma3_1,periods);
 imp22(jj,:,:,:)=impulse_response(parameters(:,2),gamma1_2,gamma3_2,periods);
 
-  for kk=[forward_indices]
-
-beta1(kk,kk)=learning_filtered(kk,jj-1,2);
-  end
+%   for kk=[forward_indices]
+% 
+% beta1(kk,kk)=learning_filtered(kk,jj-1,2);
+%   end
 
 end
 

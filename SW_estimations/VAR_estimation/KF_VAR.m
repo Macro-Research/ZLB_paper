@@ -204,30 +204,30 @@ S_collapse2=(pp_upd12*S_upd12+pp_upd22*S_upd22)/pp_collapse2;
 S_filtered(tt,:)=pp_collapse1*S_collapse1+pp_collapse2*S_collapse2;
 pp_filtered(tt)=pp_collapse1;
 
-    
-      beta_old=beta1;
-   for jj=[forward_indices]
-    [alpha1(jj) beta1(jj,jj) rr(:,:,jj)] =...
-         msv_learning(S_filtered(tt,jj)',[1,S_filtered(tt-1,jj)]',...
-      alpha1(jj),beta1(jj,jj),rr(:,:,jj),gain);
-  if abs(beta1(jj,jj))>1
-      beta1(jj,jj)=beta_old(jj,jj);
-  end
-learning_filtered(jj,tt-1,:)=[alpha1(jj),beta1(jj,jj)];
-   end
-
-
-  
-try
-    largest_eig(tt)=abs(eigs(AA1_inv*(BB1+CC1*beta1^2),1));
-catch
-    largest_eig(tt)=1.01;
-end
-
-if largest_eig(tt)>1
-    beta_tt=beta_old;
-    pr_flag(tt)=1;
- end
+%     
+%       beta_old=beta1;
+%    for jj=[forward_indices]
+%     [alpha1(jj) beta1(jj,jj) rr(:,:,jj)] =...
+%          msv_learning(S_filtered(tt,jj)',[1,S_filtered(tt-1,jj)]',...
+%       alpha1(jj),beta1(jj,jj),rr(:,:,jj),gain);
+%   if abs(beta1(jj,jj))>1
+%       beta1(jj,jj)=beta_old(jj,jj);
+%   end
+% learning_filtered(jj,tt-1,:)=[alpha1(jj),beta1(jj,jj)];
+%    end
+% 
+% 
+%   
+% try
+%     largest_eig(tt)=abs(eigs(AA1_inv*(BB1+CC1*beta1^2),1));
+% catch
+%     largest_eig(tt)=1.01;
+% end
+% 
+% if largest_eig(tt)>1
+%     beta_tt=beta_old;
+%     pr_flag(tt)=1;
+%  end
 
 end
 

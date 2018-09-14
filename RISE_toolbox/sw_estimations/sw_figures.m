@@ -1,5 +1,8 @@
 clear;clc;close all;
-load('sw_estimation_results.mat');
+load('estimation_results_rs.mat');
+
+myirfs0=irf(sw,'irf_periods',40);
+
 startDate=datenum('01-01-1964');
 endDate = datenum('01-12-2016');
 Date=linspace(startDate,endDate,208);
@@ -20,3 +23,9 @@ fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
 % print(fig,'SW_sigmaPoint_regimeProb','-dpdf');
+
+
+
+
+
+

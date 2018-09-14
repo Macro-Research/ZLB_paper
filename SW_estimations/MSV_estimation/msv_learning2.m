@@ -17,7 +17,7 @@ msgid=[];
 [msgstr, msgid] = lastwarn;
 
 if strcmp(msgid,'MATLAB:nearlySingularMatrix')==1
-    r=5*eye(size(r,1));
+    r=1*eye(size(r,1));
     
 theta=thetaOld'+gain*r^(-1)*yy*(x-thetaOld*yy)';
 end

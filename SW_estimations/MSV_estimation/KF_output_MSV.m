@@ -79,11 +79,11 @@ ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
 beta_tt=0*eye(numEndo);
 alpha_tt=zeros(numEndo,1);
 cc_tt=0*ones(numEndo,numShocks);
-rr_tt=5*eye(numBackward+numExo+1);
+rr_tt=1*eye(numBackward+numExo+1);
 load('initial_beliefs_msv.mat');
 beta_tt(forward_indices,backward_indices)=beta_init;
 cc_tt(forward_indices,:)=cc_init;
-% rr_tt=rr_init;
+ %rr_tt=rr_init;
 
 % beta_tt(1:13,1:13)=beta_init;cc_tt(1:13,:)=cc_init;
 
@@ -226,28 +226,28 @@ S_collapse2=(pp_upd12*S_upd12+pp_upd22*S_upd22)/pp_collapse2;
 S_filtered(tt,:)=pp_collapse1*S_collapse1+pp_collapse2*S_collapse2;
 pp_filtered(tt)=pp_collapse1;
 % 
-   alpha_old=alpha_tt;beta_old=beta_tt;cc_old=cc_tt;    
-   thetaOld=[alpha_tt(forward_indices) beta_tt(forward_indices,backward_indices) cc_tt(forward_indices,:)];
-   [theta,rr_tt ,largestEig(tt),pr_flag(tt)] =msv_learning2(S_filtered(tt,forward_indices)',[1;S_filtered(tt-1,backward_indices)';S_filtered(tt,18:24)'],thetaOld,rr_tt,gain,numBackward,backward_indices);
-% % 
-alpha_tt(forward_indices)=theta(1,:)';
- beta_tt(forward_indices,backward_indices)=theta(2:numBackward+1,:)';
- cc_tt(forward_indices,:)=theta(numBackward+2:end,:)';
-
-            try
-largest_eig2(tt)=abs(eigs(gamma1_1,1));
-            catch
-                largest_eig2(tt)=1.01;
-            end
-%             
-    if largest_eig2(tt)>1
-       alpha_tt=alpha_old;
-    beta_tt=beta_old;
-    cc_tt=cc_old;
-    pr_flag(tt)=1;
-    end
- 
- learning_filtered(tt,:,:)=theta;
+%    alpha_old=alpha_tt;beta_old=beta_tt;cc_old=cc_tt;    
+%    thetaOld=[alpha_tt(forward_indices) beta_tt(forward_indices,backward_indices) cc_tt(forward_indices,:)];
+%    [theta,rr_tt ,largestEig(tt),pr_flag(tt)] =msv_learning2(S_filtered(tt,forward_indices)',[1;S_filtered(tt-1,backward_indices)';S_filtered(tt,18:24)'],thetaOld,rr_tt,gain,numBackward,backward_indices);
+% % % 
+% alpha_tt(forward_indices)=theta(1,:)';
+%  beta_tt(forward_indices,backward_indices)=theta(2:numBackward+1,:)';
+%  cc_tt(forward_indices,:)=theta(numBackward+2:end,:)';
+% 
+%             try
+% largest_eig2(tt)=max(abs(eigs(gamma1_1,1)),abs(eigs(gamma1_2,1)));
+%             catch
+%                 largest_eig2(tt)=1.01;
+%             end
+% %             
+%     if largest_eig2(tt)>0.99
+%        alpha_tt=alpha_old;
+%     beta_tt=beta_old;
+%     cc_tt=cc_old;
+%     pr_flag(tt)=1;
+%     end
+%  
+%  learning_filtered(tt,:,:)=theta;
  
 end
 % 
