@@ -1,10 +1,11 @@
 clear;clc;%close all;
-rng(1);
+true_parameters=[0 0 0 0.03 2 1.5 0.5 0.5 0.5 0.9 0.3 0.3 0.3 0 0.01 0.01 0.1 0.035]; 
+rng(11);
 tic
 load('MH_Candidate');
-Ndraws=2000;
+Ndraws=100000;
 numVar=length(mode);
-c=0.2; %
+c=0.15; %
 recursiveAverages=nan(Ndraws,numVar);
 Nburn=round(Ndraws/2);
 posteriorDraws=nan(Ndraws,numVar);
@@ -16,9 +17,9 @@ counter=0;
 logposterior=objective*ones(Ndraws,1);
 
 for i=1:Ndraws
-%toc
-disp('REMAINING:');
-disp(Ndraws-i);
+% %toc
+% disp('REMAINING:');
+% disp(Ndraws-i);
 
     currentDraw=mvnrnd(posteriorDraws(1,:),c*Sigma);
     objectiveNew=-likelihood(currentDraw);
@@ -36,9 +37,10 @@ disp(Ndraws-i);
     end
 
 acceptanceRate=accept/i;
-
+% disp('ACCEPTANCE RATE:');
+% disp(acceptanceRate);
 counter=counter+1;
-if counter==500
+if counter==100
      disp(['Acceptance Rate: ', num2str(acceptanceRate)]);
     disp(['Remaining Draws: ', num2str(Ndraws-i)]);
     counter=0;
@@ -51,18 +53,22 @@ end
 figure;
 title('Posterior Distributions');
 for i=1:numVar;
-subplot(3,6,i);hist(posteriorDraws(Nburn:Ndraws,i));hold on;plot([mode(i) mode(i)],[ylim],'r'); 
+subplot(3,6,i);hist(posteriorDraws(Nburn:Ndraws,i));hold on;
+plot([true_parameters(i) true_parameters(i)],[ylim],'r'); 
 end
 
 figure;
 title('Recursive Averages');
  for i=1:numVar;
-for j=1:Ndraws
-    recursiveAverages(j,i)=mean(posteriorDraws(1:j,i));
-    
-end
+% for j=1:Ndraws
+% %     recursiveAverages(j,i)=mean(posteriorDraws(1:j,i));
+%     
+%     
+% end
    subplot(3,6,i);
    plot(recursiveAverages(:,i),'lineWidth',2);
+   hold on;
+   plot(true_parameters(i)*ones(Ndraws,1));
   
  end
 

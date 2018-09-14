@@ -4,9 +4,21 @@ function [theta r largestEig projectionFlag] =msv_learning2(x,regressor,thetaOld
  yy=regressor;
  
 r=rOld+gain*(yy*yy'-rOld);
+try
+r=nearestSPD(r);
+catch
+r=5*eye(size(r,1));
+end
+
 theta=thetaOld'+gain*r^(-1)*yy*(x-thetaOld*yy)';
+msgstr=[];
+msgid=[];
+[msgstr,msgid]=lastwarn;
 
-
+if strcmp(msgid,'MATLAB:nearlySingularMatrix')==1
+r=5*eye(size(r,1));
+theta=thetaOld'+gain*r^(-1)*yy*(x-thetaOld*yy)';
+end
 % theta=theta';
 % alpha=theta(:,1);
 beta=theta(2,3)';
