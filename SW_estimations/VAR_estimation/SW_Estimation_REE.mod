@@ -160,7 +160,7 @@ phi,6.3325,2,15,NORMAL_PDF,4,1.5;
 sigma_c,1.2312,0.25,3,NORMAL_PDF,1.50,0.375;
 lambda,0.7205,0.001,0.99,BETA_PDF,0.7,0.1;
 xi_w,0.7937,0.3,0.95,BETA_PDF,0.5,0.1;
-sigma_l,5,0.5,10,NORMAL_PDF,2,0.75;
+sigma_l,5,-10,10,NORMAL_PDF,2,0.75;
 xi_p,0.7813,0.5,0.95,BETA_PDF,0.5,0.10;
 iota_w,0.4425,0.01,0.99,BETA_PDF,0.5,0.15;
 iota_p,0.3291,0.01,0.99,BETA_PDF,0.5,0.15;
@@ -200,8 +200,8 @@ end;
 
 varobs dy dc dinve labobs pinfobs dw robs;
 
-estimation(optim=('MaxIter',500),datafile=raf_dataset,nograph,mode_compute=1,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
- stoch_simul(periods=10000);
+estimation(optim=('MaxIter',500),datafile=raf_dataset,mode_compute=1,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
+ stoch_simul(periods=10000,irf=100);
  //estimation(optim=('MaxIter',500),datafile=usmodel_data_SW_data_april2009,nograph,mode_compute=1,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
  //estimation(optim=('MaxIter',500),nograph,datafile=usmodel_data,mode_compute=4,first_obs=71,presample=4,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.20,mh_drop=0.2);
 

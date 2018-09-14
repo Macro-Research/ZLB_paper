@@ -1,6 +1,6 @@
 clear;clc;%close all;
 load('kf_output_workspace.mat');
-periods=200;
+periods=100;
 numPeriods=50;
 numVar=24;numShocks=7;
 shocks={'\eta_a','\eta_b','\eta_g','\eta_i','\eta_r','\eta_p','\eta_w'};
@@ -31,14 +31,62 @@ beta1(kk,kk)=learning_filtered(kk,jj-1,2);
 
 end
 
-figure;
-for jj=1:7
-subplot(4,2,jj);
-plot(imp11(56,2:end,15,jj),'--');
+%%%%%%%%%%
+load('impREE.mat');
+
+figure('Name','impulse responses-consumption');
+index=0;
+for jj=[1 2 3 4 6 7]
+    index=index+1;
+subplot(3,2,index);
+plot(imp11(56,2:end,6,jj),'--');
 hold on;
-plot(imp22(127,2:end,15,jj),'lineWidth',3);
+plot(imp22(127,2:end,6,jj),'lineWidth',3);
+hold on;
+plot(impREE(:,1,index),'*');
+title(shocks(jj));
 end
-legend('normal','zlb');
+legend('normal','zlb','ree');
+
+figure('Name','impulse responses-investment');
+index=0;
+for jj=[1 2 3 4 6 7]
+    index=index+1;
+subplot(3,2,index);
+plot(imp11(56,2:end,7,jj),'--');
+hold on;
+plot(imp22(127,2:end,7,jj),'lineWidth',3);
+hold on;
+plot(impREE(:,2,index),'*');
+title(shocks(jj));
+end
+legend('normal','zlb','ree');
 
 
+figure('Name','impulse responses-output');
+index=0;
+for jj=[1 2 3 4 6 7]
+    index=index+1;
+subplot(3,2,index);
+plot(imp11(56,2:end,8,jj),'--');
+hold on;
+plot(imp22(127,2:end,8,jj),'lineWidth',3);
+hold on;
+plot(impREE(:,3,index),'*');
+title(shocks(jj));
+end
+legend('normal','zlb','ree');
 
+figure('Name','impulse responses-inflation');
+index=0;
+for jj=[1 2 3 4 6 7]
+    index=index+1;
+subplot(3,2,index);
+plot(imp11(56,2:end,10,jj),'--');
+hold on;
+plot(imp22(115,2:end,10,jj),'lineWidth',3);
+hold on;
+plot(impREE(:,4,index),'*');
+title(shocks(jj));
+end
+legend('normal','zlb','ree');
