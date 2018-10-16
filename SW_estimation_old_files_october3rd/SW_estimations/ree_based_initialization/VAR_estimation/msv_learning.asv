@@ -1,0 +1,52 @@
+function [alpha beta r,largestEig,projectionFac_flag] =msv_learning(x,regressor,alphaOld,betaOld,rOld,gain,...
+    AA1_inv,BB1,CC1,AA2_inv,BB2,CC2,ergodic_states)
+msgstr=[];
+msgid=[];
+
+
+thetaOld=[alphaOld,betaOld]';
+ yy=regressor;
+ 
+r=rOld+gain*(yy*yy'-rOld);
+
+lambda=10e-5;
+% 
+try
+eig_min=min(abs(eigs(r)));
+catch
+eig_min=10e-15;
+end
+
+
+
+% 
+if eig_min>lambda
+theta=thetaOld+gain*r^(-1)*yy*(x-thetaOld'*yy)';
+else
+    theta=thetaOld+gain*((r+lambda*eye(length(r))))^(-1)*yy*(x-thetaOld'*yy)';
+
+
+end
+
+
+
+theta=theta';
+alpha=theta(:,1);
+beta=theta(:,2:end);
+
+gamma1_1=AA1_inv*(BB1+CC1*beta1^2);
+gamma1_2=AA2_inv*(BB2+CC2*beta1^2);
+largest_eig1=abs(eigs(gamma1_1,1));
+largest_eig2=abs(eigs(gamma1_2,1));
+average_eig=ergodic_states(1)*largest_eig1(tt)+ergodic_states(2)*largest_eig2(tt);
+
+if largest_eig1>1
+    projectionFac_flag=1;
+    alpha=alphaOld;
+    beta=betaOld;
+
+
+end
+
+
+

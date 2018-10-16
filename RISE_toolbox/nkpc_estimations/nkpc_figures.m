@@ -1,5 +1,5 @@
 clear;clc;close all;
-load('nkpc_estimation_results.mat');
+load('nkpc_estimation_results_25sept.mat');
 myirfs0=irf(mm,'irf_periods',40);
 
 myirfs1=irf(mm,'irf_periods',40,'irf_type','girf');
@@ -9,10 +9,11 @@ startDate=datenum('01-01-1966');
 endDate = datenum('01-12-2016');
 Date=linspace(startDate,endDate,203);
 
-regime_prob=double(mm.filtering.filtered_regime_probabilities.regime_2);
+regime_prob_filtered=double(mm.filtering.filtered_regime_probabilities.regime_2);
+regime_prob_smoothed=double(mm.filtering.smoothed_regime_probabilities.regime_2);
 
 figure;
-area(Date,regime_prob(2:end));
+area(Date,regime_prob_filtered(2:end));
 xlim([startDate endDate])
 datetick('x','yyyy','keeplimits');
 fig = gcf;
@@ -23,7 +24,7 @@ print(fig,'NKPC_sigmaPoint_regimeProb','-dpdf');
 
 
 figure;
-plot(Date,regime_prob(2:end),'lineWidth',3);
+plot(Date,regime_prob_filtered(2:end),'lineWidth',3);
 xlim([startDate endDate])
 datetick('x','yyyy','keeplimits');
 hold on;

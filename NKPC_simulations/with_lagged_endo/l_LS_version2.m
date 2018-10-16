@@ -1,4 +1,4 @@
-function [theta r] =l_LS_version2(x,regressor,thetaOld,rOld,gain,size)
+function [theta r] =l_LS_version2(x,regressor,thetaOld,rOld,gain)
 
 %thetaOld=[alphaOld,betaOld]';
  yy=regressor;
@@ -9,14 +9,14 @@ theta=thetaOld'+gain*r^(-1)*yy*(x-thetaOld*yy)';
 
 % theta=theta';
 % alpha=theta(:,1);
-beta=theta(size(1)+1:size(1)+size(2),:);
+% beta=theta(size(1)+1:size(1)+size(2),:);
 
 
 %largestEig=abs(eigs(A^(-1)*(B+C*beta^2),1));
-largestEig=abs(eigs(beta,1));
-if largestEig>1
-    theta=thetaOld';
-end
+% largestEig=abs(eigs(beta,1));
+% if largestEig>1
+%     theta=thetaOld';
+% end
 % 
 % if largestEig>1
 %     alpha=alphaOld;

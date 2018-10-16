@@ -4,6 +4,7 @@
 \usepackage[table]{xcolor}
 \graphicspath{ {figures/} }
 \usepackage[margin=0.9in]{geometry}
+
 \usepackage{amssymb}
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
@@ -320,6 +321,8 @@ s & .9207 & -& .8961 & - \\
 
 \subsection*{Example 1:Fisherian Model of Inflation Determination}
 
+To set the ideas, consider first the Fisherian model of inflation determination:
+
 $$
 \begin{cases}
 i_t = E_t \pi_{t+1} + r_t \\
@@ -350,7 +353,7 @@ When expectations are regime=dependent, the MSV-solution is of the form: $ \pi_{
 
 $$ (1-\alpha_2) p_{11} +(1-\alpha_1) p_{22} + \alpha_1 \alpha_2 > 1 $$. 
 
-This is known as the long-run Taylor principle.\\
+Based on Davig \& Leeper (2006), this is known as the long-run Taylor principle.\\
  
 
 In this paper, we deviate from previous literature by assuming a regime-independent PLM of the form: \\
@@ -382,6 +385,8 @@ This yields $ \beta = \frac{1}{\sum_i \pi_i \alpha_i  -\rho } $, and the solutio
 
 $$ \pi_t = \frac{1}{\sum_i \pi_i \alpha_i  -\rho} r_t $$
 
+\newpage
+
 \underline{E-stability} \\
 
 The mapping from agents' PLM to the implied ALM is defined as the T-map. In our example, this mapping is given by: \\
@@ -401,10 +406,12 @@ $$ \alpha_1 > \frac{\rho}{\pi_1} $$
 
 In general, in order to satisfy E-stability, we need a stronger monetary policy rule $\alpha_1 $ whenever: \\
 
+\noindent
 -The average time spent in regime 1 ($\pi_1 $) decreases, \\
 -The average time spent in regime 2 ($\pi_2 $) increases, \\
 -The monetary policy rule in regime 2 ($\alpha_2 $) weakens.\\
 
+\noindent
 Intuitively, this result is a simple extension of the long-run Taylor principle of David \& Leeper (2005). (Maybe we shall call this the long-run E-stability principle??) \\
 
 
@@ -414,12 +421,17 @@ Intuitively, this result is a simple extension of the long-run Taylor principle 
 
 $$
 \begin{cases}
+
+For the model under consideration, the baseline recursive least squares updating (Evans \& Honkapohja, 2001) is given as follows: \\
+
 R_t = R_{t-1} + \gamma (r_t^2 - R_{t-1} ) \\
 \beta_t = \beta_{t-1} + \gamma R_t^{-1} r_t (\pi_t - \beta_{t-1} r_t) 
 \end{cases}
 $$
 
 Parameters: $\rho = 0.9, p_{11}=0.95, p_{22}= 0.95, \eta_{\sigma} = 0.1, \gamma=0.001 $, where $\gamma $ denotes the gain parameter. \\
+
+For our simulations, we consider two scenarios: \\
 
 Case (i) Both underlying regimes are E-stable: $ \alpha_1 = 2, \alpha_2 = 1.5 $. \\
 In this case the coefficient fluctuates between the regime-specific equilibrium values depending on which regime is realized. On average, it fluctuates around the long-run (or unconditional) equilibrium value. \\
@@ -442,7 +454,8 @@ In this case the coefficient will show explosive-like dynamics (does this relate
 
 \subsection*{Example 2: 3-equation model without lagged endogenous variables} 
 
-Now consider the baseline 3-equation NKPC model along the lines of Woodford (2003), where the interest rate is subject to the ZLB constraint. 
+Now consider the baseline 3-equation NKPC model along the lines of Woodford (2003), where the interest rate is subject to the ZLB constraint. This example extends the results of the previous one to the multi-dimensional case, where we can still analytically compute the underlying Restricted Perceptions Equilibrium in the absence of lagged endogenous variables.\\
+
 $$
 \begin{cases} 
 x_t = E_t x_{t+1}  -\frac{1}{\tau}(r_t - E_t \pi_{t+1})+ \epsilon_{x,t} \\
@@ -507,7 +520,7 @@ Parameters: $\phi_y =0.5, \phi_{\pi}=1.5, \kappa=0.01, \beta=0.99, \sigma_y = 0.
 
 
 \begin{figure}[H]
-\caption{Case (i): Least squares updating in NKPC without regime-switching (i.e. this is the standard adaptive learning case). First row: intercept terms (should converge to zero). Second \& third rows: lagged inflation and output gap (should converge to zero). Fourth \& fifth rows: coefficients on output gap and inflation shocks (should be non-zero). The red lines correspond to the underlying REE.  }
+\caption{Case (i): Least squares updating in NKPC without regime-switching: This is the standard adaptive learning case, which illustrates what we kind of distributions we should expect from the Monte Carlo experiment in the absence of Markov-switching. First row: intercept terms (should converge to zero). Second \& third rows: lagged inflation and output gap (should converge to zero). Fourth \& fifth rows: coefficients on output gap and inflation shocks (should be non-zero). The red lines correspond to the underlying REE.  }
 
 \includegraphics[scale=1.2]{MC_MSV_withoutLags.pdf}\\
 \end{figure}
@@ -525,7 +538,7 @@ Parameters: $\phi_y =0.5, \phi_{\pi}=1.5, \kappa=0.01, \beta=0.99, \sigma_y = 0.
 
 
 \begin{figure}[H]
-\caption{Typical simulation from Markov-switching exercise above:} 
+\caption{Typical simulation from Markov-switching exercise above: Convergence toward the underlying RPE.} 
 \textbf{Intercept terms:} \\
 \includegraphics[scale=0.4]{MS_simulation_alphas.pdf}\\
 \textbf{Shock coefficient terms: } \\
@@ -670,9 +683,12 @@ $$
 $$
 Hence the corresponding RPE will be E-stable if the eigenvalues $\tilde{\gamma_2} (I+b) $ and $ 2 b \tilde{\gamma_2} $ have real parts less than one. \\
 
-\section*{Filtering Algorithm }
+\section*{Bayesian Estimation of Markov-Switching DSGE Models under Adaptive Learning: Filtering Algorithm }
 
-We extend Kim \& Nelson (1999) algorithm with least squares updating for expectations. In Markov-switching models with $ m $ regimes, there are $ m^t $ different timelines at each period $t$, which quickly make the standard Kalman filter algorithm intractable. The standard way of dealing with this issue is to "collapse" the state variables and covariance matrices at each iteration to reduce the number of timelines. In our approach, we carry only a single lag of the state variables. This means, if there are $ m $ regimes in the model, we carry $ m $ different timelines in each period. There are $ m^2 $ different sets of variables in the forecasting and updating steps of each iteration. These are collapse at the end of each iteration to reduce to $ m $ sets of variables. In order to introduce adaptive learning into this framework, we further collapse the $ m $ sets of variables into a single vector based on the filtered probabilities. This gives us the filtered states at each iteration. The expectations are then updated once, based on the single set of filtered states. These expectations are then used in each timeline in the following iterations. \\
+We extend Kim \& Nelson (1999) algorithm with least squares updating for expectations. In Markov-switching models with $ m $ regimes, there are $ m^t $ different timelines at each period $t$, which quickly make the standard Kalman filter algorithm intractable. The standard way of dealing with this issue is to "collapse" the state variables and covariance matrices at each iteration to reduce the number of timelines. In our approach, we carry only a single lag of the state variables. This means, if there are $ m $ regimes in the model, we carry $ m $ different timelines in each period. There are $ m^2 $ different sets of variables in the forecasting and updating steps of each iteration. These are collapse at the end of each iteration to reduce to $ m $ sets of variables. In order to introduce adaptive learning into this framework, we further collapse the $ m $ sets of variables into a single vector based on the filtered probabilities. This gives us the filtered states at each iteration. The expectations are then updated once, based on the single set of filtered states. These expectations are then used in each timeline in the following iterations. See Kim \& Nelson (1999) for the details of Kalman and Hamilton Filter blocks.\\
+
+
+State-space representation of the model, where $S_t $ and $y_t $ denote (unobserved) states and observable variables respectively: \\
 
 $$
 \begin{cases}
@@ -689,52 +705,97 @@ $ \tilde{S}_{0|0}^{i}, \tilde{P}_{0|0}^{i}, Pr[ S_0=i | \Phi_0] , \Phi_0$  given
 
 
 \noindent
-\underline{1) Kalman Block:} \\
+\underline{1) Kalman Filter Block with the standard measurement and transition equations:} \\
 \vspace{6 mm}
-
+For $t=1:N$
+    For $\{S_{t-1}=i, S_t=j\} $
 \noindent
-$ S_{t|t-1}^{(i,j)}, P_{t|t-1}^{(i,j)}, v^{(i,j)}, S_{t|t}^{(i,j)}, P_{t|t}^{(i,j)} $. \\
+$$
+\begin{cases}
+S_{t|t-1}^{(i,j)}=\gamma_1^{(j)} S_{t-1|t-1}^{(i)} + \gamma_2^{(j)} \\
+P_{t|t-1}^{(i,j)}=\gamma_1^{(j)} P_{t-1|t-1}^{(i)} \gamma_1^{(j)} + \gamma_3^{(j)} \Sigma^{(j)} (\gamma_3^{(j)})^{\prime} \\
+v^{(i,j)}_{t|t-1} = (y_t - F^{(j)} S_{t|t-1}^{(i,j)})\\
+Fe^{(i,j)}=F^{(j)} P_{t|t-1}^{(i,j)}F^{(j)} \\
+S_{t|t}^{(i,j)}= S_{t|t-1}^{(i,j)} + P_{t|t-1}^{(i,j)} (F^{(j)})^{\prime} {(Fe^{(i,j)})}^{-1} v^{(i,j)} \\
+P_{t|t}^{(i,j)} = P_{t|t-1}^{(i,j)} (F^{(j)})^{\prime} (Fe^{(i,j)})^{-1} F^{(j)} P_{t|t-1}^{(i,j)} \\
+\end{cases}
+$$
+
 \vspace{10 mm}
 
 \noindent
-\underline{2)  Hamilton Block:}\ \\
+\underline{2)  Hamilton Block for transition probabilities:}\ \\
 \vspace{6 mm}
 
 \noindent
+Denote: \\
+
  $ Pr[S_{t-1}=i,S_t=j | \Phi_{t-1} ] = pp_{t|t-1}^{i,j} $,\\
 $f(y_t|\Phi_{t-1}) $, \\
 $Pr[S_{t-1}=i,S_t=j|\Phi_t]= pp_{t|t}^{i,j} $, \\
 $Pr[S_t=j|\Phi_t]= \tilde{pp_{t|t}^{j}}$ \\
 \vspace{5 mm}
 
-
-\noindent
-\underline{3) Collapse:} \\
-\vspace{1 mm}
-
-\noindent
-$\tilde{S}_{t|t}^{(i)}, \tilde{P}_{t|t}^{i} $.
-\vspace{5 mm}
-
-\underline{5) Update expectations based on weighted averages:} \\
-\vspace{5 mm}
-
 $$
 \begin{cases}
-\Phi_t = \Phi_{t-1} + \gamma R_t^{-1} \hat{S}_{t-1|t-1}(\hat{S}_{t|t}- \Phi_{t-1}^{T} \hat{S}_{t-1|t-1})^{T} \\
-R_t^{-1} = R_{t-1} + \gamma (\hat{S}_{t-1|t-1}\hat{S}_{t-1|t-1}^{T} - R_{t-1}) \\
+pp_{t|t-1}^{(i,j)}=Q(i,j) pp_{t-1|t-1}^{(i)} \\
+f(y_t|\Phi_{t-1}) = \sum_{j=1}^M \sum_{i=1}^M f(y_t | S_{t-1}=i, S_t=j, \Phi_{t-1} ) pp_{t|t-1}^{(i,j)} \\
+pp_{t|t}^{(i,j)} = \frac{f(y_t | S_{t-1} = i, S_t = j, \Phi_{t-1}) pp_{t|t-1}^{(i,j)} } { f(y_t| \Phi_{t-1})} \\
+p_{t|t}^{j} = \sum_{i}^M pp_{t|t-1}^{(i,j)}\\
 \end{cases}
 $$
 
-where $\hat{S_{t|t}} = \sum_{j} \tilde{S}_{t|t}^{(j)}\tilde{pp_{t|t}^{j}} $\
+
+\noindent
+\underline{3) Collapsing to reduce the number of states from $m^2 $ to m:} \\
+$$
+\begin{cases}
+{S}_{t|t}^{(i)} = \frac{\sum_{i=1}^M pp_{t|t}^{(i,j)} S_{t|t}^{(i,j)} } { p_{t|t}^{(j)}} \\
+{P}_{t|t}^{(i)}= \frac{\sum_{i=1}^M pp_{tt}^{(i,j)} (P_{t|t}^{(i,j)} + (S_{t|t}^{(j)} - S_{t|t}^{(i,j)})(S_{t|t}^{(j)} - S_{t|t}^{(i,j)})^{\prime})}{p_{t|t}^{(j)}}
+\end{cases}
+$$
+\vspace{1 mm}
+
+\noindent
+\underline{4) Update expectations based on filtered states:} \\
+\vspace{5 mm}
+
+\textbf{Filtered states:} \\
+
+$$
+\tilde{S}_{t|t} = \sum_{j=1}^M p_{t|t}^{(j)} S_{t|t}^{(j)}
+$$
+
+\textbf{Expectations: } \\
+
+$$
+\begin{cases}
+\Phi_t = \Phi_{t-1} + \gamma R_t^{-1} \tilde{S}_{t-1|t-1}(\tilde{S}_{t|t}- \Phi_{t-1}^{T} \tilde{S}_{t-1|t-1})^{T} \\
+R_t^{-1} = R_{t-1} + \gamma (\tilde{S}_{t-1|t-1}\tilde{S}_{t-1|t-1}^{T} - R_{t-1}) \\
+\end{cases}
+$$
 
 
+\section*{NKPC Estimation-Monte Carlo Exercise}
 
-\newpage
+Before moving onto estimation with real historical data, we first check the performance of the filter on a short simulated dataset of 200 periods based on the 3-equation NKPC model. The length of the dataset is chosen to be close to our historical dataset of the U.S data over period 1966-I:2016:IV. The red lines denote the true parameter values of the simulation, accompanied by the resulting distributions of the Metropolis-Hastings MCMC with 100000 draws. We observe small biases with the exit probability of the ZLB regime, and 
+the gain parameter of the expectations updating. However, the filter performs reasonably well overall, and all other parameters have the true parameter in their estimated 90 \% HPD interval.\\
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{nkpc_mc_posteriors.pdf}\\
+\end{figure}
+
+
 
 \section*{Estimating the Baseline NKPC: REE-Based initial beliefs} 
 
+
+
 \begin{table}[H]
+\caption{Estimation Sample: 1966:I-2016:IV based on the U.S data, where the observables are the output gap (based on CBO's historical estimates), inflation and interest rate.The Markov-switching REE model is based on J. Maih's RISE toolbox, while the standard REE case is provided by Dynare. The AR(1), VAR(1) and MSV-learning cases are based on our algorithm above. }
+
+\vspace{3 mm}
+
 \begin{tabular}{l||lll||l|l|l|ll}
 Parameter & Prior &  &  & Posterior &  &  &  &  \\
  &  &  &  & AR(1) & VAR(1) & MSV & REE-MS & REE \\
@@ -1075,249 +1136,291 @@ Laplace &  &  &  & -294.24 & -307.34 & -290 & -317.02 & -368.49
 \end{figure}
 
 
-\subsection*{SW Estimations-Preliminary}
+\subsection*{SW Estimation-I}
+
 
 \begin{table}[H]
-\begin{tabular}{l|llll|llll}
- Prior&  &  &  & Mode &  &  &  &  \\
+\caption{Estimation period: 1966:I-2016:IV}
+\begin{tabular}{llll|ll|lll}
+ & Prior &  &  & AR(1) & MSV & REE & RISE &  \\
+ \hline
+ \hline
+Param &  & Dist & Mean & Mode & Mode & Mode & Mode &  \\
 \hline
 \hline
-Param &  & Dist & Mean & St. Dev & MSV & AR(1) & REE & REE-RS \\
-\hline
-\hline
-$\phi$ &  & Normal & 4 & 1.5 & 6.66 & 2.2 & 6.79 & 5.9 \\
-$\sigma_c$ &  & Normal & 1.5 & 0.375 & 1.44 & 0.36 & 1.83 & 1.25 \\
-$\lambda$ &  & Beta & 0.7 & 0.1 & 0.82 & 0.81 & 0.71 & 0.54 \\
-$\xi_w$ &  & Beta & 0.5 & 0.1 & 0.74 & 0.62 & 0.76 & 0.76 \\
-$\sigma_l$ &  & Normal & 2 & 0.75 & 0.91 & 1.7 & 1.13 & 2.03 \\
-$\xi_p$ &  & Beta & 0.5 & 0.1 & 0.7 & 0.72 & 0.72 & 0.89 \\
-$\iota_w$ &  & Beta & 0.5 & 0.15 & 0.54 & 0.48 & 0.37 & 0.41 \\
-$\iota_p$ &  & Beta & 0.5 & 0.15 & 0.44 & 0.31 & 0.18 & 0.29 \\
-$\psi$ &  & Beta & 0.5 & 0.15 & 0.88 & 0.79 & 0.9 & 0.38 \\
-$\phi_p$ &  & Normal & 1.25 & 0.125 & 1.48 & 1.38 & 1.5 & 1.56 \\
-\hline
-$r_{\pi}$ &  & Normal & 1.25 & 0.25 & 0.89 & 0.53 & 1.75 & 1.59 \\
-$\rho$ &  & Beta & 0.75 & 0.1 & 0.63 & 0.87 & 0.86 & 0.86 \\
-$r_y$ &  & Normal & 0.125 & 0.05 & 0.1 & 0.17 & 0.06 & 0.17 \\
-$r_{dy}$ &  & Normal & 0.125 & 0.05 & 0.06 & 0.001 & 0.07 & 0.14 \\
-\hline
-$\bar{\pi}$ &  & Gamma & 0.625 & 0.1 & 0.28 & 0.46 & 0.68 & 0.66 \\
-$\bar{\beta}$ &  & Gamma & 0.25 & 0.1 & 0.14 & 0.07 & 0.21 & 0.25 \\
-$\bar{l}$ &  & Normal & 0 & 2 & -1.36 & 0.83 & 0.98 & 1.03 \\
-$\bar{\gamma}$ &  & Normal & 0.4 & 0.1 & 0.38 & 0.36 & 0.35 & 0.44 \\
-$\alpha$ &  & Normal & 0.3 & 0.05 & 0.21 & 0.12 & 0.2 & 0.17 \\
-\hline
-$\rho_a$ &  & Beta & 0.5 & 0.2 & 0.99 & 0.99 & 0.99 & 0.96 \\
-$\rho_b$ &  & Beta & 0.5 & 0.2 & 0.65 & 0.61 & 0.32 & 0.88 \\
-$\rho_g$ &  & Beta & 0.5 & 0.2 & 0.93 & 0.99 & 0.94 & 0.97 \\
-$\rho_i$ &  & Beta & 0.5 & 0.2 & 0.84 & 0.39 & 0.82 & 0.75 \\
-$\rho_r$ &  & Beta & 0.5 & 0.2 & 0.56 & 0.63 & 0.48 & 0.54 \\
-$\rho_p$ &  & Beta & 0.5 & 0.2 & 0.04 & 0.04 & 0.95 & 0.81 \\
-$\rho_w$ &  & Beta & 0.5 & 0.2 & 0.18 & 0.07 & 0.93 & 0.94 \\
-$\mu_p$ &  & Beta & 0.5 & 0.2 & 0.56 & 0.85 & 0.82 & 0.9 \\
-$\mu_w$ &  & Beta & 0.5 & 0.2 & 0.4 & 0.59 & 0.96 & 0.91 \\
-$\rho_{ga}$ &  & Beta & 0.5 & 0.2 & 0.41 & 0.37 & 0.46 & 0.38 \\
-\hline
-$\eta_a$ &  & Inv. Gamma & 0.1 & 2 & 0.36 & 0.39 & 0.38 & 0.38 \\
-$\eta_b$ &  & Inv. Gamma & 0.1 & 2 & 0.17 & 0.76 & 0.18 & 0.26 \\
-$\eta_g$ &  & Inv. Gamma & 0.1 & 2 & 0.35 & 0.38 & 0.4 & 0.06 \\
-$\eta_i$ &  & Inv. Gamma & 0.1 & 2 & 0.37 & 1.15 & 0.31 & 0.38 \\
-$\eta_{r,N}$ &  & Inv. Gamma & 0.1 & 2 & 0.09 & 0.1 & 0.08 & 0.29 \\
-$\eta_{r,ZLB}$ &  & Gamma & 0.03 & 0.01 & 0.01 & 0.01 &  & 0.03 \\
-$\eta_p$ &  & Inv. Gamma & 0.1 & 2 & 0.09 & 0.14 & 0.11 & 0.15 \\
-$\eta_w$ &  & Inv. Gamma & 0.1 & 2 & 0.43 & 0.73 & 0.49 & 0.41 \\
-\hline
-$gain$ &  & Gamma & 0.035 & 0.015 & 0.02 & 0.02 &  &  \\
-$1-p_{11}$ &  & Beta & 0.1 & 0.05 & 0.03 & 0.03 &  & 0.007 \\
-$1-p_{22}$ &  & Beta & 0.1 & 0.05 & 0.13 & 0.13 &  & 0.26 \\
-$\bar{r_{zlb}}$ &  & Normal & 0.05 & 0.25 & 0.03 & 0.03 &  & 0.04 \\
- &  &  &  &  &  &  &  &  \\
-Laplace &  &  &  &  & -608.27 & -564.64 & -578.93 & -563.02
+$\phi$ &  & Normal & 4        		& 1.02 & 4.21 & 4.87 & 6.4 \\
+$\sigma_c$ &  & Normal & 1.5		& 0.88 & 0.75 & 1.36 & 1.14 \\
+$\lambda$ &  & Beta & 0.7 			& 0.55 & 0.77 & 0.75 & 0.83 \\
+$\xi_w$ &  & Beta & 0.5 			& 0.7 & 0.85 & 0.93 & 0.95 \\
+$\sigma_l$ &  & Normal & 2 			& 2.41 & 1.98 & 1.98 & 1.74 \\
+$\xi_p$ &  & Beta & 0.5 			& 0.62 & 0.74 & 0.8 & 0.83 \\
+$\iota_w$ &  & Beta & 0.5 			& 0.43 & 0.75 & 0.84 & 0.81 \\
+$\iota_p$ &  & Beta & 0.5 			& 0.40 & 0.13 & 0.07 & 0.08 \\
+$\psi$ &  & Beta & 0.5 				& 0.49 & 0.69 & 0.83 & 0.69 \\
+$\phi_p$ &  & Normal & 1.25 		& 1.49 & 1.50 & 1.59 & 1.56 \\
+$r_{\pi}$ &  & Normal & 1.25 		& 1.64 & 1.51 & 1.5 & 1.35 \\
+$\rho$ &  & Beta & 0.75 			& 0.88 & 0.79 & 0.85 & 0.86 \\
+$r_y$ &  & Normal & 0.125 			& 0.13 & 0.08 & 0.05 & 0.06 \\
+$r_{dy}$ &  & Normal & 0.125 		& 0.14 & 0.04 & 0.17 & 0.19 \\
+$\bar{\pi}$ &  & Gamma & 0.625 		& 0.71 & 0.80 & 0.75 & 0.76 \\
+$\bar{\beta}$ &  & Gamma & 0.25 	& 0.14 & 0.22 & 0.21 & 0.25 \\
+$\bar{l}$ &  & Normal & 0 			& 0.73 & 1.57 & -1.2 & 0.15 \\
+$\bar{\gamma}$ &  & Normal & 0.4 	& 0.4 & 0.42 & 0.4 & 0.41 \\
+$\alpha$ &  & Normal & 0.3 			& 0.15 & 0.17 & 0.17 & 0.18 \\
+$\rho_a$ &  & Beta & 0.5 			& 0.98 & 0.95 & 0.96 & 0.95 \\
+$\rho_b$ &  & Beta & 0.5 			& 0.35 & 0.74 & 0.36 & 0.29 \\
+$\rho_g$ &  & Beta & 0.5 			& 0.99 & 0.99 & 0.98 & 0.98 \\
+$\rho_i$ &  & Beta & 0.5 			& 0.48 & 0.69 & 0.83 & 0.76 \\
+$\rho_r$ &  & Beta & 0.5 			& 0.15 & 0.18 & 0.08 & 0.16 \\
+$\rho_p$ &  & Beta & 0.5 			& 0.03 & 0.82 & 0.81 & 0.78 \\
+$\rho_w$ &  & Beta & 0.5 			& 0.04 & 0.25 & 0.06 & 0.05 \\
+$\rho_{ga}$ &  & Beta & 0.5 		& 0.52 & 0.51 & 0.53 & 0.51 \\
+$\eta_a$ &  & Inv. Gamma & 0.1 		& 0.46 & 0.44 & 0.44 & 0.45 \\
+$\eta_b$ &  & Inv. Gamma & 0.1 		& 0.68 & 0.20 & 0.21 & 0.23 \\
+$\eta_g$ &  & Inv. Gamma & 0.1 		& 0.48 & 0.48 & 0.49 & 0.48 \\
+$\eta_i$ &  & Inv. Gamma & 0.1 		& 1.36 & 0.38 & 0.36 & 0.34 \\
+$\eta_{r,N}$ &  & Inv. Gamma & 0.1 	& 0.21 & 0.22 & 0.21 & 0.23 \\
+$\eta_{r,ZLB}$ &  & Gamma & 0.03 	& 0.01 & 0.01 & - & 0.01 \\
+$\eta_p$ &  & Inv. Gamma & 0.1 		& 0.27 & 0.06 & 0.05 & 0.06 \\
+$\eta_w$ &  & Inv. Gamma & 0.1 		& 0.73 & 0.34 & 0.37 & 0.37 \\
+$gain$ &  & Gamma & 0.035 			& 0.012 & 0.019 & - &  -\\
+$1-p_{11}$ &  & Beta & 0.1 			& 0.02 & 0.02 & - & 0.01 \\
+$1-p_{22}$ &  & Beta & 0.1 			& 0.13 & 0.13 & - & 0.29 \\
+$\bar{r_{zlb}}$ &  & Normal & 0.05 	& 0.03 & 0.03 & - & 0.03 \\
+ &  &  &  &  &  &  &  \\
+Laplace &  &  &  & -1135 & -1196 & -1213 & -1171
 \end{tabular}
 \end{table}
 
 
-\newpage
-\subsection*{MSV learning impulse responses-initial values}
+\subsection*{SW Estimations-II}
+
+\begin{table}[H]
+\caption{Estimation period: 1985:I-2016:IV}
+\begin{tabular}{llll|ll|lll}
+ & Prior &  &  & AR(1) & MSV & REE & RISE &  \\
+ \hline
+ \hline
+Param &  & Dist & Mean & Mode & Mode & Mode & Mode &  \\
+\hline
+\hline
+$\phi$ &  & Normal & 4 			& 0.86 & 6.45 & 6.72 & 4.91 &  \\
+$\sigma_c$ &  & Normal & 1.5 	& 0.35 & 1.49 & 1.93 & 1.12 &  \\
+$\lambda$ &  & Beta & 0.7 		& 0.6 & 0.73 & 0.7 & 0.55 &  \\
+$\xi_w$ &  & Beta & 0.5 		& 0.63 & 0.79 & 0.8 & 0.84 &  \\
+$\sigma_l$ &  & Normal & 2 		& 2.14 & 1.54 & 1.08 & 1.65 &  \\
+$\xi_p$ &  & Beta & 0.5 		& 0.77 & 0.76 & 0.83 & 0.92 &  \\
+$\iota_w$ &  & Beta & 0.5 		& 0.48 & 0.56 & 0.5 & 0.46 &  \\
+$\iota_p$ &  & Beta & 0.5 		& 0.27 & 0.16 & 0.13 & 0.19 &  \\
+$\psi$ &  & Beta & 0.5 			& 0.66 & 0.78 & 0.88 & 0.8 &  \\
+$\phi_p$ &  & Normal & 1.25 	& 1.31 & 1.51 & 1.51 & 1.4 &  \\
+$r_{\pi}$ &  & Normal & 1.25 	& 1.42 & 1.35 & 1.63 & 1.48 &  \\
+$\rho$ &  & Beta & 0.75 		& 0.91 & 0.86 & 0.87 & 0.86 &  \\
+$r_y$ &  & Normal & 0.125 		& 0.17 & 0.11 & 0.07 & 0.24 &  \\
+$r_{dy}$ &  & Normal & 0.125 	& 0.11 & 0.03 & 0.07 & 0.09 &  \\
+$\bar{\pi}$ &  & Gamma & 0.625 	& 0.68 & 0.6 & 0.67 & 0.61 &  \\
+$\bar{\beta}$ &  & Gamma & 0.25 & 0.2 & 0.18 & 0.21 & 0.25 &  \\
+$\bar{l}$ &  & Normal & 0 		& 3.03 & 1.53 & 1.24 & 3.82 &  \\
+$\bar{\gamma}$ &  & Normal & 0.4& 0.4	 & 0.5 & 0.34 & 0.47 &  \\
+$\alpha$ &  & Normal & 0.3 		& 0.11 & 0.19 & 0.17 & 0.15 &  \\
+$\rho_a$ &  & Beta & 0.5 		& 0.99 & 0.96 & 0.99 & 0.98 &  \\
+$\rho_b$ &  & Beta & 0.5 		& 0.60 & 0.58 & 0.34 & 0.96 &  \\
+$\rho_g$ &  & Beta & 0.5 		& 0.99 & 0.95 & 0.95 & 0.98 &  \\
+$\rho_i$ &  & Beta & 0.5 		& 0.40 & 0.8 & 0.85 & 0.73 &  \\
+$\rho_r$ &  & Beta & 0.5 		& 0.66 & 0.59 & 0.46 & 0.48 &  \\
+$\rho_p$ &  & Beta & 0.5 		& 0.03 & 0.92 & 0.55 & 0.34 &  \\
+$\rho_w$ &  & Beta & 0.5 		& 0.07 & 0.29 & 0.09 & 0.09 &  \\
+$\rho_{ga}$ &  & Beta & 0.5 	& 0.39 & 0.45 & 0.45 & 0.4 &  \\
+$\eta_a$ &  & Inv. Gamma & 0.1 	& 0.4 & 0.37 & 0.39 & 0.05 &  \\
+$\eta_b$ &  & Inv. Gamma & 0.1 	& 0.8 & 0.16 & 0.17 & 0.37 &  \\
+$\eta_g$ &  & Inv. Gamma & 0.1 			& 0.38 & 0.39 & 0.4 & 0.3 &  \\
+$\eta_i$ &  & Inv. Gamma & 0.1 			& 1.15 & 0.28 & 0.29 & 0.09 &  \\
+$\eta_{r,N}$ &  & Inv. Gamma & 0.1 		& 0.09 & 0.09 & 0.08 & 0.09 &  \\
+$\eta_{r,ZLB}$ &  & Gamma & 0.03 		& 0.01 & 0.01 & - & - &  \\
+$\eta_p$ &  & Inv. Gamma & 0.1			& 0.18 & 0.07 & 0.08 & 0.11 &  \\
+$\eta_w$ &  & Inv. Gamma & 0.1 			& 0.86 & 0.4 & 0.43 & 0.42 &  \\
+$gain$ &  & Gamma & 0.035 				& 0.013 & 0.0173 & - & - &  \\
+$1-p_{11}$ &  & Beta & 0.1 				& 0.03 & 0.03 &-  & 0.01 &  \\
+$1-p_{22}$ &  & Beta & 0.1 				& 0.13 & 0.13 & - & 0.28 &  \\
+$\bar{r_{zlb}}$ &  & Normal & 0.05 		& 0.04 & 0.03 & - & - & - \\
+ &  &  &  &  &  &  &  &  \\
+Laplace &  &  &  & -515 & -575 & -583 & -552 & 
+\end{tabular}
+\end{table}
+
+\subsection*{Figures-AR(1) learning (Based on Full Sample Results)}
+\begin{figure}[H]
+\textbf{Filtered ZLB regime probability:}\\
+\includegraphics[scale=0.5]{sw_ar1_regimeProb.pdf}\\
+\textbf{Eigenvalues and Projection Facility}\\
+\includegraphics[scale=0.5]{sw_ar1_eigenvalues.pdf}
+\end{figure}
 
 \begin{figure}[H]
-\textbf{Consumption}\\
-\includegraphics[scale=0.4]{MSV_impresp_cons.pdf}\\
-\textbf{Output}\\
-\includegraphics[scale=0.4]{MSV_impresp_output.pdf}\\
+\textbf{Intercept coefficients }\\
+\includegraphics[scale=0.5]{sw_ar1_learning_alphas.pdf}
+\textbf{Persistence coefficients:}\\
+\includegraphics[scale=0.5]{sw_ar1_learning_betas.pdf}
 \end{figure}
 
 
 
+\subsection*{Figures-MSV learning (Based on Full Sample Results)}
+\begin{figure}[H]
+\textbf{Filtered ZLB regime probability:}\\
+\includegraphics[scale=0.5]{sw_msv_regimeProb.pdf}\\
+\textbf{Projection Facility active or not:}\\
+\includegraphics[scale=0.5]{sw_msv_eigenvalues.pdf}
+\end{figure}
 
 \begin{figure}[H]
-\textbf{Inflation}\\
-\includegraphics[scale=0.4]{MSV_impresp_pinf.pdf}\\
-\textbf{Investment}\\
-\includegraphics[scale=0.4]{MSV_impresp_inve.pdf}\\
+\textbf{Intercept coefficients:}\\
+\includegraphics[scale=0.3]{sw_msv_learning_alphas.pdf}\\
+\textbf{Learning coefficient on lagged inflation:}\\
+\includegraphics[scale=0.3]{sw_msv_learning_laggedInfl.pdf}\\
+\textbf{Learning coefficient on  b-shock:}\\
+\includegraphics[scale=0.3]{sw_msv_learning_bShock.pdf}\\
+\end{figure}
+
+
+\begin{figure}[H]
+\textbf{In-Sample forecasts (forecasting step of the filter): MSV learning}\\
+\includegraphics[height=\textheight,width=\textwidth]{sw_msv_forecast_errors.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{In-Sample forecasts (forecasting step of the filter): AR(1) learning}\\
+\includegraphics[height=\textheight,width=\textwidth]{sw_ar1_forecast_errors.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{In-Sample forecasts (forecasting step of the filter): RISE output}\\
+\includegraphics[height=\textheight,width=\textwidth]{rise_forecast_errors.pdf}
+\end{figure}
+
+
+\subsection*{Impulse Responses- Comparison with the REE benchmark: Normal regime and zlb impulse responses are based on 2006Q1 and 2011Q1 respectively}
+
+
+\begin{figure}[H]
+\caption{Comparison of MSV-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{MSV_impresp_cons_reeComp.pdf}
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{MSV_impresp_output_reeComp.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{MSV_impresp_pinf_reeComp.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{MSV_impresp_inve_reeComp.pdf}
 \end{figure}
 
 
 
-\newpage
-\subsection*{$AR(1)$ learning impulse responses-initial values}
+\begin{figure}[H]
+\caption{Comparison of AR(1)-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{AR1_impresp_cons_reeComp.pdf}
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{AR1_impresp_output_reeComp.pdf}
+\end{figure}
 
 \begin{figure}[H]
-\textbf{Consumption}\\
-\includegraphics[scale=0.4]{AR1_impresp_cons.pdf}\\
-\textbf{Output}\\
-\includegraphics[scale=0.4]{AR1_impresp_output.pdf}\\
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{AR1_impresp_pinf_reeComp.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{AR1_impresp_inve_reeComp.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\caption{Rise output (the estimation results are very fishy, not to be trusted yet). One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{rise_impresp_cons.pdf}
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{rise_impresp_output.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{rise_impresp_pinf.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{rise_impresp_inve.pdf}
+\end{figure}
+
+
+\subsection*{Impulse Responses-Implied time variation}
+
+
+\begin{figure}[H]
+\caption{Comparison of MSV-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{MSV_impresp_cons_3d.pdf}
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{MSV_impresp_output_3d.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{MSV_impresp_pinf_3d.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{MSV_impresp_inve_3d.pdf}
 \end{figure}
 
 
 
-
 \begin{figure}[H]
-\textbf{Inflation}\\
-\includegraphics[scale=0.4]{AR1_impresp_pinf.pdf}\\
-\textbf{Investment}\\
-\includegraphics[scale=0.4]{AR1_impresp_inve.pdf}\\
+\caption{Comparison of AR(1)-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{AR1_impresp_cons_3d.pdf}
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{AR1_impresp_output_3d.pdf}
 \end{figure}
 
-\newpage
-\subsection*{$RS-REE$ impulse responses (rise output)}
-
 \begin{figure}[H]
-\textbf{Consumption}\\
-\includegraphics[scale=0.4]{rise_impresp_cons.pdf}\\
-\textbf{Output}\\
-\includegraphics[scale=0.4]{rise_impresp_output.pdf}\\
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{AR1_impresp_pinf_3d.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{AR1_impresp_inve_3d.pdf}
 \end{figure}
 
-
+\subsection*{Impulse Responses-rise output}
 
 
 \begin{figure}[H]
-\textbf{Inflation}\\
-\includegraphics[scale=0.4]{rise_impresp_pinf.pdf}\\
-\textbf{Investment}\\
-\includegraphics[scale=0.4]{rise_impresp_inve.pdf}\\
+\caption{Rise output (the estimation results are very fishy, not to be trusted yet). One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{rise_impresp_cons.pdf}
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{rise_impresp_output.pdf}
 \end{figure}
-
-\subsection*{Learning coefficients AR(1) case}
 
 \begin{figure}[H]
-\caption{Order: $(rk,q,c,inve,lab,pinf,w)$}
-\textbf{Intercept }\\
-\includegraphics[scale=0.4]{sw_ar1_learning_alphas.pdf}\\
-\textbf{First-order autocorrelation:}\\
-\includegraphics[scale=0.4]{sw_ar1_learning_betas.pdf}\\
-\textbf{Filtered regime prob:}\\
-\includegraphics[scale=0.4]{sw_ar1_regimeProb.pdf}\\
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{rise_impresp_pinf.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{rise_impresp_inve.pdf}
 \end{figure}
 
-\newpage
+\subsection*{Impulse Responses-comparison of MSV learning with rise output}
+
+\begin{figure}[H]
+\caption{Comparison of MSV-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{MSV_impresp_cons_riseComp.pdf}
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{MSV_impresp_output_riseComp.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{MSV_impresp_pinf_riseComp.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{MSV_impresp_inve_riseComp.pdf}
+\end{figure}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{comment}
-this part became redundant now...
-\newpage
-\subsection*{General Setup} 
-
-DGP: $ X_t = A(s_t) + B(s_t) E_t X_{t+1} + C(s_t) X_{t-1} + D(s_t) \epsilon_t$. \\
-
-PLM: $ X_t = a+ c X_{t-1} + d \eta_t  \Rightarrow E_t X_{t+1} = a + c E_t X_t = a + c(a+ c X_{t-1})=  (a + ca) + c^2 X_{t-1} $. \\
-
-Implied ALM: \\
-
-$ X_t = A(s_t) + B(s_t) ( (a+ca) + c^2 X_{t-1}) + C(s_t) X_{t-1} + D(s_t) \epsilon_t $. \\
-
-$ \rightarrow X_t = A(s_t) + B(s_t) (a+ca) + (B(s_t)c^2 + C(s_t))X_{t-1} + D(s_t) \epsilon_t $. \\
-
-Consistency conditions: \\
-
-$a = E(X_t) $ (Vector of unconditional means)\\
-
-$ c= \frac{E[X_t X_{t-1}']}{E[X_t X_t']} $ (Matrix of unconditional auto- and cross-correlations.) \\
-
-Transition matrix Q same as before , with $ \pi = [ \frac{1-p_{22}}{2-p_{11}- p_{22}}, \frac{1-p_{11}}{2-p_{11}-p_{22}}] $.\\
-
-(i)  From implied ALM, we have \\
-
-$ E[X_t] = \sum_i \pi_i A_i + \sum_i \pi_i B_i(a+ca) + (\sum_i \pi_i B_i c^2 + \sum_i pi_i C_i) E[X_{t-1}]. $\\
-
-Using $ E[X_t ] = E[X_{t-1}]=a : $ \\
-
-$a = \sum_i \pi_i A_i + \sum_i \pi_i B_i (a+ca) + (\sum_i \pi_i B_i c^2 + \sum_i \pi_i c_i ) a $. \\
-
-$ a = (I - \sum_i \pi_i B_i - c \sum_i \pi_i B_i  - \sum_i \pi_i C_i - \sum_i \pi_i B_i c^2 )^{(-1)} \sum_i \pi_i A_i $. \\
-
-Consider the simple case where $ A(s_t) = 0 \forall s_t $. Then we have \\
-
-$$ X_t = B(s_t) (a+ca) + (B(s_t) c^2 + C(s_t))X_{t-1} + D(s_t) \epsilon_t.$$\\
-
-Denote $ E[X_t X_t']= \Gamma_0 $ and $E[X_t X_{t-1}']=\Gamma_1 $. \\
-
-The first-two Yule-Walker equations yield: \\
-
-(i) $\Gamma_1 = E[ B(s_t) c^2 + C(s_t)] \Gamma_0 $. \\
-
-$ \Gamma_1 = \sum_i \pi_i B_i c^2 + \sum_i \pi_i C_i = c^2 \sum_i \pi_i B_i + \sum_i \pi_i C_i $. \\
-
-Denoting $ c^2 \sum_i \pi_i B_i + \sum_i \pi_i = M(c) $, we get \\
-
-$$ \Gamma_1 = M(c) \Gamma_0 $$. \\
-
-(ii) $Var(X_t) = M(c) Var(X_{t-1}) M(c)' + (\sum_i \pi_i D_i ) \Sigma_{\epsilon} (\sum_i \pi_i D_i)' $.
-
-Denoting $\sum_i \pi_i D_i  = \tilde{D} $, we get \\
-
-$$ \vec(\Gamma_0) = (I-M(c) \otimes M(c) )^{(-1)} (\tilde{D} \otimes \tilde{D}) vec(\Sigma_{\epsilon}). $$
-
-Hence 
-
-$$ c(i,j) =\frac{ vec(\Gamma_1)_{(j-1)N+j}}{ vec(\Gamma_0)_{(j-1)N+j}} $$
-
-Collecting everything, c solves the following:\\
-
-$$
-\begin{cases}
-c= \Gamma_1 \oslash \Gamma_0 \\
-\Gamma_1 = M(c) \Gamma_0 \\
- \vec(\Gamma_0) = (I-M(c) \otimes M(c) )^{(-1)} (\tilde{D} \otimes \tilde{D}) vec(\Sigma_{\epsilon})\\
-\tilde{D} = \sum_i \pi_i D_i   \\
- M(c) = c^2 \sum_i \pi_i B_i + \sum_i \pi_i \\
-
-\end{cases}
-$$
-
-The T-map is given by : \\
-$$
-\begin{pmatrix} a \\ c \end{pmatrix} \Rightarrow \begin{pmatrix} A(s_t) + B(s_t) (a+ca) \\ B(s_t) c^2 + C(s_t) \end{pmatrix}$$
-
-
-\newpage
-
-\end{comment}
 
 
 \end{document}

@@ -1,5 +1,5 @@
 clear;clc;close all;
-load('impREE.mat');
+load('impREE_subSample_rise.mat');
 
 figure('Name','impulse responses-consumption','units','normalized','outerposition',[0 0 1 1]);
 shocks={'\eta_a','\eta_b','\eta_g','\eta_i','\eta_r','\eta_p','\eta_w'};

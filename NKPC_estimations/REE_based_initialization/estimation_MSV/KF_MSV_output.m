@@ -260,7 +260,7 @@ print(fig,'NKPC_ree_init_MSV_betas','-dpdf');
 figure('Name','Learning: Shock coefficients');
 subplot(2,2,1);
 plot(Date,squeeze(cc_tt(1,1,2:end)),'lineWidth',3);
-xlim([startDate endDate])
+xlim([startDate endDate]);
 datetick('x','yyyy','keeplimits');
 
 subplot(2,2,2);

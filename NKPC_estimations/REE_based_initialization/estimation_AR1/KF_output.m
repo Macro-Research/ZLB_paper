@@ -8,7 +8,7 @@ parameters=x;
 %dataset=dataset(44:end,:);
 
    gain=parameters(18);
-%  q_11=0.99;q_22=0.85; 
+%  q_11=0.99;q_22=0.85;     
 
 load('us_dataset.mat');
 first_obs=24;burn_in=20;
@@ -40,12 +40,12 @@ rr(:,:,1)=rr_y;
 rr(:,:,2)=rr_pinf;
 
 [A1 B1 C1 D1, E1 F1 G1]=NKPC_sysmat_regime1(param(:,1));
-[A2 B2 C2 D2 E2 F2 G2]=NKPC_sysmat_regime1(param(:,2));
+[A2 B2 C2 D2 E2 F2 G2]=NKPC_sysmat_regime2(param(:,2));
 A1_inv=A1^(-1);A2_inv=A2^(-1);
 Sigma1=diag([param(end-2,1)^2;param(end-1,1)^2;param(end,1)^2]);
 Sigma2=diag([param(end-2,2)^2;param(end-1,2)^2;param(end,2)^2]);
 gamma1_1=A1_inv*(B1+C1*beta1^2);gamma2_1=A1_inv*C1*(eye(numVar)-beta1^2)*alpha1;gamma3_1=A1_inv*D1;
-gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)-beta1^2)*alpha1;gamma3_2=A1_inv*D2;
+gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)-beta1^2)*alpha1;gamma3_2=A2_inv*D2;
 
 H1=0*diag(var(dataset(1:150,:)));H2=0*diag(var(dataset(150:end,:)));
 
@@ -89,8 +89,10 @@ gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)+beta1)*alpha1;ga
 %kalman block
 S_fore11=gamma1_1*S_collapse1+gamma2_1;%
 S_fore12=gamma1_2*S_collapse1+gamma2_2;%
+S_fore12(3)=S_fore12(3)-E1(3)+E2(3);
 S_fore21=gamma1_1*S_collapse2+gamma2_1;%
 S_fore22=gamma1_2*S_collapse2+gamma2_2;%
+S_fore22(3)=S_fore22(3)-E1(3)+E2(3);
 %
 P_fore11=gamma1_1*P_collapse1*gamma1_1'+gamma3_1*Sigma1*gamma3_1';
 P_fore12=gamma1_2*P_collapse1*gamma1_2'+gamma3_2*Sigma2*gamma3_2';  
@@ -98,9 +100,14 @@ P_fore21=gamma1_1*P_collapse2*gamma1_1'+gamma3_1*Sigma1*gamma3_1';
 P_fore22=gamma1_2*P_collapse2*gamma1_2'+gamma3_2*Sigma2*gamma3_2';
 %    
 v11=x_tt-E1-F1*S_fore11;
-v12=x_tt-E2-F2*S_fore12;
+v12=x_tt-E1-F2*S_fore12;
 v21=x_tt-E1-F1*S_fore21;
-v22=x_tt-E2-F2*S_fore22;
+v22=x_tt-E1-F2*S_fore22;
+% %    
+% v11=x_tt-E1-F1*S_fore11;
+% v12=x_tt-E2-F2*S_fore12;
+% v21=x_tt-E1-F1*S_fore21;
+% v22=x_tt-E2-F2*S_fore22;
 %
 Fe11=F1*P_fore11*F1'+H1;
 Fe12=F2*P_fore12*F2'+H2;
@@ -161,118 +168,160 @@ pp_filtered(tt)=pp_collapse1;
 
 
 
-        for jj=1:2
-        [alpha1(jj) beta1(jj,jj) rr(:,:,jj)] =...
-             msv_learning(S_filtered(tt,jj)',[1,S_filtered(tt-1,jj)]',...
-          alpha1(jj),beta1(jj,jj),rr(:,:,jj),gain);
-      alpha_tt(jj,tt)=alpha1(jj);
-      beta_tt(jj,tt)=beta1(jj,jj);
-          end
-
-error11(:,tt)=v11;
-error12(:,tt)=v12;
-error21(:,tt)=v21;
-error22(:,tt)=v22;
-
-errors_tot(:,tt)=error11(:,tt)*pp_upd11+error22(:,tt)*pp_upd22+error12(:,tt)*pp_upd12+error21(:,tt)*pp_upd21;
-
+%         for jj=1:2
+%         [alpha1(jj) beta1(jj,jj) rr(:,:,jj)] =...
+%              msv_learning(S_filtered(tt,jj)',[1,S_filtered(tt-1,jj)]',...
+%           alpha1(jj),beta1(jj,jj),rr(:,:,jj),gain);
+%       alpha_tt(jj,tt)=alpha1(jj);
+%       beta_tt(jj,tt)=beta1(jj,jj);
+%           end
+% 
+% error11(:,tt)=v11;
+% error12(:,tt)=v12;
+% error21(:,tt)=v21;
+% error22(:,tt)=v22;
+% 
+% errors_tot(:,tt)=error11(:,tt)*pp_upd11+error22(:,tt)*pp_upd22+error12(:,tt)*pp_upd12+error21(:,tt)*pp_upd21;
+zlb_forecasts(:,tt)=[S_fore12(3);S_fore22(3)];
+marg_likl(:,tt)=[ml11 ml12 ml21 ml22];
+prob_fore(:,tt)=[pp_fore11 pp_fore12 pp_fore21 pp_fore22];
+prob_upd(:,tt)=[pp_upd11 pp_upd12 pp_upd21 pp_upd22];
+pp_coll(:,tt)=[pp_collapse1 pp_collapse2];
 end
- 
-beta_tt=beta_tt(:,2:end);
-alpha_tt=alpha_tt(:,2:end);
+ figure('Name','updated probabilities');
+subplot(2,2,1);
+plot(prob_upd(1,:));title('11');
+subplot(2,2,2);
+plot(prob_upd(2,:));title('12');
+subplot(2,2,3);
+plot(prob_upd(3,:));title('21');
+subplot(2,2,4);
+plot(prob_upd(4,:));title('22');
 
-likl=-sum(log(likl(burn_in+1:end)));
+figure('Name','regime prob forecasts');
+subplot(2,2,1);
+plot(prob_fore(1,:));title('11')
+subplot(2,2,2);
+plot(prob_fore(2,:));title('12')
+subplot(2,2,3);
+plot(prob_fore(3,:));title('21')
+subplot(2,2,4);
+plot(prob_fore(4,:));title('22')
 
+figure('Name','regime prob forecasts-all together');
+plot(prob_fore(1,:));hold on;plot(prob_fore(2,:));hold on;
+plot(prob_fore(3,:));hold on;plot(prob_fore(4,:));legend('11','12','21','22');
 
-figure('Name','Interest Rate and Regime Probability');;
- plot(Date,dataset(2:end,3),'--');
-hold on;
-plot(Date,ones(T-1,1)-pp_filtered(2:end),'lineWidth',3);
-xlim([startDate endDate])
-datetick('x','yyyy','keeplimits');
-fig = gcf;
-fig.PaperPositionMode = 'auto'
-fig_pos = fig.PaperPosition;
-fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'NKPC_ree_init_AR1_regime','-dpdf');
-
-figure('Name','Regime Probability');
-area(Date,1-pp_filtered(2:end));
-xlim([startDate endDate])
-datetick('x','yyyy','keeplimits');
-fig = gcf;
-fig.PaperPositionMode = 'auto'
-fig_pos = fig.PaperPosition;
-fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'NKPC_ree_init_AR1_regimeProb','-dpdf');
-
-figure('Name','Learning: Intercepts');
+figure('Name','forecast steps-1>2 and 2>2');
 subplot(2,1,1);
-plot(Date,alpha_tt(1,:),'lineWidth',3);
-xlim([startDate endDate])
-datetick('x','yyyy','keeplimits');
+plot(zlb_forecasts(1,:));
 subplot(2,1,2);
-plot(Date,alpha_tt(2,:),'lineWidth',3);
-xlim([startDate endDate])
-datetick('x','yyyy','keeplimits');
-fig = gcf;
-fig.PaperPositionMode = 'auto'
-fig_pos = fig.PaperPosition;
-fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'NKPC_ree_init_AR1_alphas','-dpdf');
+plot(zlb_forecasts(2,:));
 
-figure('Name','Learning: First-order autocorrelation');
-subplot(2,1,1);
-plot(Date,beta_tt(1,:),'lineWidth',3);
-xlim([startDate endDate])
-datetick('x','yyyy','keeplimits');
-subplot(2,1,2);
-plot(Date,beta_tt(2,:),'lineWidth',3);
-xlim([startDate endDate])
-datetick('x','yyyy','keeplimits');
-fig = gcf;
-fig.PaperPositionMode = 'auto'
-fig_pos = fig.PaperPosition;
-fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'NKPC_ree_init_AR1_betas','-dpdf');
+figure('Name','marginal likelihoods');
+subplot(2,2,1);
+plot(marg_likl(1,:));title('11')
+subplot(2,2,2);
+plot(marg_likl(2,:));title('12')
+subplot(2,2,3);
+plot(marg_likl(3,:));title('21')
+subplot(2,2,4);
+plot(marg_likl(4,:));title('22')
+% beta_tt=beta_tt(:,2:end);
+% alpha_tt=alpha_tt(:,2:end);
+% 
+likl=-sum(log(likl(burn_in+1:end)))
 
-
-
-
-figure('Name','errors');
-subplot(4,3,1);
-plot(error11(1,:));
-subplot(4,3,2);
-plot(error11(2,:));
-subplot(4,3,3);
-plot(error11(3,:));
-
-subplot(4,3,4);
-plot(error12(1,:));
-subplot(4,3,5);
-plot(error12(2,:));
-subplot(4,3,6);
-plot(error12(3,:));
-
-subplot(4,3,7);
-plot(error21(1,:));
-subplot(4,3,8);
-plot(error21(2,:));
-subplot(4,3,9);
-plot(error21(3,:));
-
-subplot(4,3,10);
-plot(error22(1,:));
-subplot(4,3,11);
-plot(error22(2,:));
-subplot(4,3,12);
-plot(error22(3,:));
-
-figure;
-subplot(3,1,1);
-plot(errors_tot(1,:));
-subplot(3,1,2);
-plot(errors_tot(2,:));
-subplot(3,1,3);
-plot(errors_tot(3,:));
-
+% 
+% figure('Name','Interest Rate and Regime Probability');;
+%  plot(Date,dataset(2:end,3),'--');
+% hold on;
+% plot(Date,ones(T-1,1)-pp_filtered(2:end),'lineWidth',3);
+% xlim([startDate endDate])
+% datetick('x','yyyy','keeplimits');
+% fig = gcf;
+% fig.PaperPositionMode = 'auto'
+% fig_pos = fig.PaperPosition;
+% fig.PaperSize = [fig_pos(3) fig_pos(4)];
+% print(fig,'NKPC_ree_init_AR1_regime','-dpdf');
+% 
+% figure('Name','Regime Probability');
+% area(Date,1-pp_filtered(2:end));
+% xlim([startDate endDate])
+% datetick('x','yyyy','keeplimits');
+% fig = gcf;
+% fig.PaperPositionMode = 'auto'
+% fig_pos = fig.PaperPosition;
+% fig.PaperSize = [fig_pos(3) fig_pos(4)];
+% print(fig,'NKPC_ree_init_AR1_regimeProb','-dpdf');
+% 
+% figure('Name','Learning: Intercepts');
+% subplot(2,1,1);
+% plot(Date,alpha_tt(1,:),'lineWidth',3);
+% xlim([startDate endDate])
+% datetick('x','yyyy','keeplimits');
+% subplot(2,1,2);
+% plot(Date,alpha_tt(2,:),'lineWidth',3);
+% xlim([startDate endDate])
+% datetick('x','yyyy','keeplimits');
+% fig = gcf;
+% fig.PaperPositionMode = 'auto'
+% fig_pos = fig.PaperPosition;
+% fig.PaperSize = [fig_pos(3) fig_pos(4)];
+% print(fig,'NKPC_ree_init_AR1_alphas','-dpdf');
+% 
+% figure('Name','Learning: First-order autocorrelation');
+% subplot(2,1,1);
+% plot(Date,beta_tt(1,:),'lineWidth',3);
+% xlim([startDate endDate])
+% datetick('x','yyyy','keeplimits');
+% subplot(2,1,2);
+% plot(Date,beta_tt(2,:),'lineWidth',3);
+% xlim([startDate endDate])
+% datetick('x','yyyy','keeplimits');
+% fig = gcf;
+% fig.PaperPositionMode = 'auto'
+% fig_pos = fig.PaperPosition;
+% fig.PaperSize = [fig_pos(3) fig_pos(4)];
+% print(fig,'NKPC_ree_init_AR1_betas','-dpdf');
+% 
+% 
+% 
+% 
+% figure('Name','errors');
+% subplot(4,3,1);
+% plot(error11(1,:));
+% subplot(4,3,2);
+% plot(error11(2,:));
+% subplot(4,3,3);
+% plot(error11(3,:));
+% 
+% subplot(4,3,4);
+% plot(error12(1,:));
+% subplot(4,3,5);
+% plot(error12(2,:));
+% subplot(4,3,6);
+% plot(error12(3,:));
+% 
+% subplot(4,3,7);
+% plot(error21(1,:));
+% subplot(4,3,8);
+% plot(error21(2,:));
+% subplot(4,3,9);
+% plot(error21(3,:));
+% 
+% subplot(4,3,10);
+% plot(error22(1,:));
+% subplot(4,3,11);
+% plot(error22(2,:));
+% subplot(4,3,12);
+% plot(error22(3,:));
+% 
+% figure;
+% subplot(3,1,1);
+% plot(errors_tot(1,:));
+% subplot(3,1,2);
+% plot(errors_tot(2,:));
+% subplot(3,1,3);
+% plot(errors_tot(3,:));
+% 

@@ -1,9 +1,9 @@
 %Simulation of 3-equation NKPC with Markov-switching, MSV-learning with
 %least squares.
 clear;clc;close all;%tic
+addpath('c:\users\tolga\desktop\zlb_paper\optimization_routines');
 solve_sum;
 clearvars -except bb_RPE dd_RPE;
-addpath('c:/users/tolga/desktop/zlb_paper/optimization_routines');
 %------------------SIMULATION
 %seed=round(1000*rand);%`(99)
 % param1=[-0.1 0.66 0.80 0.0121 2.6414 1.5574 0.2889 0.5 0.5 0.9 0.7396 0.2986 0.29 ];
@@ -12,7 +12,7 @@ addpath('c:/users/tolga/desktop/zlb_paper/optimization_routines');
 param1=[0 0 0 0.03 3 1.5 0.5 0.5 0.5 0.7 0.7 0.3 0.3 ];
 param2=[0 0 0 0.03 3 0 0 0.5 0.5 0 0.7 0.3 0.01 ];
 
-numEndo=3;numExo=3;N=5000;
+numEndo=3;numExo=3;N=2000;
 numVar=5;
 
 sigma_y1 = param1(end-2);
@@ -50,7 +50,7 @@ errors1=[eps_y(:,1) eps_pinf(:,1) eps_r(:,1)]' ;
 errors2=[eps_y(:,2) eps_pinf(:,2) eps_r(:,2)]' ; 
 regime=nan(N,1);%regime parameter: 0 if not at ZLB, 1 if at ZLB;
 regime(1)=0;
-p_11=0.99;p_22=0.9; 
+p_11=0.95;p_22=0.95; 
 Q=[p_11,1-p_11;1-p_22,p_22];
 ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
 
@@ -63,9 +63,9 @@ expectations=zeros(numEndo,N);
 d_REE= (eye(size(C1,1)^2)-kron(RHO',(ergodic_states(1)*...
 A1_inv*C1+ergodic_states(2)*A2_inv*C2)))^(-1)*vec(A1_inv*ergodic_states(1)+A2_inv*ergodic_states(2));
 d_REE=reshape(d_REE,[size(C1,1),size(C1,2)]);
-
+ gain=0.02;
 for tt=2:N
-   gain=0.005;
+  
 disp(tt);
 
 EPS1(:,tt)=RHO*EPS1(:,tt-1)+errors1(:,tt);
@@ -82,7 +82,7 @@ X(:,tt) =  regime(tt)*(A1_inv*(B1*X(:,tt-1)+C1*expectations(:,tt)+EPS1(:,tt)))+.
        (1-regime(tt))*(A2_inv*(B2*X(:,tt-1)+C2*expectations(:,tt)+EPS2(:,tt)));
 
 thetaOld=[aa_tt cc_tt dd_tt];
-[theta rr_tt] =l_LS_version2(X(:,tt),[1;X(:,tt-1);EPS(:,tt)],thetaOld,rr_tt,gain,[1 3 3]);
+[theta rr_tt] =l_LS_version2(X(:,tt),[1;X(:,tt-1);EPS(:,tt)],thetaOld,rr_tt,gain);
 aa_tt=theta(1,:)';cc_tt=theta(2:4,:)';dd_tt=theta(5:7,:)';
 %aa_tt=zeros(3,1);
 aa(:,tt)=aa_tt;

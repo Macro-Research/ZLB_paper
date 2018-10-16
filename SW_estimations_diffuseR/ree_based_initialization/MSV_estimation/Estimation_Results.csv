@@ -1,0 +1,45 @@
+,Prior,,,,
+Parameters,,Dist,Mean,St. Dev,
+$\phi$,,Normal,4,1.5,6.72
+$\sigma_c$,,Normal,1.5,0.375,1.93
+$\lambda$,,Beta,0.7,0.1,0.7
+$\xi_w$,,Beta,0.5,0.1,0.8
+$\sigma_l$,,Normal,2,0.75,1.08
+$\xi_p$,,Beta,0.5,0.1,0.83
+$\iota_w$,,Beta,0.5,0.15,0.5
+$\iota_p$,,Beta,0.5,0.15,0.13
+$\psi$,,Beta,0.5,0.15,0.88
+$\phi_p$,,Normal,1.25,0.125,1.51
+$r_{\pi}$,,Normal,1.25,0.25,1.63
+$\rho$,,Beta,0.75,0.1,0.87
+$r_y$,,Normal,0.125,0.05,0.07
+$r_{dy}$,,Normal,0.125,0.05,0.07
+$\bar{\pi}$,,Gamma,0.625,0.1,0.67
+$\bar{\beta}$,,Gamma,0.25,0.1,0.21
+$\bar{l}$,,Normal,0,2,1.24
+$\bar{\gamma}$,,Normal,0.4,0.1,0.34
+$\alpha$,,Normal,0.3,0.05,0.17
+$\rho_a$,,Beta,0.5,0.2,0.99
+$\rho_b$,,Beta,0.5,0.2,0.34
+$\rho_g$,,Beta,0.5,0.2,0.95
+$\rho_i$,,Beta,0.5,0.2,0.85
+$\rho_r$,,Beta,0.5,0.2,0.46
+$\rho_p$,,Beta,0.5,0.2,0.55
+$\rho_w$,,Beta,0.5,0.2,0.09
+$\mu_p$,,Beta,0.5,0.2,0.45
+$\mu_w$,,Beta,0.5,0.2,0.39
+$\rho_{ga}$,,Beta,0.5,0.2,0.17
+$\eta_a$,,Inv. Gamma,0.1,2,0.4
+$\eta_b$,,Inv. Gamma,0.1,2,0.29
+$\eta_g$,,Inv. Gamma,0.1,2,0.08
+$\eta_i$,,Inv. Gamma,0.1,2,0.08
+"$\eta_{r,N}$",,Inv. Gamma,0.1,2,0.43
+"$\eta_{r,ZLB}$",,Gamma,0.03,0.01,
+$\eta_p$,,Inv. Gamma,0.1,2,
+$\eta_w$,,Inv. Gamma,0.1,2,
+$gain$,,Gamma,0.035,0.015,
+$1-p_{11}$,,Beta,0.1,0.05,
+$1-p_{22}$,,Beta,0.1,0.05,
+$\bar{r_{zlb}}$,,Normal,0.05,0.25,
+,,,,,
+Laplace,,,,,-583.9222527

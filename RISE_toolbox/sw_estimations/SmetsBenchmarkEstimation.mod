@@ -33,6 +33,22 @@ k     $k$
  
 
 parameters
+	 PI_star
+	 gamma 	 beta 
+	
+	 beta_bar
+	
+	 Rk
+	 W 
+	 I_K_bar 
+	 I_K 
+	 L_K 
+	 K_Y 
+	 I_Y
+	 C_Y
+	 Z_Y
+	 WL_C 
+	 r_bar
 
 curv_w $\eps_w$
 curv_p $\eps_p$
@@ -104,8 +120,8 @@ phi_p= 1.4584 ;
 
 
 
-r_dy=0.1 ;
-rho=0.5;
+r_dy=0 ;
+rho=0;
 
 pi_bar=0.6281 ;
 beta_const=0.1201 ;
@@ -136,7 +152,7 @@ end;
 
 
 //original priors
-estimated_params;
+/*estimated_params;
 	phi,2.5,1.1,15,NORMAL_PDF,4,1.5;
 	sigma_c,1.5,0.25,3,NORMAL_PDF,1.50,0.375;
 	lambda,0.5,0.001,0.99,BETA_PDF,0.7,0.1;
@@ -180,9 +196,29 @@ end;
 
 
 
-varobs dy dc dinve labobs pinfobs dw robs;
+varobs dy dc dinve labobs pinfobs dw robs;*/
+
+	// Transformation of estimated parameters to model parameters
+	 PI_star = 1 + pi_bar/100;
+	 gamma = 1 + gamma_bar/100 ;
+	 beta = 1/(1 + beta_const/100);
+	// Convenience variable
+	 beta_bar = beta*gamma^(-sigma_c);
+	// Steady state values
+	 Rk = (beta^(-1)) * (gamma^sigma_c) - (1-delta);
+	 W = (alpha^alpha*(1-alpha)^(1-alpha)/(phi_p*Rk^alpha))^(1/(1-alpha));
+	 I_K_bar = (1-(1-delta)/gamma);
+	 I_K = (1-(1-delta)/gamma)*gamma;
+	 L_K = ((1-alpha)/alpha)*(Rk/W);
+	 K_Y = phi_p*(L_K)^(alpha-1);
+	 I_Y = I_K * K_Y;
+	 C_Y = 1 - G - I_K*K_Y;
+	 Z_Y = Rk*K_Y;
+	 WL_C = (1/phi_w)*(1-alpha)/alpha*Rk*K_Y/C_Y;
+	 r_bar=((PI_star/(beta*gamma^(-sigma_c)))-1)*100;
 
 model(linear); 
+/*
 	// Transformation of estimated parameters to model parameters
 	# PI_star = 1 + pi_bar/100;
 	# gamma = 1 + gamma_bar/100 ;
@@ -200,7 +236,7 @@ model(linear);
 	# C_Y = 1 - G - I_K*K_Y;
 	# Z_Y = Rk*K_Y;
 	# WL_C = (1/phi_w)*(1-alpha)/alpha*Rk*K_Y/C_Y;
-	# r_bar=((PI_star/(beta*gamma^(-sigma_c)))-1)*100;
+	# r_bar=((PI_star/(beta*gamma^(-sigma_c)))-1)*100;*/
 	
 	
 	mc = alpha*rk + (1-alpha)*w - eps_a;//ok
@@ -242,8 +278,9 @@ outputGap = y - phi_p*eps_a;
 	labobs = l + l_bar;
 end;
 
-  estimation(optim=('MaxIter',200),nograph,datafile=usmodel_data,mode_compute=3,first_obs=71,presample=4,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.20,mh_drop=0.2);
+  //estimation(optim=('MaxIter',200),nograph,datafile=usmodel_data,mode_compute=3,first_obs=71,presample=4,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.20,mh_drop=0.2);
 
 
-options_.noprint=1;
+
+//options_.noprint=1;
 //clean_current_folder;

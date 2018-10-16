@@ -1,11 +1,11 @@
 clear;clc;close all;
-load('estimation_results_rs.mat');
+load('estimation_results_rs_subsample.mat');
 xx=sw.estimation.posterior_maximization.mode;
 
 output_file='Estimation_Results.csv';
  output_sheet='Estimation_Results';
- output=round(xx',2);
- laplace1_=oo_.MarginalDensity.LaplaceApproximation;
+ output=round(xx,2);
+ laplace1_=sw.estimation.posterior_maximization.log_marginal_data_density_laplace;
  
 %  xlswrite(output_file,priorMean,output_sheet,'c15');
 %  xlswrite(output_file,priorStd,output_sheet,'d15');

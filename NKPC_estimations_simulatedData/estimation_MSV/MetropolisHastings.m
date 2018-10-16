@@ -1,5 +1,8 @@
 clear;clc;%close all;
 true_parameters=[0 0 0 0.03 2 1.5 0.5 0.5 0.5 0.9 0.3 0.3 0.3 0 0.01 0.01 0.1 0.035]; 
+para_names={'y^{ss}','\pi^{ss}','r_{n}^{ss}','\kappa','\tau','\phi_{\pi}','\phi_y',...
+    '\rho_y','\rho_{\pi}','\rho_r','\eta_y','\eta_{\pi}','\eta_{r,n}','r_{zlb}^{ss}','\eta_{r,zlb}',...
+    '1-p_{11}','1-p_{22}','gain'};
 rng(11);
 tic
 load('MH_Candidate');
@@ -50,12 +53,19 @@ end
 end
 
 
-figure;
+figure('Name','Posterior Distributions','units','normalized','outerposition',[0 0 1 1]);
+
 title('Posterior Distributions');
 for i=1:numVar;
 subplot(3,6,i);hist(posteriorDraws(Nburn:Ndraws,i));hold on;
 plot([true_parameters(i) true_parameters(i)],[ylim],'r'); 
+title(para_names(i));
 end
+fig = gcf;
+fig.PaperPositionMode = 'auto'
+fig_pos = fig.PaperPosition;
+fig.PaperSize = [fig_pos(3) fig_pos(4)];
+print(fig,'nkpc_mc_posteriors','-dpdf'); 
 
 figure;
 title('Recursive Averages');

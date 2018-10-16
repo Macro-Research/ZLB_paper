@@ -1,7 +1,7 @@
 clear;clc;close all;
 load('estimation_results_rs.mat');
 
-myirfs0=irf(sw,'irf_periods',40);
+myirfs0=irf(sw,'irf_periods',100);
 
 startDate=datenum('01-01-1964');
 endDate = datenum('01-12-2016');

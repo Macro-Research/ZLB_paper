@@ -22,7 +22,7 @@ for ii=1:numel(vnames)
 end
 %% Set the RFVAR
 clc
-tmpl=rfvar.template();
+%tmpl=rfvar.template();
 tmpl.constant=true;
 tmpl.nlags=3;
 tmpl.endogenous={'robs','"interest rates"','dy','"GDP growth"',...
