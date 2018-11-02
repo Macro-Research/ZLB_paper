@@ -1,5 +1,5 @@
 clear;clc;close all;
-load('impREE_subSample_rise.mat');
+load('impREE_rise.mat');
 
 figure('Name','impulse responses-consumption','units','normalized','outerposition',[0 0 1 1]);
 shocks={'\eta_a','\eta_b','\eta_g','\eta_i','\eta_r','\eta_p','\eta_w'};
@@ -7,9 +7,9 @@ index=0;
 for jj=[1 2 3 4 6 7]
     index=index+1;
 subplot(3,2,index);
-plot(impREE_normal(:,1,index),'*');
+plot(impREE_normal(2:end,1,index),'*');
 hold on;
-plot(impREE_zlb(:,1,index),'lineWidth',3);
+plot(impREE_zlb(2:end,1,index),'lineWidth',3);
 title(shocks(jj));
 end
 legend('normal','zlb');
@@ -26,9 +26,9 @@ index=0;
 for jj=[1 2 3 4 6 7]
     index=index+1;
 subplot(3,2,index);
-plot(impREE_normal(:,2,index),'*');
+plot(impREE_normal(2:end,2,index),'*');
 hold on;
-plot(impREE_zlb(:,2,index),'lineWidth',3);
+plot(impREE_zlb(2:end,2,index),'lineWidth',3);
 title(shocks(jj));
 end
 legend('normal','zlb');
@@ -46,9 +46,9 @@ index=0;
 for jj=[1 2 3 4 6 7]
     index=index+1;
 subplot(3,2,index);
-plot(impREE_normal(:,3,index),'*');
+plot(impREE_normal(2:end,3,index),'*');
 hold on;
-plot(impREE_zlb(:,3,index),'lineWidth',3);
+plot(impREE_zlb(2:end,3,index),'lineWidth',3);
 title(shocks(jj));
 end
 legend('normal','zlb');
@@ -65,9 +65,9 @@ index=0;
 for jj=[1 2 3 4 6 7]
     index=index+1;
 subplot(3,2,index);
-plot(impREE_normal(:,4,index),'*');
+plot(impREE_normal(2:end,4,index),'*');
 hold on;
-plot(impREE_zlb(:,4,index),'lineWidth',3);
+plot(impREE_zlb(2:end,4,index),'lineWidth',3);
 title(shocks(jj));
 end
 legend('normal','zlb');

@@ -85,16 +85,18 @@ ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
 beta_tt=0*eye(numEndo);
 alpha_tt=zeros(numEndo,1);
 cc_tt=0*ones(numEndo,numShocks);
-  rr_tt=5*ones(numBackward+numExo+1);
+ % rr_tt=5*eye(numBackward+numExo+1);
 %  rr_tt=triu(rr_tt);
 % rr_tt=(rr_tt+rr_tt')/2;
  load('initial_beliefs_msv.mat');
- %load('rr_init_subSample.mat');
+ 
   beta_tt(forward_indices,backward_indices)=beta_init;
    cc_tt(forward_indices,:)=cc_init;
-rr_tt=rr_init;%rr_tt(rr_tt<0.01)=0.01;
-  rr_tt=triu(rr_tt);
-  rr_tt=(rr_tt+rr_tt')/2;
+rr_tt=diag(diag(rr_init));
+   
+%rr_tt=diag(diag(rr_init));%rr_tt(rr_tt<0.01)=0.01;
+ % rr_tt=triu(rr_tt);
+ % rr_tt=(rr_tt+rr_tt')/2;
  %rr_tt=diag(diag(rr_init));
 
 %  load('rr_init1.mat');
@@ -109,10 +111,10 @@ Sigma1=diag(parameters(33:39,1))^2;
 Sigma2=diag(parameters(33:39,2))^2;
 
 load('raf_dataset.mat');first_obs=147;last_obs=length(dy);
-dataset=[dy dc dw dinve pinfobs robs labobs];
-dataset=dataset(first_obs:last_obs,:);l=7;N=length(dataset);numVar=24;burnIn=6;
+dataset=[dy dc dinve dw pinfobs robs labobs];
+dataset=dataset(first_obs:last_obs,:);l=7;N=length(dataset);numVar=24;burnIn=06;
 T=size(dataset,1);numObs=7;
-startDate=datenum('01-01-1985');
+startDate=datenum('01-01-1966');
 endDate = datenum('01-12-2016');
 Date=linspace(startDate,endDate,T);
 
@@ -256,7 +258,7 @@ update_matrices;
 % check_eigenvalue;  
 %-----------------------------------------    
 learning_filtered(tt,:,:)=theta;
-% 
+
 obs_forecasts(:,tt)=obs_intercepts + pp_fore11*S_fore11(obs_indices)+...
     pp_fore12*S_fore12(obs_indices)+...
     pp_fore21*S_fore21(obs_indices)+pp_fore22*S_fore22(obs_indices);
@@ -264,9 +266,11 @@ obs_forecasts(:,tt)=obs_intercepts + pp_fore11*S_fore11(obs_indices)+...
 forecast_errors(:,tt)=pp_fore11*v11+pp_fore12*v12+pp_fore21*v21+pp_fore22*v22;
 
 largest_eig2(tt)=abs(eigs(gamma1_2,1));
+
+rr_aggregate(tt,:,:)=rr_tt;
 end
 
-likl=-sum(log(likl(burnIn+1:end)));
+likl=-sum(log(likl(burnIn+1:end)))
 yylim=[min(dataset)',max(dataset)'];
 
 figure('Name','MSV Forecast Errors','units','normalized','outerposition',[0 0 1 1]);
@@ -368,6 +372,18 @@ fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
 print(fig,'sw_msv_learning_alphas','-dpdf');  
+
+
+
+figure('Name','Implied variances of learning terms','units','normalized','outerposition',[0 0 1 1]);
+for jj=1:size(diag(rr_tt));
+    subplot(5,3,jj);
+    plot(rr_aggregate(2:end,jj,jj),'lineWidth',3);
+    
+    
+    
+end
+%------------------------------------------------
 %------------------------------------------------
 figure('Name','MSV Learning Coef-lagged consumption','units','normalized','outerposition',[0 0 1 1]);
 index=0;
@@ -479,7 +495,23 @@ fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
 print(fig,'sw_msv_learning_bShock','-dpdf');
 
-
+figure('Name','MSV Learning Coef-g shock','units','normalized','outerposition',[0 0 1 1]);
+index=0;
+for jj=1:length(forward_indices)
+    index=index+1;
+plot(Date(2:end),squeeze(learning_filtered(2:end,11,jj)'),'color','black');
+hold on;
+text(Date(end),learning_filtered(end,11,jj),forward_names(index));
+hold on;
+end
+plot(Date,ones(T,1),'--','color','red');
+  xlim([startDate endDate])
+  datetick('x','yyyy','keeplimits');
+fig = gcf;
+fig.PaperPositionMode = 'auto'
+fig_pos = fig.PaperPosition;
+fig.PaperSize = [fig_pos(3) fig_pos(4)];
+print(fig,'sw_msv_learning_gShock','-dpdf');
 %---------------------
 % output_gap=S_filtered(:,8)-param(10)*S_filtered(:,18);
 % gap_growth=diff(output_gap(2:end));

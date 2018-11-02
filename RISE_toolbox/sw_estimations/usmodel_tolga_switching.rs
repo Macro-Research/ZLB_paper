@@ -69,12 +69,12 @@ model
 	      r =  crpi*(1-crr)*pinf +
                 cry*(1-crr)*(output_gap)+
                 crdy*(output_gap-output_gap(-1))+crr*r(-1)
-                -czlb*(1-crr)*(conster-0.03)    
+                -czlb*(1-crr)*(conster-0.02)    
                 + ms;
           output_gap=y-cfc*a;
 
 	      a = crhoa*a(-1)  + sig_a*ea;	%
-	      b = crhob*b(-1) + sig_b*eb  ;
+	      b = crhob*b(-1) + sig_b*eb -(1-crhob)*czlb*(1-crr)*(conster-0.02)   ;
 	      g = crhog*(g(-1)) + sig_g*eg + cgy*sig_a*ea;
 	      qs = crhoqs*qs(-1) + sig_qs*eqs;
 	      ms = crhoms*ms(-1) + sig_m*em;
@@ -107,10 +107,10 @@ parameterization
 	curvw,10;
 	
 	% estimated parameters initialisation
-    %coef_tp_1_2,0.01;
-    %coef_tp_2_1,0.15;
-    coef_tp_1_2,0.01,0.1,0.05,beta_pdf;
-    coef_tp_2_1,0.21,0.3,0.1,beta_pdf;
+    %coef_tp_1_2,0.005;
+    %coef_tp_2_1,0.3;
+    coef_tp_1_2,0.03,0.1,0.05,beta_pdf;
+    coef_tp_2_1,0.3,0.3,0.1,beta_pdf;
 	sig_a,   0.4,0.1,2,inv_gamma_pdf;
 	sig_b,   0.06,0.1,2,inv_gamma_pdf;
 	sig_g,   0.37,0.1,2,inv_gamma_pdf;
@@ -121,27 +121,27 @@ parameterization
 	
 	calfa,   0.16, 0.3,0.05,normal_pdf;
 	csigma,   1.1,1.5,0.375,normal_pdf;
-	cfc,      1.38, 1.25,0.125,normal_pdf;//phi_p
-	cgy,      0.37,0.5,0.25,normal_pdf;//rho_ga
+	cfc,      1.5, 1.25,0.125,normal_pdf;//phi_p
+	cgy,      0.66,0.5,0.25,normal_pdf;//rho_ga
 	
-	csadjcost, 5.5,4,1.5,normal_pdf;//phi
+	csadjcost, 4.5,4,1.5,normal_pdf;//phi
 	chabb,     0.61,0.7,0.1,beta_pdf;//lambda    
 	cprobw,    0.85,0.5,0.1,beta_pdf;//xi_w
-	csigl,     2.04,2,0.75,normal_pdf;//sigma_l
-	cprobp,    0.9,0.5,0.1,beta_pdf;//xi_p
+	csigl,     2.5,2,0.75,normal_pdf;//sigma_l
+	cprobp,    0.88,0.5,0.1,beta_pdf;//xi_p
 	cindw,     0.48,0.5,0.15,beta_pdf;//iota_w
 	cindp,     0.22,0.5,0.15,beta_pdf;//iota_p
 	czcap,     0.83,0.5,0.15,beta_pdf;//psi
 
 
 
-	crhoa,     0.97,0.5,0.2,beta_pdf;
-	crhob,     0.89,0.5,0.2,beta_pdf;
+	crhoa,     0.98,0.5,0.2,beta_pdf;
+	crhob,     0.2,0.5,0.2,beta_pdf;
 	crhog,     0.98,0.5,0.2,beta_pdf;
-	crhoqs,    0.76,0.5,0.2,beta_pdf;
+	crhoqs,    0.68,0.5,0.2,beta_pdf;
 
-	crhopinf,  0.37,0.5,0.2,beta_pdf;
-	crhow,     0.09,0.5,0.2,beta_pdf;
+	crhopinf,  0.15,0.5,0.2,beta_pdf;
+	crhow,     0.05,0.5,0.2,beta_pdf;
 	cmap ,     0;
 	cmaw  ,    0;
 	% derived from steady state
@@ -151,10 +151,10 @@ parameterization
 	constepinf, 0.67,0.625,0.1,gamma_pdf;
 	constelab,  1.5,0,2,normal_pdf;
 
-	crpi(coef,1),      1.6,1.5,0.25,normal_pdf;
-	crr(coef,1),       0.85,0.75,0.1,beta_pdf;
-	cry(coef,1),       0.3,0.125,0.05,normal_pdf;
-	crdy(coef,1),      0.1,0.125,0.05,normal_pdf;
+	crpi(coef,1),      2,1.5,0.25,normal_pdf;
+	crr(coef,1),       0.81,0.75,0.1,beta_pdf;
+	cry(coef,1),       0.11,0.125,0.05,normal_pdf;
+	crdy(coef,1),      0.3,0.125,0.05,normal_pdf;
 
 
 
@@ -169,7 +169,7 @@ parameterization
     %conster,1.22,1,0.5,normal_pdf;
     %conster(coef,2),0.05,0.05,0.25,normal_pdf;
 
-	crhoms,    .45,0.5,0.2,beta_pdf;
+	crhoms,    .25,0.5,0.2,beta_pdf;
     %crhoms(coef,2),0;
     czlb(coef,1),0;
     czlb(coef,2),1;

@@ -9,8 +9,8 @@ lambda=10e-3;
 
 
 r=rOld+gain*(yy*yy'-rOld);
-r=triu(r);
-r=(r+r')/2;
+% r=triu(r);
+% r=(r+r')/2;
 %eig_min=abs(eigs(r,1));
 % 
 % [VV DD]=eig(r);

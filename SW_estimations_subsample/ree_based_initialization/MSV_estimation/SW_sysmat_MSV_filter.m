@@ -1,5 +1,4 @@
-function [ AA BB CC DD EE RHO FF GG E F] = SW_sysmat_MSV_filter( parameters )
-
+function [ AA,BB, CC ,DD ,EE ,RHO ,FF, GG, E, F] = SW_sysmat_MSV_filter( parameters )
  delta   = parameters(1);
  G     = parameters(2);
  phi_w   =parameters(3); 
@@ -41,29 +40,26 @@ rho_w= parameters(31);
 rho_ga=     parameters(32)  ;
 mu_p=0;mu_w=0;
 
-
-cpie=1+(pi_bar/100);%ok
-gamma=1+(gamma_bar/100);%ok
-beta1=1/(1 + beta1_const/100);
-beta1_bar=beta1*gamma^(-sigma_c);
-crk = (beta1^(-1)) * (gamma^sigma_c) - (1-delta);
-cw = (alpha^alpha*(1-alpha)^(1-alpha)/(phi_p*crk^alpha))^(1/(1-alpha));
-cikbar = (1-(1-delta)/gamma);
-cik = (1-(1-delta)/gamma)*gamma;
-clk = ((1-alpha)/alpha)*(crk/cw);
-cky = phi_p*(clk)^(alpha-1);
-ciy = cik * cky;
-ccy = 1 - G - cik*cky;
-crkky = crk*cky;
-cwhlc = (1/phi_w)*(1-alpha)/alpha*crk*cky/ccy;
-cwly=1-crk*cky;
-cr=((cpie/(beta1*gamma^(-sigma_c)))-1)*100;
-r_bar=cr;
+% eta_a=parameters(25);eta_b=parameters(26);eta_g=parameters(27);eta_i=parameters(28);eta_r=parameters(29);eta_p=parameters(30);eta_w=parameters(31);
 
 
+PI_star = 1 + pi_bar/100;
+gamma = 1 + gamma_bar/100 ;
+beta1 = 1/(1 + beta1_const/100);
+beta1_bar = beta1*gamma^(-sigma_c);
+Rk = (beta1^(-1)) * (gamma^sigma_c) - (1-delta);
+W = (alpha^alpha*(1-alpha)^(1-alpha)/(phi_p*Rk^alpha))^(1/(1-alpha));
+I_K_bar = (1-(1-delta)/gamma);
+I_K = (1-(1-delta)/gamma)*gamma;
+L_K = ((1-alpha)/alpha)*(Rk/W);
+K_Y = phi_p*(L_K)^(alpha-1);
+I_Y = I_K * K_Y;
+C_Y = 1 - G - I_K*K_Y;
+Z_Y = Rk*K_Y;
+WL_C = (1/phi_w)*(1-alpha)/alpha*Rk*K_Y/C_Y;
+r_bar=((PI_star/(beta1*gamma^(-sigma_c)))-1)*100;
 
 
-%-----------------------------------------
 AA=[1,0,-alpha,0,0,0,0,0,0,0,alpha-1,0,0,0,0,0,0;
 0,1,(psi-1)/psi,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
 0,0,1,1,0,0,0,0,-1,0,-1,0,0,0,0,0,0;
@@ -79,8 +75,10 @@ AA=[1,0,-alpha,0,0,0,0,0,0,0,alpha-1,0,0,0,0,0,0;
 0,0,0,0,0,0,-(delta-1)/(gamma_bar/100+1)-1,0,0,0,0,0,1,0,0,0,0;
 0,0,0,0,0,0,0,-1,0,0,0,0,0,1,0,0,0;
 0,0,0,0,0,-1,0,0,0,0,0,0,0,0,1,0,0;
-0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,1,0;
-0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,1];
+0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,1;
+0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,1,0];
+
+
 
 BB=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
@@ -111,30 +109,31 @@ CC=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
 0,0,0,0,0,0,0,0,0,(gamma_bar/100+1)/((beta1_const/100+1)*(gamma_bar/100+1)^sigma_c*((iota_p*(gamma_bar/100+1))/((beta1_const/100+1)*(gamma_bar/100+1)^sigma_c)+1)),0,0,0,0,0,0,0;
 0,0,0,0,0,0,0,0,0,(gamma_bar/100+1)/((beta1_const/100+1)*(gamma_bar/100+1)^sigma_c*((gamma_bar/100+1)/((beta1_const/100+1)*(gamma_bar/100+1)^sigma_c)+1)),(gamma_bar/100+1)/((beta1_const/100+1)*(gamma_bar/100+1)^sigma_c*((gamma_bar/100+1)/((beta1_const/100+1)*(gamma_bar/100+1)^sigma_c)+1)),0,0,0,0,0,0;
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-DD=[-1,0,0,0,0,0,0;
+DD=-[1,0,0,0,0,0,0;
 0,0,0,0,0,0,0;
 0,0,0,0,0,0,0;
 0,0,0,0,0,0,0;
-0,0,0,1,0,0,0;
-0,-(sigma_c*(lambda/(gamma_bar/100+1)+1))/(lambda/(gamma_bar/100+1)-1),0,0,0,0,0;
-0,1,0,0,0,0,0;
-0,0,1,0,0,0,0;
-phi_p,0,0,0,0,0,0;
-0,0,0,0,0,1,0;
-0,0,0,0,0,0,1;
-phi_p*r_y*(rho-1)-phi_p*r_dy,0,0,0,1,0,0;
-0,0,0,phi*((delta-1)/(gamma_bar/100+1)+1)*(gamma_bar/100+1)^2,0,0,0;
+0,0,0,-1,0,0,0;
+0,(sigma_c*(lambda/(gamma_bar/100+1)+1))/(lambda/(gamma_bar/100+1)-1),0,0,0,0,0;
+0,-1,0,0,0,0,0;
+0,0,-1,0,0,0,0;
+-phi_p,0,0,0,0,0,0;
+0,0,0,0,0,-1,0;
+0,0,0,0,0,0,-1;
+phi_p*r_dy-phi_p*r_y*(rho-1),0,0,0,-1,0,0;
+0,0,0,-phi*((delta-1)/(gamma_bar/100+1)+1)*(gamma_bar/100+1)^2,0,0,0;
 0,0,0,0,0,0,0;
 0,0,0,0,0,0,0;
 0,0,0,0,0,0,0;
 0,0,0,0,0,0,0];
+
 
 EE=[0,0,0,0,0,0,0;
 0,0,0,0,0,0,0;
@@ -162,14 +161,6 @@ rho_ga,0,1,0,0,0,0;
 0,0,0,0,0,1,0;
 0,0,0,0,0,0,1];
 
-GG=[0,0,0,0,0,0,0;
-0,0,0,0,0,0,0;
-0,0,0,0,0,0,0;
-0,0,0,0,0,0,0;
-0,0,0,0,0,0,0;
-0,0,0,0,0,-mu_p,0;
-0,0,0,0,0,0,-mu_w];
-
 RHO=[rho_a,0,0,0,0,0,0;
 0,rho_b,0,0,0,0,0;
 0,0,rho_g,0,0,0,0;
@@ -177,6 +168,14 @@ RHO=[rho_a,0,0,0,0,0,0;
 0,0,0,0,rho_r,0,0;
 0,0,0,0,0,rho_p,0;
 0,0,0,0,0,0,rho_w];
+
+GG=[0,0,0,0,0,0,0;
+0,0,0,0,0,0,0;
+0,0,0,0,0,0,0;
+0,0,0,0,0,0,0;
+0,0,0,0,0,0,0;
+0,0,0,0,0,-mu_p,0;
+0,0,0,0,0,0,-mu_w];
 
 E =[gamma_bar;gamma_bar;gamma_bar;gamma_bar;pi_bar;r_bar;l_bar];
  F=[ 0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0;
@@ -186,5 +185,7 @@ E =[gamma_bar;gamma_bar;gamma_bar;gamma_bar;pi_bar;r_bar;l_bar];
      0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
      0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0;
      0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+
 
 end

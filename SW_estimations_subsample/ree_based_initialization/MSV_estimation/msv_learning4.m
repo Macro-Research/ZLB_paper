@@ -4,22 +4,25 @@ msgstr=[];
 msgid=[];
 numBackward=length(backward_indices);
 lastwarn('Success');
-lambda=10e-8;
+lambda=10e-5;
 projectionFlag=0;
 largest_eig1=0;largest_eig2=0;
 
  yy=regressor;
  
 r=rOld+gain*(yy*yy'-rOld);
-r=triu(r);
-r=(r+r')/2;
+r=diag(diag(r));
+%r=increase_eigenvalue(r,lambda,0);
+%r=triu(r);
+%r=(r+r')/2;
+% r=rOld;
 
 try
 theta=thetaOld'+gain*(pinv(r)*yy)*(x-thetaOld*yy)';
 catch
     projectionFlag=1;
 %     r=rOld;
-  auxiliary_r=1*eye(length(r));  
+  auxiliary_r=100*eye(length(r));  
   auxiliary_r=triu(auxiliary_r);
   auxiliary_r=(auxiliary_r+auxiliary_r')/2;
 % auxiliary_r=nearestSPD(r+eye(length(r))*lambda);

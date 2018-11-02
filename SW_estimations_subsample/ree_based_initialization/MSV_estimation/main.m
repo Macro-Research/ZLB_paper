@@ -41,19 +41,20 @@ load('param_init.mat');
 
 % [x,fh,exitflag,output,grad,H]=fminunc('likelihood',param_init);
 % H=inv(H);
- %init_H4=nhess_diagonal(@likelihood,param_init');init_H4=inv(init_H4);
+%init_H4=nhess_diagonal(@likelihood,param_init');init_H4=inv(init_H4);init_H4=diag(diag(init_H4));
 % init_H4=hessian_min_1S(@likelihood,param_init',10e-5);init_H4=inv(init_H4);
-% save init_H4.mat init_H4;
+%save init_H4.mat init_H4;
 load('init_H4.mat')
 %load('init_H1.mat');
 %load init_H3.mat ;
 %load('init_H_subSample.mat');
 
-%[fh,x,gh,H,itct,fcount,retcodeh] = csminwel('likelihood',param_init',init_H4,[] ,10^(-5),9999);% laplace_=laplace_approximator(fh,x,H);
-  %   options=optimset('Display','iter','PlotFcns',@optimplotfval,'MaxIter',20000);
-  % [x fh]=fminsearch('likelihood',param_init,options);
-%    H=nhess_diagonal(@likelihood,x);H=inv(H);
-   laplace1_=laplace_approximator(fh,x,H);
+[fh,x,gh,H,itct,fcount,retcodeh] = csminwel('likelihood',param_init',init_H4,[] ,10^(-5),9999);% laplace_=laplace_approximator(fh,x,H);
+   
+%options=optimset('Display','iter','PlotFcns',@optimplotfval,'MaxIter',20000);
+  %[x fh]=fminsearch('likelihood',param_init,options);
+  %  H=nhess_diagonal(@likelihood,x);H=inv(H);
+  laplace1_=laplace_approximator(fh,x,H);
  
  
 %nhess(@likelihood,x);

@@ -1,5 +1,5 @@
 var   
- mc zcap rk k q    c inve y lab pinf w r kp eps_a  eps_b eps_g eps_i  eps_r  eps_p eps_w  
+ mc zcap rk k q  c inve y lab pinf w r kp eps_a  eps_b eps_g eps_i  eps_r  eps_p eps_w  
 labobs robs pinfobs dy dc dinve dw ;    
  
 varexo eta_a eta_b eta_g eta_i  eta_r  eta_p eta_w  ;  
@@ -203,8 +203,8 @@ varobs dy dc dinve labobs pinfobs dw robs;
 
 //dynare_sensitivity(rmse=1,datafile=raf_dataset,nograph,first_obs=147,presample=4,kalman_algo=1,lik_init=2,prefilter=0);
 
-estimation(optim=('MaxIter',500),datafile=raf_dataset,nograph,mode_compute=1,first_obs=147,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0000,mh_nblocks=1,mh_jscale=0.3,mh_drop=0.2,irf=100);
+estimation(optim=('MaxIter',500),datafile=raf_dataset,nograph,mode_compute=1,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0000,mh_nblocks=1,mh_jscale=0.3,mh_drop=0.2,irf=100);
 //estimation(optim=('MaxIter',500),datafile=raf_dataset,nograph,mode_compute=1,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
- //stoch_simul(periods=100000,nograph);
+ stoch_simul(periods=100000,nograph);
 
     

@@ -539,10 +539,14 @@ options_.prefilter = 0;
 options_.presample = 4;
 options_.datafile = 'raf_dataset';
 options_.optim_opt = '''MaxIter'',500';
-options_.first_obs = 147;
+options_.first_obs = 71;
 options_.order = 1;
 var_list_ = char();
 oo_recursive_=dynare_estimation(var_list_);
+options_.nograph = 1;
+options_.periods = 100000;
+var_list_ = char();
+info = stoch_simul(var_list_);
 save('SW_Estimation_REE_results.mat', 'oo_', 'M_', 'options_');
 if exist('estim_params_', 'var') == 1
   save('SW_Estimation_REE_results.mat', 'estim_params_', '-append');

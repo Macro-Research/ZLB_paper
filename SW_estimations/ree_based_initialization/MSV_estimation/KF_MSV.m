@@ -81,15 +81,16 @@ ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
 beta_tt=0*eye(numEndo);
 alpha_tt=zeros(numEndo,1);
 cc_tt=0*ones(numEndo,numShocks);
-  rr_tt=5*ones(numBackward+numExo+1);
+   %rr_tt=5*ones(numBackward+numExo+1);
 %  rr_tt=triu(rr_tt);
 % rr_tt=(rr_tt+rr_tt')/2;
  load('initial_beliefs_msv.mat');
   beta_tt(forward_indices,backward_indices)=beta_init;
    cc_tt(forward_indices,:)=cc_init;
-  % rr_tt=rr_init;
-  rr_tt=triu(rr_tt);
-  rr_tt=(rr_tt+rr_tt')/2;
+   rr_tt=rr_init;
+  rr_tt=diag(diag(rr_init));
+  %rr_tt=triu(rr_tt);
+  %rr_tt=(rr_tt+rr_tt')/2;
  %rr_tt=diag(diag(rr_init));
 
 %  load('rr_init1.mat');
@@ -103,8 +104,8 @@ AA1_inv=AA1^(-1);AA2_inv=AA2^(-1);
 Sigma1=diag(parameters(33:39,1))^2;
 Sigma2=diag(parameters(33:39,2))^2;
 
-load('raf_dataset.mat');first_obs=71;last_obs=length(dy);
-dataset=[dy dc dw dinve pinfobs robs labobs];
+load('raf_dataset.mat');first_obs=147;last_obs=length(dy);
+dataset=[dy dc dinve dw pinfobs robs labobs];
 dataset=dataset(first_obs:last_obs,:);l=7;N=length(dataset);numVar=24;burnIn=6;
 T=size(dataset,1);numObs=7;
 

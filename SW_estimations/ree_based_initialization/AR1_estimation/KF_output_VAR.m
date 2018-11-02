@@ -302,6 +302,10 @@ obs_forecasts(:,tt)=obs_intercepts + pp_fore11*S_fore11(obs_indices)+...
 
 forecast_errors(:,tt)=pp_fore11*v11+pp_fore12*v12+pp_fore21*v21+pp_fore22*v22;
 
+rr_aggregate(tt,:,:,:)=rr(:,:,forward_indices);
+
+
+expectations(tt,:)=(alpha1+beta1*alpha1)+beta1^2*S_filtered(tt-1,:)';
 end
 
 
@@ -360,7 +364,7 @@ plot(Date(2:end),ones(length(largest_eig2(2:end)),1),'color','red');
 title('Largest eigenvalue: zlb regime','lineWidth',3);
 subplot(4,1,3);
 plot(Date(2:end),average_eig(2:end),'color','black','lineWidth',3);
-title('Largest eigenvalue: regime probability','lineWidth',3);
+title('Largest eigenvalue: weighted average','lineWidth',3);
 hold on;
 plot(Date(2:end),ones(length(average_eig(2:end)),1),'color','red');
   xlim([startDate endDate])
@@ -426,6 +430,24 @@ fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
 print(fig,'sw_ar1_learning_betas','-dpdf'); 
 
+figure('Name','implied variances of betas','units','normalized','outerposition',[0 0 1 1]);
+
+for jj=1:length(forward_indices);
+    subplot(length(forward_indices),1,jj);
+    plot(rr_aggregate(:,2,2,jj),'lineWidth',3);
+end
+    
+
+figure('Name','Expectations','units','normalized','outerposition',[0 0 1 1]);
+index=0;
+for jj=forward_indices
+    index=index+1;
+    subplot(length(forward_indices),1,index);
+    plot(Date(2:end),expectations(2:end,jj),'lineWidth',3);
+    title(forward_names(index));
+      xlim([startDate endDate])
+  datetick('x','yyyy','keeplimits');
+end
 
 
 %-------------------------------------------------------------------

@@ -1,6 +1,6 @@
 // copy van usmodel_hist_dsge_f19_7_71
 
-var rm rp ams ebma  labobs robs pinfobs dy dc dinve dw  ewma epinfma  zcapf rkf kf pkf    cf invef yf labf wf rrf mc zcap rk k pk    c inve y lab pinf w r a  b g qs  ms  spinf sw kpf kp GS2 ;    
+var rm rp ams ebma  labobs robs pinfobs dy dc dinve dw  ewma epinfma  zcapf rkf kf pkf    cf invef yf labf wf rrf mc zcap rk k pk    c inve y lab pinf w r a  b g qs  ms  spinf sw kpf kp;// GS2 ;    
  
 varexo ea eb eg  eqs  em  epinf ew  eam ;  
  
@@ -83,7 +83,7 @@ model;
 //               +ms + crams*ams + crb*sig_b*eb ;
 	      r =  crpi*(1-crr)*pinf
                +cry*(1-crr)*(y-yf)     
-               +crdy*(y-yf-y(-1)+yf(-1))
+               +crdy*(y-cfc*a-y(-1)+cfc*a(-1))
                +crr*r(-1)
                +ms + crams*ams - crb*sig_b*eb 
                -czlb*(1-crr)*(conster-0.25/4/2+0*conster) 
@@ -92,7 +92,7 @@ model;
 rm=r+ams;
 rp=r+crp*ams;
 	      a = crhoa*a(-1)  + sig_a*ea  ;
-	      b = crhob*b(-1) + ebma - cmab*ebma(-1) ;
+	      b = crhob*b(-1) + ebma - cmab*ebma(-1)+czlb*(1-crhob)*(conster-0.25/4/2+0*conster);
               ebma=sig_b*eb;
 	      g = crhog*(g(-1)) + sig_g*eg + cgy*sig_a*ea;
 	      qs = crhoqs*qs(-1) + sig_qs*eqs;
@@ -115,7 +115,7 @@ dw=w-w(-1)+ctrend;
 pinfobs = 1*(pinf) + constepinf;
 robs =    1*(r) + conster;
 labobs = lab + constelab;
-GS2 =4*(  1/8*(rm+rm(1)+rm(2)+rm(3)+rm(4)+rm(5)+rm(6)+rm(7))+conster+conster2 );
+//GS2 =4*(  1/8*(rm+rm(1)+rm(2)+rm(3)+rm(4)+rm(5)+rm(6)+rm(7))+conster+conster2 );
 
 steady_state_model
     dy=ctrend;
@@ -123,14 +123,15 @@ steady_state_model
     dinve=ctrend;
     dw=ctrend;
     pinfobs =constepinf;
-    //robs =conster-czlb*(1-crr)*(conster-0.25/4/2+0*conster) ;
+    robs =conster;
     labobs =constelab;
     GS2 = 4*(conster+conster2);
-   //b=czlb*(1-crr)*(conster-0.25/4/2+0*conster) ;
+   
+   b=czlb*(1-crr)*(conster-0.25/4/2+0*conster) ;
    //r=-czlb*(1-crr)*(conster-0.25/4/2+0*conster) ;
+  
 
-
-observables dy dc dinve labobs pinfobs dw robs GS2;
+observables dy dc dinve labobs pinfobs dw robs;// GS2;
 
 parameterization
 	ctou      ,  .025;
@@ -145,7 +146,7 @@ parameterization
 %volrs_tp_2_1, 0;
 
 crhoa     ,  .9842,  .85   ,  .1    ,  beta_pdf,0.01,0.9999 ;
-crhob     ,  .8973,  .5    ,  .15   ,  beta_pdf,0.01,0.9999;
+crhob     ,  .85,  .5    ,  .15   ,  beta_pdf,0.01,0.9999;
 crhog     ,  .9727,  .85   ,  .1    ,  beta_pdf,0.01,0.9999;
 crhoqs    ,  .6878,  .5    ,  .15   ,  beta_pdf,0.01,0.9999;
 crhoms    ,  .2547,  .15   ,  .1    ,  beta_pdf,0.01,0.9999;

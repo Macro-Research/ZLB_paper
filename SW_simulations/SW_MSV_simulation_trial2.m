@@ -1,8 +1,9 @@
+%only working version...
 clear;clc;close all;
 %rng(15);
 m=round(1000*rand);rng(592)
 %variable order: mc zcap rk k1   q c inve y lab pinf w r kp 
-N=10000;numVar=24;numShocks=7;numEndo=17;numExo=7;numBackward=7;numForward=7;
+N=3000;numVar=24;numShocks=7;numEndo=17;numExo=7;numBackward=7;numForward=7;
 eig_crit=.99;
 eig_mult=(1-eig_crit)*2/pi;
 %burn_in=round(0.9*N);
@@ -94,12 +95,12 @@ rr_tt=0*ones(numBackward+numExo+1,numBackward+numExo+1);
 rr_tt=triu(rr_tt);
 rr_tt=(rr_tt+rr_tt')/2;
 % % ----
- load('initial_beliefs.mat');
-beta_tt=beta_init;
-cc_tt=cc_init;
-rr_tt=rr_init;
-rr_tt=triu(rr_tt);
-rr_tt=(rr_tt+rr_tt')/2;
+%  load('initial_beliefs.mat');
+% beta_tt=beta_init;
+% cc_tt=cc_init;
+% rr_tt=rr_init;
+% rr_tt=triu(rr_tt);
+% rr_tt=(rr_tt+rr_tt')/2;
 
 pr_flag=zeros(N,1);
 largest_eig1=zeros(N,1);

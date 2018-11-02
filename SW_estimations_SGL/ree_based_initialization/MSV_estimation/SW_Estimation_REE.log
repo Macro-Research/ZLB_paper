@@ -1,0 +1,178 @@
+Starting Dynare (version 4.5.4).
+Starting preprocessing of the model file ...
+WARNING: SW_Estimation_REE.mod:8.12-12.44: Symbol rho_ga declared twice.
+WARNING: SW_Estimation_REE.mod:8.12-12.55: Symbol mu_w declared twice.
+WARNING: SW_Estimation_REE.mod:8.12-12.60: Symbol mu_p declared twice.
+Substitution of exo lags: added 2 auxiliary variables and equations.
+Found 29 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+ - order 2
+Processing outputs ...
+done
+Preprocessing completed.
+
+You did not declare endogenous variables after the estimation/calib_smoother command.
+Initial value of the log posterior (or likelihood): -897.781
+                                            First-order      Norm of
+ Iter F-count            f(x)  Feasibility   optimality         step
+    0      35    8.977810e+02    0.000e+00    1.635e+03
+    1      73    8.831053e+02    0.000e+00    5.313e+02    4.805e-01
+    2     109    7.888350e+02    0.000e+00    1.620e+03    5.745e-01
+    3     145    7.347575e+02    0.000e+00    1.268e+03    5.171e-01
+    4     181    7.101563e+02    0.000e+00    1.153e+03    5.693e-01
+    5     216    6.395975e+02    0.000e+00    9.561e+02    3.955e+00
+    6     251    6.186439e+02    0.000e+00    5.698e+03    6.719e-01
+    7     288    6.090218e+02    0.000e+00    1.183e+03    4.346e-01
+    8     323    5.997932e+02    0.000e+00    5.749e+02    1.134e+00
+    9     360    5.931504e+02    0.000e+00    9.163e+02    4.694e-01
+   10     396    5.763132e+02    0.000e+00    6.456e+02    1.109e+00
+   11     432    5.659312e+02    0.000e+00    7.793e+02    4.751e-01
+   12     468    5.523464e+02    0.000e+00    5.725e+02    3.451e-01
+   13     504    5.510975e+02    0.000e+00    6.551e+02    4.616e-01
+   14     541    5.378778e+02    0.000e+00    1.224e+03    2.774e-01
+   15     577    5.297073e+02    0.000e+00    4.186e+02    7.261e-01
+   16     614    5.274793e+02    0.000e+00    4.290e+02    2.335e-01
+   17     651    5.229855e+02    0.000e+00    5.589e+02    7.482e-01
+   18     689    5.220111e+02    0.000e+00    4.656e+02    1.382e-01
+   19     725    5.213619e+02    0.000e+00    2.853e+02    1.421e+00
+   20     763    5.205376e+02    0.000e+00    4.402e+02    2.948e-01
+   21     800    5.158245e+02    0.000e+00    5.994e+02    6.406e-01
+   22     838    5.134475e+02    0.000e+00    3.485e+02    4.193e-01
+   23     876    5.130584e+02    0.000e+00    2.904e+02    4.264e-01
+   24     914    5.128384e+02    0.000e+00    3.801e+02    9.518e-01
+   25     951    5.116389e+02    0.000e+00    3.626e+02    3.405e-01
+   26     988    5.111764e+02    0.000e+00    2.181e+02    1.351e+00
+   27    1026    5.107072e+02    0.000e+00    3.861e+02    2.787e-01
+   28    1063    5.087507e+02    0.000e+00    2.206e+02    5.175e-01
+   29    1101    5.085387e+02    0.000e+00    1.391e+02    1.758e-01
+   30    1138    5.080943e+02    0.000e+00    1.289e+02    3.121e-01
+
+                                            First-order      Norm of
+ Iter F-count            f(x)  Feasibility   optimality         step
+   31    1176    5.078945e+02    0.000e+00    1.216e+02    2.623e-01
+   32    1213    5.077764e+02    0.000e+00    1.663e+02    1.710e-01
+   33    1255    5.075719e+02    0.000e+00    4.532e+01    2.225e-02
+   34    1291    5.075027e+02    0.000e+00    3.783e+01    1.389e-01
+   35    1331    5.072745e+02    0.000e+00    2.842e+01    4.538e-02
+   36    1368    5.072136e+02    0.000e+00    2.078e+01    1.207e-01
+   37    1408    5.071455e+02    0.000e+00    2.015e+01    5.261e-02
+   38    1444    5.070809e+02    0.000e+00    2.066e+01    1.045e-01
+   39    1484    5.068842e+02    0.000e+00    1.639e+01    4.628e-02
+   40    1521    5.068607e+02    0.000e+00    5.086e+01    9.497e-02
+   41    1561    5.067415e+02    0.000e+00    9.867e+00    6.623e-02
+   42    1603    5.066874e+02    0.000e+00    4.091e+01    5.242e-02
+   43    1639    5.066665e+02    0.000e+00    7.188e+01    1.181e-01
+   44    1679    5.066001e+02    0.000e+00    1.948e+01    9.094e-02
+   45    1716    5.065599e+02    0.000e+00    6.811e+01    1.589e-01
+   46    1756    5.065381e+02    0.000e+00    4.546e+01    8.978e-02
+   47    1793    5.065154e+02    0.000e+00    1.520e+02    5.273e-02
+   48    1833    5.064751e+02    0.000e+00    2.150e+01    3.382e-02
+   49    1870    5.064751e+02    0.000e+00    2.089e+01    4.468e-02
+   50    1908    5.064590e+02    0.000e+00    2.540e+01    4.545e-02
+   51    1950    5.064509e+02    0.000e+00    1.271e+01    7.235e-03
+   52    1986    5.064427e+02    0.000e+00    1.183e+01    1.599e-02
+   53    2025    5.064207e+02    0.000e+00    2.467e+00    1.450e-02
+   54    2066    5.064178e+02    0.000e+00    2.405e+01    5.733e-02
+   55    2103    5.064168e+02    0.000e+00    1.113e+01    7.347e-02
+   56    2143    5.064153e+02    0.000e+00    2.228e+00    5.449e-02
+   57    2179    5.064154e+02    0.000e+00    2.446e+01    5.711e-02
+   58    2220    5.064108e+02    0.000e+00    1.026e+01    2.363e-02
+   59    2260    5.064102e+02    0.000e+00    9.023e-01    3.907e-02
+   60    2301    5.064094e+02    0.000e+00    4.400e-01    6.288e-03
+
+                                            First-order      Norm of
+ Iter F-count            f(x)  Feasibility   optimality         step
+   61    2342    5.064092e+02    0.000e+00    1.387e+00    2.730e-03
+   62    2380    5.064091e+02    0.000e+00    1.367e+00    2.191e-03
+   63    2415    5.064090e+02    0.000e+00    6.439e-01    2.304e-03
+   64    2450    5.064090e+02    0.000e+00    5.824e-01    4.233e-04
+   65    2485    5.064090e+02    0.000e+00    1.798e-01    2.208e-04
+   66    2520    5.064090e+02    0.000e+00    7.882e-02    1.242e-04
+   67    2555    5.064090e+02    0.000e+00    2.000e-02    6.896e-05
+   68    2590    5.064087e+02    0.000e+00    1.982e-01    5.430e-03
+   69    2625    5.064087e+02    0.000e+00    3.365e-01    1.134e-03
+   70    2660    5.064087e+02    0.000e+00    2.715e-01    6.828e-04
+   71    2695    5.064087e+02    0.000e+00    1.382e-01    8.846e-05
+   72    2730    5.064087e+02    0.000e+00    1.943e-02    1.312e-04
+   73    2765    5.064087e+02    0.000e+00    4.000e-03    2.838e-05
+   74    2800    5.064087e+02    0.000e+00    1.340e-01    7.599e-04
+   75    2835    5.064087e+02    0.000e+00    1.487e-01    5.556e-04
+   76    2870    5.064087e+02    0.000e+00    1.238e-02    2.253e-04
+   77    2905    5.064087e+02    0.000e+00    4.124e-03    6.479e-05
+   78    2940    5.064087e+02    0.000e+00    8.000e-04    7.533e-06
+   79    2983    5.064087e+02    0.000e+00    5.131e-03    1.762e-04
+   80    3021    5.064087e+02    0.000e+00    2.778e-02    6.683e-05
+   81    3057    5.064087e+02    0.000e+00    5.626e-02    8.037e-05
+   82    3092    5.064087e+02    0.000e+00    9.290e-03    2.421e-05
+   83    3127    5.064087e+02    0.000e+00    9.386e-03    1.357e-05
+   84    3163    5.064087e+02    0.000e+00    7.490e-03    4.100e-05
+   85    3198    5.064087e+02    0.000e+00    2.092e-03    1.249e-05
+   86    3235    5.064087e+02    0.000e+00    1.021e-02    5.624e-05
+   87    3270    5.064087e+02    0.000e+00    5.724e-03    3.437e-05
+   88    3305    5.064087e+02    0.000e+00    5.514e-03    2.407e-05
+   89    3340    5.064087e+02    0.000e+00    5.092e-04    2.338e-05
+   90    3376    5.064087e+02    0.000e+00    2.296e-04    9.893e-06
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_poss_with_constr','CSHelpWindow');">Local minimum possible. Constraints satisfied</a>.
+
+fmincon stopped because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'norm_curr_step_simple_fminconip','CSHelpWindow');">size of the current step</a> is less than
+the selected value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'step_size_tol','CSHelpWindow');">step size tolerance</a> and constraints are 
+satisfied to within the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'constraint_tolerance','CSHelpWindow');">constraint tolerance</a>.
+
+<<a href = "matlab: createExitMsg('barrier',2.000000e+00,true,true,'fmincon',6.291580e-07,'selected',1.000000e-06,0.000000e+00,'default',1.000000e-06,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+Final value of minus the log posterior (or likelihood):506.408661 
+
+RESULTS FROM POSTERIOR ESTIMATION
+parameters
+         prior mean     mode    s.d. prior pstdev
+
+phi          4.000   6.7184  1.0366 norm  1.5000 
+sigma_c      1.500   1.9303  0.2002 norm  0.3750 
+lambda       0.700   0.7050  0.0418 beta  0.1000 
+xi_w         0.500   0.8013  0.0359 beta  0.1000 
+sigma_l      2.000   1.0790  0.5358 norm  0.7500 
+xi_p         0.500   0.8281  0.0325 beta  0.1000 
+iota_w       0.500   0.4995  0.1611 beta  0.1500 
+iota_p       0.500   0.1281  0.0696 beta  0.1500 
+psi          0.500   0.8796  0.0556 beta  0.1500 
+phi_p        1.250   1.5118  0.0785 norm  0.1250 
+r_pi         1.500   1.6293  0.1854 norm  0.2500 
+rho          0.750   0.8664  0.0173 beta  0.1000 
+r_y          0.125   0.0726  0.0166 norm  0.0500 
+r_dy         0.125   0.0736  0.0146 norm  0.0500 
+pi_bar       0.625   0.6743  0.0562 gamm  0.1000 
+beta_const   0.250   0.2100  0.0917 gamm  0.1000 
+l_bar        0.000   1.2383  0.7836 norm  2.0000 
+gamma_bar    0.400   0.3393  0.0358 norm  0.1000 
+alpha        0.300   0.1741  0.0358 norm  0.0500 
+rho_a        0.500   0.9921  0.0024 beta  0.2000 
+rho_b        0.500   0.3407  0.1066 beta  0.2000 
+rho_g        0.500   0.9496  0.0146 beta  0.2000 
+rho_i        0.500   0.8452  0.0328 beta  0.2000 
+rho_r        0.500   0.4624  0.0680 beta  0.2000 
+rho_p        0.500   0.5550  0.1225 beta  0.2000 
+rho_w        0.500   0.0902  0.0590 beta  0.2000 
+rho_ga       0.500   0.4544  0.0882 norm  0.2500 
+
+standard deviation of shocks
+         prior mean     mode    s.d. prior pstdev
+
+eta_a        0.100   0.3907  0.0268 invg  2.0000 
+eta_b        0.100   0.1715  0.0257 invg  2.0000 
+eta_g        0.100   0.3978  0.0248 invg  2.0000 
+eta_i        0.100   0.2919  0.0277 invg  2.0000 
+eta_r        0.100   0.0839  0.0057 invg  2.0000 
+eta_p        0.100   0.0846  0.0168 invg  2.0000 
+eta_w        0.100   0.4324  0.0341 invg  2.0000 
+
+
+Log data density [Laplace approximation] is -583.922253.
+
+Total computing time : 0h00m50s
+Note: 3 warning(s) encountered in the preprocessor

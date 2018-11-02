@@ -34,9 +34,64 @@
 
 
 \hypersetup{colorlinks,allcolors=blue}
-\title{Adaptive Learning at the Zero Lower Bound}
-\author{Tolga Ozden}
+
+\title{Restricted Perceptions and the Zero Lower Bound Episode \footnote{The research project is financially supported by the National Bank of Belgium under \textit{the Research Programme for Young Researchers}. The views expressed in this paper are those of the author and do not necessarily reflect the views 
+of the National Bank of Belgium or any other institution to which the author is affiliated.}}
+\author{Tolga Ozden\footnote{Affiliation: University of Amsterdam}, Raf Wouters\footnote{Affiliation: National Bank of Belgium}}
 \begin{document}
+
+\maketitle
+
+%\begin{abstract}
+\subsection*{Extended Abstract}
+
+In recent years, two general classes of time-varying DSGE models that have gained attraction in the literature: The first one 
+is the class of Markov-switching models that allow for time-variation in the structural system parameters, which offer a tractable way of studying 
+regime shifts. The second one is adaptive expectation models that allow agents' beliefs to deviate from the underlying Rational Expectations
+Equilibrium (REE) and instead vary over time based on historical data. In this paper, we bring these two classes of models together and construct a framework that allows for the estimation of Markov-switching DSGE models under adaptive expectations.
+In particular, we consider scenarios where the agents' perceived law of motion (PLM) is based on small forecasting rules that do not take
+into account the regime shifts in the underlying system. We build on this idea to estimate DSGE models under adaptive expectations during 
+the recent zero lower bound (ZLB) episode that started with the onset of the 2007-08 crisis.
+
+We start by considering the E-stability principle in Markov-switching models: An Equilibrium is said to be E-stable 
+if the agents can learn the underlying equilibrium by starting from an arbitrary point and updating their beliefs based on simple 
+recursive algorithms, such as recursive least squares. If the PLM coincides with the closed-form MSV solution, then the system will 
+converge to the underlying REE. However, the underlying equilibrium does not coincide with the REE whenever agents' PLM are misspecified.
+In such scenarios, the resulting misspecification equilibrium is called a Restricted Perceptions Equilibrium (RPE) in general. We show the E-stability
+of the underlying RPE in two cases:
+(i) The PLM coincides with the closed-form MSV solution, but the regime shifts are unknown to the agent. 
+(ii) The PLM is based on a parsimonious backward-looking AR(1) rule.
+
+Our results show that, in both cases, there is an E-stable RPE that deviates from the underlying REE. Furthermore, the E-stability of 
+these equilibria holds even if one of the underlying Markov regimes is E-unstable, as long as the exit probability from the E-unstable
+regime is sufficiently large. In such cases, the system is characterized by erratic behaviour during the unstable regime, while reverting
+back to its stable behaviour during the stable regime. We denote this as the \textbf{long-run E-stability principle.} \\
+
+Next we turn to estimation of our class of DSGE models: A popular method in the state-space Markov-switching literature is the Kim \& Nelson (1999) 
+filter, which is based on a "collapsing" approximation to make the models tractable. We extend this filter to accommodate adaptive expectations,
+and consider the Bayesian estimation of two standard DSGE models: The first one is the 3-equation NKPC model along the lines of  Woodford (2003), which 
+is too simplistic for any actual policy analysis, but provides a good starting point for exposing our main results. The second one is the more complex Smets-Wouters (2007)
+model, which has become very popular among central banks and policy makers during the last decade. Based on our preliminary estimations, 
+our results can be summarized as follows: The Markov-switching adaptive expectation models are able to outperform the REE benchmark in all 
+cases, and the Regime-switching REE model in some cases. Furthermore, we observe important differences in the impulse response and shock
+propagation structure of the models under consideration. Particularly, a financial shock of the same size (which can be thought of as the
+financial crisis of 2007-08) typically has a longer lasting impact under adaptive learning, which suggests that Rational Expectations models
+may severely underestimate the crisis' impact and the system's vulnerability to another shock during the Zero lower bound episode. \\
+
+%\end{abstract}
+
+\vspace{3 mm}
+
+\noindent
+\textit{JEL Classification:} E37; E65; C11; C32 . \\
+
+
+\vspace{3 mm}
+
+\noindent
+\textit{Keywords:} Adaptive Learning; Markov-Switching;Bayesian Estimation of DSGE Models; Zero Lower Bound. 
+
+
 %\maketitle
 
 %\section*{Preliminaries}
@@ -1148,47 +1203,47 @@ Laplace &  &  &  & -294.24 & -307.34 & -290 & -317.02 & -368.49
 Param &  & Dist & Mean & Mode & Mode & Mode & Mode &  \\
 \hline
 \hline
-$\phi$ &  & Normal & 4        		& 1.02 & 4.21 & 4.87 & 6.4 \\
-$\sigma_c$ &  & Normal & 1.5		& 0.88 & 0.75 & 1.36 & 1.14 \\
-$\lambda$ &  & Beta & 0.7 			& 0.55 & 0.77 & 0.75 & 0.83 \\
-$\xi_w$ &  & Beta & 0.5 			& 0.7 & 0.85 & 0.93 & 0.95 \\
-$\sigma_l$ &  & Normal & 2 			& 2.41 & 1.98 & 1.98 & 1.74 \\
-$\xi_p$ &  & Beta & 0.5 			& 0.62 & 0.74 & 0.8 & 0.83 \\
-$\iota_w$ &  & Beta & 0.5 			& 0.43 & 0.75 & 0.84 & 0.81 \\
-$\iota_p$ &  & Beta & 0.5 			& 0.40 & 0.13 & 0.07 & 0.08 \\
+$\phi$ &  & Normal & 4        		& 1.02 & 3.75 & 4.87 & 6.4 \\
+$\sigma_c$ &  & Normal & 1.5		& 0.88 & 1.48 & 1.36 & 1.14 \\
+$\lambda$ &  & Beta & 0.7 			& 0.55 & 0.73 & 0.75 & 0.83 \\
+$\xi_w$ &  & Beta & 0.5 			& 0.7 & 0.75 & 0.93 & 0.95 \\
+$\sigma_l$ &  & Normal & 2 			& 2.41 & 2.18 & 1.98 & 1.74 \\
+$\xi_p$ &  & Beta & 0.5 			& 0.62 & 0.67 & 0.8 & 0.83 \\
+$\iota_w$ &  & Beta & 0.5 			& 0.43 & 0.63 & 0.84 & 0.81 \\
+$\iota_p$ &  & Beta & 0.5 			& 0.40 & 0.23 & 0.07 & 0.08 \\
 $\psi$ &  & Beta & 0.5 				& 0.49 & 0.69 & 0.83 & 0.69 \\
-$\phi_p$ &  & Normal & 1.25 		& 1.49 & 1.50 & 1.59 & 1.56 \\
-$r_{\pi}$ &  & Normal & 1.25 		& 1.64 & 1.51 & 1.5 & 1.35 \\
-$\rho$ &  & Beta & 0.75 			& 0.88 & 0.79 & 0.85 & 0.86 \\
-$r_y$ &  & Normal & 0.125 			& 0.13 & 0.08 & 0.05 & 0.06 \\
-$r_{dy}$ &  & Normal & 0.125 		& 0.14 & 0.04 & 0.17 & 0.19 \\
-$\bar{\pi}$ &  & Gamma & 0.625 		& 0.71 & 0.80 & 0.75 & 0.76 \\
-$\bar{\beta}$ &  & Gamma & 0.25 	& 0.14 & 0.22 & 0.21 & 0.25 \\
-$\bar{l}$ &  & Normal & 0 			& 0.73 & 1.57 & -1.2 & 0.15 \\
-$\bar{\gamma}$ &  & Normal & 0.4 	& 0.4 & 0.42 & 0.4 & 0.41 \\
-$\alpha$ &  & Normal & 0.3 			& 0.15 & 0.17 & 0.17 & 0.18 \\
+$\phi_p$ &  & Normal & 1.25 		& 1.49 & 1.57 & 1.59 & 1.56 \\
+$r_{\pi}$ &  & Normal & 1.25 		& 1.64 & 1.62 & 1.5 & 1.35 \\
+$\rho$ &  & Beta & 0.75 			& 0.88 & 0.88 & 0.85 & 0.86 \\
+$r_y$ &  & Normal & 0.125 			& 0.13 & 0.12 & 0.05 & 0.06 \\
+$r_{dy}$ &  & Normal & 0.125 		& 0.14 & 0.14 & 0.17 & 0.19 \\
+$\bar{\pi}$ &  & Gamma & 0.625 		& 0.71 & 0.86 & 0.75 & 0.76 \\
+$\bar{\beta}$ &  & Gamma & 0.25 	& 0.14 & 0.19 & 0.21 & 0.25 \\
+$\bar{l}$ &  & Normal & 0 			& 0.73 & 1.59 & -1.2 & 0.15 \\
+$\bar{\gamma}$ &  & Normal & 0.4 	& 0.4 & 0.43 & 0.4 & 0.41 \\
+$\alpha$ &  & Normal & 0.3 			& 0.15 & 0.16 & 0.17 & 0.18 \\
 $\rho_a$ &  & Beta & 0.5 			& 0.98 & 0.95 & 0.96 & 0.95 \\
-$\rho_b$ &  & Beta & 0.5 			& 0.35 & 0.74 & 0.36 & 0.29 \\
+$\rho_b$ &  & Beta & 0.5 			& 0.35 & 0.42 & 0.36 & 0.29 \\
 $\rho_g$ &  & Beta & 0.5 			& 0.99 & 0.99 & 0.98 & 0.98 \\
-$\rho_i$ &  & Beta & 0.5 			& 0.48 & 0.69 & 0.83 & 0.76 \\
-$\rho_r$ &  & Beta & 0.5 			& 0.15 & 0.18 & 0.08 & 0.16 \\
-$\rho_p$ &  & Beta & 0.5 			& 0.03 & 0.82 & 0.81 & 0.78 \\
-$\rho_w$ &  & Beta & 0.5 			& 0.04 & 0.25 & 0.06 & 0.05 \\
-$\rho_{ga}$ &  & Beta & 0.5 		& 0.52 & 0.51 & 0.53 & 0.51 \\
-$\eta_a$ &  & Inv. Gamma & 0.1 		& 0.46 & 0.44 & 0.44 & 0.45 \\
-$\eta_b$ &  & Inv. Gamma & 0.1 		& 0.68 & 0.20 & 0.21 & 0.23 \\
+$\rho_i$ &  & Beta & 0.5 			& 0.48 & 0.83 & 0.83 & 0.76 \\
+$\rho_r$ &  & Beta & 0.5 			& 0.15 & 0.07 & 0.08 & 0.16 \\
+$\rho_p$ &  & Beta & 0.5 			& 0.03 & 0.64 & 0.81 & 0.78 \\
+$\rho_w$ &  & Beta & 0.5 			& 0.04 & 0.19 & 0.06 & 0.05 \\
+$\rho_{ga}$ &  & Beta & 0.5 		& 0.52 & 0.5 & 0.53 & 0.51 \\
+$\eta_a$ &  & Inv. Gamma & 0.1 		& 0.46 & 0.43 & 0.44 & 0.45 \\
+$\eta_b$ &  & Inv. Gamma & 0.1 		& 0.68 & 0.21 & 0.21 & 0.23 \\
 $\eta_g$ &  & Inv. Gamma & 0.1 		& 0.48 & 0.48 & 0.49 & 0.48 \\
-$\eta_i$ &  & Inv. Gamma & 0.1 		& 1.36 & 0.38 & 0.36 & 0.34 \\
-$\eta_{r,N}$ &  & Inv. Gamma & 0.1 	& 0.21 & 0.22 & 0.21 & 0.23 \\
+$\eta_i$ &  & Inv. Gamma & 0.1 		& 1.36 & 0.36 & 0.36 & 0.34 \\
+$\eta_{r,N}$ &  & Inv. Gamma & 0.1 	& 0.21 & 0.21 & 0.21 & 0.23 \\
 $\eta_{r,ZLB}$ &  & Gamma & 0.03 	& 0.01 & 0.01 & - & 0.01 \\
-$\eta_p$ &  & Inv. Gamma & 0.1 		& 0.27 & 0.06 & 0.05 & 0.06 \\
-$\eta_w$ &  & Inv. Gamma & 0.1 		& 0.73 & 0.34 & 0.37 & 0.37 \\
-$gain$ &  & Gamma & 0.035 			& 0.012 & 0.019 & - &  -\\
+$\eta_p$ &  & Inv. Gamma & 0.1 		& 0.27 & 0.07 & 0.05 & 0.06 \\
+$\eta_w$ &  & Inv. Gamma & 0.1 		& 0.73 & 0.35 & 0.37 & 0.37 \\
+$gain$ &  & Gamma & 0.035 			& 0.012 & 0.001 & - &  -\\
 $1-p_{11}$ &  & Beta & 0.1 			& 0.02 & 0.02 & - & 0.01 \\
 $1-p_{22}$ &  & Beta & 0.1 			& 0.13 & 0.13 & - & 0.29 \\
 $\bar{r_{zlb}}$ &  & Normal & 0.05 	& 0.03 & 0.03 & - & 0.03 \\
  &  &  &  &  &  &  &  \\
-Laplace &  &  &  & -1135 & -1196 & -1213 & -1171
+Laplace &  &  &  & -1135 & -1168 & -1213 & -1171
 \end{tabular}
 \end{table}
 
@@ -1204,47 +1259,47 @@ Laplace &  &  &  & -1135 & -1196 & -1213 & -1171
 Param &  & Dist & Mean & Mode & Mode & Mode & Mode &  \\
 \hline
 \hline
-$\phi$ &  & Normal & 4 			& 0.86 & 6.45 & 6.72 & 4.91 &  \\
-$\sigma_c$ &  & Normal & 1.5 	& 0.35 & 1.49 & 1.93 & 1.12 &  \\
-$\lambda$ &  & Beta & 0.7 		& 0.6 & 0.73 & 0.7 & 0.55 &  \\
-$\xi_w$ &  & Beta & 0.5 		& 0.63 & 0.79 & 0.8 & 0.84 &  \\
-$\sigma_l$ &  & Normal & 2 		& 2.14 & 1.54 & 1.08 & 1.65 &  \\
+$\phi$ &  & Normal & 4 			& 0.86 & 5 & 6.72 & 4.91 &  \\
+$\sigma_c$ &  & Normal & 1.5 	& 0.35 & 0.82 & 1.93 & 1.12 &  \\
+$\lambda$ &  & Beta & 0.7 		& 0.6 & 0.82 & 0.7 & 0.55 &  \\
+$\xi_w$ &  & Beta & 0.5 		& 0.63 & 0.69 & 0.8 & 0.84 &  \\
+$\sigma_l$ &  & Normal & 2 		& 2.14 & 2.52 & 1.08 & 1.65 &  \\
 $\xi_p$ &  & Beta & 0.5 		& 0.77 & 0.76 & 0.83 & 0.92 &  \\
-$\iota_w$ &  & Beta & 0.5 		& 0.48 & 0.56 & 0.5 & 0.46 &  \\
-$\iota_p$ &  & Beta & 0.5 		& 0.27 & 0.16 & 0.13 & 0.19 &  \\
-$\psi$ &  & Beta & 0.5 			& 0.66 & 0.78 & 0.88 & 0.8 &  \\
-$\phi_p$ &  & Normal & 1.25 	& 1.31 & 1.51 & 1.51 & 1.4 &  \\
-$r_{\pi}$ &  & Normal & 1.25 	& 1.42 & 1.35 & 1.63 & 1.48 &  \\
-$\rho$ &  & Beta & 0.75 		& 0.91 & 0.86 & 0.87 & 0.86 &  \\
-$r_y$ &  & Normal & 0.125 		& 0.17 & 0.11 & 0.07 & 0.24 &  \\
-$r_{dy}$ &  & Normal & 0.125 	& 0.11 & 0.03 & 0.07 & 0.09 &  \\
-$\bar{\pi}$ &  & Gamma & 0.625 	& 0.68 & 0.6 & 0.67 & 0.61 &  \\
-$\bar{\beta}$ &  & Gamma & 0.25 & 0.2 & 0.18 & 0.21 & 0.25 &  \\
-$\bar{l}$ &  & Normal & 0 		& 3.03 & 1.53 & 1.24 & 3.82 &  \\
-$\bar{\gamma}$ &  & Normal & 0.4& 0.4	 & 0.5 & 0.34 & 0.47 &  \\
-$\alpha$ &  & Normal & 0.3 		& 0.11 & 0.19 & 0.17 & 0.15 &  \\
-$\rho_a$ &  & Beta & 0.5 		& 0.99 & 0.96 & 0.99 & 0.98 &  \\
+$\iota_w$ &  & Beta & 0.5 		& 0.48 & 0.59 & 0.5 & 0.46 &  \\
+$\iota_p$ &  & Beta & 0.5 		& 0.27 & 0.42 & 0.13 & 0.19 &  \\
+$\psi$ &  & Beta & 0.5 			& 0.66 & 0.82 & 0.88 & 0.8 &  \\
+$\phi_p$ &  & Normal & 1.25 	& 1.31 & 1.48 & 1.51 & 1.4 &  \\
+$r_{\pi}$ &  & Normal & 1.25 	& 1.42 & 1.49 & 1.63 & 1.48 &  \\
+$\rho$ &  & Beta & 0.75 		& 0.91 & 0.9 & 0.87 & 0.86 &  \\
+$r_y$ &  & Normal & 0.125 		& 0.17 & 0.07 & 0.07 & 0.24 &  \\
+$r_{dy}$ &  & Normal & 0.125 	& 0.11 & 0.07 & 0.07 & 0.09 &  \\
+$\bar{\pi}$ &  & Gamma & 0.625 	& 0.68 & 0.61 & 0.67 & 0.61 &  \\
+$\bar{\beta}$ &  & Gamma & 0.25 & 0.2 & 0.27 & 0.21 & 0.25 &  \\
+$\bar{l}$ &  & Normal & 0 		& 3.03 & 5.69 & 1.24 & 3.82 &  \\
+$\bar{\gamma}$ &  & Normal & 0.4& 0.45	 & 0.5 & 0.34 & 0.47 &  \\
+$\alpha$ &  & Normal & 0.3 		& 0.11 & 0.15 & 0.17 & 0.15 &  \\
+$\rho_a$ &  & Beta & 0.5 		& 0.99 & 0.99 & 0.99 & 0.98 &  \\
 $\rho_b$ &  & Beta & 0.5 		& 0.60 & 0.58 & 0.34 & 0.96 &  \\
-$\rho_g$ &  & Beta & 0.5 		& 0.99 & 0.95 & 0.95 & 0.98 &  \\
-$\rho_i$ &  & Beta & 0.5 		& 0.40 & 0.8 & 0.85 & 0.73 &  \\
-$\rho_r$ &  & Beta & 0.5 		& 0.66 & 0.59 & 0.46 & 0.48 &  \\
-$\rho_p$ &  & Beta & 0.5 		& 0.03 & 0.92 & 0.55 & 0.34 &  \\
-$\rho_w$ &  & Beta & 0.5 		& 0.07 & 0.29 & 0.09 & 0.09 &  \\
-$\rho_{ga}$ &  & Beta & 0.5 	& 0.39 & 0.45 & 0.45 & 0.4 &  \\
-$\eta_a$ &  & Inv. Gamma & 0.1 	& 0.4 & 0.37 & 0.39 & 0.05 &  \\
+$\rho_g$ &  & Beta & 0.5 		& 0.99 & 0.99 & 0.95 & 0.98 &  \\
+$\rho_i$ &  & Beta & 0.5 		& 0.40 & 0.79 & 0.85 & 0.73 &  \\
+$\rho_r$ &  & Beta & 0.5 		& 0.66 & 0.52 & 0.46 & 0.48 &  \\
+$\rho_p$ &  & Beta & 0.5 		& 0.03 & 0.61 & 0.55 & 0.34 &  \\
+$\rho_w$ &  & Beta & 0.5 		& 0.07 & 0.19 & 0.09 & 0.09 &  \\
+$\rho_{ga}$ &  & Beta & 0.5 	& 0.39 & 0.4 & 0.45 & 0.4 &  \\
+$\eta_a$ &  & Inv. Gamma & 0.1 	& 0.4 & 0.38 & 0.39 & 0.05 &  \\
 $\eta_b$ &  & Inv. Gamma & 0.1 	& 0.8 & 0.16 & 0.17 & 0.37 &  \\
 $\eta_g$ &  & Inv. Gamma & 0.1 			& 0.38 & 0.39 & 0.4 & 0.3 &  \\
-$\eta_i$ &  & Inv. Gamma & 0.1 			& 1.15 & 0.28 & 0.29 & 0.09 &  \\
-$\eta_{r,N}$ &  & Inv. Gamma & 0.1 		& 0.09 & 0.09 & 0.08 & 0.09 &  \\
+$\eta_i$ &  & Inv. Gamma & 0.1 			& 1.15 & 0.31 & 0.29 & 0.09 &  \\
+$\eta_{r,N}$ &  & Inv. Gamma & 0.1 		& 0.09 & 0.08 & 0.08 & 0.09 &  \\
 $\eta_{r,ZLB}$ &  & Gamma & 0.03 		& 0.01 & 0.01 & - & - &  \\
 $\eta_p$ &  & Inv. Gamma & 0.1			& 0.18 & 0.07 & 0.08 & 0.11 &  \\
 $\eta_w$ &  & Inv. Gamma & 0.1 			& 0.86 & 0.4 & 0.43 & 0.42 &  \\
-$gain$ &  & Gamma & 0.035 				& 0.013 & 0.0173 & - & - &  \\
+$gain$ &  & Gamma & 0.035 				& 0.013 & 0.008 & - & - &  \\
 $1-p_{11}$ &  & Beta & 0.1 				& 0.03 & 0.03 &-  & 0.01 &  \\
 $1-p_{22}$ &  & Beta & 0.1 				& 0.13 & 0.13 & - & 0.28 &  \\
 $\bar{r_{zlb}}$ &  & Normal & 0.05 		& 0.04 & 0.03 & - & - & - \\
  &  &  &  &  &  &  &  &  \\
-Laplace &  &  &  & -515 & -575 & -583 & -552 & 
+Laplace &  &  &  & -515 & -566 & -583 & -552 & 
 \end{tabular}
 \end{table}
 
@@ -1294,134 +1349,92 @@ Laplace &  &  &  & -515 & -575 & -583 & -552 &
 \end{figure}
 
 \begin{figure}[H]
-\textbf{In-Sample forecasts (forecasting step of the filter): RISE output}\\
+\textbf{In-Sample forecasts (forecasting step of the filter): RISE }\\
 \includegraphics[height=\textheight,width=\textwidth]{rise_forecast_errors.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{In-Sample forecasts (forecasting step of the filter): REE}\\
+\includegraphics[height=\textheight,width=\textwidth]{REE_forecast_errors.pdf}
 \end{figure}
 
 
 \subsection*{Impulse Responses- Comparison with the REE benchmark: Normal regime and zlb impulse responses are based on 2006Q1 and 2011Q1 respectively}
 
 
+
+
 \begin{figure}[H]
-\caption{Comparison of MSV-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\caption{Comparison of AR(1) learning IRFs with RISE IRFs. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
 \textbf{Consumption:}\\
-\includegraphics[scale=0.5]{MSV_impresp_cons_reeComp.pdf}
-\textbf{Output:}\\
-\includegraphics[scale=0.5]{MSV_impresp_output_reeComp.pdf}
-\end{figure}
-
-\begin{figure}[H]
-\textbf{Inflation:}\\
-\includegraphics[scale=0.5]{MSV_impresp_pinf_reeComp.pdf}
+\includegraphics[scale=0.5]{AR1_impresp_cons_riseComp.pdf}
 \textbf{Investment:}\\
-\includegraphics[scale=0.5]{MSV_impresp_inve_reeComp.pdf}
+\includegraphics[scale=0.5]{AR1_impresp_inv_riseComp.pdf}
+
 \end{figure}
 
-
-
 \begin{figure}[H]
-\caption{Comparison of AR(1)-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
-\textbf{Consumption:}\\
-\includegraphics[scale=0.5]{AR1_impresp_cons_reeComp.pdf}
 \textbf{Output:}\\
-\includegraphics[scale=0.5]{AR1_impresp_output_reeComp.pdf}
-\end{figure}
-
-\begin{figure}[H]
+\includegraphics[scale=0.5]{AR1_impresp_output_riseComp.pdf}
 \textbf{Inflation:}\\
-\includegraphics[scale=0.5]{AR1_impresp_pinf_reeComp.pdf}
-\textbf{Investment:}\\
-\includegraphics[scale=0.5]{AR1_impresp_inve_reeComp.pdf}
-\end{figure}
+\includegraphics[scale=0.5]{AR1_impresp_pinf_riseComp.pdf}
 
-\begin{figure}[H]
-\caption{Rise output (the estimation results are very fishy, not to be trusted yet). One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
-\textbf{Consumption:}\\
-\includegraphics[scale=0.5]{rise_impresp_cons.pdf}
-\textbf{Output:}\\
-\includegraphics[scale=0.5]{rise_impresp_output.pdf}
-\end{figure}
-
-\begin{figure}[H]
-\textbf{Inflation:}\\
-\includegraphics[scale=0.5]{rise_impresp_pinf.pdf}
-\textbf{Investment:}\\
-\includegraphics[scale=0.5]{rise_impresp_inve.pdf}
 \end{figure}
 
 
-\subsection*{Impulse Responses-Implied time variation}
-
-
 \begin{figure}[H]
-\caption{Comparison of MSV-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
-\textbf{Consumption:}\\
-\includegraphics[scale=0.5]{MSV_impresp_cons_3d.pdf}
-\textbf{Output:}\\
-\includegraphics[scale=0.5]{MSV_impresp_output_3d.pdf}
-\end{figure}
-
-\begin{figure}[H]
-\textbf{Inflation:}\\
-\includegraphics[scale=0.5]{MSV_impresp_pinf_3d.pdf}
-\textbf{Investment:}\\
-\includegraphics[scale=0.5]{MSV_impresp_inve_3d.pdf}
-\end{figure}
-
-
-
-\begin{figure}[H]
-\caption{Comparison of AR(1)-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
-\textbf{Consumption:}\\
-\includegraphics[scale=0.5]{AR1_impresp_cons_3d.pdf}
-\textbf{Output:}\\
-\includegraphics[scale=0.5]{AR1_impresp_output_3d.pdf}
-\end{figure}
-
-\begin{figure}[H]
-\textbf{Inflation:}\\
-\includegraphics[scale=0.5]{AR1_impresp_pinf_3d.pdf}
-\textbf{Investment:}\\
-\includegraphics[scale=0.5]{AR1_impresp_inve_3d.pdf}
-\end{figure}
-
-\subsection*{Impulse Responses-rise output}
-
-
-\begin{figure}[H]
-\caption{Rise output (the estimation results are very fishy, not to be trusted yet). One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
-\textbf{Consumption:}\\
-\includegraphics[scale=0.5]{rise_impresp_cons.pdf}
-\textbf{Output:}\\
-\includegraphics[scale=0.5]{rise_impresp_output.pdf}
-\end{figure}
-
-\begin{figure}[H]
-\textbf{Inflation:}\\
-\includegraphics[scale=0.5]{rise_impresp_pinf.pdf}
-\textbf{Investment:}\\
-\includegraphics[scale=0.5]{rise_impresp_inve.pdf}
-\end{figure}
-
-\subsection*{Impulse Responses-comparison of MSV learning with rise output}
-
-\begin{figure}[H]
-\caption{Comparison of MSV-learning impulse responses with benchmark REE. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\caption{Comparison of MSV learning IRFs with RISE IRFs. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
 \textbf{Consumption:}\\
 \includegraphics[scale=0.5]{MSV_impresp_cons_riseComp.pdf}
-\textbf{Output:}\\
-\includegraphics[scale=0.5]{MSV_impresp_output_riseComp.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{MSV_impresp_inv_riseComp.pdf}
+
 \end{figure}
 
 \begin{figure}[H]
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{MSV_impresp_output_riseComp.pdf}
 \textbf{Inflation:}\\
 \includegraphics[scale=0.5]{MSV_impresp_pinf_riseComp.pdf}
+
+\end{figure}
+
+\subsection*{Implied time variation in IRFs under learning: AR(1) case}
+
+\begin{figure}[H]
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{AR1_impresp_cons_3d.pdf}
 \textbf{Investment:}\\
-\includegraphics[scale=0.5]{MSV_impresp_inve_riseComp.pdf}
+\includegraphics[scale=0.5]{AR1_impresp_inv_3d.pdf}
+
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{AR1_impresp_output_3d.pdf}
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{AR1_impresp_pinf_3d.pdf}
+
 \end{figure}
 
 
+\subsection*{Implied time variation in IRFs under learning: MSV case}
 
+\begin{figure}[H]
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{MSV_impresp_cons_3d.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{MSV_impresp_inv_3d.pdf}
+
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{MSV_impresp_output_3d.pdf}
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{MSV_impresp_pinf_3d.pdf}
+
+\end{figure}
 
 \end{document}
 
