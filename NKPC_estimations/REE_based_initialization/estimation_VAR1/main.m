@@ -13,10 +13,12 @@ param_init=[0.06 0.97 1.34 0.035 3.13 1.32 0.35 0.38 0.05 0.97 0.75 0.26 0.33 0.
 % init_H=eye(17);
 
 objective= @(param) likelihood(param);
-
-[fh,x,gh,H,itct,fcount,retcodeh] = csminwel('likelihood',param_init',init_H2,[] ,10^(-4),9999);
-%options=optimset('Display','iter','PlotFcns',@optimplotfval,'MaxIter',999);
-%x=fminsearch('likelihood',param_init,options);
+% init_H1=nhess_diagonal(@likelihood,param_init');
+%  save init_H1.mat init_H1;
+%load init_H1.mat;
+%[fh,x,gh,H,itct,fcount,retcodeh] = csminwel('likelihood',param_init',init_H1,[] ,10^(-4),9999);
+options=optimset('Display','iter','PlotFcns',@optimplotfval,'MaxIter',999);
+x=fminsearch('likelihood',param_init,options);
 
 laplace_=laplace_approximator(fh,x,H)
 

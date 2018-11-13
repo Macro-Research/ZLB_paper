@@ -81,7 +81,7 @@ for tt=2:T
 
    %when using msv_learning algorithms. Only intercepts are different
 gamma1_1=A1_inv*(B1+C1*beta1^2);gamma2_1=A1_inv*C1*(eye(numVar)+beta1)*alpha1;gamma3_1=A1_inv*D1;
-gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)+beta1)*alpha1;gamma3_2=A1_inv*D2;
+gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)+beta1)*alpha1;gamma3_2=A2_inv*D2;
 
     x_tt=dataset(tt,:)';
 

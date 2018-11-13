@@ -1,5 +1,5 @@
 clear;clc;close all;
-load('estimation_results.mat');
+load('estimation_results2.mat');
 parameters=x;
 %clear;clc;close all;
 %parameters=[0.06 0.97 1.34 0.036 3.13 1.32 0.35 0.38 0.05 0.98 0.74 0.26 0.33 0.04 0.02 0.02 0.10 0.005];    
@@ -80,7 +80,7 @@ for tt=2:T
 
    %when using msv_learning algorithms. Only intercepts are different
 gamma1_1=A1_inv*(B1+C1*beta1^2);gamma2_1=A1_inv*C1*(eye(numVar)+beta1)*alpha1;gamma3_1=A1_inv*D1;
-gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)+beta1)*alpha1;gamma3_2=A1_inv*D2;
+gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)+beta1)*alpha1;gamma3_2=A2_inv*D2;
 
     x_tt=dataset(tt,:)';
 

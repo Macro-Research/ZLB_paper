@@ -1,5 +1,6 @@
 clear;clc;close all;
 addpath('c:\users\tolga\desktop\zlb_paper\optimization_routines');
+addpath('c:\users\tolga\desktop\zlb_paper\distributions');
 load('init_H2.mat');
 seed=round(1000*rand);
 rng(800);
@@ -19,3 +20,5 @@ objective= @(param) likelihood(param);
 %x=fminsearch('likelihood',param_init,options);
 
 laplace_=laplace_approximator(fh,x,H)
+
+save('estimation_results.mat');

@@ -366,6 +366,7 @@ text(Date(end),learning_filtered(end,1,jj),forward_names(index));
 hold on;
 end
   xlim([startDate endDate])
+  ylim([-0.5, 0.3]);%same scale as AR(1) model
   datetick('x','yyyy','keeplimits');
 fig = gcf;
 fig.PaperPositionMode = 'auto'

@@ -233,7 +233,7 @@ print(fig,'NKPC_ree_init_MSV_alphas','-dpdf');
 
 figure('Name','Learning: First-order autocorrelation');
 subplot(3,1,1);
-plot(Date,squeeze(beta_tt(1,2:end)),'lineWidth',3);
+plot(Date,squeeze(beta_tt(2,2:end)),'lineWidth',3);
 xlim([startDate endDate])
 datetick('x','yyyy','keeplimits');
 

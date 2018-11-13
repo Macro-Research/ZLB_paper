@@ -26,11 +26,18 @@ numVar=5;numExo=2;numObs=3;numRegimes=2;
 T=size(dataset,1);l=3;
 alpha1=0*ones(numVar,1);beta1=0*eye(numVar);
 rr=zeros(2,2,2);rr(:,:,1)=10*eye(2);rr(:,:,2)=10*eye(2);
+
+
+alpha1=0*ones(numVar,1);beta1=0*eye(numVar);
+rr=zeros(2,2,2);rr(:,:,1)=10*eye(2);rr(:,:,2)=10*eye(2);
 load('AR1_initial_beliefs.mat');
 alpha1(1)=alpha_y;alpha1(2)=alpha_pinf;
 beta1(1,1)=beta_y;beta1(2,2)=beta_pinf;
 rr(:,:,1)=rr_y;
-rr(:,:,2)=rr_pinf;
+rr(:,:,2)=rr_pinf; 
+
+
+
 
 [A1 B1 C1 D1, E1 F1 G1]=NKPC_sysmat_regime1(param(:,1));
 [A2 B2 C2 D2 E2 F2 G2]=NKPC_sysmat_regime1(param(:,2));
@@ -75,7 +82,7 @@ for tt=2:T
 
    %when using msv_learning algorithms. Only intercepts are different
 gamma1_1=A1_inv*(B1+C1*beta1^2);gamma2_1=A1_inv*C1*(eye(numVar)+beta1)*alpha1;gamma3_1=A1_inv*D1;
-gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)+beta1)*alpha1;gamma3_2=A1_inv*D2;
+gamma1_2=A2_inv*(B2+C2*beta1^2);gamma2_2=A2_inv*C2*(eye(numVar)+beta1)*alpha1;gamma3_2=A2_inv*D2;
 
     x_tt=dataset(tt,:)';
 

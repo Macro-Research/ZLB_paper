@@ -12,6 +12,7 @@
 \usepackage{pdflscape}
 \usepackage{natbib}
 \usepackage{verbatim}
+\usepackage{lipsum}
 \usepackage{gensymb}
 \usepackage{comment}
 \usepackage{bm}
@@ -37,13 +38,17 @@
 
 \title{Restricted Perceptions and the Zero Lower Bound Episode \footnote{The research project is funded by the National Bank of Belgium under \textit{the Research Programme for Young Researchers}. The views expressed in this paper are those of the author and do not necessarily reflect the views 
 of the National Bank of Belgium or any other institution to which the author is affiliated.}\vspace{10 mm} \\ (Preliminary and incomplete, not for distribution) }
-\author{Tolga Ozden\footnote{Affiliation: University of Amsterdam}, Raf Wouters\footnote{Affiliation: National Bank of Belgium}}
+\author{Tolga Ozden\footnote{Affiliation: University of Amsterdam}, Rafael Wouters\footnote{Affiliation: National Bank of Belgium}}
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
 %\subsection{Extended Abstract}
+
+We consider the estimation of Markov-switching DSGE models under adaptive learning based on small forecasting rules. Our main assumption is that regime shifts in the economy are never directly observed by agents; instead they indirectly infer about the regimes to the extent that it feeds back into their information set. Since the regimes are assumed to be unobserved, a learning process can never converge to the underlying MSV-Rational Expectations Equilibrium (REE). We show that in these cases, there is a so-called Restricted Perceptions Equilibrium (RPE) consistent with the agents' information set. We show that standard E-stability conditions apply to these equilibria for a variety of information sets. We then use a variant of the Kim \& Nelson (1999) filter to estimate MS-DSGE models under constant gain adaptive learning. Based on our estimations of the benchmark 3-equation NKPC and workhorse Smets-Wouters (2007) models, our results are summarized as follows: The adaptive learning models outperform the REE benchmark in all cases, and the Regime-switching REE model in a most cases. Furthermore, we observe important differences in the impulse response and shock propagation structure of the models under consideration. Particularly, a financial shock and a government spending shock of the same size typically has a longer-lasting impact under adaptive learning, suggesting that the Rational Expectations models may severely underestimate both the impact of 2007-08 financial crisis, as well as the impact of a fiscal stimulus during the zero lower bound episode that followed the crisis.  
+
+\begin{comment}
 
 In recent years, two general classes of time-varying DSGE models that have gained attraction in the literature: The first one 
 is the class of Markov-switching models that allow for time-variation in the structural system parameters, which offer a tractable way of studying 
@@ -77,6 +82,8 @@ cases, and the Regime-switching REE model in some cases. Furthermore, we observe
 propagation structure of the models under consideration. Particularly, a financial shock of the same size (which can be thought of as the
 financial crisis of 2007-08) typically has a longer lasting impact under adaptive learning, which suggests that Rational Expectations models
 may severely underestimate the crisis' impact and the system's vulnerability to another shock during the Zero lower bound episode. 
+\end{comment}
+
 
 \end{abstract}
 
@@ -306,7 +313,9 @@ d = E[C(s_t) (bd+d \rho) + D(s_t)] = \tilde{C} (bd + d \rho ) + \tilde{D}
 \end{cases}
 $$
 
-In the above expression, $ a $ and $ d $ can be obtained for a given b. However, the second equation is quadratic in b. With $n $ endogenous variables, this can in principle have up to $ {2n}\choose{n} $ solutions in $b (Evans \& Honkapohja, (??)). Note, however, that in this special case the underlying RPE is simply the weighted average of the regime-specific MSV solutions, hence the fixed-point can be computed using standard methods such as Uhlig (??). The corresponding T-map is given by: \\
+In the above expression, a and d can be obtained for a given b. However, the second equation is quadratic in b. With n endogenous variables, this can in principle have up to $ {2n}\choose{n} $ solutions in b (Evans \& Honkapohja, (??)). Note, however, that in this special case the underlying RPE is simply the weighted average of the regime-specific MSV solutions, hence the fixed-point can be computed using standard methods such as Uhlig (??). 
+
+In this case, the T-map is given by: \\
 
 $$
 \begin{pmatrix} a \\ b \\ d \end{pmatrix} \rightarrow \begin{pmatrix} \tilde{A} + \tilde{C} (a+ba) \\ \tilde{C} b^2 + \tilde{B} \\  \tilde{C} (bd+d \rho) + \tilde{D} \end{pmatrix}
@@ -322,17 +331,9 @@ where $ vec_{n,n}^{-1} $ denotes the matricization of a vector to an $(n,n) $ ma
 
 The eigenvalues of the Jacobian above are given by the terms on the diagonal. Hence the underlying RPE is E-stable if these eigenvalues have real parts less than one. \\
 
-%(these eigenvalues include the $ b $ term itself, i.e. $b $ will converge to something if $b $ satisfies a certain condition. Does this make sense? Cars' paper had something similar and the referees didn't like it, does it come down to the same thing? ) \\
+%(these eigenvalues include the $ b $ term itself, i.e. $b $ will converge to something if $b $ satisfies a certain condition. Does this make sense? Cars' paper had something similar and the referees didn't like it, is it the same thing? ) \\
 
-\begin{comment}
-The figure below shows the Monte Carlo simulations of the 3-equation model. ( the same exercise as in the previous section, where we add an interest rate smoothing coefficient of $0.9$ to the interest rate rule in the first regime.)--> put this a bit later
-\begin{figure}[H]
-\caption{Distributions from 500 simulations of length 10000 for the two-regime NKPC. First row: intercept terms (should converge to zero). Second and third rows: lagged inflation and output gap coefficients (should converge to zero as they do not belong in the MSV-rule). Fourth row: Lagged interest rate: should converge to non-zero values given non-zero interest rate smoothing. Fifth and sixth rows: Coefficients on output gap and inflation shocks: should converge to non-zero values. Overall, we observe similar distributions compared to the switching (and also non-switching) case of previous section, indicating convergence towards an equilibrium. }
-\includegraphics[scale=1]{MC_MS_MSV_withLags.pdf}\\
-\end{figure}
-\end{comment}
 
-\newpage
 
 
 
@@ -406,31 +407,90 @@ $$
 $$
 Hence the corresponding RPE will be E-stable if the eigenvalues $\tilde{\gamma_2} (I+b) $ and $ 2 b \tilde{\gamma_2} $ have real parts less than one. \\
 
-\section*{Bayesian Estimation of Markov-Switching DSGE Models under Adaptive Learning: Filtering Algorithm }
 
-We extend Kim \& Nelson (1999) algorithm with least squares updating for expectations. In Markov-switching models with $ m $ regimes, there are $ m^t $ different timelines at each period $t$, which quickly make the standard Kalman filter algorithm intractable. The standard way of dealing with this issue is to "collapse" the state variables and covariance matrices at each iteration to reduce the number of timelines. In our approach, we carry only a single lag of the state variables. This means, if there are $ m $ regimes in the model, we carry $ m $ different timelines in each period. There are $ m^2 $ different sets of variables in the forecasting and updating steps of each iteration. These are collapse at the end of each iteration to reduce to $ m $ sets of variables. In order to introduce adaptive learning into this framework, we further collapse the $ m $ sets of variables into a single vector based on the filtered probabilities. This gives us the filtered states at each iteration. The expectations are then updated once, based on the single set of filtered states. These expectations are then used in each timeline in the following iterations. See Kim \& Nelson (1999) for the details of Kalman and Hamilton Filter blocks.\\
+\subsection{Illustration: Constant-gain Least Squares in the 3-eqution NKPC}
+(add the interest rate smoothing into policy rule)\\
+
+In general, we do not explicitly compute the expressions for the MSV- and VAR-consistent RPE respectively. However, the presence of these RPE and their E-stability under general conditions allows us to conclude that the Markov-switching models under adaptive learning are going to oscillate around an ergodic distribution, rather than showing explosive behaviour. Accordingly, one might expect the models to be stationary under the standard least-squares learning given by: \\
+
+
+$$
+\begin{cases}
+
+R_t = R_{t-1} + \gamma (S_{t-1}^2 - R_{t-1} ) \\
+\theta_t = \theta_{t-1} + \gamma R_t^{-1} S_{t-1} (S_t - \theta_{t-1} S_{t-1}) 
+\end{cases}
+$$
+
+where $\theta_t$ and $R_t$    denote the set of learning coefficients and their estimated covariance matrix respectively.  
+
+Now consider the baseline 3-equation NKPC model along the lines of Woodford (2003), where the interest rate is subject to the ZLB constraint: \\
+
+$$
+\begin{cases} 
+x_t = E_t x_{t+1}  -\frac{1}{\tau}(r_t - E_t \pi_{t+1})+ \epsilon_{x,t} \\
+\pi_t = \beta E_t \pi_{t+1} + \kappa x_t + \epsilon_{\pi,t} \\
+r_t = max\{ 0, \rho r_t+(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t )+ \eta_{r,t}\} \\
+\epsilon_{y,t} = \rho_y \epsilon_{y,t-1} + \eta_{y,t} \\ 
+\epsilon_{\pi,t} = \rho_{\pi} \epsilon_{\pi,t-1} + \eta_{\pi,t} \\
+\end{cases} 
+$$
+
+We can re-cast the interest rate rule above as a Markov process with two regimes, where: \\
+
+$$
+\begin{cases}
+r_t (s_t=1) = \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta^{1}_{r,t}\} 
+r_t (s_t=2) =\eta^{2}_{r,t}\} 
+\end{cases}
+$$
+
+with the same transition matrix same as in the first example. The presence of noise in the second regime is meant to capture the fact that, although interest rates are very close to zero in empirical data, they are never exactly equal to zero in the post-2007 period (Binning et al (??)). In this form, the example essentially extends the results of the previous example to the multi-dimensional case. We simulate the model 500 times, each with length 10000 under the calibration $\phi_y =0.5, \phi_{\pi}=1.5, \rho=0.9, \kappa=0.01, \beta=0.99, \sigma_y = 0.7, \sigma_{\pi} =0.3, \sigma^{I}_r =0.3, \sigma^{II}_r=0.01,\rho_y =0.5, \rho_{\pi}=0.5 , p_{11} = 0.99, p_{22} = 0.9, \gamma = 0.01$, hence the ZLB regime has an expected duration of 10 periods. A standard result in the literature is that, under plausible parameter values, the normal regime is E-stable while the ZLB regime is not (Evans \& Honkapohja (??)), which also applies to our calibration here. Since the expected duration of the ZLB period is set to a low value, however, one may expect the underlying RPE to be E-stable. We check this by the following Monte-Carlo study: we consider the model under constant-gain least-squares with the first case of MSV-type PLM. We simulate the model 500 times each with length 10000, and we collect the final values of the learning coefficient in PLM. The corresponding histograms are shown in Figure (??): the resulting distributions for all variables have a clear peak, suggesting the underlying RPE is indeed E-stable and the constant-gain learning oscillates around this fixed-point. Similar results can also be obtained under a constant-gain VAR(1) learning, which we omit here and move onto the estimation of Markov-switching models under adaptive learning. 
+
+\begin{figure}[H]
+\caption{Distributions from 500 simulations of length 10000 for the two-regime NKPC. First row: intercept terms (should converge to zero). Second and third rows: lagged inflation and output gap coefficients (should converge to zero as they do not belong in the MSV-rule). Fourth row: Lagged interest rate: should converge to non-zero values given non-zero interest rate smoothing. Fifth and sixth rows: Coefficients on output gap and inflation shocks: should converge to non-zero values. Overall, we observe similar distributions compared to the switching (and also non-switching) case of previous section, indicating convergence towards an equilibrium. }
+\includegraphics[scale=1]{MC_MS_MSV_withLags.pdf}\\
+\end{figure}
+
+
+
+
+\section{Bayesian Estimation of Markov-Switching DSGE Models under Adaptive Learning: Filtering Algorithm }
+
+
+The benchmark algorithm for Markov-switching state-space models is the Kim \& Nelson (1999) filter (henceforth KN-filter): in a Markov-switching model with $m $ distinct regimes, a dataset of size $T$ leads to $m^T$ distinct timelines, which quikcly makes the standard Kalman filter intractable. The KN-filter introduces the so-called \textit{collapsing} technique to deal with this issue, which amounts to taking weighted averages of the state vector and covariance matrix at each iteration of the filter. This effectively reduces the number of timelines at each iteration by an order of $m$, thereby making the filter tractable again. The standard recommendation is to carry as many lags of the states as appears in the transition equation. Therefore, given that we consider we consider DSGE models that have a reduced-form VAR(1) representation, we carry only a single lag of the state variables, meaning if there are $ m $ different regimes in the model, we carry $m $ different timelines in each period. Therefore there are $m^2$ different sets of variables in the forecasting and updating steps of each iteration. These are then collapsed at the end of each iteration to reduce to $m $ sets of variables. \\
+\noindent
+An important question is how to introduce adaptive learning into this framework. We adapt an approach that consistent with the theoretical framework of the previous period: the agents have a unique PLM based on observables, independent of the regime switches. We model this formally by collapsing the $m $ different states further at each iteration to obtain the \textit{filtered states}, which are then used to carry out the adaptive learning step. The uniquely updated steps are then used in each distinct timeline of the following iteration\footnote{A natural alternative here is to apply the adaptive learning step distinctly to each collapsed state; one can then take a weighted average of these expectations to obtain the \textit{filtered expectations}. Our results in the upcoming sections do not change substantially if we use such an alternative, but we use the first approach since it is more in the spirit of our theoretical framework.} 
+
+
 
 
 State-space representation of the model, where $S_t $ and $y_t $ denote (unobserved) states and observable variables respectively: \\
 
+
+\begin{table}[H]
+\noindent\rule{\textwidth}{1pt}
+\textbf{KM-filter for Markov-Switching DSGE Models under Adaptive Learning}\\
+\noindent\rule{\textwidth}{1pt}
 $$
 \begin{cases}
-S_t = \gamma_2 + \gamma_1 S_{t-1} + \gamma_3 \epsilon_t, \hspace{3 mm}, \epsilon_t \sim N(0, \sigma) \\
+S_t = \gamma_2 + \gamma_1 S_{t-1} + \gamma_3 \epsilon_t, \hspace{3 mm}, \epsilon_t \sim N(0, \Sigma) \\
 y_t = E+ F S_t \\
 \end{cases}
 $$
 
-\noindent
+\noindent\rule{\textwidth}{1pt}
+
 \underline{0) Initial  States :}
 
 $ \tilde{S}_{0|0}^{i}, \tilde{P}_{0|0}^{i}, Pr[ S_0=i | \Phi_0] , \Phi_0$  given.\\
-\vspace{6 mm}
-
+%\vspace{3 mm}
+\noindent\rule{\textwidth}{1pt}
 
 \noindent
 \underline{1) Kalman Filter Block with the standard measurement and transition equations:} \\
-\vspace{6 mm}
-For $t=1:N$
+%\vspace{3 mm}
+For $t=1:N$\\
     For $\{S_{t-1}=i, S_t=j\} $
 \noindent
 $$
@@ -444,20 +504,15 @@ P_{t|t}^{(i,j)} = P_{t|t-1}^{(i,j)} (F^{(j)})^{\prime} (Fe^{(i,j)})^{-1} F^{(j)}
 \end{cases}
 $$
 
-\vspace{10 mm}
-
+\vspace{5 mm}
+\noindent\rule{\textwidth}{1pt}
 \noindent
 \underline{2)  Hamilton Block for transition probabilities:}\ \\
-\vspace{6 mm}
+%\vspace{3 mm}
 
 \noindent
-Denote: \\
-
- $ Pr[S_{t-1}=i,S_t=j | \Phi_{t-1} ] = pp_{t|t-1}^{i,j} $,\\
-$f(y_t|\Phi_{t-1}) $, \\
-$Pr[S_{t-1}=i,S_t=j|\Phi_t]= pp_{t|t}^{i,j} $, \\
-$Pr[S_t=j|\Phi_t]= \tilde{pp_{t|t}^{j}}$ \\
-\vspace{5 mm}
+Denote: $ Pr[S_{t-1}=i,S_t=j | \Phi_{t-1} ] = pp_{t|t-1}^{i,j} $,$f(y_t|\Phi_{t-1}) $ the marginal likelihood,\\ $Pr[S_{t-1}=i,S_t=j|\Phi_t]= pp_{t|t}^{i,j} $ and  $Pr[S_t=j|\Phi_t]= \tilde{pp_{t|t}^{j}}$.
+%\vspace{2 mm}
 
 $$
 \begin{cases}
@@ -468,7 +523,7 @@ p_{t|t}^{j} = \sum_{i}^M pp_{t|t-1}^{(i,j)}\\
 \end{cases}
 $$
 
-
+\noindent\rule{\textwidth}{1pt}
 \noindent
 \underline{3) Collapsing to reduce the number of states from $m^2 $ to m:} \\
 $$
@@ -477,45 +532,74 @@ $$
 {P}_{t|t}^{(i)}= \frac{\sum_{i=1}^M pp_{tt}^{(i,j)} (P_{t|t}^{(i,j)} + (S_{t|t}^{(j)} - S_{t|t}^{(i,j)})(S_{t|t}^{(j)} - S_{t|t}^{(i,j)})^{\prime})}{p_{t|t}^{(j)}}
 \end{cases}
 $$
-\vspace{1 mm}
+%\vspace{1 mm}
 
+\noindent\rule{\textwidth}{1pt}
 \noindent
 \underline{4) Update expectations based on filtered states:} \\
-\vspace{5 mm}
+%\vspace{3 mm}
 
-\textbf{Filtered states:} \\
-
-$$
-\tilde{S}_{t|t} = \sum_{j=1}^M p_{t|t}^{(j)} S_{t|t}^{(j)}
-$$
-
-\textbf{Expectations: } \\
-
+\textbf{Updating Expectations based on Filtered States:}
 $$
 \begin{cases}
+\tilde{S}_{t|t} = \sum_{j=1}^M p_{t|t}^{(j)} S_{t|t}^{(j)}\\
 \Phi_t = \Phi_{t-1} + \gamma R_t^{-1} \tilde{S}_{t-1|t-1}(\tilde{S}_{t|t}- \Phi_{t-1}^{T} \tilde{S}_{t-1|t-1})^{T} \\
 R_t^{-1} = R_{t-1} + \gamma (\tilde{S}_{t-1|t-1}\tilde{S}_{t-1|t-1}^{T} - R_{t-1}) \\
 \end{cases}
 $$
 
-
-\section*{NKPC Estimation-Monte Carlo Exercise}
-
-Before moving onto estimation with real historical data, we first check the performance of the filter on a short simulated dataset of 200 periods based on the 3-equation NKPC model. The length of the dataset is chosen to be close to our historical dataset of the U.S data over period 1966-I:2016:IV. The red lines denote the true parameter values of the simulation, accompanied by the resulting distributions of the Metropolis-Hastings MCMC with 100000 draws. We observe small biases with the exit probability of the ZLB regime, and 
-the gain parameter of the expectations updating. However, the filter performs reasonably well overall, and all other parameters have the true parameter in their estimated 90 \% HPD interval.\\
-
-\begin{figure}[H]
-\includegraphics[scale=0.5]{nkpc_mc_posteriors.pdf}\\
-\end{figure}
+\end{table}
 
 
+\subsection{Initial Beliefs}
 
-\section*{Estimating the Baseline NKPC: REE-Based initial beliefs} 
+The first practical issue with the above filter is Step (0), i.e. where to initialize the beliefs. This has been shown to play a key role in driving the estimation results in previous studies, and various different approaches have been considered: Milani (??) uses an estimation-based approach, where the initial beliefs are treated as structural parameters and estimated jointly along with the other parameters of interest; Slobodyan \& Wouters (2012a, 2012b??) consider REE-based and training-sample based approaches along with the estimation-based approach; and Galimberti (??) proposes a smoothing-based approach. A common result in these studies is that  the results are sensitive to initial beliefs, and the best-fitting approach typically depends on the specific model under consideration. \\
+\noindent
+In this paper, following Slobodyan \& Wouters (??), we present our main results under the REE-based initial beliefs and check the sensitivity of these results to alternative specifications. Accordingly, as our main approach, we estimate the benchmark (non-switching) REE, and use the relevant moments implied by the matrices $\gamma_1$ and $\gamma_3$ from this estimation in the initialization step  of the learning models\footnote{The REE-implied intercepts are always zero, therefore the vector $\gamma_2$ is always initialized at the vector of zeros}. As our alternatives, we consider three approaches: (i) training-sample approach, where we initialize the filter at diffuse moments and estimate it on a training sample\footnote{For both models considered in the latter sections, our training sample is based on pre-1966 period of aggregate U.S. variables.}, then use the final values of the learning coefficients to initialize the main estimation; (ii) estimation-based approach, where we first estimate all belief coefficients jointly with the structural parameters in a VAR model, then use the resulting estimates to initialize the main estimation; (iii) a filter-based approach, where, at each step of the estimation, the beliefs are initialized at diffuse points and ran once, then the converged values of the belief coefficients are used as initial values to run the filter for a second time. The results of the alternative estimations are provided in the Appendix, and while the relative fit of each model is indeed sensitive to the initial beliefs, our main conclusions continue to hold in all specifications. 
+
+\subsection{Projection Facilities} 
+
+The second practical issue with the above filter is how to retain the stability of the underlying model with adaptive learning. In most operational macro models, the MSV-solution includes lagged state variables due to properties such as habit formation, indexation in prices and wages, interest rate smoothing, etc. When these parameters in PLM are updated each period in a constant gain setup, they may easily end up in an unstable region, which then feeds back into the implied ALM and leads to explosive dynamics. Models subject to the zero lower bound constraint are more prone to encounter this problem, since typically an inactive monetary policy  rule implies indeterminacy and E-unstability for the regime-specific dynamics. A common way in the adaptive learning literature to deal with these potential instabilities is to impose a so-called projection facility on the model, which projects the learning parameters into a point in the stable region when the instability is encountered. One simple approach to do this is to leave the parameters at their previous value if the update leads to an instability, which is the approach adopted in Slobodyan \& Wouters (??). In this paper we use a variant of this simple idea: we stop updating the learning parameters each period, if the update pushes the largest eigenvalue of the system outside the unit circle. We base our notion of stability on the ergodic distribution of the Markov chain: the model is said to be explosive at any set of parameter values, if the largest eigenvalue of the ergodic distribution is outside the unit circle. Accordingly, we allow the regime-specific models to be explosive, as long as the underlying distribution is still stable. This approach does not have an impact on our estimation of the small-scale NKPC since we do not encounter unstable regions in this case; but it plays an important role in the estimation of medium-scale SW model as we show in the upcoming sections. 
+
+
+
+
+
+
+
+
+\section{Estimation of the 3-equation NKPC} 
+
+In this section, as a first step, we estimate the small-scale 3-equation NKPC model presented in the previous section. In this framework there are 18 parameters to be estimated, to which we assign prior distributions consistent with the previous literature: the slope of Phillips curve is assigned a Beta distribution centered at $0.3$ with a standard deviation of $0.15$, while the risk aversion coefficient has a gamma distribution with a mean 2 and standard deviation $0.5$; these are directly taken from (??). The monetary policy reaction coefficients are given Gamma distributions centered at $1.5$ and $0.5$ respectively, with a standard deviation of 0.25; these are the standard values associated with the Taylor rule. Interest rate smoothing, shock persistence and shock standard deviation coefficients are consistent with Smets \& Wouters (2007), the first two having a Beta distribution with mean $0.5 $ and st. dev $0.2$, while the latter is assigned a Gamma distribution with mean $0.1$ and st. dev 2. The regime probabilities are taken from Binning et al (2017): the exit probability of the normal regime is a Beta distribution with mean $0.1$ and standard deviation $0.05$, while the exit probability of ZLB regime is a Beta distribution with a mean $0.3$ and st. dev $0.01$. The gain coefficient follows the same distribution as in Slobodyan \& Wouters (2012) with a gamma distribution and a mean of $0.035$, but we assume a tighter distribution with a standard deviation of $0.015$. The steady-state level of interest rate at the ZLB regime is given a normal distribution with a mean and st. dev of $0.1$ and $0.25$ respectively, while the policy shocks at the ZLB regime are assumed to follow a uniform distribution with a mean and st. dev of $0.005$ and $0.05$ respectively.\\
+\noindent
+We use quarterly U.S. data over the period 1966:I-2016:IV on interest rates, inflation and output gap with the following simple measurement equations: 
+$$
+\begin{cases}
+y_t^{obs}=\bar{y}+y_t \\
+\pi_t^{obs}= \bar{\pi} + \pi_t \\
+r_t^{obs}=\bar{r}+r_t 
+\end{cases}  
+$$
+
+where the mean parameters $\bar{y}, \bar{\pi} $ and $\bar{r}$ are assigned normal distributions based on the pre-1966 period. \\
+
+Table \ref{nkpc_estimation} shows the point-estimates for five model specifications: for the constant-gain learning cases, we consider a univariate AR(1) rule, a VAR(1) rule including output gap, inflation and interest rates, and the MSV-type rule that assumes regime switches are unobserved as discussed above. The last two columns show the two benchmark Rational Expectations cases with and without regime switching\footnote{The REE-MS specification is estimated using J. Maih's RISE toolbox, while the standard REE case is obtained from the Dynare toolbox. For the adaptive learning specifications, we use our filter as presented in the previous section. Note that RISE toolbox uses a variant of the same KN filter, hence the estimations are based on the same filter except for the adaptive learning component.}. First looking at the resulting likelihoods based on Laplace approximation, we see an expected pattern: the MS-REE model leads to a substantial improvement over the benchmark REE model, implying that the regime shift on interest rates plays an important role in driving the model fit. Further adding adaptive learning on top of Markov-switching improves the likelihood further: all three adaptive learning specifications outperform the REE-MS model. Both of these results, individually, are consistent with the previous results found in the literature, i.e, it is well known that both Markov-switching and adaptive learning typically improve the model fit compared with the benchmark case. Our contribution here is to put these two results together.\\
+\noindent
+Next we turn to the discussion of our parameter estimates: the results under REE-MS are generally similar to the REE model with the exception of the risk aversion parameter $\tau$, which is lower under REE-MS with $2.75 $ compared with $4.57 $ under REE. Comparing the MSV-learning case to REE-MS, the differences are minimal: The only differences arise in the interest rate smoothing $\rho_r$ and output gap reaction $\phi_y$ and the the risk aversion  coefficient $\tau$, which turn out slightly higher under MSV-learning. Another difference is the exit probability from ZLB regime, which is estimated to be lower under MSV-learning. At the estimated coefficients, this implies the ZLB regime has an expected duration of  5.9 quarters under MS-REE, while this is 7.69 under MSV-learning. In other words, the estimated persistence of the ZLB regime is higher under the learning specification. These differences become more pronounced as we move onto the AR(1) and VAR(1) cases: the exit probability from ZLB regime under AR(1)-learning is the same as in MSV case with an expected duration of 7.69, while the ZLB regime is even more persistent under VAR(1)-learning with an expected duration of 9.1 quarters. These results show that, in general, the expected duration of the ZLB regime is much larger under any type of learning compared with the MS-REE case. Further, in both AR(1) and VAR(1) cases, the NKPC slope $\kappa$ is substantially larger at 0.036 and 0.029 respectively, compared with 0.005, 0.004 and 0.006 under MSV-learning, REE-MS and REE cases: this is a direct consequence of assuming unobserved shocks, which shifts the transmission channel from expectations to the parameter $\kappa$. Another important difference between AR(1) and VAR(1) compared with the remaining specifications is the shock persistence terms: in both cases, the persistence of shocks are much smaller compared with the remaining cases. This results from the backward-looking nature of AR(1) and VAR(1) rules, which shift some of the exogenous persistence in the shocks onto expectations, thereby resulting in lower estimates for the shock persistences. Furthermore, the gain coefficient increases as we reduce the information set: it is lowest for the MSV-learning case and highest for the univariate AR(1) rule. Among the three learning rules, the most parsimonious AR(1) rule yields the best fit with a Laplace approximation of -273, while the VAR(1) rule yields the worst one with -303. \\
+\noindent
+Figure \ref{nkpc_regime_prob} shows the filtered regime probabilities for the AR(1)-learning RS-REE cases along with the historical interest rates over the estimation sample. Is is readily seen that the estimated regime probability sharply rises in both cases in 2009 as the interest rates are lowered to near-zero levels. Both models indicate that towards the end of 2016, the economy is out of the ZLB regime as the interest rates slowly start to increase. The same pattern can be observed in the other cases of VAR(1)- and MSV-learning, which we omit here. This figure suggests that there are no differences in the estimated pattern of entering and exiting the ZLB regime, which is intuitive since the learning process should not have an impact on this. We next turn to the time variation in the belief coefficients over the estimation sample, which is shown in Figure \ref{nkpc_learning_coef} for all three learning cases. The most important difference arises in the pattern of intercept coefficients for MSV-learning with observed shocks, and AR(1) \& VAR(1) learning with unobserved shocks: while there is considerable time-variation in the intercept parameters in the latter cases, these is much less variation for MSV-learning. This suggests that when the exogenous shocks are assumed to be observed, the changes in the endogenous variables are attributed to these shocks and to changes in the feedback coefficients from exogenous shocks to endogenous variables. When the shocks do not enter into agents' information set, they attribute more changes to the time-variation in the intercept terms. In the AR(1) case, there is a sudden drop in the intercept terms during the 2007-08 crisis period, and these coefficients remain there during the remainder of the sample. The same observation also applies to the VAR(1) case, where the intercept of interest rates is also characterized with a sudden drop along with inflation and output gap. This suggests that there was a level shift in the agents beliefs for the endogenous variables during this period. This level shift does not arise in the MSV-learning case since the changes are attributed to the exogenous shocks. Accordingly, while all learning specifications provide a plausible characterization of the economy since they provide a better fit than the REE models, there is considerable difference in the implied evolution of beliefs during the sample period. This in turn suggests there might be important differences in how the economy responds to the same shock under different specifications.  Figure \ref{nkpc_impulse} shows the impulse responses for all estimated models\footnote{Note that, due to time-variation in beliefs, the impulse responses are different each period under the adaptive learning specifications. Therefore for Figure \ref{nkpc_impulse}, we consider two \textit{representative} periods based on 2006Q1 and 2011Q1 for the impulses under normal and ZLB regimes respectively. We leave the analysis of the time-variation in the impulse responses for the Smets-Wouters model.}: we consider the responses to one unit supply and demand shocks $\eta_y$ and $\eta_{\pi}$ respectively. As one might expect, the AR(1) and VAR(1) cases are very similar, while there is virtually no difference between MSV-learning and MSV-REE cases. A positive supply shock is expansionary and inflationary under all specifications, and the impact is larger under the ZLB regime since monetary policy does not mitigate the impact of this shock. An important difference between the observed shock and unobserved shocks cases is how long the shock takes to "kick in": under MSV-learning and MS-REE cases, the effect is maximal on impact, and the difference between the normal and ZLB regimes is therefore also maximal on impact. On the contrary, under the AR(1) and VAR(1) cases the effect is more gradual and takes a few periods to reach its maximum impact, leading to a hump-shaped response. Therefore the difference between normal and ZLB regimes also takes several periods to become visible. The impact of a demand shock is inflationary in all regimes and specifications, hence there is no difference with regards to the impact of this shock on inflation. However, there are important differences with regards to output: in the ZLB regime, a demand shock is always expansionary but the impact is again more gradual in the unobserved shock cases, leading to a hump-shaped response. In the normal regime, a demand shock is always contractionary is the observed shock cases, while it is initially expansionary and only becomes contractionary after ~8 quarters in the unobserved shock cases. \\
+\noindent
+As the above discussion makes it clear, we can already observe some important differences in the estimations and the implied stochastic structure of the economy even in the 3-equation setup. This raises the question of whether the differences will carry over to a more realistic model setup, which we analyze in the next section in the Smets-Wouters (2007) model. 
+
+
+
+
 
 
 
 \begin{table}[H]
-\caption{Estimation Sample: 1966:I-2016:IV based on the U.S data, where the observables are the output gap (based on CBO's historical estimates), inflation and interest rate.The Markov-switching REE model is based on J. Maih's RISE toolbox, while the standard REE case is provided by Dynare. The AR(1), VAR(1) and MSV-learning cases are based on our algorithm above. }
+\label{nkpc_estimation}
+\caption{Estimation Sample: 1966:I-2016:IV based on the U.S data, where the observables are the output gap (based on CBO's historical estimates), inflation and interest rate.The Markov-switching REE model is obtained from RISE toolbox, while the standard REE case is provided by Dynare. The AR(1), VAR(1) and MSV-learning cases are based on our algorithm above. }
 
 \vspace{3 mm}
 
@@ -525,302 +609,76 @@ Parameter & Prior &  &  & Posterior &  &  &  &  \\
 \hline
 \hline
  & Dist & Mean & St. Dev & Mode & Mode & Mode & Mode & Mode  \\
-$\bar{y}$ & Normal & 0 & 0.25 & -0.21 & 0.09 & -0.32 & -0.17 & 0.24 \\
-$\bar{\pi}$ & Gamma & 0.62 & 0.25 & 0.53 & 0.9 & 0.7 & 0.39 & 0.17 \\
-$\bar{r_1}$ & Gamma & 1 & 0.25 & 1.05 & 1.17 & 0.84 & 0.68 & 1.11 \\
-$\kappa$ & Beta & 0.3 & 0.15 & 0.033 & 0.018 & 0.005 & 0.004 & 0.006 \\
-$\tau$ & Gamma & 2 & 0.5 & 2.54 & 3.01 & 3.02 & 2.75 & 4.57 \\
-$\phi_{\pi}$ & Gamma & 1.5 & 0.25 & 1.25 & 1.3 & 1.56 & 1.56 & 1.42 \\
-$\phi_y$ & Gamma & 0.5 & 0.25 & 0.59 & 0.51 & 0.45 & 0.27 & 0.27 \\
-$\rho_y$ & Beta & 0.5 & 0.2 & 0.33 & 0.48 & 0.89 & 0.92 & 0.93 \\
-$\rho_{\pi}$ & Beta & 0.5 & 0.2 & 0.04 & 0.07 & 0.85 & 0.92 & 0.89 \\
-$\rho_r$ & Beta & 0.5 & 0.2 & 0.96 & 0.96 & 0.9 & 0.8 & 0.8 \\
-$\eta_y$ & Inv. Gamma & 0.1 & 2 & 0.77 & 0.73 & 0.1 & 0.1 & 0.1 \\
-$\eta_{\pi}$ & Inv. Gamma & 0.1 & 2 & 0.26 & 0.28 & 0.03 & 0.03 & 0.04 \\
+$\bar{y}$ & Normal & 0 & 0.25 & -0.26 & 0.06 & -0.32 & -0.17 & 0.24 \\
+$\bar{\pi}$ & Gamma & 0.62 & 0.41 & 0.38 & 0.78 & 0.7 & 0.39 & 0.17 \\
+$\bar{r_1}$ & Gamma & 1 & 0.25 & 0.84 & 1.42 & 0.84 & 0.68 & 1.11 \\
+\hline
+$\kappa$ & Beta & 0.3 & 0.15 & 0.036 & 0.029 & 0.005 & 0.004 & 0.006 \\
+$\tau$ & Gamma & 2 & 0.5 & 2.41 & 2.7 & 3.08 & 2.75 & 4.57 \\
+\hline
+$\phi_{\pi}$ & Gamma & 1.5 & 0.25 & 1.48 & 1.52 & 1.56 & 1.56 & 1.42 \\
+$\phi_y$ & Gamma & 0.5 & 0.25 & 0.4 & 0.4 & 0.45 & 0.27 & 0.27 \\
+$\rho_r$ & Beta & 0.5 & 0.2 & 0.87 & 0.93 & 0.9 & 0.8 & 0.8 \\
+\hline
+$\rho_y$ & Beta & 0.5 & 0.2 & 0.30 & 0.44 & 0.89 & 0.92 & 0.93 \\
+$\rho_{\pi}$ & Beta & 0.5 & 0.2 & 0.05 & 0.06 & 0.85 & 0.92 & 0.89 \\
+$\eta_y$ & Inv. Gamma & 0.1 & 2 & 0.76 & 0.75 & 0.1 & 0.1 & 0.1 \\
+$\eta_{\pi}$ & Inv. Gamma & 0.1 & 2 & 0.28 & 0.28 & 0.03 & 0.03 & 0.04 \\
 $\eta_{r_1}$ & Inv. Gamma & 0.1 & 2 & 0.32 & 0.33 & 0.32 & 0.32 & 0.3 \\
-$\bar{r_2}$ & Normal & 0.1 & 0.25 & 0.04 & 0.0 & 0.03 & 0.03 & - \\
+\hline
+$\bar{r_2}$ & Normal & 0.1 & 0.25 & 0.03 & 0.04 & 0.03 & 0.03 & - \\
 $\eta_{r_2}$ & Uniform & 0.005 & 0.05 & 0.02 & 0.02 & 0.01 & 0.01 & - \\
 $1-p_{11}$ & Beta & 0.1 & 0.05 & 0.02 & 0.02 & 0.02 & 0.02 & - \\
-$1-p_{22}$ & Beta & 0.3 & 0.1 & 0.1 & 0.11 & 0.13 & 0.17 & - \\
-$gain$ & Gamma & 0.035 & 0.015 & 0.0392 & 0.009 & 0.0246 & - & - \\
+$1-p_{22}$ & Beta & 0.3 & 0.1 & 0.13 & 0.11 & 0.13 & 0.17 & - \\
+$gain$ & Gamma & 0.035 & 0.015 & 0.039 & 0.027 & 0.0246 & - & - \\
  \hline
 \hline
-Laplace &  &  &  & -296.49 & -305.37 & -289.07  & -317.02 & -368.49
+Laplace &  &  &  & -273.6 & -303.6 & -289.07  & -317.02 & -368.49
 \end{tabular}
 \end{table}
 
-\newpage
 
 \begin{figure}[H]
-\caption{\large{\textbf{AR(1)}}}
-\vspace{5 mm}
+\label{nkpc_regime_prob}
+\caption{Historical interest rates along with the estimated regime probabilities in AR(1)-learning and benchmark MS-REE cases. }
+\textbf{AR(1) learning and the benchmark MS-REE}:\\
 
-\textbf{Interest rates and regime probability:} \\
+\includegraphics[scale=0.6]{NKPC_ree_init_AR1_regime.pdf} 
+\includegraphics[scale=0.6]{NKPC_sigmaPoint_regime.pdf}\\ 
+%\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_regime.pdf}\\
 
-\includegraphics[scale=0.6]{NKPC_ree_init_AR1_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_ree_init_AR1_regimeProb.pdf}\\
+%\textbf{MSV learning and benchmark MS-REE:}\\
 
-\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right.}\\
+%\includegraphics[scale=0.6]{NKPC_ree_init_MSV_regime.pdf}
 
-\includegraphics[scale=0.6]{NKPC_ree_init_AR1_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_ree_init_AR1_betas.pdf}
-
-\end{figure}
-
-\newpage
-
-\begin{figure}[H]
-\caption{\large{\textbf{VAR(1)}}}
-\vspace{5 mm}
-
-\textbf{Interest rates and regime probability:} \\
-
-\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_regimeProb.pdf}\\
-
-\textbf{Expectation coefficient. Intercepts on the left, first-order autocorrelations on the right.}\\
-
-\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_betas.pdf}
-
-
-\end{figure}
-
-\newpage
-
-\begin{figure}[H]
-\caption{\large{\textbf{MSV}}}
-\vspace{5 mm}
-
-\textbf{Interest rates and regime probability:} \\
-
-\includegraphics[scale=0.6]{NKPC_ree_init_MSV_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_ree_init_MSV_regimeProb.pdf}\\
-
-\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right}\\
-
-\includegraphics[scale=0.6]{NKPC_ree_init_MSV_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_ree_init_MSV_betas.pdf}\\
-
-\textbf{Shock coefficients:}\\
-
-\includegraphics[scale=0.6]{NKPC_ree_init_MSV_shockCoef.pdf}\\
 
 
 \end{figure}
 
 
 \begin{figure}[H]
-\caption{\large{\textbf{MSV-REE }}}
+\label{nkpc_learning_coef}
+
+\caption{Expectation coefficients for AR(1), VAR(1) and MSV-learning cases.}
 \vspace{5 mm}
+{AR(1) intercept and persistence coefficients, with output gap and inflation on the first and second row respectively.}\\
+\includegraphics[scale=0.35]{NKPC_ree_init_AR1_alphas.pdf}
+\includegraphics[scale=0.35]{NKPC_ree_init_AR1_betas.pdf}\\
 
-\textbf{Interest rates and regime probability:} \\
+{VAR(1) intercept and  cross-correlation coefficients. The left panel shows the perceived intercepts of output gap, inflation and interest rates respectively. The right panel shows the impact of lagged output gap, inflation and interest rates on the first, second and third rows respectively.  }\\
+\includegraphics[scale=0.35]{NKPC_ree_init_VAR1_alphas.pdf}
+\includegraphics[scale=0.35]{NKPC_ree_init_VAR1_betas.pdf}\\
 
-\includegraphics[scale=0.6]{NKPC_sigmaPoint_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_sigmaPoint_regimeProb.pdf}\\
-
-
-
+{MSV learning coefficients. The right panel shows the perceived intercepts of output gap, inflation and interest rates ; the middle panel shows the impact of lagged interest rates on output gap, inflation and interest rates; and the right panel shows feedback coefficients from supply and demand shocks on output gap and inflation respectively. }\\
+\includegraphics[scale=0.35]{NKPC_ree_init_MSV_alphas.pdf}
+\includegraphics[scale=0.35]{NKPC_ree_init_MSV_betas.pdf}
+\includegraphics[scale=0.35]{NKPC_ree_init_MSV_shockCoef.pdf}\\
 
 \end{figure}
-
-\newpage
-
-\section*{Estimating the Baseline NKPC: Optimized initial beliefs} 
-
-\begin{table}[H]
-\begin{tabular}{l||lll||l|l|l|ll}
-Parameter & Prior &  &  & Posterior &  &  &  &  \\
-\hline
-\hline
- &  &  &  & AR(1) & VAR(1) & MSV & REE-MS & REE \\
-\hline
-\hline
- & Dist & Mean & St. Dev & Mode & Mode & Mode & Mode & Mode  \\
-$\bar{y}$ & Normal & 0 & 0.25 & -0.15 & 0.05 & -0.35 & -0.17 & 0.24 \\
-$\bar{\pi}$ & Gamma & 0.62 & 0.25 & 0.49 & 0.96 & 0.69 & 0.39 & 0.17 \\
-$\bar{r_1}$ & Gamma & 1 & 0.25 & 1.03 & 1.34 & 0.88 & 0.68 & 1.11 \\
-$\kappa$ & Beta & 0.3 & 0.15 & 0.03 & 0.03 & 0.038 & 0.004 & 0.006 \\
-$\tau$ & Gamma & 2 & 0.5 & 2.52 & 3.11 & 2.6 & 4.73 & 4.57 \\
-$\phi_{\pi}$ & Gamma & 1.5 & 0.25 & 1.25 & 1.32 & 1.55 & 1.56 & 1.42 \\
-$\phi_y$ & Gamma & 0.5 & 0.25 & 0.59 & 0.36 & 0.37 & 0.27 & 0.27 \\
-$\rho_y$ & Beta & 0.5 & 0.2 & 0.3 & 0.39 & 0.91 & 0.92 & 0.93 \\
-$\rho_{\pi}$ & Beta & 0.5 & 0.2 & 0.05 & 0.05 & 0.81 & 0.92 & 0.89 \\
-$\rho_r$ & Beta & 0.5 & 0.2 & 0.95 & 0.97 & 0.89 & 0.8 & 0.8 \\
-$\eta_y$ & Inv. Gamma & 0.1 & 2 & 0.76 & 0.75 & 0.09 & 0.1 & 0.1 \\
-$\eta_{\pi}$ & Inv. Gamma & 0.1 & 2 & 0.26 & 0.26 & 0.04 & 0.03 & 0.04 \\
-$\eta_{r_1}$ & Inv. Gamma & 0.1 & 2 & 0.32 & 0.33 & 0.32 & 0.32 & 0.3 \\
-$\bar{r_2}$ & Normal & 0 & 0.25 & 0.04 & 0.04 & 0.03 & 0.03 & - \\
-$\eta_{r_2}$ & Inv. Gamma & 0.01 & 0.2 & 0.02 & 0.02 & 0.01 & 0.01 & - \\
-$1-p_{11}$ & Beta & 0.1 & 0.05 & 0.02 & 0.02 & 0.02 & 0.02 & - \\
-$1-p_{22}$ & Beta & 0.3 & 0.1 & 0.1 & 0.1 & 0.13 & 0.17 & - \\
-$gain$ & Gamma & 0.035 & 0.015 & 0.04 & 0.0382 & 0.0085 & - & - \\
-\hline
-\hline
-Laplace &  &  &  & -294.123 & -308.92 & -282.62 & -317.02 & -368.49
-\end{tabular}
-\end{table}
-
-\begin{figure}[H]
-\caption{\large{\textbf{AR(1)}}}
-\vspace{5 mm}
-
-\textbf{Interest rates and regime probability:} \\
-
-\includegraphics[scale=0.6]{NKPC_optim_init_AR1_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_optim_init_AR1_regimeProb.pdf}\\
-
-\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right.}\\
-
-\includegraphics[scale=0.6]{NKPC_optim_init_AR1_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_optim_init_AR1_betas.pdf}
-
-
-\end{figure}
-
-\newpage
-
-\begin{figure}[H]
-\caption{\large{\textbf{VAR(1)}}}
-\vspace{5 mm}
-
-\textbf{Interest rates and regime probability:} \\
-
-\includegraphics[scale=0.6]{NKPC_optim_init_VAR1_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_optim_init_VAR1_regimeProb.pdf}\\
-
-\textbf{Expectation coefficient. Intercepts on the left, first-order autocorrelations on the right.}\\
-
-\includegraphics[scale=0.6]{NKPC_optim_init_VAR1_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_optim_init_VAR1_betas.pdf}
-
-
-\end{figure}
-
-\newpage
-
-\begin{figure}[H]
-\caption{\large{\textbf{MSV}}}
-\vspace{5 mm}
-
-\textbf{Interest rates and regime probability:} \\
-
-\includegraphics[scale=0.6]{NKPC_optim_init_MSV_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_optim_init_MSV_regimeProb.pdf}\\
-
-\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right}\\
-
-\includegraphics[scale=0.6]{NKPC_optim_init_MSV_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_optim_init_MSV_betas.pdf}\\
-
-\textbf{Shock coefficients:}\\
-
-\includegraphics[scale=0.6]{NKPC_optim_init_MSV_shockCoef.pdf}\\
-
-
-\end{figure}
-
-
-\section*{Estimating the Baseline NKPC: Filter-based initial beliefs} 
-
-
-
-\begin{table}[H]
-\begin{tabular}{l||lll||l|l|l|ll}
-Parameter & Prior &  &  & Posterior &  &  &  &  \\
-\hline
-\hline
- &  &  &  & AR(1) & VAR(1) & MSV & REE-MS & REE \\
-\hline
-\hline
- & Dist & Mean & St. Dev & Mode & Mode & Mode & Mode &  \\
-$\bar{y}$ & Normal & 0 & 0.25 & -0.16 & -0.01 & -0.26 & -0.17 & 0.24 \\
-$\bar{\pi}$ & Gamma & 0.62 & 0.25 & 0.47 & 0.46 & 0.54 & 0.39 & 0.17 \\
-$\bar{r_1}$ & Gamma & 1 & 0.25 & 0.99 & 1.03 & 0.86 & 0.68 & 1.11 \\
-$\kappa$ & Beta & 0.3 & 0.15 & 0.03 & 0.0081 & 0.006 & 0.004 & 0.006 \\
-$\tau$ & Gamma & 2 & 0.5 & 2.51 & 2.92 & 2.79 & 4.73 & 4.57 \\
-$\phi_{\pi}$ & Gamma & 1.5 & 0.25 & 1.25 & 1.26 & 1.52 & 1.56 & 1.42 \\
-$\phi_y$ & Gamma & 0.5 & 0.25 & 0.59 & 0.56 & 0.33 & 0.27 & 0.27 \\
-$\rho_y$ & Beta & 0.5 & 0.2 & 0.3 & 0.52 & 0.92 & 0.92 & 0.93 \\
-$\rho_{\pi}$ & Beta & 0.5 & 0.2 & 0.05 & 0.09 & 0.9 & 0.92 & 0.89 \\
-$\rho_r$ & Beta & 0.5 & 0.2 & 0.95 & 0.96 & 0.87 & 0.8 & 0.8 \\
-$\eta_y$ & Inv. Gamma & 0.1 & 2 & 0.76 & 0.74 & 0.12 & 0.1 & 0.1 \\
-$\eta_{\pi}$ & Inv. Gamma & 0.1 & 2 & 0.26 & 0.27 & 0.04 & 0.03 & 0.04 \\
-$\eta_{r_1}$ & Inv. Gamma & 0.1 & 2 & 0.32 & 0.32 & 0.32 & 0.32 & 0.3 \\
-$\bar{r_2}$ & Normal & 0 & 0.25 & 0.04 & 0.04 & 0.03 & 0.03 & - \\
-$\eta_{r_2}$ & Inv. Gamma & 0.01 & 0.2 & 0.02 & 0.02 & 0.01 & 0.01 & - \\
-$1-p_{11}$ & Beta & 0.1 & 0.05 & 0.02 & 0.02 & 0.02 & 0.02 & - \\
-$1-p_{22}$ & Beta & 0.3 & 0.1 & 0.1 & 0.1 & 0.13 & 0.17 & - \\
-$gain$ & Gamma & 0.035 & 0.015 & 0.0421 & 0.0064 & 0.0075 & - & - \\
- &  &  &  &  &  &  &  &  \\
-Laplace &  &  &  & -294.24 & -307.34 & -290 & -317.02 & -368.49
-\end{tabular}
-\end{table}
-
-\begin{figure}[H]
-\caption{\large{\textbf{AR(1)}}}
-\vspace{5 mm}
-
-\textbf{Interest rates and regime probability:} \\
-
-\includegraphics[scale=0.6]{NKPC_filter_init_AR1_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_filter_init_AR1_regimeProb.pdf}\\
-
-\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right.}\\
-
-\includegraphics[scale=0.6]{NKPC_filter_init_AR1_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_filter_init_AR1_betas.pdf}
-
-
-\end{figure}
-
-\newpage
-
-\begin{figure}[H]
-\caption{\large{\textbf{VAR(1)}}}
-\vspace{5 mm}
-
-\textbf{Interest rates and regime probability:} \\
-
-\includegraphics[scale=0.6]{NKPC_filter_init_VAR1_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_filter_init_VAR1_regimeProb.pdf}\\
-
-\textbf{Expectation coefficient. Intercepts on the left, first-order autocorrelations on the right.}\\
-
-\includegraphics[scale=0.6]{NKPC_filter_init_VAR1_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_filter_init_VAR1_betas.pdf}
-
-
-\end{figure}
-
-\newpage
-
-\begin{figure}[H]
-\caption{\large{\textbf{MSV}}}
-\vspace{5 mm}
-
-\textbf{Interest rates and regime probability:} \\
-
-\includegraphics[scale=0.6]{NKPC_filter_init_MSV_regime.pdf}
-\includegraphics[scale=0.6]{NKPC_filter_init_MSV_regimeProb.pdf}\\
-
-\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right}\\
-
-\includegraphics[scale=0.6]{NKPC_filter_init_MSV_alphas.pdf}
-\includegraphics[scale=0.6]{NKPC_filter_init_MSV_betas.pdf}\\
-
-\textbf{Shock coefficients:}\\
-
-\includegraphics[scale=0.6]{NKPC_filter_init_MSV_shockCoef.pdf}\\
-
-
-\end{figure}
-
-
-\section*{Impulse Responses (using the REE-based initial beliefs setup)}
 
 \begin{figure}[H]
 \caption{Impulse responses of time-varying PLMs are based on an arbitrary period.}
+\label{nkpc_impulse}
 \textbf{AR(1) and VAR(1) beliefs:}\\
 \includegraphics[scale=0.6]{NKPC_ree_init_AR1_IR.pdf}
 \includegraphics[scale=0.6]{NKPC_ree_init_VAR_IR.pdf}\\
@@ -833,39 +691,48 @@ Laplace &  &  &  & -294.24 & -307.34 & -290 & -317.02 & -368.49
 \textbf{MSV beliefs: }\\
 
 \includegraphics[scale=0.6]{NKPC_ree_init_MSV_IR.pdf}\\
+
+
+
+
+
 \end{figure}
 
-\newpage
+\section{Estimation of Smets-Wouters}
 
-\begin{figure}[H]
-\caption{Time-varying impulse responses, final 50 periods of the estimation sample.}
+In this section we consider the estimation of Smets-Wouters (2007). The prior distributions of the benchmark parameters are identical to Smets-Wouters, while the ZLB and learning related parameters are the same as in the 3-equation model above. Accordingly, we have seven structural shocks: productivity, risk-premium, government spending, investment, monetary policy, and 
+price \& wage mark-up shocks, denoted by $a$, $b$, $g$, $i$, $r$, $p$ and $w$, see Smets-Wouters (2003, 2007) for more details. Our only deviation from the benchmark model is to assume that the mark-up shocks follow an AR(1) process, instead of the original ARMA(1,1) assumption: as shown in Slobodyan \& Wouters (2012b ??), these shock processes are typically close to being white noise when expectations are assumed to be backward-loooking, in which case the AR(1) and MA(1) terms are close to being locally unidentified. Therefore we assume away the MA(1) terms and model these shocks as AR(1) processes. The rest of the model is left unchanged. Our measurement equations also follow the benchmark case, where we use seven observables as follows:
 
-\textbf{AR(1)}: \\
-\includegraphics[scale=1]{NKPC_ree_init_AR1_IR_timeVarying.pdf}\\
-\end{figure}
+$$
+\begin{cases}
+ d( log(y^{obs}_t)) = \bar{\gamma} + (y_t - y_{t-1} ) \\
+d(log(c^{obs}_t)) = \bar{\gamma} + (c_t - c_{t-1} )\\
+d(log({inv}^{obs}_t)) = \bar{\gamma} + ({inv}_t - inv_{t-1} )\\
+d(log(w^{obs}_t)) = \bar{\gamma} + (w_t - w_{t-1} )\\
+log(l^{obs}_t) = \bar{l} + l_t\\
+(log(\pi^{obs}_t)) = \bar{\pi} + \pi_t \\
+(log(r^{obs}_t)) = \bar{r} + r_t\\
+\end{cases}
+$$
 
-\begin{figure}[H]
-\caption{Time-varying impulse responses, final 50 periods of the estimation sample.}
+where $ d( log(y^{obs}_t)) $, $ d(log(c^{obs}_t)) $ , $ d(log({inv}^{obs}_t)) $ and $d(log(w^{obs}_t)) $ denote real output, consumption, investment and wage growths with the common growth rate $\bar{\gamma}$ respectively, while $log(l^{obs}_t)$, $(log(\pi^{obs}_t)) $ and $(log(r^{obs}_t)) $ denote (normalized) hours worked, inflation rate and federal funds rate respectively. We use the same estimation sample as in the 3-equation NKPC with quarterly U.S. data covering the period from 1966:I to 2016:IV. 
+%In this section we also consider the post-Great Moderation (GM) period of 1985:I-2016:IV as an alternative. Further, since the VAR(1)-learning model yields the same implications as the AR(1)-learning model and has the worst likelihood amont the learning models, we only consider the AR(1)- and MSV-learning cases here.  \ref{sw_estimation_subsample}
+ Figure \ref{sw_estimation_full} shows the full sample results for the learning and benchmark REE and MS-REE cases. We observe that our main conclusions from the NKPC-estimation continue to hold in this more realistic setup: the MS-REE model considerably improves upon the REE benchmark with likelihoods -1171 and -1213 respectively, which shows the empirical importance of explicitly modeling the ZLB episode. The MSV-learning setup yields a likelihood of -1168, which is very close to the REE-MS case. This indicates the time-variation under MSV-learning does not lead to any meaningful improvements over the MS-REE model. Next looking at the parsimonious AR(1) learning case, we have a likelihood of -1135, which is another substantial improvement over both the MSV-learning and MS-REE cases. The model with the univariate, backward-looking expectation rule is thus our preferred specification based on thes results. Taken together with the NKPC estimations, all of our results are consistent with the previous literature on learning: Milani (??) shows that MSV-learning performs better that REE in the small 3-equation setup, while Slobodyan \& Wouters (2012a?) find that this result does not extend to the medium-scale setup of SW model, where MSV-learning does not lead to improvements over the REE model. Instead using a univariate backward-looking rule in Slobodyan \& Wouters (2012b?), they find that the model fit improves considerably. Our results in this section and the previous one confirm these results, and show that they continue to hold in a Markov-switching setup where the ZLB episode is considered. \\
+\noindent
+Next we turn to a discussion of our parameter estimates and we focus particularly on the learning, ZLB and nominal friction parameters. Starting with the estimated exit probabilities from the normal and ZLB regimes, we can see the same result as in the 3-equation model, where the ZLB regime becomes more persistent under the learning cases. In particular, the estimated exit probability from the ZLB regime is 0.29 under the MS-REE model, indicating an expected ZLB duration of of $~3.5$ quarters. This probability is substantially larger under the learning specifications with a value of 0.13 under bothn AR(1) and MSV-learning cases, which suggests an expected ZLB duration of $~7.7$ quarters. Especially the expected duration under the MS-REE case is lower compared to the 3-equation model, suggesting there is downward pressure for the persistence of this regime. It is important to note that the expected ZLB durations both under the MS-REE and learning cases are substantially lower than the empirical length of the ZLB episode, which lasted around 7 years or 28 quarters for the U.S. economy. However, our results suggest that adaptive learning is indeed one way of increasing the expected duration of this episode, since the expected duration in the Smets-Wouters model is estimated more than twice under adaptive learning compared with the MS-REE case. \\
+\noindent
+The estimated gain values for both AR(1)- and MSV-learning cases are substantially lower compared with the 3-equation model, with values of 0.012 and 0.001 respectively. Branch \& Evans (??) find that values over the range $[0.01,0.05]$ provide a good fit for the Survey of Professional Forecasters (SPF) dataset. Accordingly, the resulting gain value under AR(1)-learning is still in the empirically relevant range, while the under MSV-learning it is significantly closer to zero. This suggests either that the MSV information set is not supported by the data, or that the initial beliefs provide a better fit than the time-variation in beliefs under the MSV-setup. At the estimated value under MSV-learning, the initial beliefs receive a weight of $(1-0.001)^200 \approx 0.82$ at the end of the sample; i.e. beliefs remain very close to the initial beliefs during the entire estimation sample. The resulting likelihoods suggest that this does not lead to substantial differences in the model fit, which is also evident from the remaining parameter estimates. The only exceptions are the price and wage Calvo probabilities, which are slightly lower under the MSV-learning case compared with the MS-REE. The difference is more pronounced under AR(1)-learning, where the Calvo probabilities keep decreasing further. This suggests nominal persistence parameters become less pronounced as expectations become more sluggish, which is also consistent with the findings in previous literature. Another important difference that arises under AR(1)-learning is the shock persistence terms: the price and wage mark-up shocks become near white noise processes with persistence near zero, while the persistence of investment shock also becomes substantially smaller. Finally, the implied consumption dynamics are very different under AR(1) learning: both the capital adjustment cost $\phi$ and habit formation $\lambda$ parameters are lower compared to the remaining cases, while the inverse intertemporal elasticity of substitution decreases to below one. An interesting implication of this is that, under AR(1) learning, consumption and labor become substitutes rather than complements. \\
+\noindent
+Overall, our results suggest that the univariate AR(1)-learning case provides the best model fit and leads to some important differences in the model structure as a whole, while the MSV-learning remains very close to the MS-REE model. In both cases, however, there is a sizeable increase in expected duration of the ZLB episode, which brings the persistence of this regime closer to the empirically relevant region. \\
+\noindent
 
-\textbf{VAR(1)}: \\
-\includegraphics[scale=1]{NKPC_ree_init_VAR_IR_timeVarying.pdf}\\
-\end{figure}
-
-\begin{figure}[H]
-\caption{Time-varying impulse responses, final 50 periods of the estimation sample.}
-
-\textbf{MSV}: \\
-\includegraphics[scale=1]{NKPC_ree_init_MSV_IR_timeVarying.pdf}\\
-\end{figure}
-
-
-\subsection*{SW Estimation-I}
 
 
 \begin{table}[H]
 \caption{Estimation period: 1966:I-2016:IV}
+\label{sw_estimation_full}
 \begin{tabular}{llll|ll|lll}
- & Prior &  &  & AR(1) & MSV & REE & RISE &  \\
+ & Prior &  &  & AR(1) & MSV & REE & MS-REE &  \\
  \hline
  \hline
 Param &  & Dist & Mean & Mode & Mode & Mode & Mode &  \\
@@ -915,13 +782,15 @@ Laplace &  &  &  & -1135 & -1168 & -1213 & -1171
 \end{tabular}
 \end{table}
 
+\begin{comment}
 
 \subsection*{SW Estimations-II}
 
 \begin{table}[H]
 \caption{Estimation period: 1985:I-2016:IV}
+\label{sw_estimation_subsample}
 \begin{tabular}{llll|ll|lll}
- & Prior &  &  & AR(1) & MSV & REE & RISE &  \\
+ & Prior &  &  & AR(1) & MSV & REE & MS-REE &  \\
  \hline
  \hline
 Param &  & Dist & Mean & Mode & Mode & Mode & Mode &  \\
@@ -971,64 +840,78 @@ Laplace &  &  &  & -515 & -566 & -583 & -552 &
 \end{tabular}
 \end{table}
 
-\subsection*{Figures-AR(1) learning (Based on Full Sample Results)}
+\end{comment}
+
+
+We next turn to the estimated regime probabilities and activity of projection facilities over the estimation sample for the learning models, which is shown in Figure \ref{sw_regime_prob}: similar to the 3-equation model, in both AR(1)- and MSV-learning cases, we observe a sharp switch to the ZLB regime in the beginning of 2009 where the interest rates drop to near-zero levels, while the economy exits from the ZLB regime towards the end of 2016. The same pattern is also observed in the MS-REE model, which is omitted here. An important difference between the SW model here and the 3-equation model is the projection, which was irrelevant in the small model because it remains stable throughout the estimation sample and as a consequence, the projection facility is never imposed. In the larger SW-model, however, the model is occasionally driven into unstable regions, thereby activating the projection facility. This is shown in the second row of the same figure. The right panel shows the regime-specific and weighted-average (based on the ergodic distribution) eigenvalues along with the activity of projection facility for the MSV-learning case. It is readily seen that, although the ZLB regime is closer to the instability region compared to the normal regime, neither regime becomes unstable in this case and the projection facility is not activated. This is partially due to the fact that the information set under MSV-learning does not affect the autocorrelation structure as much; and partially due to the small gain coefficient under this specification. The left panel shows the same figures for the AR(1)-learning case: in this case, we observe that projection facility is activated twice: the first time is during the beginning of 2000s, and the second time is after the crisis period in 2009. An important observation is that, the ZLB-regime is unstable for extended periods of time, especially during the period from 1990 to 2010. For this case, \textit{how} the projection facility is imposed plays a key role in the system dynamics: recall from the previous section that we only impose the projection facility when the underlying ergodic distribution becomes unstable, while the regime-specific models are allowed to be unstable. In this case, although the ZLB-regime is unstable for long periods, the normal regime is sufficiently stable most of the time such that the projection facility is only activated a couple of times. This way of imposing the projection facility is justified on the grounds of our RPE concept, where the regime-specific models can become temporariliy explosive as long as the underlying ergodic distribution is stable; we are able to keep the activity of projection facility to a minimum based on this notion. \\
+\noindent
+Next we examine how the learning coefficients evolve over the estimation sample, which are shown in Figures \ref{sw_learning_1} and \ref{sw_learning_2}. In the MSV-learning case, there are 15 variables in the information set of the agent, with the intercept, 7 exogenous shocks and 7 endogenous backward-looking variables. Therefore we only provide the plots and discussion of two of these variables for exposition, but similar arguments can be extended to all variables in the information set. Figure \ref{sw_learning_1} shows the intercept coefficients under both learning cases: the first panel shows the AR(1) while the second one is MSV-learning. As one might expect, the time-variation under MSV-learning is relatively small, where all coefficients remain close to zero and there are no observable jumps. This confirms our conclusion from the previous section that, when shocks are assumed to be observable, the intercept terms receive much less weight in forming expectations. On the contrary with the AR(1) case, we observe much more interesting dynamics: since shocks are unobserved in this case, the intercept terms play an important role in agents’ expectations. A particularly interesting case is the financial crisis period, where we observe an almost uniform reduction in all coefficients. Particularly the coefficients on investment and real value of capital (denoted by $i$ and $q$) respectively) decrease by a relatively large amount, while remaining coefficients decrease moderately. This implies that, under AR(1)-learning with unobserved shocks, the crisis and subsequent \textit{Great Recession} period is interpreted as a level shift in the variables by agents, as opposed to a series of adverse shocks. Figure \ref{sw_learning_2} shows the learning coefficients on persistence for the AR(1) case, and lagged inflation for the MSV-learning case. The same results applies to the MSV-learning again, where we do not observe any meaningful time-variation in the coefficients, especially during the crisis period. While we omit the remaining coefficients for the MSV case on lagged variables and exogenous shocks, similar patterns can be observed for these cases as well. Next looking at the AR(1) case which is shown in the first panel, we can again observe a jump in the coeficients during the crisis period, where some of the persistence parameters temporariliy go above one. In other words, when the crisis hits and the agents observe the large downward movement in the endogenous variables, they compensate for this by temporarily switching from a trend-following rule to an extrapolative one. This can be interpreted as a temporary wave of pessimism in the economy, where the agents expect more downward movement following the adverse shock after the crisis. \\
+
+-forecast errors\\
+-impulse responses: focus on government spending and risk premium shocks\\
+-comment on time-varying plots\\
+
+
 \begin{figure}[H]
+\label{sw_regime_prob}
+\caption{Estimated regime probabilities and projection facility in AR(1)- and MSV-learning cases.} 
+\vspace{5 mm}
 \textbf{Filtered ZLB regime probability:}\\
-\includegraphics[scale=0.5]{sw_ar1_regimeProb.pdf}\\
-\textbf{Eigenvalues and Projection Facility}\\
-\includegraphics[scale=0.5]{sw_ar1_eigenvalues.pdf}
+
+\includegraphics[scale=0.23]{sw_ar1_regimeProb.pdf}
+\includegraphics[scale=0.23]{sw_msv_regimeProb.pdf}\\
+
+\textbf{Eigenvalues and Projection Facilities:}\\
+
+\includegraphics[scale=0.23]{sw_ar1_eigenvalues.pdf}
+\includegraphics[scale=0.23]{sw_msv_eigenvalues.pdf}
 \end{figure}
 
 \begin{figure}[H]
-\textbf{Intercept coefficients }\\
-\includegraphics[scale=0.5]{sw_ar1_learning_alphas.pdf}
-\textbf{Persistence coefficients:}\\
-\includegraphics[scale=0.5]{sw_ar1_learning_betas.pdf}
+\label{sw_learning_1}
+\caption{Learning coefficients in the AR(1)- and MSV-learning cases: Intercepts.} 
+\vspace{5 mm}
+
+\includegraphics[scale=0.5]{sw_ar1_learning_alphas.pdf}\\
+\includegraphics[scale=0.5]{sw_msv_learning_alphas.pdf}\\
+
+
 \end{figure}
 
-
-
-\subsection*{Figures-MSV learning (Based on Full Sample Results)}
-\begin{figure}[H]
-\textbf{Filtered ZLB regime probability:}\\
-\includegraphics[scale=0.5]{sw_msv_regimeProb.pdf}\\
-\textbf{Projection Facility active or not:}\\
-\includegraphics[scale=0.5]{sw_msv_eigenvalues.pdf}
-\end{figure}
-
-\begin{figure}[H]
-\textbf{Intercept coefficients:}\\
-\includegraphics[scale=0.3]{sw_msv_learning_alphas.pdf}\\
-\textbf{Learning coefficient on lagged inflation:}\\
-\includegraphics[scale=0.3]{sw_msv_learning_laggedInfl.pdf}\\
-\textbf{Learning coefficient on  b-shock:}\\
-\includegraphics[scale=0.3]{sw_msv_learning_bShock.pdf}\\
-\end{figure}
 
 
 \begin{figure}[H]
-\textbf{In-Sample forecasts (forecasting step of the filter): MSV learning}\\
-\includegraphics[height=\textheight,width=\textwidth]{sw_msv_forecast_errors.pdf}
+\label{sw_learning_2}
+\caption{Learning coefficients in the AR(1)- and MSV-learning cases: Persistence coefficients under AR(1)-learning, and lagged inflation under MSV-learning.} 
+\vspace{5 mm}
+
+\includegraphics[scale=0.5]{sw_ar1_learning_betas.pdf}\\
+\includegraphics[scale=0.5]{sw_msv_learning_laggedInfl.pdf}\\
 \end{figure}
+
+
+\subsection{Forecast Errors}
 
 \begin{figure}[H]
-\textbf{In-Sample forecasts (forecasting step of the filter): AR(1) learning}\\
-\includegraphics[height=\textheight,width=\textwidth]{sw_ar1_forecast_errors.pdf}
+
+\caption{In-sample forecasts (i.e. the forecasting step of the filter) for all observables.}
+\vspace{5 mm}
+
+\textbf{MS-REE and REE: }\\
+\includegraphics[height=.5\textheight,width=.5\textwidth]{rise_forecast_errors.pdf}
+\includegraphics[height=.5\textheight,width=.5\textwidth]{REE_forecast_errors.pdf}
+
+
+\textbf{MSV- and AR(1)-learning: }\\
+\includegraphics[height=.5\textheight,width=.5\textwidth]{sw_msv_forecast_errors.pdf}
+\includegraphics[height=0.5\textheight,width=0.5\textwidth]{sw_ar1_forecast_errors.pdf}
+
+
+
 \end{figure}
 
-\begin{figure}[H]
-\textbf{In-Sample forecasts (forecasting step of the filter): RISE }\\
-\includegraphics[height=\textheight,width=\textwidth]{rise_forecast_errors.pdf}
-\end{figure}
 
-\begin{figure}[H]
-\textbf{In-Sample forecasts (forecasting step of the filter): REE}\\
-\includegraphics[height=\textheight,width=\textwidth]{REE_forecast_errors.pdf}
-\end{figure}
-
-
-\subsection*{Impulse Responses- Comparison with the REE benchmark: Normal regime and zlb impulse responses are based on 2006Q1 and 2011Q1 respectively}
-
+\subsection{Impulse Responses: Comparison with MS-REE and implied time-variation}
 
 
 
@@ -1067,7 +950,10 @@ Laplace &  &  &  & -515 & -566 & -583 & -552 &
 
 \end{figure}
 
-\subsection*{Implied time variation in IRFs under learning: AR(1) case}
+
+
+
+
 
 \begin{figure}[H]
 \textbf{Consumption:}\\
@@ -1086,7 +972,7 @@ Laplace &  &  &  & -515 & -566 & -583 & -552 &
 \end{figure}
 
 
-\subsection*{Implied time variation in IRFs under learning: MSV case}
+
 
 \begin{figure}[H]
 \textbf{Consumption:}\\
@@ -1103,382 +989,6 @@ Laplace &  &  &  & -515 & -566 & -583 & -552 &
 \includegraphics[scale=0.5]{MSV_impresp_pinf_3d.pdf}
 
 \end{figure}
-
-\begin{comment}
-Consider the baseline NKPC: \\
-
-$$
-\begin{cases} 
-x_t = E_t x_{t+1}  -\frac{1}{\tau}(r_t - E_t \pi_{t+1})+ \epsilon_{x,t} \\
-\pi_t = \beta E_t \pi_{t+1} + \gamma x_t + \epsilon_{\pi,t} \\
-r_t = max\{ 0, \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta_{r,t}\} \\
-\epsilon_{y,t} = \rho_y \epsilon_{y,t-1} + \eta_{y,t} \\ 
-\epsilon_{\pi,t} = \rho_{\pi} \epsilon_{\pi,t-1} + \eta_{\pi,t} \\
-\end{cases} 
-$$
-
-\noindent
-Monetary policy rule can be re-written as follows: \\
-
-$r_t= \begin{cases} \textrm{0 if ZLB binding,} \\  \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta_{r,t} \textrm{\hspace{3 mm} otherwise.}    \end{cases}$ \\
-
-\vspace{5 mm}
-\noindent
-Denoting by $s_t$ the monetary policy regime, we then obtain the following generic form: \\
-
-
-\begin{equation}
-\begin{cases}
-A(r_t) X_t = B(r_t) X_{t-1} + C(r_t) E_{t} X_{t+1} D(r_t) \epsilon_t, \\
-
-E_t X_{t+1} = \alpha_t + \beta_t^2 (X_{t-1} - \alpha_t)  \\
-
-Y_t =E(r_t) +  F(r_t) X_t + H(r_t). \\ 
-\end{cases}
-\end{equation}
-
-\vspace{10 mm}
-\noindent
-Beliefs are assumed as a univariate AR(1) rule for the time being, but can be generalized to any other PLM. The system can then be re-written as: \\
-
-\begin{equation}
-\begin{cases} 
-X_t = \gamma_{2,t}(r_t) + \gamma_{1,t}(r_t) X_{t-1} + \gamma_3(r_t) \epsilon_t, \\
-
-\gamma_{1,t} = A(r_t)^{-1} (B(r_t)+ C(r_t) \beta_t^2),  \\
-
-\gamma_{2,t} = A(r_t)^{-1}C(r_t)(I-\beta_t^2) \alpha_t \\
-
-\gamma_3 = A(r_t)^{-1} D(r_t). \\
-\end{cases}
-\end{equation}
-
-\newpage
-\textbf{\underline{Filtering:}} \\
-
-\vspace{5 mm}
-\noindent
-$\hat{S}_{1|1}, \hat{P}_{1|1}, \alpha_1, \beta_1 $, and  \\
-$\gamma_{1,1}(r_t)= A(r_t)^{-1}(B(r_t)+C(r_t) \beta_1^2), \gamma_{2,1}(r_t) A(r_t)^{-1}C(r_t)(I - \beta_1^2)\alpha_1, \gamma_{3,1}(r_t)=A(r_t)^{-1}D(r_t) $ are given.\\
-\begin{equation}
-$$
-FOR $t=[2:T]$ \\
-
-\hspace{5 mm}     FOR $r_t = [1: R]$\\
-
-\vspace{3 mm}
-\noindent
-\small{\underline{Update the beliefs \& system matrices:}} \\
-
-\vspace{3 mm}
-\noindent
-$(\alpha_t, \beta_t) = update(\hat{S}_{t-1|t-1},\alpha_{t-1},\beta_{t-1})$ (according to PLM) \\
-$\gamma_{1,t}(r_t)= A(r_t)^{-1}(B(r_t)+C(r_t) \beta_t^2), \\
-\gamma_{2,t}(r_t) A(r_t)^{-1}C(r_t)(I - \beta_t^2)\alpha_t,\\
- \gamma_{3,t}(r_t)=A(r_t)^{-1}D(r_t) $.\
-
-\vspace{3 mm}
-\noindent
-\small{\underline{Forecasting:}} \\
-
-\vspace{3 mm}
-\noindent
-$S_{t|t-1}(r_t)=\gamma_1(r_t) \hat{S}_{t-1|t-1} + \gamma_2(r_t);$ \\
-$P_{t|t-1}(r_t) = \gamma_1(r_t) \hat{P}_{t-1|t-1} \gamma_1(r_t)^{T}+\gamma_3(r_t) \Sigma(r_t) \gamma_3(r_t)^{T}$;\\
-
-\vspace{3 mm}
-
-\noindent
-\small{\underline{Forecast errors \& error variances:}} \\
-\vspace{3 mm}
-
-\noindent
-$v(r_t)=y_t-F(r_t)S_{t|t-1}(r_t);$\\
-$Fe(r_t)=F(r_t) P_{t|t-1}F(r_t)^{T}+H;$\\
-\vspace{3 mm}
-
-\noindent
-\small{\underline{Marginal Likelihoods:}} \\
-
-\vspace{3 mm}
-
-\noindent
-$ml_t(r_t)= -\frac{1}{2}L \hspace{2 mm} log(2 \pi) -\frac{1}{2} log(| \Sigma|)-\frac{1}{2} v(r_t)^{T}\Sigma(r_t)^{-1}v(r_t);$\\
-\vspace{3 mm}
-
-\noindent
-\small{\underline{Kalman gain:}} \\
-
-\vspace{3 mm}
-
-\noindent
-$K_t(r_t)=P_{t|t-1}(r_t)F(r_t)^{T}(F(r_t) P_{t|t-1}(r_t)F(r_t)^{T})^{-1};$\\
-\vspace{3 mm}
-
-\noindent
-\small{\underline{Updating:}} \\
-
-\vspace{3 mm}
-
-\noindent
-$S_{t|t}(r_t)=S_{t|t-1}(r_t)+K_t(r_t)v(r_t);$\\
-$P_{t|t})r_t)=P_{t|t-1}(r_t)-K_t(r_t)(F(r_t)P_{t|t-1}(r_t));$\\
-
-\vspace{5 mm}
-\hspace{5 mm}    END\\ 
-
-\vspace{5 mm}
-\noindent
-$s(r_t)= \begin{cases} \textrm{1 if  } r_t= argmax_{\hat{r}_t }\hspace{3 mm}  ml_t(\hat{r}_t),  \\ \textrm{0 otherwise.} \end{cases}$ \\
-
-\vspace{3 mm}
-
-\noindent
-\small{\underline{Collapsing:}} \\
-
-\vspace{3 mm}
-
-\noindent
-$\hat{S}_{t|t}= \sum_{r_t}^R s(r_t) S_{t|t}(r_t);$\\
-$\hat{P}_{t|t}=\sum_{r_t}^R s(r_t) P_{t|t}(r_t);$\\
-
-\vspace{3 mm}
-\noindent
-END 
-$$
-\end{equation}
-
-\newpage
-
-\textbf{\underline{Monte Carlo Simulations with the Baseline NKPC}}\\
-
-\vspace{5 mm}
-
-\small{\textbf{\underline{DGP:}}}\\
-
-$$
-\begin{cases} 
-x_t = E_t x_{t+1}  -\frac{1}{\tau}(r_t - E_t \pi_{t+1})+ \epsilon_{x,t} \\
-\pi_t = \beta E_t \pi_{t+1} + \gamma x_t + \epsilon_{\pi,t} \\
-r_t = max\{ 0, \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta_{r,t}\} \\
-\epsilon_{y,t} = \rho_y \epsilon_{y,t-1} + \eta_{y,t} \\ 
-\epsilon_{\pi,t} = \rho_{\pi} \epsilon_{\pi,t-1} + \eta_{\pi,t} \\
-\end{cases} 
-$$
-
-\noindent
-Parameters in normal regime: $ \gamma=0.01, \tau=3, \phi_x = 0.5, \phi_{\pi}= 1.5, \rho_x=0.5, \rho_{\pi}=0.5, \rho_r = 0.9, \eta_x=0.7, \eta_r=0.3,\eta_{\pi}=0.3$ \\
-Parameters in ZLB regime: $ \phi_x = 0, \phi_{\pi} = 0, \rho_r = 0 , \eta_{\pi}=0.03$\\
-
-
-
-\small{\textbf{\underline{Accuracy Rates:}}}\\
-
-\noindent
-Normalized absolute mean error (NAME): $\frac{\frac{\sum_{t=1}^N |x_t -\hat{x}_t | }{N}}{max(x_t)-min(x_t)}$. \\
-Normalized root mean squared error (NRMSE): $\frac{\sqrt{\frac{\sum_{t=1}^N (x_t - \hat{x}_t )^2}{N}}}{max(x_t)-min(x_t)}$.\\
-
-\begin{table}[H]
-
-
-\begin{tabular}{l|ll|ll}
-
-state & Correct Init. & & Random Init.  \\
-& NAME & NRMSE & NAME & NRMSE\\
-\hline
-$\epsilon_y$ & .9992 & 	.9987 & .9751 & .9560 \\
-$\epsilon_{\pi}$ & 1 & 1 & .9594 & .9243 \\
-$\alpha_y$ & .9989 & .9985 & .9299 & 8878 \\
-$\beta_y$ & .9979 & .9965 & .9623 & .9065  \\
-$\alpha_{\pi}$ & 1 & 1 & .8281 & .7231 \\
-$\beta_{\pi}$ & .9999 & .9999 & .9372 & .8638 \\
-s & .9207 & -& .8961 & - \\
-
-
-\end{tabular}
-\end{table}
-
-\newpage
-
-\begin{figure}[H]
-
-\small{\textbf{Plots from a typical simulation with correctly specified initial states \& beliefs:}}\\
-\small{\textbf{(Filtered and actual beliefs, states and state probabilities.)}}\\
-
-\includegraphics[scale=0.45]{MC_correctInit_beliefs.pdf} 
-\includegraphics[scale=0.45]{MC_correctInit_states.pdf} \\
-\includegraphics[scale=0.9]{MC_correctInit_stateProbabilities.pdf}\\
-\end{figure}
-
-
-
-\begin{figure}[H]
-\small{\textbf{Plots from a typical simulation with randomized  initial states \& beliefs:}}\\
-
-\includegraphics[scale=0.45]{MC_randomInit_beliefs.pdf} 
-\includegraphics[scale=0.45]{MC_randomInit_states.pdf} \\
-\includegraphics[scale=0.9]{MC_randomInit_stateProbabilities.pdf}\\
-
-\end{figure}
-\newpage
-
-\textbf{\underline{Filtering with real data: ($1966:I-2016:IV$ U.S)}}\\
-
-\begin{figure}[H]
-
-{Decreasing gain learning:}  \\
-
-
-\includegraphics[]{NKPC_filteredRegimes_DGL.pdf}\\
-\includegraphics[]{NKPC_filteredBeliefs_DGL.pdf}\\
-\end{figure}
-
-\newpage
-
-\begin{figure}[H]
-	{Constant gain learning $ =0.05$:} \\
-
-
-\includegraphics[]{NKPC_filteredRegimes_CGL.pdf}\\
-\includegraphics[]{NKPC_filteredBeliefs_CGL.pdf}\\
-\end{figure}
-
-
-\newpage
-
-
-
-\begin{figure}
-\textbf{\underline{Simulations of the Normal and \& ZLB Regimes:}} \\
-
-
-{Normal Regime is E-stable:} \\
-
-\includegraphics[scale=1]{simulation_normalRegime.pdf} \\
-
-{ZLB Regime is not E-stable: } \\
-
-\includegraphics[scale=1]{simulation_zlbRegime.pdf}\\
-\end{figure}
-
-
-
-
-\subsection*{Markov Switching Filter with two lags}
-
-\begin{figure}[H]
-\includegraphics[]{MC_MS_small_states.pdf}\\
-
-\end{figure}
-
-
-\begin{figure}[H]
-\includegraphics[scale=0.5]{MC_MS_small_regime1.pdf}
-\includegraphics[scale=0.5]{MC_MS_small_regime2.pdf}\\
-
-\end{figure}
-
-\newpage
-
-
-
-\newpage
-
-\subsection*{Example 2: 3-equation model without lagged endogenous variables} 
-
-Now consider the baseline 3-equation NKPC model along the lines of Woodford (2003), where the interest rate is subject to the ZLB constraint. This example extends the results of the previous one to the multi-dimensional case, where we can still analytically compute the underlying Restricted Perceptions Equilibrium in the absence of lagged endogenous variables.\\
-
-$$
-\begin{cases} 
-x_t = E_t x_{t+1}  -\frac{1}{\tau}(r_t - E_t \pi_{t+1})+ \epsilon_{x,t} \\
-\pi_t = \beta E_t \pi_{t+1} + \kappa x_t + \epsilon_{\pi,t} \\
-r_t = max\{ 0, \phi_x x_t + \phi_{\pi} \pi_t + \eta_{r,t}\} \\
-\epsilon_{y,t} = \rho_y \epsilon_{y,t-1} + \eta_{y,t} \\ 
-\epsilon_{\pi,t} = \rho_{\pi} \epsilon_{\pi,t-1} + \eta_{\pi,t} \\
-\end{cases} 
-$$
-
-We can re-cast the interest rate rule above as a Markov process with two regimes, where: \\
-
-$$
-\begin{cases}
-r_t (s_t=1) = \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta^{1}_{r,t}\} 
-r_t (s_t=2) =\eta^{2}_{r,t}\} 
-\end{cases}
-$$
-
-with the transition matrix same as in the first example. The presence of noise in the second regime is meant to capture the fact that, although interest rates are very close to zero in empirical data, they are never exactly equal to zero in the post-2007 period. The above model can then be re-written as follows: \\
-
-$$
-\begin{cases}
-X_t = C(s_t) E_t X_{t+1} + D(s_t) \epsilon_t \\
-\epsilon_t = \rho \epsilon_{t-1} + \eta_t \\
-\end{cases}
-$$
-
-The regime-independent PLM and one-step ahead expectations are given by: \\
-
- $ X_t = d \epsilon_t \Rightarrow E_t X_{t+1} = d \rho \epsilon_t $.\\
-
-which yields the implied ALM:\\
-
-$$
-\begin{cases}
-X_t = C(s_t) d \rho \epsilon_t+ D(s_t) \epsilon_t \\
-\epsilon_t = \rho \epsilon_{t-1} + \eta_t \\
-\end{cases}
-$$
-
-Imposing the following moment restriction for consistency yields: \\
-
-$ \frac{ E[X_t \epsilon_t]}{E[\epsilon_t \epsilon_t]}= d  $  in PLM; this should be equal the the corresponding unconditional moment in ALM. Solving yields: \\
-
-$ d = \sum_i C_i \pi_i d \rho + \sum_i \pi_i D_i $. \\
-
-Hence 
-$$ vec(d) = (I-\rho \otimes (\sum_i C_i))^{-1} vec(\sum_i \pi_i D_i ) $$
-
-In this case the T-map is given by : \\
-
-$$ T : d \rightarrow \sum_i \pi_i C_i d \rho + \sum_i D_i \pi_i $$
-
-with Jacobian matrix  $ \frac{DT }{D d} = vec^{-1}(\rho' \otimes \sum_i \pi_i C_i) $. If all eigenvalues of this expression have real parts less than one, then the equilibrium is locally stable under least squares learning. 
-
-\newpage 
-
-\textbf{Monte Carlo Simulations: } \\
-
-Parameters: $\phi_y =0.5, \phi_{\pi}=1.5, \kappa=0.01, \beta=0.99, \sigma_y = 0.7, \sigma_{\pi} =0.3, \sigma^{I}_r =0.3, \sigma^{II}_r=0.01,\rho_y =0.5, \rho_{\pi}=0.5 , p_{11} = 0.99, p_{22} = 0.9, \gamma = 0.01$. In each case, we simulate the model 500 times with a length of 10000 periods. We then collect the final values of learning coefficients in PLM. \\
-
-
-\begin{figure}[H]
-\caption{Case (i): Least squares updating in NKPC without regime-switching: This is the standard adaptive learning case, which illustrates what we kind of distributions we should expect from the Monte Carlo experiment in the absence of Markov-switching. First row: intercept terms (should converge to zero). Second \& third rows: lagged inflation and output gap (should converge to zero). Fourth \& fifth rows: coefficients on output gap and inflation shocks (should be non-zero). The red lines correspond to the underlying REE.  }
-
-\includegraphics[scale=1.2]{MC_MSV_withoutLags.pdf}\\
-\end{figure}
-
-\newpage
-
-
-
-\begin{figure}[H]
-\caption{ Case (ii): Least squares updating NKPC with two regimes as outlined above.   First row: Intercept terms (should converge to zero). Second \& third rows: coefficients on output gap and inflation shocks (these should be non-zero). The coefficients on shocks should converge to the RPE as given above; these values are again denoted by the red lines. For these simulations, we do not include the lagged inflation and output gap in PLM (If they are included, they should converge to zeros similar to the case above). } 
-
-\includegraphics[scale=0.6]{MC_MS_MSV_withoutLags.pdf}\\
-\end{figure}
-
-
-
-\begin{figure}[H]
-\caption{Typical simulation from Markov-switching exercise above: Convergence toward the underlying RPE.} 
-\textbf{Intercept terms:} \\
-\includegraphics[scale=0.4]{MS_simulation_alphas.pdf}\\
-\textbf{Shock coefficient terms: } \\
-\includegraphics[scale=0.4]{MS_simulation_shockCoef.pdf}\\
-\end{figure}
-
-
-\end{comment}
 
 
 \end{document}

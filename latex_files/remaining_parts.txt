@@ -1,0 +1,974 @@
+\begin{figure}[H]
+\caption{\large{\textbf{AR(1)}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_AR1_regime.pdf}  
+%\includegraphics[scale=0.6]{NKPC_ree_init_AR1_regimeProb.pdf}\\
+
+\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right.}\\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_AR1_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_ree_init_AR1_betas.pdf}
+
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\caption{\large{\textbf{VAR(1)}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_regimeProb.pdf}\\
+
+\textbf{Expectation coefficient. Intercepts on the left, first-order autocorrelations on the right.}\\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_ree_init_VAR1_betas.pdf}
+
+
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\caption{\large{\textbf{MSV}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_MSV_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_ree_init_MSV_regimeProb.pdf}\\
+
+\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right}\\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_MSV_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_ree_init_MSV_betas.pdf}\\
+
+\textbf{Shock coefficients:}\\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_MSV_shockCoef.pdf}\\
+
+
+\end{figure}
+
+
+\begin{figure}[H]
+\caption{\large{\textbf{MSV-REE }}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_sigmaPoint_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_sigmaPoint_regimeProb.pdf}\\
+
+
+
+
+\end{figure}
+
+\newpage
+
+
+
+
+\section*{Impulse Responses (using the REE-based initial beliefs setup)}
+
+\begin{figure}[H]
+\caption{Impulse responses of time-varying PLMs are based on an arbitrary period.}
+\textbf{AR(1) and VAR(1) beliefs:}\\
+\includegraphics[scale=0.6]{NKPC_ree_init_AR1_IR.pdf}
+\includegraphics[scale=0.6]{NKPC_ree_init_VAR_IR.pdf}\\
+
+\textbf{MS and standard REE benchmarks: }\\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_REE_MS_IR.pdf}
+\includegraphics[scale=0.6]{NKPC_ree_init_REE_IR.pdf}\\
+
+\textbf{MSV beliefs: }\\
+
+\includegraphics[scale=0.6]{NKPC_ree_init_MSV_IR.pdf}\\
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\caption{Time-varying impulse responses, final 50 periods of the estimation sample.}
+
+\textbf{AR(1)}: \\
+\includegraphics[scale=1]{NKPC_ree_init_AR1_IR_timeVarying.pdf}\\
+\end{figure}
+
+\begin{figure}[H]
+\caption{Time-varying impulse responses, final 50 periods of the estimation sample.}
+
+\textbf{VAR(1)}: \\
+\includegraphics[scale=1]{NKPC_ree_init_VAR_IR_timeVarying.pdf}\\
+\end{figure}
+
+\begin{figure}[H]
+\caption{Time-varying impulse responses, final 50 periods of the estimation sample.}
+
+\textbf{MSV}: \\
+\includegraphics[scale=1]{NKPC_ree_init_MSV_IR_timeVarying.pdf}\\
+\end{figure}
+
+
+\subsection*{SW Estimation-I}
+
+
+\begin{table}[H]
+\caption{Estimation period: 1966:I-2016:IV}
+\begin{tabular}{llll|ll|lll}
+ & Prior &  &  & AR(1) & MSV & REE & RISE &  \\
+ \hline
+ \hline
+Param &  & Dist & Mean & Mode & Mode & Mode & Mode &  \\
+\hline
+\hline
+$\phi$ &  & Normal & 4        		& 1.02 & 3.75 & 4.87 & 6.4 \\
+$\sigma_c$ &  & Normal & 1.5		& 0.88 & 1.48 & 1.36 & 1.14 \\
+$\lambda$ &  & Beta & 0.7 			& 0.55 & 0.73 & 0.75 & 0.83 \\
+$\xi_w$ &  & Beta & 0.5 			& 0.7 & 0.75 & 0.93 & 0.95 \\
+$\sigma_l$ &  & Normal & 2 			& 2.41 & 2.18 & 1.98 & 1.74 \\
+$\xi_p$ &  & Beta & 0.5 			& 0.62 & 0.67 & 0.8 & 0.83 \\
+$\iota_w$ &  & Beta & 0.5 			& 0.43 & 0.63 & 0.84 & 0.81 \\
+$\iota_p$ &  & Beta & 0.5 			& 0.40 & 0.23 & 0.07 & 0.08 \\
+$\psi$ &  & Beta & 0.5 				& 0.49 & 0.69 & 0.83 & 0.69 \\
+$\phi_p$ &  & Normal & 1.25 		& 1.49 & 1.57 & 1.59 & 1.56 \\
+$r_{\pi}$ &  & Normal & 1.25 		& 1.64 & 1.62 & 1.5 & 1.35 \\
+$\rho$ &  & Beta & 0.75 			& 0.88 & 0.88 & 0.85 & 0.86 \\
+$r_y$ &  & Normal & 0.125 			& 0.13 & 0.12 & 0.05 & 0.06 \\
+$r_{dy}$ &  & Normal & 0.125 		& 0.14 & 0.14 & 0.17 & 0.19 \\
+$\bar{\pi}$ &  & Gamma & 0.625 		& 0.71 & 0.86 & 0.75 & 0.76 \\
+$\bar{\beta}$ &  & Gamma & 0.25 	& 0.14 & 0.19 & 0.21 & 0.25 \\
+$\bar{l}$ &  & Normal & 0 			& 0.73 & 1.59 & -1.2 & 0.15 \\
+$\bar{\gamma}$ &  & Normal & 0.4 	& 0.4 & 0.43 & 0.4 & 0.41 \\
+$\alpha$ &  & Normal & 0.3 			& 0.15 & 0.16 & 0.17 & 0.18 \\
+$\rho_a$ &  & Beta & 0.5 			& 0.98 & 0.95 & 0.96 & 0.95 \\
+$\rho_b$ &  & Beta & 0.5 			& 0.35 & 0.42 & 0.36 & 0.29 \\
+$\rho_g$ &  & Beta & 0.5 			& 0.99 & 0.99 & 0.98 & 0.98 \\
+$\rho_i$ &  & Beta & 0.5 			& 0.48 & 0.83 & 0.83 & 0.76 \\
+$\rho_r$ &  & Beta & 0.5 			& 0.15 & 0.07 & 0.08 & 0.16 \\
+$\rho_p$ &  & Beta & 0.5 			& 0.03 & 0.64 & 0.81 & 0.78 \\
+$\rho_w$ &  & Beta & 0.5 			& 0.04 & 0.19 & 0.06 & 0.05 \\
+$\rho_{ga}$ &  & Beta & 0.5 		& 0.52 & 0.5 & 0.53 & 0.51 \\
+$\eta_a$ &  & Inv. Gamma & 0.1 		& 0.46 & 0.43 & 0.44 & 0.45 \\
+$\eta_b$ &  & Inv. Gamma & 0.1 		& 0.68 & 0.21 & 0.21 & 0.23 \\
+$\eta_g$ &  & Inv. Gamma & 0.1 		& 0.48 & 0.48 & 0.49 & 0.48 \\
+$\eta_i$ &  & Inv. Gamma & 0.1 		& 1.36 & 0.36 & 0.36 & 0.34 \\
+$\eta_{r,N}$ &  & Inv. Gamma & 0.1 	& 0.21 & 0.21 & 0.21 & 0.23 \\
+$\eta_{r,ZLB}$ &  & Gamma & 0.03 	& 0.01 & 0.01 & - & 0.01 \\
+$\eta_p$ &  & Inv. Gamma & 0.1 		& 0.27 & 0.07 & 0.05 & 0.06 \\
+$\eta_w$ &  & Inv. Gamma & 0.1 		& 0.73 & 0.35 & 0.37 & 0.37 \\
+$gain$ &  & Gamma & 0.035 			& 0.012 & 0.001 & - &  -\\
+$1-p_{11}$ &  & Beta & 0.1 			& 0.02 & 0.02 & - & 0.01 \\
+$1-p_{22}$ &  & Beta & 0.1 			& 0.13 & 0.13 & - & 0.29 \\
+$\bar{r_{zlb}}$ &  & Normal & 0.05 	& 0.03 & 0.03 & - & 0.03 \\
+ &  &  &  &  &  &  &  \\
+Laplace &  &  &  & -1135 & -1168 & -1213 & -1171
+\end{tabular}
+\end{table}
+
+
+\subsection*{SW Estimations-II}
+
+\begin{table}[H]
+\caption{Estimation period: 1985:I-2016:IV}
+\begin{tabular}{llll|ll|lll}
+ & Prior &  &  & AR(1) & MSV & REE & RISE &  \\
+ \hline
+ \hline
+Param &  & Dist & Mean & Mode & Mode & Mode & Mode &  \\
+\hline
+\hline
+$\phi$ &  & Normal & 4 			& 0.86 & 5 & 6.72 & 4.91 &  \\
+$\sigma_c$ &  & Normal & 1.5 	& 0.35 & 0.82 & 1.93 & 1.12 &  \\
+$\lambda$ &  & Beta & 0.7 		& 0.6 & 0.82 & 0.7 & 0.55 &  \\
+$\xi_w$ &  & Beta & 0.5 		& 0.63 & 0.69 & 0.8 & 0.84 &  \\
+$\sigma_l$ &  & Normal & 2 		& 2.14 & 2.52 & 1.08 & 1.65 &  \\
+$\xi_p$ &  & Beta & 0.5 		& 0.77 & 0.76 & 0.83 & 0.92 &  \\
+$\iota_w$ &  & Beta & 0.5 		& 0.48 & 0.59 & 0.5 & 0.46 &  \\
+$\iota_p$ &  & Beta & 0.5 		& 0.27 & 0.42 & 0.13 & 0.19 &  \\
+$\psi$ &  & Beta & 0.5 			& 0.66 & 0.82 & 0.88 & 0.8 &  \\
+$\phi_p$ &  & Normal & 1.25 	& 1.31 & 1.48 & 1.51 & 1.4 &  \\
+$r_{\pi}$ &  & Normal & 1.25 	& 1.42 & 1.49 & 1.63 & 1.48 &  \\
+$\rho$ &  & Beta & 0.75 		& 0.91 & 0.9 & 0.87 & 0.86 &  \\
+$r_y$ &  & Normal & 0.125 		& 0.17 & 0.07 & 0.07 & 0.24 &  \\
+$r_{dy}$ &  & Normal & 0.125 	& 0.11 & 0.07 & 0.07 & 0.09 &  \\
+$\bar{\pi}$ &  & Gamma & 0.625 	& 0.68 & 0.61 & 0.67 & 0.61 &  \\
+$\bar{\beta}$ &  & Gamma & 0.25 & 0.2 & 0.27 & 0.21 & 0.25 &  \\
+$\bar{l}$ &  & Normal & 0 		& 3.03 & 5.69 & 1.24 & 3.82 &  \\
+$\bar{\gamma}$ &  & Normal & 0.4& 0.45	 & 0.5 & 0.34 & 0.47 &  \\
+$\alpha$ &  & Normal & 0.3 		& 0.11 & 0.15 & 0.17 & 0.15 &  \\
+$\rho_a$ &  & Beta & 0.5 		& 0.99 & 0.99 & 0.99 & 0.98 &  \\
+$\rho_b$ &  & Beta & 0.5 		& 0.60 & 0.58 & 0.34 & 0.96 &  \\
+$\rho_g$ &  & Beta & 0.5 		& 0.99 & 0.99 & 0.95 & 0.98 &  \\
+$\rho_i$ &  & Beta & 0.5 		& 0.40 & 0.79 & 0.85 & 0.73 &  \\
+$\rho_r$ &  & Beta & 0.5 		& 0.66 & 0.52 & 0.46 & 0.48 &  \\
+$\rho_p$ &  & Beta & 0.5 		& 0.03 & 0.61 & 0.55 & 0.34 &  \\
+$\rho_w$ &  & Beta & 0.5 		& 0.07 & 0.19 & 0.09 & 0.09 &  \\
+$\rho_{ga}$ &  & Beta & 0.5 	& 0.39 & 0.4 & 0.45 & 0.4 &  \\
+$\eta_a$ &  & Inv. Gamma & 0.1 	& 0.4 & 0.38 & 0.39 & 0.05 &  \\
+$\eta_b$ &  & Inv. Gamma & 0.1 	& 0.8 & 0.16 & 0.17 & 0.37 &  \\
+$\eta_g$ &  & Inv. Gamma & 0.1 			& 0.38 & 0.39 & 0.4 & 0.3 &  \\
+$\eta_i$ &  & Inv. Gamma & 0.1 			& 1.15 & 0.31 & 0.29 & 0.09 &  \\
+$\eta_{r,N}$ &  & Inv. Gamma & 0.1 		& 0.09 & 0.08 & 0.08 & 0.09 &  \\
+$\eta_{r,ZLB}$ &  & Gamma & 0.03 		& 0.01 & 0.01 & - & - &  \\
+$\eta_p$ &  & Inv. Gamma & 0.1			& 0.18 & 0.07 & 0.08 & 0.11 &  \\
+$\eta_w$ &  & Inv. Gamma & 0.1 			& 0.86 & 0.4 & 0.43 & 0.42 &  \\
+$gain$ &  & Gamma & 0.035 				& 0.013 & 0.008 & - & - &  \\
+$1-p_{11}$ &  & Beta & 0.1 				& 0.03 & 0.03 &-  & 0.01 &  \\
+$1-p_{22}$ &  & Beta & 0.1 				& 0.13 & 0.13 & - & 0.28 &  \\
+$\bar{r_{zlb}}$ &  & Normal & 0.05 		& 0.04 & 0.03 & - & - & - \\
+ &  &  &  &  &  &  &  &  \\
+Laplace &  &  &  & -515 & -566 & -583 & -552 & 
+\end{tabular}
+\end{table}
+
+\subsection*{Figures-AR(1) learning (Based on Full Sample Results)}
+\begin{figure}[H]
+\textbf{Filtered ZLB regime probability:}\\
+\includegraphics[scale=0.5]{sw_ar1_regimeProb.pdf}\\
+\textbf{Eigenvalues and Projection Facility}\\
+\includegraphics[scale=0.5]{sw_ar1_eigenvalues.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Intercept coefficients }\\
+\includegraphics[scale=0.5]{sw_ar1_learning_alphas.pdf}
+\textbf{Persistence coefficients:}\\
+\includegraphics[scale=0.5]{sw_ar1_learning_betas.pdf}
+\end{figure}
+
+
+
+\subsection*{Figures-MSV learning (Based on Full Sample Results)}
+\begin{figure}[H]
+\textbf{Filtered ZLB regime probability:}\\
+\includegraphics[scale=0.5]{sw_msv_regimeProb.pdf}\\
+\textbf{Projection Facility active or not:}\\
+\includegraphics[scale=0.5]{sw_msv_eigenvalues.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Intercept coefficients:}\\
+\includegraphics[scale=0.3]{sw_msv_learning_alphas.pdf}\\
+\textbf{Learning coefficient on lagged inflation:}\\
+\includegraphics[scale=0.3]{sw_msv_learning_laggedInfl.pdf}\\
+\textbf{Learning coefficient on  b-shock:}\\
+\includegraphics[scale=0.3]{sw_msv_learning_bShock.pdf}\\
+\end{figure}
+
+
+\begin{figure}[H]
+\textbf{In-Sample forecasts (forecasting step of the filter): MSV learning}\\
+\includegraphics[height=\textheight,width=\textwidth]{sw_msv_forecast_errors.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{In-Sample forecasts (forecasting step of the filter): AR(1) learning}\\
+\includegraphics[height=\textheight,width=\textwidth]{sw_ar1_forecast_errors.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{In-Sample forecasts (forecasting step of the filter): RISE }\\
+\includegraphics[height=\textheight,width=\textwidth]{rise_forecast_errors.pdf}
+\end{figure}
+
+\begin{figure}[H]
+\textbf{In-Sample forecasts (forecasting step of the filter): REE}\\
+\includegraphics[height=\textheight,width=\textwidth]{REE_forecast_errors.pdf}
+\end{figure}
+
+
+\subsection*{Impulse Responses- Comparison with the REE benchmark: Normal regime and zlb impulse responses are based on 2006Q1 and 2011Q1 respectively}
+
+
+
+
+\begin{figure}[H]
+\caption{Comparison of AR(1) learning IRFs with RISE IRFs. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{AR1_impresp_cons_riseComp.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{AR1_impresp_inv_riseComp.pdf}
+
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{AR1_impresp_output_riseComp.pdf}
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{AR1_impresp_pinf_riseComp.pdf}
+
+\end{figure}
+
+
+\begin{figure}[H]
+\caption{Comparison of MSV learning IRFs with RISE IRFs. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{MSV_impresp_cons_riseComp.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{MSV_impresp_inv_riseComp.pdf}
+
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{MSV_impresp_output_riseComp.pdf}
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{MSV_impresp_pinf_riseComp.pdf}
+
+\end{figure}
+
+\subsection*{Implied time variation in IRFs under learning: AR(1) case}
+
+\begin{figure}[H]
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{AR1_impresp_cons_3d.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{AR1_impresp_inv_3d.pdf}
+
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{AR1_impresp_output_3d.pdf}
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{AR1_impresp_pinf_3d.pdf}
+
+\end{figure}
+
+
+\subsection*{Implied time variation in IRFs under learning: MSV case}
+
+\begin{figure}[H]
+\textbf{Consumption:}\\
+\includegraphics[scale=0.5]{MSV_impresp_cons_3d.pdf}
+\textbf{Investment:}\\
+\includegraphics[scale=0.5]{MSV_impresp_inv_3d.pdf}
+
+\end{figure}
+
+\begin{figure}[H]
+\textbf{Output:}\\
+\includegraphics[scale=0.5]{MSV_impresp_output_3d.pdf}
+\textbf{Inflation:}\\
+\includegraphics[scale=0.5]{MSV_impresp_pinf_3d.pdf}
+
+\end{figure}
+
+
+\section{Conclusions}
+
+
+
+
+\section{Bibliography}
+
+\section{Appendix}
+
+\section*{Estimating the Baseline NKPC: Optimized initial beliefs} 
+
+\begin{table}[H]
+\begin{tabular}{l||lll||l|l|l|ll}
+Parameter & Prior &  &  & Posterior &  &  &  &  \\
+\hline
+\hline
+ &  &  &  & AR(1) & VAR(1) & MSV & REE-MS & REE \\
+\hline
+\hline
+ & Dist & Mean & St. Dev & Mode & Mode & Mode & Mode & Mode  \\
+$\bar{y}$ & Normal & 0 & 0.25 & -0.15 & 0.05 & -0.35 & -0.17 & 0.24 \\
+$\bar{\pi}$ & Gamma & 0.62 & 0.25 & 0.49 & 0.96 & 0.69 & 0.39 & 0.17 \\
+$\bar{r_1}$ & Gamma & 1 & 0.25 & 1.03 & 1.34 & 0.88 & 0.68 & 1.11 \\
+$\kappa$ & Beta & 0.3 & 0.15 & 0.03 & 0.03 & 0.038 & 0.004 & 0.006 \\
+$\tau$ & Gamma & 2 & 0.5 & 2.52 & 3.11 & 2.6 & 4.73 & 4.57 \\
+$\phi_{\pi}$ & Gamma & 1.5 & 0.25 & 1.25 & 1.32 & 1.55 & 1.56 & 1.42 \\
+$\phi_y$ & Gamma & 0.5 & 0.25 & 0.59 & 0.36 & 0.37 & 0.27 & 0.27 \\
+$\rho_y$ & Beta & 0.5 & 0.2 & 0.3 & 0.39 & 0.91 & 0.92 & 0.93 \\
+$\rho_{\pi}$ & Beta & 0.5 & 0.2 & 0.05 & 0.05 & 0.81 & 0.92 & 0.89 \\
+$\rho_r$ & Beta & 0.5 & 0.2 & 0.95 & 0.97 & 0.89 & 0.8 & 0.8 \\
+$\eta_y$ & Inv. Gamma & 0.1 & 2 & 0.76 & 0.75 & 0.09 & 0.1 & 0.1 \\
+$\eta_{\pi}$ & Inv. Gamma & 0.1 & 2 & 0.26 & 0.26 & 0.04 & 0.03 & 0.04 \\
+$\eta_{r_1}$ & Inv. Gamma & 0.1 & 2 & 0.32 & 0.33 & 0.32 & 0.32 & 0.3 \\
+$\bar{r_2}$ & Normal & 0 & 0.25 & 0.04 & 0.04 & 0.03 & 0.03 & - \\
+$\eta_{r_2}$ & Inv. Gamma & 0.01 & 0.2 & 0.02 & 0.02 & 0.01 & 0.01 & - \\
+$1-p_{11}$ & Beta & 0.1 & 0.05 & 0.02 & 0.02 & 0.02 & 0.02 & - \\
+$1-p_{22}$ & Beta & 0.3 & 0.1 & 0.1 & 0.1 & 0.13 & 0.17 & - \\
+$gain$ & Gamma & 0.035 & 0.015 & 0.04 & 0.0382 & 0.0085 & - & - \\
+\hline
+\hline
+Laplace &  &  &  & -294.123 & -308.92 & -282.62 & -317.02 & -368.49
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\caption{\large{\textbf{AR(1)}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_optim_init_AR1_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_optim_init_AR1_regimeProb.pdf}\\
+
+\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right.}\\
+
+\includegraphics[scale=0.6]{NKPC_optim_init_AR1_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_optim_init_AR1_betas.pdf}
+
+
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\caption{\large{\textbf{VAR(1)}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_optim_init_VAR1_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_optim_init_VAR1_regimeProb.pdf}\\
+
+\textbf{Expectation coefficient. Intercepts on the left, first-order autocorrelations on the right.}\\
+
+\includegraphics[scale=0.6]{NKPC_optim_init_VAR1_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_optim_init_VAR1_betas.pdf}
+
+
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\caption{\large{\textbf{MSV}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_optim_init_MSV_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_optim_init_MSV_regimeProb.pdf}\\
+
+\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right}\\
+
+\includegraphics[scale=0.6]{NKPC_optim_init_MSV_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_optim_init_MSV_betas.pdf}\\
+
+\textbf{Shock coefficients:}\\
+
+\includegraphics[scale=0.6]{NKPC_optim_init_MSV_shockCoef.pdf}\\
+
+
+\end{figure}
+
+
+\section*{Estimating the Baseline NKPC: Filter-based initial beliefs} 
+
+
+
+\begin{table}[H]
+\begin{tabular}{l||lll||l|l|l|ll}
+Parameter & Prior &  &  & Posterior &  &  &  &  \\
+\hline
+\hline
+ &  &  &  & AR(1) & VAR(1) & MSV & REE-MS & REE \\
+\hline
+\hline
+ & Dist & Mean & St. Dev & Mode & Mode & Mode & Mode &  \\
+$\bar{y}$ & Normal & 0 & 0.25 & -0.16 & -0.01 & -0.26 & -0.17 & 0.24 \\
+$\bar{\pi}$ & Gamma & 0.62 & 0.25 & 0.47 & 0.46 & 0.54 & 0.39 & 0.17 \\
+$\bar{r_1}$ & Gamma & 1 & 0.25 & 0.99 & 1.03 & 0.86 & 0.68 & 1.11 \\
+$\kappa$ & Beta & 0.3 & 0.15 & 0.03 & 0.0081 & 0.006 & 0.004 & 0.006 \\
+$\tau$ & Gamma & 2 & 0.5 & 2.51 & 2.92 & 2.79 & 4.73 & 4.57 \\
+$\phi_{\pi}$ & Gamma & 1.5 & 0.25 & 1.25 & 1.26 & 1.52 & 1.56 & 1.42 \\
+$\phi_y$ & Gamma & 0.5 & 0.25 & 0.59 & 0.56 & 0.33 & 0.27 & 0.27 \\
+$\rho_y$ & Beta & 0.5 & 0.2 & 0.3 & 0.52 & 0.92 & 0.92 & 0.93 \\
+$\rho_{\pi}$ & Beta & 0.5 & 0.2 & 0.05 & 0.09 & 0.9 & 0.92 & 0.89 \\
+$\rho_r$ & Beta & 0.5 & 0.2 & 0.95 & 0.96 & 0.87 & 0.8 & 0.8 \\
+$\eta_y$ & Inv. Gamma & 0.1 & 2 & 0.76 & 0.74 & 0.12 & 0.1 & 0.1 \\
+$\eta_{\pi}$ & Inv. Gamma & 0.1 & 2 & 0.26 & 0.27 & 0.04 & 0.03 & 0.04 \\
+$\eta_{r_1}$ & Inv. Gamma & 0.1 & 2 & 0.32 & 0.32 & 0.32 & 0.32 & 0.3 \\
+$\bar{r_2}$ & Normal & 0 & 0.25 & 0.04 & 0.04 & 0.03 & 0.03 & - \\
+$\eta_{r_2}$ & Inv. Gamma & 0.01 & 0.2 & 0.02 & 0.02 & 0.01 & 0.01 & - \\
+$1-p_{11}$ & Beta & 0.1 & 0.05 & 0.02 & 0.02 & 0.02 & 0.02 & - \\
+$1-p_{22}$ & Beta & 0.3 & 0.1 & 0.1 & 0.1 & 0.13 & 0.17 & - \\
+$gain$ & Gamma & 0.035 & 0.015 & 0.0421 & 0.0064 & 0.0075 & - & - \\
+ &  &  &  &  &  &  &  &  \\
+Laplace &  &  &  & -294.24 & -307.34 & -290 & -317.02 & -368.49
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\caption{\large{\textbf{AR(1)}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_filter_init_AR1_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_filter_init_AR1_regimeProb.pdf}\\
+
+\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right.}\\
+
+\includegraphics[scale=0.6]{NKPC_filter_init_AR1_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_filter_init_AR1_betas.pdf}
+
+
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\caption{\large{\textbf{VAR(1)}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_filter_init_VAR1_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_filter_init_VAR1_regimeProb.pdf}\\
+
+\textbf{Expectation coefficient. Intercepts on the left, first-order autocorrelations on the right.}\\
+
+\includegraphics[scale=0.6]{NKPC_filter_init_VAR1_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_filter_init_VAR1_betas.pdf}
+
+
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+\caption{\large{\textbf{MSV}}}
+\vspace{5 mm}
+
+\textbf{Interest rates and regime probability:} \\
+
+\includegraphics[scale=0.6]{NKPC_filter_init_MSV_regime.pdf}
+\includegraphics[scale=0.6]{NKPC_filter_init_MSV_regimeProb.pdf}\\
+
+\textbf{Expectation coefficients. Intercepts on the left, first-order autocorrelations on the right}\\
+
+\includegraphics[scale=0.6]{NKPC_filter_init_MSV_alphas.pdf}
+\includegraphics[scale=0.6]{NKPC_filter_init_MSV_betas.pdf}\\
+
+\textbf{Shock coefficients:}\\
+
+\includegraphics[scale=0.6]{NKPC_filter_init_MSV_shockCoef.pdf}\\
+
+
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+Consider the baseline NKPC: \\
+
+$$
+\begin{cases} 
+x_t = E_t x_{t+1}  -\frac{1}{\tau}(r_t - E_t \pi_{t+1})+ \epsilon_{x,t} \\
+\pi_t = \beta E_t \pi_{t+1} + \gamma x_t + \epsilon_{\pi,t} \\
+r_t = max\{ 0, \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta_{r,t}\} \\
+\epsilon_{y,t} = \rho_y \epsilon_{y,t-1} + \eta_{y,t} \\ 
+\epsilon_{\pi,t} = \rho_{\pi} \epsilon_{\pi,t-1} + \eta_{\pi,t} \\
+\end{cases} 
+$$
+
+\noindent
+Monetary policy rule can be re-written as follows: \\
+
+$r_t= \begin{cases} \textrm{0 if ZLB binding,} \\  \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta_{r,t} \textrm{\hspace{3 mm} otherwise.}    \end{cases}$ \\
+
+\vspace{5 mm}
+\noindent
+Denoting by $s_t$ the monetary policy regime, we then obtain the following generic form: \\
+
+
+\begin{equation}
+\begin{cases}
+A(r_t) X_t = B(r_t) X_{t-1} + C(r_t) E_{t} X_{t+1} D(r_t) \epsilon_t, \\
+
+E_t X_{t+1} = \alpha_t + \beta_t^2 (X_{t-1} - \alpha_t)  \\
+
+Y_t =E(r_t) +  F(r_t) X_t + H(r_t). \\ 
+\end{cases}
+\end{equation}
+
+\vspace{10 mm}
+\noindent
+Beliefs are assumed as a univariate AR(1) rule for the time being, but can be generalized to any other PLM. The system can then be re-written as: \\
+
+\begin{equation}
+\begin{cases} 
+X_t = \gamma_{2,t}(r_t) + \gamma_{1,t}(r_t) X_{t-1} + \gamma_3(r_t) \epsilon_t, \\
+
+\gamma_{1,t} = A(r_t)^{-1} (B(r_t)+ C(r_t) \beta_t^2),  \\
+
+\gamma_{2,t} = A(r_t)^{-1}C(r_t)(I-\beta_t^2) \alpha_t \\
+
+\gamma_3 = A(r_t)^{-1} D(r_t). \\
+\end{cases}
+\end{equation}
+
+\newpage
+\textbf{\underline{Filtering:}} \\
+
+\vspace{5 mm}
+\noindent
+$\hat{S}_{1|1}, \hat{P}_{1|1}, \alpha_1, \beta_1 $, and  \\
+$\gamma_{1,1}(r_t)= A(r_t)^{-1}(B(r_t)+C(r_t) \beta_1^2), \gamma_{2,1}(r_t) A(r_t)^{-1}C(r_t)(I - \beta_1^2)\alpha_1, \gamma_{3,1}(r_t)=A(r_t)^{-1}D(r_t) $ are given.\\
+\begin{equation}
+$$
+FOR $t=[2:T]$ \\
+
+\hspace{5 mm}     FOR $r_t = [1: R]$\\
+
+\vspace{3 mm}
+\noindent
+\small{\underline{Update the beliefs \& system matrices:}} \\
+
+\vspace{3 mm}
+\noindent
+$(\alpha_t, \beta_t) = update(\hat{S}_{t-1|t-1},\alpha_{t-1},\beta_{t-1})$ (according to PLM) \\
+$\gamma_{1,t}(r_t)= A(r_t)^{-1}(B(r_t)+C(r_t) \beta_t^2), \\
+\gamma_{2,t}(r_t) A(r_t)^{-1}C(r_t)(I - \beta_t^2)\alpha_t,\\
+ \gamma_{3,t}(r_t)=A(r_t)^{-1}D(r_t) $.\
+
+\vspace{3 mm}
+\noindent
+\small{\underline{Forecasting:}} \\
+
+\vspace{3 mm}
+\noindent
+$S_{t|t-1}(r_t)=\gamma_1(r_t) \hat{S}_{t-1|t-1} + \gamma_2(r_t);$ \\
+$P_{t|t-1}(r_t) = \gamma_1(r_t) \hat{P}_{t-1|t-1} \gamma_1(r_t)^{T}+\gamma_3(r_t) \Sigma(r_t) \gamma_3(r_t)^{T}$;\\
+
+\vspace{3 mm}
+
+\noindent
+\small{\underline{Forecast errors \& error variances:}} \\
+\vspace{3 mm}
+
+\noindent
+$v(r_t)=y_t-F(r_t)S_{t|t-1}(r_t);$\\
+$Fe(r_t)=F(r_t) P_{t|t-1}F(r_t)^{T}+H;$\\
+\vspace{3 mm}
+
+\noindent
+\small{\underline{Marginal Likelihoods:}} \\
+
+\vspace{3 mm}
+
+\noindent
+$ml_t(r_t)= -\frac{1}{2}L \hspace{2 mm} log(2 \pi) -\frac{1}{2} log(| \Sigma|)-\frac{1}{2} v(r_t)^{T}\Sigma(r_t)^{-1}v(r_t);$\\
+\vspace{3 mm}
+
+\noindent
+\small{\underline{Kalman gain:}} \\
+
+\vspace{3 mm}
+
+\noindent
+$K_t(r_t)=P_{t|t-1}(r_t)F(r_t)^{T}(F(r_t) P_{t|t-1}(r_t)F(r_t)^{T})^{-1};$\\
+\vspace{3 mm}
+
+\noindent
+\small{\underline{Updating:}} \\
+
+\vspace{3 mm}
+
+\noindent
+$S_{t|t}(r_t)=S_{t|t-1}(r_t)+K_t(r_t)v(r_t);$\\
+$P_{t|t})r_t)=P_{t|t-1}(r_t)-K_t(r_t)(F(r_t)P_{t|t-1}(r_t));$\\
+
+\vspace{5 mm}
+\hspace{5 mm}    END\\ 
+
+\vspace{5 mm}
+\noindent
+$s(r_t)= \begin{cases} \textrm{1 if  } r_t= argmax_{\hat{r}_t }\hspace{3 mm}  ml_t(\hat{r}_t),  \\ \textrm{0 otherwise.} \end{cases}$ \\
+
+\vspace{3 mm}
+
+\noindent
+\small{\underline{Collapsing:}} \\
+
+\vspace{3 mm}
+
+\noindent
+$\hat{S}_{t|t}= \sum_{r_t}^R s(r_t) S_{t|t}(r_t);$\\
+$\hat{P}_{t|t}=\sum_{r_t}^R s(r_t) P_{t|t}(r_t);$\\
+
+\vspace{3 mm}
+\noindent
+END 
+$$
+\end{equation}
+
+\newpage
+
+\textbf{\underline{Monte Carlo Simulations with the Baseline NKPC}}\\
+
+\vspace{5 mm}
+
+\small{\textbf{\underline{DGP:}}}\\
+
+$$
+\begin{cases} 
+x_t = E_t x_{t+1}  -\frac{1}{\tau}(r_t - E_t \pi_{t+1})+ \epsilon_{x,t} \\
+\pi_t = \beta E_t \pi_{t+1} + \gamma x_t + \epsilon_{\pi,t} \\
+r_t = max\{ 0, \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta_{r,t}\} \\
+\epsilon_{y,t} = \rho_y \epsilon_{y,t-1} + \eta_{y,t} \\ 
+\epsilon_{\pi,t} = \rho_{\pi} \epsilon_{\pi,t-1} + \eta_{\pi,t} \\
+\end{cases} 
+$$
+
+\noindent
+Parameters in normal regime: $ \gamma=0.01, \tau=3, \phi_x = 0.5, \phi_{\pi}= 1.5, \rho_x=0.5, \rho_{\pi}=0.5, \rho_r = 0.9, \eta_x=0.7, \eta_r=0.3,\eta_{\pi}=0.3$ \\
+Parameters in ZLB regime: $ \phi_x = 0, \phi_{\pi} = 0, \rho_r = 0 , \eta_{\pi}=0.03$\\
+
+
+
+\small{\textbf{\underline{Accuracy Rates:}}}\\
+
+\noindent
+Normalized absolute mean error (NAME): $\frac{\frac{\sum_{t=1}^N |x_t -\hat{x}_t | }{N}}{max(x_t)-min(x_t)}$. \\
+Normalized root mean squared error (NRMSE): $\frac{\sqrt{\frac{\sum_{t=1}^N (x_t - \hat{x}_t )^2}{N}}}{max(x_t)-min(x_t)}$.\\
+
+\begin{table}[H]
+
+
+\begin{tabular}{l|ll|ll}
+
+state & Correct Init. & & Random Init.  \\
+& NAME & NRMSE & NAME & NRMSE\\
+\hline
+$\epsilon_y$ & .9992 & 	.9987 & .9751 & .9560 \\
+$\epsilon_{\pi}$ & 1 & 1 & .9594 & .9243 \\
+$\alpha_y$ & .9989 & .9985 & .9299 & 8878 \\
+$\beta_y$ & .9979 & .9965 & .9623 & .9065  \\
+$\alpha_{\pi}$ & 1 & 1 & .8281 & .7231 \\
+$\beta_{\pi}$ & .9999 & .9999 & .9372 & .8638 \\
+s & .9207 & -& .8961 & - \\
+
+
+\end{tabular}
+\end{table}
+
+\newpage
+
+\begin{figure}[H]
+
+\small{\textbf{Plots from a typical simulation with correctly specified initial states \& beliefs:}}\\
+\small{\textbf{(Filtered and actual beliefs, states and state probabilities.)}}\\
+
+\includegraphics[scale=0.45]{MC_correctInit_beliefs.pdf} 
+\includegraphics[scale=0.45]{MC_correctInit_states.pdf} \\
+\includegraphics[scale=0.9]{MC_correctInit_stateProbabilities.pdf}\\
+\end{figure}
+
+
+
+\begin{figure}[H]
+\small{\textbf{Plots from a typical simulation with randomized  initial states \& beliefs:}}\\
+
+\includegraphics[scale=0.45]{MC_randomInit_beliefs.pdf} 
+\includegraphics[scale=0.45]{MC_randomInit_states.pdf} \\
+\includegraphics[scale=0.9]{MC_randomInit_stateProbabilities.pdf}\\
+
+\end{figure}
+\newpage
+
+\textbf{\underline{Filtering with real data: ($1966:I-2016:IV$ U.S)}}\\
+
+\begin{figure}[H]
+
+{Decreasing gain learning:}  \\
+
+
+\includegraphics[]{NKPC_filteredRegimes_DGL.pdf}\\
+\includegraphics[]{NKPC_filteredBeliefs_DGL.pdf}\\
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+	{Constant gain learning $ =0.05$:} \\
+
+
+\includegraphics[]{NKPC_filteredRegimes_CGL.pdf}\\
+\includegraphics[]{NKPC_filteredBeliefs_CGL.pdf}\\
+\end{figure}
+
+
+\newpage
+
+
+
+\begin{figure}
+\textbf{\underline{Simulations of the Normal and \& ZLB Regimes:}} \\
+
+
+{Normal Regime is E-stable:} \\
+
+\includegraphics[scale=1]{simulation_normalRegime.pdf} \\
+
+{ZLB Regime is not E-stable: } \\
+
+\includegraphics[scale=1]{simulation_zlbRegime.pdf}\\
+\end{figure}
+
+
+
+
+\subsection*{Markov Switching Filter with two lags}
+
+\begin{figure}[H]
+\includegraphics[]{MC_MS_small_states.pdf}\\
+
+\end{figure}
+
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{MC_MS_small_regime1.pdf}
+\includegraphics[scale=0.5]{MC_MS_small_regime2.pdf}\\
+
+\end{figure}
+
+\newpage
+
+
+
+\newpage
+
+\subsection*{Example 2: 3-equation model without lagged endogenous variables} 
+
+Now consider the baseline 3-equation NKPC model along the lines of Woodford (2003), where the interest rate is subject to the ZLB constraint. This example extends the results of the previous one to the multi-dimensional case, where we can still analytically compute the underlying Restricted Perceptions Equilibrium in the absence of lagged endogenous variables.\\
+
+$$
+\begin{cases} 
+x_t = E_t x_{t+1}  -\frac{1}{\tau}(r_t - E_t \pi_{t+1})+ \epsilon_{x,t} \\
+\pi_t = \beta E_t \pi_{t+1} + \kappa x_t + \epsilon_{\pi,t} \\
+r_t = max\{ 0, \phi_x x_t + \phi_{\pi} \pi_t + \eta_{r,t}\} \\
+\epsilon_{y,t} = \rho_y \epsilon_{y,t-1} + \eta_{y,t} \\ 
+\epsilon_{\pi,t} = \rho_{\pi} \epsilon_{\pi,t-1} + \eta_{\pi,t} \\
+\end{cases} 
+$$
+
+We can re-cast the interest rate rule above as a Markov process with two regimes, where: \\
+
+$$
+\begin{cases}
+r_t (s_t=1) = \rho r_{t-1} +(1-\rho) (\phi_x x_t + \phi_{\pi} \pi_t) + \eta^{1}_{r,t}\} 
+r_t (s_t=2) =\eta^{2}_{r,t}\} 
+\end{cases}
+$$
+
+with the transition matrix same as in the first example. The presence of noise in the second regime is meant to capture the fact that, although interest rates are very close to zero in empirical data, they are never exactly equal to zero in the post-2007 period. The above model can then be re-written as follows: \\
+
+$$
+\begin{cases}
+X_t = C(s_t) E_t X_{t+1} + D(s_t) \epsilon_t \\
+\epsilon_t = \rho \epsilon_{t-1} + \eta_t \\
+\end{cases}
+$$
+
+The regime-independent PLM and one-step ahead expectations are given by: \\
+
+ $ X_t = d \epsilon_t \Rightarrow E_t X_{t+1} = d \rho \epsilon_t $.\\
+
+which yields the implied ALM:\\
+
+$$
+\begin{cases}
+X_t = C(s_t) d \rho \epsilon_t+ D(s_t) \epsilon_t \\
+\epsilon_t = \rho \epsilon_{t-1} + \eta_t \\
+\end{cases}
+$$
+
+Imposing the following moment restriction for consistency yields: \\
+
+$ \frac{ E[X_t \epsilon_t]}{E[\epsilon_t \epsilon_t]}= d  $  in PLM; this should be equal the the corresponding unconditional moment in ALM. Solving yields: \\
+
+$ d = \sum_i C_i \pi_i d \rho + \sum_i \pi_i D_i $. \\
+
+Hence 
+$$ vec(d) = (I-\rho \otimes (\sum_i C_i))^{-1} vec(\sum_i \pi_i D_i ) $$
+
+In this case the T-map is given by : \\
+
+$$ T : d \rightarrow \sum_i \pi_i C_i d \rho + \sum_i D_i \pi_i $$
+
+with Jacobian matrix  $ \frac{DT }{D d} = vec^{-1}(\rho' \otimes \sum_i \pi_i C_i) $. If all eigenvalues of this expression have real parts less than one, then the equilibrium is locally stable under least squares learning. 
+
+\newpage 
+
+\textbf{Monte Carlo Simulations: } \\
+
+Parameters: $\phi_y =0.5, \phi_{\pi}=1.5, \kappa=0.01, \beta=0.99, \sigma_y = 0.7, \sigma_{\pi} =0.3, \sigma^{I}_r =0.3, \sigma^{II}_r=0.01,\rho_y =0.5, \rho_{\pi}=0.5 , p_{11} = 0.99, p_{22} = 0.9, \gamma = 0.01$. In each case, we simulate the model 500 times with a length of 10000 periods. We then collect the final values of learning coefficients in PLM. \\
+
+
+\begin{figure}[H]
+\caption{Case (i): Least squares updating in NKPC without regime-switching: This is the standard adaptive learning case, which illustrates what we kind of distributions we should expect from the Monte Carlo experiment in the absence of Markov-switching. First row: intercept terms (should converge to zero). Second \& third rows: lagged inflation and output gap (should converge to zero). Fourth \& fifth rows: coefficients on output gap and inflation shocks (should be non-zero). The red lines correspond to the underlying REE.  }
+
+\includegraphics[scale=1.2]{MC_MSV_withoutLags.pdf}\\
+\end{figure}
+
+\newpage
+
+
+
+\begin{figure}[H]
+\caption{ Case (ii): Least squares updating NKPC with two regimes as outlined above.   First row: Intercept terms (should converge to zero). Second \& third rows: coefficients on output gap and inflation shocks (these should be non-zero). The coefficients on shocks should converge to the RPE as given above; these values are again denoted by the red lines. For these simulations, we do not include the lagged inflation and output gap in PLM (If they are included, they should converge to zeros similar to the case above). } 
+
+\includegraphics[scale=0.6]{MC_MS_MSV_withoutLags.pdf}\\
+\end{figure}
+
+
+
+\begin{figure}[H]
+\caption{Typical simulation from Markov-switching exercise above: Convergence toward the underlying RPE.} 
+\textbf{Intercept terms:} \\
+\includegraphics[scale=0.4]{MS_simulation_alphas.pdf}\\
+\textbf{Shock coefficient terms: } \\
+\includegraphics[scale=0.4]{MS_simulation_shockCoef.pdf}\\
+\end{figure}
+
+
+\end{comment}
+
+
+
+\begin{comment}
+
+
+\section{NKPC Estimation-Monte Carlo Exercise}
+
+Before moving onto estimation with real historical data, we first check the performance of the filter on a short simulated dataset of 200 periods based on the 3-equation NKPC model. The length of the dataset is chosen to be close to our historical dataset of the U.S data over period 1966-I:2016:IV. The red lines denote the true parameter values of the simulation, accompanied by the resulting distributions of the Metropolis-Hastings MCMC with 100000 draws. We observe small biases with the exit probability of the ZLB regime, and 
+the gain parameter of the expectations updating. However, the filter performs reasonably well overall, and all other parameters have the true parameter in their estimated 90 \% HPD interval.\\
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{nkpc_mc_posteriors.pdf}\\
+\end{figure}
+
+\end{comment}

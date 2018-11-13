@@ -1,0 +1,2095 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6700 64-bit) (preloaded format=pdflatex 2018.7.18)  13 NOV 2018 10:51
+entering extended mode
+**"./adaptive learning with occasionally binding constraints.tex"
+("adaptive learning with occasionally binding constraints.tex"
+LaTeX2e <2018-04-01> patch level 5
+Babel <3.20> and hyphenation patterns for 75 language(s) loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2018/04/06 v1.3b Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count88
+\uc@combtoks=\toks16
+\uc@combtoksb=\toks17
+\uc@temptokena=\toks18
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\colortbl\colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
+\col@sep=\dimen105
+\ar@mcellbox=\box26
+\extrarowheight=\dimen106
+\NC@list=\toks20
+\extratabsurround=\skip43
+\backup@length=\skip44
+\ar@cellbox=\box27
+)
+\everycr=\toks21
+\minrowclearance=\skip45
+)
+\rownum=\count89
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count90
+\Gm@cntv=\count91
+\c@Gm@tempcnt=\count92
+\Gm@bindingoffset=\dimen107
+\Gm@wd@mp=\dimen108
+\Gm@odd@mp=\dimen109
+\Gm@even@mp=\dimen110
+\Gm@layoutwidth=\dimen111
+\Gm@layoutheight=\dimen112
+\Gm@layouthoffset=\dimen113
+\Gm@layoutvoffset=\dimen114
+\Gm@dimlist=\toks22
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks23
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2018/05/02 3.20 The Babel package
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def"
+File: switch.def 2018/05/02 3.20 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-english\english.ldf"
+Language: english 2017/06/06 v3.3r English support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2018/05/02 3.20 Babel common definitions
+\babel@savecnt=\count93
+\U@D=\dimen115
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\txtbabel.def")
+\bbl@dirlevel=\count94
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks24
+\ex@=\dimen116
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen117
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen118
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks25
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks26
+\eqnshift@=\dimen119
+\alignsep@=\dimen120
+\tagshift@=\dimen121
+\tagwidth@=\dimen122
+\totwidth@=\dimen123
+\lineht@=\dimen124
+\@envbody=\toks27
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks28
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip49
+\bibsep=\skip50
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count107
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks29
+\verbatim@line=\toks30
+\verbatim@in@stream=\read1
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\lipsum\lipsum.sty"
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count108
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\was\gensymb.sty
+Package: gensymb 2003/07/02 v1.0 (WaS)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\comment\comment.sty"
+\CommentStream=\write3
+
+Excluding comment 'comment')
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\bm.sty"
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\changepage\changepage.sty
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count109
+\cp@tempcnt=\count110
+) (C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\soul\soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks31
+\SOUL@lasttoken=\toks32
+\SOUL@cmds=\toks33
+\SOUL@buffer=\toks34
+\SOUL@token=\toks35
+\SOUL@spaceskip=\skip51
+\SOUL@ttwidth=\dimen125
+\SOUL@uldp=\dimen126
+\SOUL@ulht=\dimen127
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count111
+\float@exts=\toks36
+\float@box=\box30
+\@float@everytoks=\toks37
+\@floatcapt=\box31
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\rotating.sty"
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count112
+\rotFPtop=\skip52
+\rotFPbot=\skip53
+\rot@float@box=\box32
+\rot@mess@toks=\toks38
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\changebar\changebar.sty"
+Package: changebar 2018/03/09 v3.6c Indicate changes with marginal bars
+\cb@nextpoint=\count113
+\cb@topleft=\count114
+\cb@topright=\count115
+\cb@botleft=\count116
+\cb@botright=\count117
+\cb@cnta=\count118
+\cb@cntb=\count119
+\cb@dima=\dimen128
+\cb@curbarwd=\dimen129
+\cb@page=\count120
+\cb@pagecount=\count121
+\cb@odd@left=\dimen130
+\cb@odd@right=\dimen131
+\cb@even@left=\dimen132
+\cb@even@right=\dimen133
+\cb@writexy=\write4
+\cb@readxy=\read2
+\openout4 = `"adaptive learning with occasionally binding constraints.cb2"'.
+
+\changebarwidth=\skip54
+\deletebarwidth=\skip55
+\changebarsep=\skip56
+\c@changebargrey=\count122
+\cb@write=\write5
+\cb@read=\read3
+\openout5 = `"adaptive learning with occasionally binding constraints.cb"'.
+
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\appendix\appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count123
+\c@@ppsavesec=\count124
+\c@@ppsaveapp=\count125
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\preprint\authblk.sty
+Package: authblk 2001/02/27 1.3 (PWD)
+\affilsep=\skip57
+\@affilsep=\skip58
+\c@Maxaffil=\count126
+\c@authors=\count127
+\c@affil=\count128
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen134
+\Hy@linkcounter=\count129
+\Hy@pagecounter=\count130
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count131
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+\c@Hy@tempcnt=\count132
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen135
+\Fld@menulength=\count133
+\Field@Width=\dimen136
+\Fld@charsize=\dimen137
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count134
+\c@Item=\count135
+\c@Hfootnote=\count136
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
+\Fld@listcount=\count137
+\c@bookmark@seq@number=\count138
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip59
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcolorbox.sty"
+Package: tcolorbox 2018/03/22 version 4.13 text color boxes
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgf.sty
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfrcs.sty
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-co
+mmon.tex
+\pgfutil@everybye=\toks39
+\pgfutil@tempdima=\dimen138
+\pgfutil@tempdimb=\dimen139
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-co
+mmon-lists.tex))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-la
+tex.def
+\pgfutil@abb=\box33
+ (C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfrcs.cod
+e.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys.c
+ode.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.co
+de.tex
+\pgfkeys@pathtoks=\toks40
+\pgfkeys@temptoks=\toks41
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeysfil
+tered.code.tex
+\pgfkeys@tmptoks=\toks42
+))
+\pgf@x=\dimen140
+\pgf@y=\dimen141
+\pgf@xa=\dimen142
+\pgf@ya=\dimen143
+\pgf@xb=\dimen144
+\pgf@yb=\dimen145
+\pgf@xc=\dimen146
+\pgf@yc=\dimen147
+\w@pgf@writea=\write6
+\r@pgf@reada=\read4
+\c@pgf@counta=\count139
+\c@pgf@countb=\count140
+\c@pgf@countc=\count141
+\c@pgf@countd=\count142
+\t@pgf@toka=\toks43
+\t@pgf@tokb=\toks44
+\t@pgf@tokc=\toks45
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-p
+dftex.def
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-c
+ommon-pdf.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsysso
+ftpath.code.tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count143
+\pgfsyssoftpath@bigbuffer@items=\count144
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsyspr
+otocol.code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcore.c
+ode.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.te
+x
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathcalc.cod
+e.tex
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathutil.cod
+e.tex)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathparser.c
+ode.tex
+\pgfmath@dimen=\dimen148
+\pgfmath@count=\count145
+\pgfmath@box=\box34
+\pgfmath@toks=\toks46
+\pgfmath@stack@operand=\toks47
+\pgfmath@stack@operation=\toks48
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.code.tex
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.basic.code.tex)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.trigonometric.code.tex)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.random.code.tex)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.comparison.code.tex)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.base.code.tex)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.round.code.tex)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.misc.code.tex)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunction
+s.integerarithmetics.code.tex)))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfloat.co
+de.tex
+\c@pgfmathroundto@lastzeros=\count146
+))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepo
+ints.code.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen149
+\pgf@picmaxx=\dimen150
+\pgf@picminy=\dimen151
+\pgf@picmaxy=\dimen152
+\pgf@pathminx=\dimen153
+\pgf@pathmaxx=\dimen154
+\pgf@pathminy=\dimen155
+\pgf@pathmaxy=\dimen156
+\pgf@xx=\dimen157
+\pgf@xy=\dimen158
+\pgf@yx=\dimen159
+\pgf@yy=\dimen160
+\pgf@zx=\dimen161
+\pgf@zy=\dimen162
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
+thconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen163
+\pgf@path@lasty=\dimen164
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
+thusage.code.tex
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen165
+\pgf@shorten@start@additional=\dimen166
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoresc
+opes.code.tex
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box35
+\pgf@hbox=\box36
+\pgf@layerbox@main=\box37
+\pgf@picture@serial@count=\count147
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoregr
+aphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen167
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretr
+ansformations.code.tex
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen168
+\pgf@pt@y=\dimen169
+\pgf@pt@temp=\dimen170
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorequ
+ick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreob
+jects.code.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
+thprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorear
+rows.code.tex
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen171
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoresh
+ade.code.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen172
+\pgf@sys@shading@range@num=\count148
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreim
+age.code.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreex
+ternal.code.tex
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box38
+))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorela
+yers.code.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretr
+ansparency.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepa
+tterns.code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulesha
+pes.code.tex
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box39
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleplo
+t.code.tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-
+version-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen173
+\pgf@nodesepend=\dimen174
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-
+version-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\environ\environ.sty"
+Package: environ 2014/05/04 v0.3 A new way to define environments
+("C:\Program Files\MiKTeX 2.9\tex\latex\trimspaces\trimspaces.sty"
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count149
+)
+\tcb@titlebox=\box40
+\tcb@upperbox=\box41
+\tcb@lowerbox=\box42
+\tcb@phantombox=\box43
+\c@tcbbreakpart=\count150
+\c@tcblayer=\count151
+\tcolorbox@number=\count152
+\tcb@temp=\box44
+\tcb@temp=\box45
+\tcb@temp=\box46
+\tcb@temp=\box47
+\tcb@out=\write7
+\tcb@record@out=\write8
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbraster.code.tex"
+Library (tcolorbox): 'tcbraster.code.tex' version '4.13'
+\c@tcbrastercolumn=\count153
+\c@tcbrasterrow=\count154
+\c@tcbraster=\count155
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbskins.code.tex"
+Library (tcolorbox): 'tcbskins.code.tex' version '4.13'
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\frontendlayer\tikz.sty
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgffor.sty
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfkeys.sty
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.co
+de.tex))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\math\pgfmath.sty
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.te
+x))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgffor.cod
+e.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.te
+x)
+\pgffor@iter=\dimen175
+\pgffor@skip=\dimen176
+\pgffor@stack=\toks49
+\pgffor@toks=\toks50
+))
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\t
+ikz.code.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrary
+plothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count156
+\pgfplotmarksize=\dimen177
+)
+\tikz@lastx=\dimen178
+\tikz@lasty=\dimen179
+\tikz@lastxsaved=\dimen180
+\tikz@lastysaved=\dimen181
+\tikzleveldistance=\dimen182
+\tikzsiblingdistance=\dimen183
+\tikz@figbox=\box48
+\tikz@figbox@bg=\box49
+\tikz@tempbox=\box50
+\tikz@tempbox@bg=\box51
+\tikztreelevel=\count157
+\tikznumberofchildren=\count158
+\tikznumberofcurrentchild=\count159
+\tikz@fig@count=\count160
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmodulemat
+rix.code.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count161
+\pgfmatrixcurrentcolumn=\count162
+\pgf@matrix@numberofcolumns=\count163
+)
+\tikz@expandcount=\count164
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+\tcb@waterbox=\box52
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbskinsjigsaw.code.tex"
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '4.13'
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbbreakable.code.tex"
+Library (tcolorbox): 'tcbbreakable.code.tex' version '4.13'
+\tcb@testbox=\box53
+\tcb@totalupperbox=\box54
+\tcb@totallowerbox=\box55
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbhooks.code.tex"
+Library (tcolorbox): 'tcbhooks.code.tex' version '4.13'
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbtheorems.code.tex"
+Library (tcolorbox): 'tcbtheorems.code.tex' version '4.13'
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbfitting.code.tex"
+Library (tcolorbox): 'tcbfitting.code.tex' version '4.13'
+\tcbfitdim=\dimen184
+\tcb@lowerfitdim=\dimen185
+\tcb@upperfitdim=\dimen186
+\tcb@cur@hbadness=\count165
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbxparse.code.tex"
+Library (tcolorbox): 'tcbxparse.code.tex' version '4.13'
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
+Package: expl3 2018-06-14 L3 programming layer (loader) 
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
+Package: expl3 2018-06-14 L3 programming layer (code)
+\c_max_int=\count166
+\l_tmpa_int=\count167
+\l_tmpb_int=\count168
+\g_tmpa_int=\count169
+\g_tmpb_int=\count170
+\g__kernel_prg_map_int=\count171
+\c_log_iow=\count172
+\l_iow_line_count_int=\count173
+\l__iow_line_target_int=\count174
+\l__iow_one_indent_int=\count175
+\l__iow_indent_int=\count176
+\c_zero_dim=\dimen187
+\c_max_dim=\dimen188
+\l_tmpa_dim=\dimen189
+\l_tmpb_dim=\dimen190
+\g_tmpa_dim=\dimen191
+\g_tmpb_dim=\dimen192
+\c_zero_skip=\skip60
+\c_max_skip=\skip61
+\l_tmpa_skip=\skip62
+\l_tmpb_skip=\skip63
+\g_tmpa_skip=\skip64
+\g_tmpb_skip=\skip65
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+\l_keys_choice_int=\count177
+\l__intarray_loop_int=\count178
+\c__intarray_sp_dim=\dimen193
+\g__intarray_font_int=\count179
+\c__fp_leading_shift_int=\count180
+\c__fp_middle_shift_int=\count181
+\c__fp_trailing_shift_int=\count182
+\c__fp_big_leading_shift_int=\count183
+\c__fp_big_middle_shift_int=\count184
+\c__fp_big_trailing_shift_int=\count185
+\c__fp_Bigg_leading_shift_int=\count186
+\c__fp_Bigg_middle_shift_int=\count187
+\c__fp_Bigg_trailing_shift_int=\count188
+\c__kernel_randint_max_int=\count189
+\g__fp_array_int=\count190
+\l__fp_array_loop_int=\count191
+\l__sort_length_int=\count192
+\l__sort_min_int=\count193
+\l__sort_top_int=\count194
+\l__sort_max_int=\count195
+\l__sort_true_max_int=\count196
+\l__sort_block_int=\count197
+\l__sort_begin_int=\count198
+\l__sort_end_int=\count199
+\l__sort_A_int=\count266
+\l__sort_B_int=\count267
+\l__sort_C_int=\count268
+\l__tl_analysis_normal_int=\count269
+\l__tl_analysis_index_int=\count270
+\l__tl_analysis_nesting_int=\count271
+\l__tl_analysis_type_int=\count272
+\l__regex_internal_a_int=\count273
+\l__regex_internal_b_int=\count274
+\l__regex_internal_c_int=\count275
+\l__regex_balance_int=\count276
+\l__regex_group_level_int=\count277
+\l__regex_mode_int=\count278
+\c__regex_cs_in_class_mode_int=\count279
+\c__regex_cs_mode_int=\count280
+\l__regex_catcodes_int=\count281
+\l__regex_default_catcodes_int=\count282
+\c__regex_catcode_D_int=\count283
+\c__regex_catcode_S_int=\count284
+\c__regex_catcode_L_int=\count285
+\c__regex_catcode_O_int=\count286
+\c__regex_catcode_A_int=\count287
+\c__regex_all_catcodes_int=\count288
+\l__regex_show_lines_int=\count289
+\l__regex_min_state_int=\count290
+\l__regex_max_state_int=\count291
+\l__regex_left_state_int=\count292
+\l__regex_right_state_int=\count293
+\l__regex_capturing_group_int=\count294
+\l__regex_min_pos_int=\count295
+\l__regex_max_pos_int=\count296
+\l__regex_curr_pos_int=\count297
+\l__regex_start_pos_int=\count298
+\l__regex_success_pos_int=\count299
+\l__regex_curr_char_int=\count300
+\l__regex_curr_catcode_int=\count301
+\l__regex_last_char_int=\count302
+\l__regex_case_changed_char_int=\count303
+\l__regex_curr_state_int=\count304
+\l__regex_step_int=\count305
+\l__regex_min_active_int=\count306
+\l__regex_max_active_int=\count307
+\l__regex_replacement_csnames_int=\count308
+\l__regex_match_count_int=\count309
+\l__regex_min_submatch_int=\count310
+\l__regex_submatch_int=\count311
+\l__regex_zeroth_submatch_int=\count312
+\g__regex_trace_regex_int=\count313
+\c_empty_box=\box56
+\l_tmpa_box=\box57
+\l_tmpb_box=\box58
+\g_tmpa_box=\box59
+\g_tmpb_box=\box60
+\l__box_top_dim=\dimen194
+\l__box_bottom_dim=\dimen195
+\l__box_left_dim=\dimen196
+\l__box_right_dim=\dimen197
+\l__box_top_new_dim=\dimen198
+\l__box_bottom_new_dim=\dimen199
+\l__box_left_new_dim=\dimen256
+\l__box_right_new_dim=\dimen257
+\l__box_internal_box=\box61
+\l__coffin_internal_box=\box62
+\l__coffin_internal_dim=\dimen258
+\l__coffin_offset_x_dim=\dimen259
+\l__coffin_offset_y_dim=\dimen260
+\l__coffin_x_dim=\dimen261
+\l__coffin_y_dim=\dimen262
+\l__coffin_x_prime_dim=\dimen263
+\l__coffin_y_prime_dim=\dimen264
+\c_empty_coffin=\box63
+\l__coffin_aligned_coffin=\box64
+\l__coffin_aligned_internal_coffin=\box65
+\l_tmpa_coffin=\box66
+\l_tmpb_coffin=\box67
+\l__coffin_display_coffin=\box68
+\l__coffin_display_coord_coffin=\box69
+\l__coffin_display_pole_coffin=\box70
+\l__coffin_display_offset_dim=\dimen265
+\l__coffin_display_x_dim=\dimen266
+\l__coffin_display_y_dim=\dimen267
+\g__file_internal_ior=\read5
+\l__coffin_bounding_shift_dim=\dimen268
+\l__coffin_left_corner_dim=\dimen269
+\l__coffin_right_corner_dim=\dimen270
+\l__coffin_bottom_corner_dim=\dimen271
+\l__coffin_top_corner_dim=\dimen272
+\l__coffin_scaled_total_height_dim=\dimen273
+\l__coffin_scaled_width_dim=\dimen274
+\l__seq_internal_a_int=\count314
+\l__seq_internal_b_int=\count315
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
+File: l3pdfmode.def 2018-06-14 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count316
+))
+Package: xparse 2018-05-12 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count317
+\g__xparse_grabber_int=\count318
+\l__xparse_m_args_int=\count319
+\l__xparse_mandatory_args_int=\count320
+\l__xparse_v_nesting_int=\count321
+)
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \tcboxverb with sig. ' O{} v ' on line 128.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \tcbsidebyside with sig. ' +O{} +m +m ' on line 280.
+.................................................
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcblistingsutf8.code.tex"
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '4.13'
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\listingsutf8.sty"
+Package: listingsutf8 2016/05/16 v1.3 Allow UTF-8 in listings input (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count322
+\lst@gtempboxa=\box71
+\lst@token=\toks51
+\lst@length=\count323
+\lst@currlwidth=\dimen275
+\lst@column=\count324
+\lst@pos=\count325
+\lst@lostspace=\dimen276
+\lst@width=\dimen277
+\lst@newlines=\count326
+\lst@lineno=\count327
+\lst@maxwidth=\dimen278
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count328
+\lst@skipnumbers=\count329
+\lst@framebox=\box72
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\stringenc.sty"
+Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
+)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcblistings.code.tex"
+Library (tcolorbox): 'tcblistings.code.tex' version '4.13'
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcblistingscore.code.tex"
+Library (tcolorbox): 'tcblistingscore.code.tex' version '4.13'
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbprocessing.code.tex"
+Library (tcolorbox): 'tcbprocessing.code.tex' version '4.13'
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\shellesc.sty"
+Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 69.
+))
+\c@tcblisting=\count330
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbexternal.code.tex"
+Library (tcolorbox): 'tcbexternal.code.tex' version '4.13'
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbmagazine.code.tex"
+Library (tcolorbox): 'tcbmagazine.code.tex' version '4.13'
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbvignette.code.tex"
+Library (tcolorbox): 'tcbvignette.code.tex' version '4.13'
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\frontendlayer\tikz\l
+ibraries\tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2009/11/15 v3.0.1a (rcs-revision 1.2)
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\libraries\pgflibrary
+fadings.code.tex
+File: pgflibraryfadings.code.tex 2008/02/07 v3.0.1a (rcs-revision 1.3)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tcolorbox\tcbposter.code.tex"
+Library (tcolorbox): 'tcbposter.code.tex' version '4.13'
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 37.
+ ("adaptive learning with occasionally binding constraints.aux")
+\openout1 = `"adaptive learning with occasionally binding constraints.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\latex\ucs\ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+(C:\Users\Tolga\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count331
+\scratchdimen=\dimen279
+\scratchbox=\box73
+\nofMPsegments=\count332
+\nofMParguments=\count333
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count334
+\MPscratchDim=\dimen280
+\MPnumerator=\count335
+\makeMPintoPDFobject=\count336
+\everyMPtoPDFconversion=\toks53
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(65.04256pt, 484.20988pt, 65.04256pt)
+* v-part:(T,H,B)=(65.04256pt, 664.88487pt, 65.04256pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=484.20988pt
+* \textheight=664.88487pt
+* \oddsidemargin=-7.22743pt
+* \evensidemargin=-7.22743pt
+* \topmargin=-44.22743pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \celsius on input line 42.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 42.
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 42.
+Package gensymb Info: Using \Omega for \ohm on input line 42.
+
+Package gensymb Warning: Not defining \micro.
+
+\AtBeginShipoutBox=\box74
+Package hyperref Info: Link coloring ON on input line 42.
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count337
+)
+LaTeX Info: Redefining \ref on input line 42.
+LaTeX Info: Redefining \pageref on input line 42.
+LaTeX Info: Redefining \nameref on input line 42.
+
+("adaptive learning with occasionally binding constraints.out")
+("adaptive learning with occasionally binding constraints.out")
+\@outlinefile=\write9
+\openout9 = `"adaptive learning with occasionally binding constraints.out"'.
+
+
+ABD: EveryShipout initializing macros
+\c@lstlisting=\count338
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 45.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+[1
+
+{C:/Users/Tolga/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--171
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
+
+ []
+
+<figures/fisher_simulation1_learningCoef.pdf, id=151, 1145.27875pt x 622.325pt>
+
+File: figures/fisher_simulation1_learningCoef.pdf Graphic file (type pdf)
+<use figures/fisher_simulation1_learningCoef.pdf>
+Package pdftex.def Info: figures/fisher_simulation1_learningCoef.pdf  used on i
+nput line 263.
+(pdftex.def)             Requested size: 229.05168pt x 124.46278pt.
+<figures/fisher_simulation2_learningCoef.pdf, id=152, 1145.27875pt x 622.325pt>
+
+File: figures/fisher_simulation2_learningCoef.pdf Graphic file (type pdf)
+<use figures/fisher_simulation2_learningCoef.pdf>
+Package pdftex.def Info: figures/fisher_simulation2_learningCoef.pdf  used on i
+nput line 264.
+(pdftex.def)             Requested size: 229.05168pt x 124.46278pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--266
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+
+ []
+
+<figures/fisher_simulation1_pinf.pdf, id=153, 1145.27875pt x 622.325pt>
+File: figures/fisher_simulation1_pinf.pdf Graphic file (type pdf)
+<use figures/fisher_simulation1_pinf.pdf>
+Package pdftex.def Info: figures/fisher_simulation1_pinf.pdf  used on input lin
+e 270.
+(pdftex.def)             Requested size: 229.05168pt x 124.46278pt.
+<figures/fisher_simulation2_pinf.pdf, id=154, 1145.27875pt x 622.325pt>
+File: figures/fisher_simulation2_pinf.pdf Graphic file (type pdf)
+<use figures/fisher_simulation2_pinf.pdf>
+Package pdftex.def Info: figures/fisher_simulation2_pinf.pdf  used on input lin
+e 271.
+(pdftex.def)             Requested size: 229.05168pt x 124.46278pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--272
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+
+ []
+
+[6 <./figures/fisher_simulation1_learningCoef.pdf> <./figures/fisher_simulation
+2_learningCoef.pdf> <./figures/fisher_simulation1_pinf.pdf> <./figures/fisher_s
+imulation2_pinf.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--307
+
+ []
+
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 316.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 330--331
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 367--368
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--376
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--380
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 381--382
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--409
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 427--428
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
+
+ []
+
+[9]
+<figures/MC_MS_MSV_withLags.pdf, id=185, 421.575pt x 316.18124pt>
+File: figures/MC_MS_MSV_withLags.pdf Graphic file (type pdf)
+<use figures/MC_MS_MSV_withLags.pdf>
+Package pdftex.def Info: figures/MC_MS_MSV_withLags.pdf  used on input line 452
+.
+(pdftex.def)             Requested size: 421.57396pt x 316.18047pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
+
+ []
+
+[10 <./figures/MC_MS_MSV_withLags.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--512
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--529
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--541
+
+ []
+
+[11]
+Overfull \vbox (57.54726pt too high) has occurred while \output is active []
+
+
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 584--585
+
+ []
+
+[14] [15]
+Overfull \hbox (23.08716pt too wide) in paragraph at lines 606--638
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 644--645
+
+ []
+
+<figures/NKPC_ree_init_AR1_regime.pdf, id=1673, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_AR1_regime.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_AR1_regime.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_AR1_regime.pdf  used on input li
+ne 646.
+(pdftex.def)             Requested size: 252.94695pt x 189.7102pt.
+<figures/NKPC_sigmaPoint_regime.pdf, id=1674, 421.575pt x 316.18124pt>
+File: figures/NKPC_sigmaPoint_regime.pdf Graphic file (type pdf)
+<use figures/NKPC_sigmaPoint_regime.pdf>
+Package pdftex.def Info: figures/NKPC_sigmaPoint_regime.pdf  used on input line
+ 647.
+(pdftex.def)             Requested size: 252.94695pt x 189.7102pt.
+
+Overfull \hbox (24.2945pt too wide) in paragraph at lines 646--649
+[][] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 646--649
+
+ []
+
+[16]
+<figures/NKPC_ree_init_AR1_alphas.pdf, id=1679, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_AR1_alphas.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_AR1_alphas.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_AR1_alphas.pdf  used on input li
+ne 665.
+(pdftex.def)             Requested size: 147.55345pt x 110.66508pt.
+<figures/NKPC_ree_init_AR1_betas.pdf, id=1680, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_AR1_betas.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_AR1_betas.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_AR1_betas.pdf  used on input lin
+e 666.
+(pdftex.def)             Requested size: 147.55345pt x 110.66508pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 664--667
+
+ []
+
+<figures/NKPC_ree_init_VAR1_alphas.pdf, id=1681, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_VAR1_alphas.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_VAR1_alphas.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_VAR1_alphas.pdf  used on input l
+ine 669.
+(pdftex.def)             Requested size: 147.55345pt x 110.66508pt.
+<figures/NKPC_ree_init_VAR1_betas.pdf, id=1682, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_VAR1_betas.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_VAR1_betas.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_VAR1_betas.pdf  used on input li
+ne 670.
+(pdftex.def)             Requested size: 147.55345pt x 110.66508pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 668--671
+
+ []
+
+<figures/NKPC_ree_init_MSV_alphas.pdf, id=1683, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_MSV_alphas.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_MSV_alphas.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_MSV_alphas.pdf  used on input li
+ne 673.
+(pdftex.def)             Requested size: 147.55345pt x 110.66508pt.
+<figures/NKPC_ree_init_MSV_betas.pdf, id=1684, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_MSV_betas.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_MSV_betas.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_MSV_betas.pdf  used on input lin
+e 674.
+(pdftex.def)             Requested size: 147.55345pt x 110.66508pt.
+<figures/NKPC_ree_init_MSV_shockCoef.pdf, id=1685, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_MSV_shockCoef.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_MSV_shockCoef.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_MSV_shockCoef.pdf  used on input
+ line 675.
+(pdftex.def)             Requested size: 147.55345pt x 110.66508pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 672--676
+
+ []
+
+[17 <./figures/NKPC_ree_init_AR1_regime.pdf> <./figures/NKPC_sigmaPoint_regime.
+pdf>]
+<figures/NKPC_ree_init_AR1_IR.pdf, id=1694, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_AR1_IR.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_AR1_IR.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_AR1_IR.pdf  used on input line 6
+83.
+(pdftex.def)             Requested size: 252.94695pt x 189.7102pt.
+<figures/NKPC_ree_init_VAR_IR.pdf, id=1695, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_VAR_IR.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_VAR_IR.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_VAR_IR.pdf  used on input line 6
+84.
+(pdftex.def)             Requested size: 252.94695pt x 189.7102pt.
+
+Overfull \hbox (24.2945pt too wide) in paragraph at lines 682--685
+[] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 682--685
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
+
+ []
+
+<figures/NKPC_ree_init_REE_MS_IR.pdf, id=1696, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_REE_MS_IR.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_REE_MS_IR.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_REE_MS_IR.pdf  used on input lin
+e 688.
+(pdftex.def)             Requested size: 252.94695pt x 189.7102pt.
+<figures/NKPC_ree_init_REE_IR.pdf, id=1697, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_REE_IR.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_REE_IR.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_REE_IR.pdf  used on input line 6
+89.
+(pdftex.def)             Requested size: 252.94695pt x 189.7102pt.
+
+Overfull \hbox (24.2945pt too wide) in paragraph at lines 688--690
+[][] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--690
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+
+ []
+
+<figures/NKPC_ree_init_MSV_IR.pdf, id=1698, 421.575pt x 316.18124pt>
+File: figures/NKPC_ree_init_MSV_IR.pdf Graphic file (type pdf)
+<use figures/NKPC_ree_init_MSV_IR.pdf>
+Package pdftex.def Info: figures/NKPC_ree_init_MSV_IR.pdf  used on input line 6
+93.
+(pdftex.def)             Requested size: 252.94695pt x 189.7102pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+
+ []
+
+[18 <./figures/NKPC_ree_init_AR1_alphas.pdf> <./figures/NKPC_ree_init_AR1_betas
+.pdf> <./figures/NKPC_ree_init_VAR1_alphas.pdf> <./figures/NKPC_ree_init_VAR1_b
+etas.pdf> <./figures/NKPC_ree_init_MSV_alphas.pdf> <./figures/NKPC_ree_init_MSV
+_betas.pdf> <./figures/NKPC_ree_init_MSV_shockCoef.pdf>]
+Overfull \vbox (44.50966pt too high) has occurred while \output is active []
+
+
+[19 <./figures/NKPC_ree_init_AR1_IR.pdf> <./figures/NKPC_ree_init_VAR_IR.pdf> <
+./figures/NKPC_ree_init_REE_MS_IR.pdf> <./figures/NKPC_ree_init_REE_IR.pdf> <./
+figures/NKPC_ree_init_MSV_IR.pdf>] [20] [21]
+Overfull \vbox (16.55997pt too high) has occurred while \output is active []
+
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 837--838
+
+ []
+
+<figures/sw_ar1_regimeProb.pdf, id=1800, 1145.27875pt x 622.325pt>
+File: figures/sw_ar1_regimeProb.pdf Graphic file (type pdf)
+<use figures/sw_ar1_regimeProb.pdf>
+Package pdftex.def Info: figures/sw_ar1_regimeProb.pdf  used on input line 839.
+
+(pdftex.def)             Requested size: 263.40857pt x 143.13173pt.
+<figures/sw_msv_regimeProb.pdf, id=1801, 1145.27875pt x 622.325pt>
+File: figures/sw_msv_regimeProb.pdf Graphic file (type pdf)
+<use figures/sw_msv_regimeProb.pdf>
+Package pdftex.def Info: figures/sw_msv_regimeProb.pdf  used on input line 840.
+
+(pdftex.def)             Requested size: 263.40857pt x 143.13173pt.
+
+Overfull \hbox (45.21774pt too wide) in paragraph at lines 839--841
+[][] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 839--841
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 842--843
+
+ []
+
+<figures/sw_ar1_eigenvalues.pdf, id=1802, 1145.27875pt x 622.325pt>
+File: figures/sw_ar1_eigenvalues.pdf Graphic file (type pdf)
+<use figures/sw_ar1_eigenvalues.pdf>
+Package pdftex.def Info: figures/sw_ar1_eigenvalues.pdf  used on input line 844
+.
+(pdftex.def)             Requested size: 263.40857pt x 143.13173pt.
+<figures/sw_msv_eigenvalues.pdf, id=1803, 1145.27875pt x 622.325pt>
+File: figures/sw_msv_eigenvalues.pdf Graphic file (type pdf)
+<use figures/sw_msv_eigenvalues.pdf>
+Package pdftex.def Info: figures/sw_msv_eigenvalues.pdf  used on input line 845
+.
+(pdftex.def)             Requested size: 263.40857pt x 143.13173pt.
+
+Overfull \hbox (45.21774pt too wide) in paragraph at lines 844--846
+[][] [] 
+ []
+
+<figures/sw_ar1_learning_alphas.pdf, id=1804, 1145.27875pt x 622.325pt>
+File: figures/sw_ar1_learning_alphas.pdf Graphic file (type pdf)
+<use figures/sw_ar1_learning_alphas.pdf>
+Package pdftex.def Info: figures/sw_ar1_learning_alphas.pdf  used on input line
+ 852.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/sw_msv_learning_alphas.pdf, id=1805, 1145.27875pt x 622.325pt>
+File: figures/sw_msv_learning_alphas.pdf Graphic file (type pdf)
+<use figures/sw_msv_learning_alphas.pdf>
+Package pdftex.def Info: figures/sw_msv_learning_alphas.pdf  used on input line
+ 853.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 852--854
+[][] 
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 852--854
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--854
+
+ []
+
+[23 <./figures/sw_ar1_regimeProb.pdf> <./figures/sw_msv_regimeProb.pdf> <./figu
+res/sw_ar1_eigenvalues.pdf> <./figures/sw_msv_eigenvalues.pdf>]
+Overfull \vbox (10.16202pt too high) has occurred while \output is active []
+
+
+[24 <./figures/sw_ar1_learning_alphas.pdf> <./figures/sw_msv_learning_alphas.pd
+f>]
+<figures/sw_ar1_learning_betas.pdf, id=1830, 1145.27875pt x 622.325pt>
+File: figures/sw_ar1_learning_betas.pdf Graphic file (type pdf)
+<use figures/sw_ar1_learning_betas.pdf>
+Package pdftex.def Info: figures/sw_ar1_learning_betas.pdf  used on input line 
+864.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/sw_msv_learning_laggedInfl.pdf, id=1831, 1145.27875pt x 622.325pt>
+File: figures/sw_msv_learning_laggedInfl.pdf Graphic file (type pdf)
+<use figures/sw_msv_learning_laggedInfl.pdf>
+Package pdftex.def Info: figures/sw_msv_learning_laggedInfl.pdf  used on input 
+line 865.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 864--866
+[][] 
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 864--866
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--866
+
+ []
+
+
+Overfull \vbox (24.66202pt too high) has occurred while \output is active []
+
+
+[25 <./figures/sw_ar1_learning_betas.pdf> <./figures/sw_msv_learning_laggedInfl
+.pdf>]
+<figures/rise_forecast_errors.pdf, id=1842, 1145.27875pt x 622.325pt>
+File: figures/rise_forecast_errors.pdf Graphic file (type pdf)
+<use figures/rise_forecast_errors.pdf>
+Package pdftex.def Info: figures/rise_forecast_errors.pdf  used on input line 8
+76.
+(pdftex.def)             Requested size: 242.10591pt x 332.44205pt.
+<figures/REE_forecast_errors.pdf, id=1843, 1145.27875pt x 622.325pt>
+File: figures/REE_forecast_errors.pdf Graphic file (type pdf)
+<use figures/REE_forecast_errors.pdf>
+Package pdftex.def Info: figures/REE_forecast_errors.pdf  used on input line 87
+7.
+(pdftex.def)             Requested size: 242.10591pt x 332.44205pt.
+
+Overfull \hbox (2.61243pt too wide) in paragraph at lines 875--878
+[] [] 
+ []
+
+<figures/sw_msv_forecast_errors.pdf, id=1844, 1145.27875pt x 622.325pt>
+File: figures/sw_msv_forecast_errors.pdf Graphic file (type pdf)
+<use figures/sw_msv_forecast_errors.pdf>
+Package pdftex.def Info: figures/sw_msv_forecast_errors.pdf  used on input line
+ 881.
+(pdftex.def)             Requested size: 242.10591pt x 332.44205pt.
+<figures/sw_ar1_forecast_errors.pdf, id=1845, 1145.27875pt x 622.325pt>
+File: figures/sw_ar1_forecast_errors.pdf Graphic file (type pdf)
+<use figures/sw_ar1_forecast_errors.pdf>
+Package pdftex.def Info: figures/sw_ar1_forecast_errors.pdf  used on input line
+ 882.
+(pdftex.def)             Requested size: 242.10591pt x 332.44205pt.
+
+Overfull \hbox (2.61243pt too wide) in paragraph at lines 880--883
+[] [] 
+ []
+
+[26]
+Overfull \vbox (97.97076pt too high) has occurred while \output is active []
+
+
+[27 <./figures/rise_forecast_errors.pdf> <./figures/REE_forecast_errors.pdf> <.
+/figures/sw_msv_forecast_errors.pdf> <./figures/sw_ar1_forecast_errors.pdf>]
+<figures/AR1_impresp_cons_riseComp.pdf, id=4105, 1145.27875pt x 622.325pt>
+File: figures/AR1_impresp_cons_riseComp.pdf Graphic file (type pdf)
+<use figures/AR1_impresp_cons_riseComp.pdf>
+Package pdftex.def Info: figures/AR1_impresp_cons_riseComp.pdf  used on input l
+ine 896.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/AR1_impresp_inv_riseComp.pdf, id=4106, 1145.27875pt x 622.325pt>
+File: figures/AR1_impresp_inv_riseComp.pdf Graphic file (type pdf)
+<use figures/AR1_impresp_inv_riseComp.pdf>
+Package pdftex.def Info: figures/AR1_impresp_inv_riseComp.pdf  used on input li
+ne 898.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 895--899
+[]
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 895--899
+[] 
+ []
+
+[28]
+Overfull \vbox (68.75414pt too high) has occurred while \output is active []
+
+
+[29 <./figures/AR1_impresp_cons_riseComp.pdf> <./figures/AR1_impresp_inv_riseCo
+mp.pdf>]
+<figures/AR1_impresp_output_riseComp.pdf, id=4140, 1145.27875pt x 622.325pt>
+File: figures/AR1_impresp_output_riseComp.pdf Graphic file (type pdf)
+<use figures/AR1_impresp_output_riseComp.pdf>
+Package pdftex.def Info: figures/AR1_impresp_output_riseComp.pdf  used on input
+ line 904.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/AR1_impresp_pinf_riseComp.pdf, id=4141, 1145.27875pt x 622.325pt>
+File: figures/AR1_impresp_pinf_riseComp.pdf Graphic file (type pdf)
+<use figures/AR1_impresp_pinf_riseComp.pdf>
+Package pdftex.def Info: figures/AR1_impresp_pinf_riseComp.pdf  used on input l
+ine 906.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 903--907
+[]
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 903--907
+[] 
+ []
+
+<figures/MSV_impresp_cons_riseComp.pdf, id=4142, 1145.27875pt x 622.325pt>
+File: figures/MSV_impresp_cons_riseComp.pdf Graphic file (type pdf)
+<use figures/MSV_impresp_cons_riseComp.pdf>
+Package pdftex.def Info: figures/MSV_impresp_cons_riseComp.pdf  used on input l
+ine 914.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/MSV_impresp_inv_riseComp.pdf, id=4143, 1145.27875pt x 622.325pt>
+File: figures/MSV_impresp_inv_riseComp.pdf Graphic file (type pdf)
+<use figures/MSV_impresp_inv_riseComp.pdf>
+Package pdftex.def Info: figures/MSV_impresp_inv_riseComp.pdf  used on input li
+ne 916.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 913--917
+[]
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 913--917
+[] 
+ []
+
+[30 <./figures/AR1_impresp_output_riseComp.pdf> <./figures/AR1_impresp_pinf_ris
+eComp.pdf>]
+Overfull \vbox (23.536pt too high) has occurred while \output is active []
+
+
+[31 <./figures/MSV_impresp_cons_riseComp.pdf> <./figures/MSV_impresp_inv_riseCo
+mp.pdf>]
+<figures/MSV_impresp_output_riseComp.pdf, id=4202, 1145.27875pt x 622.325pt>
+File: figures/MSV_impresp_output_riseComp.pdf Graphic file (type pdf)
+<use figures/MSV_impresp_output_riseComp.pdf>
+Package pdftex.def Info: figures/MSV_impresp_output_riseComp.pdf  used on input
+ line 922.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/MSV_impresp_pinf_riseComp.pdf, id=4203, 1145.27875pt x 622.325pt>
+File: figures/MSV_impresp_pinf_riseComp.pdf Graphic file (type pdf)
+<use figures/MSV_impresp_pinf_riseComp.pdf>
+Package pdftex.def Info: figures/MSV_impresp_pinf_riseComp.pdf  used on input l
+ine 924.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 921--925
+[]
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 921--925
+[] 
+ []
+
+<figures/AR1_impresp_cons_3d.pdf, id=4204, 1145.27875pt x 622.325pt>
+File: figures/AR1_impresp_cons_3d.pdf Graphic file (type pdf)
+<use figures/AR1_impresp_cons_3d.pdf>
+Package pdftex.def Info: figures/AR1_impresp_cons_3d.pdf  used on input line 93
+5.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/AR1_impresp_inv_3d.pdf, id=4205, 1145.27875pt x 622.325pt>
+File: figures/AR1_impresp_inv_3d.pdf Graphic file (type pdf)
+<use figures/AR1_impresp_inv_3d.pdf>
+Package pdftex.def Info: figures/AR1_impresp_inv_3d.pdf  used on input line 937
+.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 934--938
+[]
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 934--938
+[] 
+ []
+
+[32 <./figures/MSV_impresp_output_riseComp.pdf> <./figures/MSV_impresp_pinf_ris
+eComp.pdf>]
+<figures/AR1_impresp_output_3d.pdf, id=4234, 1145.27875pt x 622.325pt>
+File: figures/AR1_impresp_output_3d.pdf Graphic file (type pdf)
+<use figures/AR1_impresp_output_3d.pdf>
+Package pdftex.def Info: figures/AR1_impresp_output_3d.pdf  used on input line 
+943.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/AR1_impresp_pinf_3d.pdf, id=4235, 1145.27875pt x 622.325pt>
+File: figures/AR1_impresp_pinf_3d.pdf Graphic file (type pdf)
+<use figures/AR1_impresp_pinf_3d.pdf>
+Package pdftex.def Info: figures/AR1_impresp_pinf_3d.pdf  used on input line 94
+5.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 942--946
+[]
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 942--946
+[] 
+ []
+
+[33 <./figures/AR1_impresp_cons_3d.pdf> <./figures/AR1_impresp_inv_3d.pdf>]
+<figures/MSV_impresp_cons_3d.pdf, id=4264, 1145.27875pt x 622.325pt>
+File: figures/MSV_impresp_cons_3d.pdf Graphic file (type pdf)
+<use figures/MSV_impresp_cons_3d.pdf>
+Package pdftex.def Info: figures/MSV_impresp_cons_3d.pdf  used on input line 95
+4.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/MSV_impresp_inv_3d.pdf, id=4265, 1145.27875pt x 622.325pt>
+File: figures/MSV_impresp_inv_3d.pdf Graphic file (type pdf)
+<use figures/MSV_impresp_inv_3d.pdf>
+Package pdftex.def Info: figures/MSV_impresp_inv_3d.pdf  used on input line 956
+.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 953--957
+[]
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 953--957
+[] 
+ []
+
+[34 <./figures/AR1_impresp_output_3d.pdf> <./figures/AR1_impresp_pinf_3d.pdf>]
+<figures/MSV_impresp_output_3d.pdf, id=4294, 1145.27875pt x 622.325pt>
+File: figures/MSV_impresp_output_3d.pdf Graphic file (type pdf)
+<use figures/MSV_impresp_output_3d.pdf>
+Package pdftex.def Info: figures/MSV_impresp_output_3d.pdf  used on input line 
+962.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+<figures/MSV_impresp_pinf_3d.pdf, id=4295, 1145.27875pt x 622.325pt>
+File: figures/MSV_impresp_pinf_3d.pdf Graphic file (type pdf)
+<use figures/MSV_impresp_pinf_3d.pdf>
+Package pdftex.def Info: figures/MSV_impresp_pinf_3d.pdf  used on input line 96
+4.
+(pdftex.def)             Requested size: 572.63797pt x 311.16173pt.
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 961--965
+[]
+ []
+
+
+Overfull \hbox (88.42809pt too wide) in paragraph at lines 961--965
+[] 
+ []
+
+[35 <./figures/MSV_impresp_cons_3d.pdf> <./figures/MSV_impresp_inv_3d.pdf>]
+[36 <./figures/MSV_impresp_output_3d.pdf> <./figures/MSV_impresp_pinf_3d.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 969.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 969.
+
+("adaptive learning with occasionally binding constraints.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 969.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 969.
+Package rerunfilecheck Info: File `"adaptive learning with occasionally binding
+ constraints".out' has not changed.
+(rerunfilecheck)             Checksum: 2921DD5721E795A53B492A3E0F7859AA;1291.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 969.
+ ) 
+Here is how much of TeX's memory you used:
+ 34166 strings out of 492974
+ 674636 string characters out of 3135947
+ 904645 words of memory out of 3000000
+ 37401 multiletter control sequences out of 15000+200000
+ 560069 words of font info for 101 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 63i,13n,101p,4737b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Tolga\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+ecbx1200.pk> <C:\Users\Tolga\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecrm0700.pk> <C:\Users\Tolga\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Tolga\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Tolga\AppData\Local\MiKTeX
+\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Tolga\AppData\Lo
+cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\Tolga\
+AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Us
+ers\Tolga\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.
+pk> <C:\Users\Tolga\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecti1200.pk> <C:\Users\Tolga\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
+\ec\dpi600\ecrm1095.pk> <C:\Users\Tolga\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
+r\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\Tolga\AppData\Local\MiKTeX\2.9\font
+s\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Tolga\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2074.pk><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
+i7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on "adaptive learning with occasionally binding constraints.pdf"
+ (36 pages, 4627884 bytes).
+PDF statistics:
+ 4921 PDF objects out of 5155 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 512 words of extra memory for PDF output out of 10000 (max. 10000000)
+
