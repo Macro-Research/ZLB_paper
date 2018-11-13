@@ -846,10 +846,10 @@ Laplace &  &  &  & -515 & -566 & -583 & -552 &
 We next turn to the estimated regime probabilities and activity of projection facilities over the estimation sample for the learning models, which is shown in Figure \ref{sw_regime_prob}: similar to the 3-equation model, in both AR(1)- and MSV-learning cases, we observe a sharp switch to the ZLB regime in the beginning of 2009 where the interest rates drop to near-zero levels, while the economy exits from the ZLB regime towards the end of 2016. The same pattern is also observed in the MS-REE model, which is omitted here. An important difference between the SW model here and the 3-equation model is the projection, which was irrelevant in the small model because it remains stable throughout the estimation sample and as a consequence, the projection facility is never imposed. In the larger SW-model, however, the model is occasionally driven into unstable regions, thereby activating the projection facility. This is shown in the second row of the same figure. The right panel shows the regime-specific and weighted-average (based on the ergodic distribution) eigenvalues along with the activity of projection facility for the MSV-learning case. It is readily seen that, although the ZLB regime is closer to the instability region compared to the normal regime, neither regime becomes unstable in this case and the projection facility is not activated. This is partially due to the fact that the information set under MSV-learning does not affect the autocorrelation structure as much; and partially due to the small gain coefficient under this specification. The left panel shows the same figures for the AR(1)-learning case: in this case, we observe that projection facility is activated twice: the first time is during the beginning of 2000s, and the second time is after the crisis period in 2009. An important observation is that, the ZLB-regime is unstable for extended periods of time, especially during the period from 1990 to 2010. For this case, \textit{how} the projection facility is imposed plays a key role in the system dynamics: recall from the previous section that we only impose the projection facility when the underlying ergodic distribution becomes unstable, while the regime-specific models are allowed to be unstable. In this case, although the ZLB-regime is unstable for long periods, the normal regime is sufficiently stable most of the time such that the projection facility is only activated a couple of times. This way of imposing the projection facility is justified on the grounds of our RPE concept, where the regime-specific models can become temporariliy explosive as long as the underlying ergodic distribution is stable; we are able to keep the activity of projection facility to a minimum based on this notion. \\
 \noindent
 Next we examine how the learning coefficients evolve over the estimation sample, which are shown in Figures \ref{sw_learning_1} and \ref{sw_learning_2}. In the MSV-learning case, there are 15 variables in the information set of the agent, with the intercept, 7 exogenous shocks and 7 endogenous backward-looking variables. Therefore we only provide the plots and discussion of two of these variables for exposition, but similar arguments can be extended to all variables in the information set. Figure \ref{sw_learning_1} shows the intercept coefficients under both learning cases: the first panel shows the AR(1) while the second one is MSV-learning. As one might expect, the time-variation under MSV-learning is relatively small, where all coefficients remain close to zero and there are no observable jumps. This confirms our conclusion from the previous section that, when shocks are assumed to be observable, the intercept terms receive much less weight in forming expectations. On the contrary with the AR(1) case, we observe much more interesting dynamics: since shocks are unobserved in this case, the intercept terms play an important role in agents’ expectations. A particularly interesting case is the financial crisis period, where we observe an almost uniform reduction in all coefficients. Particularly the coefficients on investment and real value of capital (denoted by $i$ and $q$) respectively) decrease by a relatively large amount, while remaining coefficients decrease moderately. This implies that, under AR(1)-learning with unobserved shocks, the crisis and subsequent \textit{Great Recession} period is interpreted as a level shift in the variables by agents, as opposed to a series of adverse shocks. Figure \ref{sw_learning_2} shows the learning coefficients on persistence for the AR(1) case, and lagged inflation for the MSV-learning case. The same results applies to the MSV-learning again, where we do not observe any meaningful time-variation in the coefficients, especially during the crisis period. While we omit the remaining coefficients for the MSV case on lagged variables and exogenous shocks, similar patterns can be observed for these cases as well. Next looking at the AR(1) case which is shown in the first panel, we can again observe a jump in the coeficients during the crisis period, where some of the persistence parameters temporariliy go above one. In other words, when the crisis hits and the agents observe the large downward movement in the endogenous variables, they compensate for this by temporarily switching from a trend-following rule to an extrapolative one. This can be interpreted as a temporary wave of pessimism in the economy, where the agents expect more downward movement following the adverse shock after the crisis. \\
+\noindent
+A well-known problem in the VAR literature is that the standard models tend to over-predict the growth rates in the post-crisis period of 2007-08: after the crisis period, there has been a reduction in the growth rates of real in the U.S, particularly for output, consumption and investment. As a consequence, the standard models tend to over-predict these variables if no additional structural break is introduced into the model. This applies to models that both take into account the zero lower bound episode and those that do not. The first row of Figure \ref{sw_forecast_errors} shows the forecast errors of both REE and MS-REE models. It is readily seen that in both cases, the forecasts of the growth rates are indeed consistently larger than the actual values. Linde et. al. (??) propose to deal with this issue in the SW model by introducing a structural break in the risk-premium shock. Accordingly, it is assumed that there is a permanent increase in the risk premium after the crisis (i.e. a level shift in the b-shock), which pushes down the forecasts of the real growth rates. We plot the forecasts under adaptive learning in the second row of Figure \ref{sw_forecast_errors}. It is readily seen that the issue of over-predicting does not arise under adaptive learning. This suggests that time-variation under adaptive learning causes as strong enough downward shift in the forecasts. Accordingly, time-varying beliefs and the potential pessimism of agents following the crisis arise as an alternative way to deal with the over-prediction problem over this period\footnote{This result raises the question of whether the level shift expectations would still be prevalent if we also add a structural break in the b-shock, i.e. is it the shift in the risk premium or agents' beliefs that dominates. We leave this question to future work.}. \\
 
--forecast errors\\
--impulse responses: focus on government spending and risk premium shocks\\
--comment on time-varying plots\\
+
 
 
 \begin{figure}[H]
@@ -891,7 +891,7 @@ Next we examine how the learning coefficients evolve over the estimation sample,
 
 
 \subsection{Forecast Errors}
-
+\label{sw_forecast_errors}
 \begin{figure}[H]
 
 \caption{In-sample forecasts (i.e. the forecasting step of the filter) for all observables.}
@@ -911,12 +911,17 @@ Next we examine how the learning coefficients evolve over the estimation sample,
 \end{figure}
 
 
-\subsection{Impulse Responses: Comparison with MS-REE and implied time-variation}
+%-----------------------------------------------------
+
+We next compare the impulse responses under both AR(1)- and MSV-learning to MS-REE case. As we mention in the previous section, the impulse responses under adaptive learning are different each period since belief coefficient are updated each period, which feeds back into the autocovariance structure. We therefore start by comparing the impulse responses based on two representative periods, 2006Q1 for the normal regime before the crisis, and 2011Q1 for the ZLB regime after the crisis. We focus particular on four key variables: consumption, investment, output and inflation. \\
+\noindent
+
 
 
 
 \begin{figure}[H]
-\caption{Comparison of AR(1) learning IRFs with RISE IRFs. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\label{irf_ar1_1}
+\caption{Comparison of AR(1) learning IRFs with MSV-RE IRFs. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
 \textbf{Consumption:}\\
 \includegraphics[scale=0.5]{AR1_impresp_cons_riseComp.pdf}
 \textbf{Investment:}\\
@@ -925,6 +930,7 @@ Next we examine how the learning coefficients evolve over the estimation sample,
 \end{figure}
 
 \begin{figure}[H]
+\label{irf_ar1_2}
 \textbf{Output:}\\
 \includegraphics[scale=0.5]{AR1_impresp_output_riseComp.pdf}
 \textbf{Inflation:}\\
@@ -934,7 +940,8 @@ Next we examine how the learning coefficients evolve over the estimation sample,
 
 
 \begin{figure}[H]
-\caption{Comparison of MSV learning IRFs with RISE IRFs. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
+\label{irf_msv_1}
+\caption{Comparison of MSV learning IRFs with MSV-RE IRFs. One unit shocks of $\eta_a$,$\eta_b$,$\eta_g$,$\eta_i$,$\eta_p$,$\eta_w$ respectively.}
 \textbf{Consumption:}\\
 \includegraphics[scale=0.5]{MSV_impresp_cons_riseComp.pdf}
 \textbf{Investment:}\\
@@ -943,6 +950,7 @@ Next we examine how the learning coefficients evolve over the estimation sample,
 \end{figure}
 
 \begin{figure}[H]
+\label{irf_msv_2}
 \textbf{Output:}\\
 \includegraphics[scale=0.5]{MSV_impresp_output_riseComp.pdf}
 \textbf{Inflation:}\\
@@ -950,12 +958,13 @@ Next we examine how the learning coefficients evolve over the estimation sample,
 
 \end{figure}
 
-
+%------------------------------------------------------------
 
 
 
 
 \begin{figure}[H]
+\label{irf_ar1_
 \textbf{Consumption:}\\
 \includegraphics[scale=0.5]{AR1_impresp_cons_3d.pdf}
 \textbf{Investment:}\\
