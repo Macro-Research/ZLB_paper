@@ -1,8 +1,8 @@
 clear;clc;%close all;
 %Benchmark Fisher equation (no regime switching), msv learning. 
 %Can be used for both CGL and DGL cases.
-N=5000;
-phi_pinf=1.5;
+N=10000;
+phi_pinf=.5;
 rho=0.9;
 eta_sigma=0.1;
 eta=normrnd(0,eta_sigma,[N 1]);
@@ -10,7 +10,7 @@ r=zeros(N,1);
 pinf=zeros(N,1);
 rr=eye(2);
 alpha=rand;
-beta=rand;
+beta=500;
 learning=nan(N,2);
 beta_ree=(1/(phi_pinf-rho));
 for jj=2:N

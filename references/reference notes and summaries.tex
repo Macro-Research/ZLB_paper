@@ -43,6 +43,123 @@
 -Assumptions in the non-linear framework already are: point forecasts (distributions do not matter), representative agents and ricardian households (i.e. households understand 
 government spending rule and incorporate that in their expectations.)\\
 -monetary policy is transparent and clear--> that's why agents take it into account in their expectation formation rule. \\
--target steady-state is locally determinate, low inflation steady-state is locally indeterminate.
+-target steady-state is locally determinate, low inflation steady-state is locally indeterminate.\\
+
+\textbf{liquidity traps, learning and stagnation, evans honkapohja} \\
+
+this one examines the global stability dynamics of a New Keynesian model subject to the usual intended steady state and the unintended zero lower bound steady state. The main result is the intended steady state is locally but not globally stable, while the unintended steady state is simply not stable anywhere. This means large pessimistic shocks may take the economy out of the intended equilibrium and put in on deflationary spirals with falling prices and output. their policy recommendation is aggressive monetary and fiscal policy?? switching to a sufficiently aggressive monetary policy at low inflation rates can avoid the deflationary spiral in a flexible price framework. In this paper they extend that analysis to a sticky price framework. the recommendation that emerges is indeed agressive combination of policies, activated at some lower threshold for inflation suitably chosen. 
+
+-\textbf{endogenous regime switches near the zlb}
+-two steady-state in the standard framework, i.e. benhabib schmitt uribe results-\\
+-discount factor shock which gives rise to movements in the equilibrium value of real interest rate\\
+-the agent does not know the regimes; he contemplates about possible regimes. Hence this is a step between Bill's paper where they consider learning under regimes that are known; and our framework where the regime switches are completely unobserved and unknown. \\
+-there is model averaging and switching too\\
+
+
+\textbf{Dordal i Carrera, 2016}: they consider adverse shocks large enough to push the targeted equilibrium to a point where ZLB becomes binding. Lansing's paper here consider endogenous switches between the two steady-states; hence it is not only the shock process that generates the ZLB episode. \\
+
+\textbf{on the initialization, galimberti and jacqueson} \\
+examine the performance of common methods used in the literature. These are REE-based initializations, training-based, hand-picked and estimation-based. They find evidende in favour of training-based methods.\\
+
+\textbf{empirical calibration of adaptive learning, galimberti and jacqueson} \\ 
+
+evaluates different gain specifications \& estimations and calibrations. 
+
+
+\textbf{bullard and eusepi, E-stability and determinacy:} \\
+when are these two conditions equivalent? \\
+Their main finding is determinacy does not in general imply E-stability, except for some special (albeit important) cases. 
+
+\textbf{nonlinear advantures at the zlb:} \\
+-explicitly account for the nonlinearity due to zlb\\
+-main takeaway and relevant part for our paper is that government spending multipliers are larger at the ZLB. \\
+
+\textbf{macroeconomic analysis without the rational expectations hypothesis woodford}\\
+
+review of adaptive and eductive learning concepts; the eductive learning  concept he talks about a k-level approach, which is actually very close the notion of iterative E-stability that we use here. He also talks about Restricted Perceptions Equilibria, rule selection: once we deviate from REE, there are many many alternatives so how do we choose among all possible candidates? Empirical fit might be a criterion he says. Monetary policy should also be robust to all plausible alternatives considered. I.e. some sort of minimax approach where the welfare criterion is maximized with respect to the worst case scenario. This is not relevant for this paper, but certainly is for the upcoming projects. \\
+
+\textbf{foerster and matthes, solving markov-switching models with learning:}\\
+they consider solution of models with markov-switching under adaptive learning. The general premise is similar to ours; the actual structure is subject to regime switches and agents do not know the actual regimes. The difference is, in their setup, agents are aware that there are switches. They try to infer about these switches using a form of bayesian learning. They then develop a framework to approximate beliefs along with the rest of the model. Our main difference: we consider the scenarios where regime switches are never directly taken into account; agents always use a single PLM not subject to regime switches. Second, we focus on (conditionally) linear frameworks only and use relatively standard methods to estimate this. \\
+
+\textbf{Do heterogeneous expectations constitute a challenge for monetary policy interactions, gasteiger}: this is one paper that explicitly considers the distinction between trend-following and extrapolative rules; relevant for the AR(1) model under SW where the PLM switches from discounting to extrapolating. \\
+
+\textbf{when is the government spending multiplier larger, eichenbaum:} investigates the size of government spending multiplier in a DSGE framework and finds that it is much larger under ZLB. \\
+
+\textbf{adaptive learning and labor market dynamics, mitra:} considers labor market dynamics under adaptive learning; good example of small forecasting rules as they consider AR(1), AR(2) and VAR(1) specifications. Cite it when justfying small forecasting rules. \\
+
+\textbf{fiscal stimulus or fiscal austerity, evans honkapohja: } main takeaway from the ZLB \& learning paper series of evans honkapohja is that, the deflationary regime is not E-stable under standard least squares learning, and deflationary spirals may occur if the economy is sufficiently close to this equilibrium. In this paper, they show that both a fiscal stimulus and fiscal austerity package can take the economy away from this unintended equilibrium when they are appropriately planned. \\
+
+\textbf{ were there regime switches in us monetary policy, sims \& zha:} one of the earlier works to consider us monetary policy shifts in a markov-switching setup. \\
+
+\textbf{inflation expectations, adaptive learning and optimal policy, smets: } this one focuses on the optimal policy implicatinos of constant gain least squares. Very simple setup: hybrid NKPC with backward-looking inflation; and agents use an AR(1) rule with least squares constant gain. They find that policy under commitment \& REE comes very close to optimal policy under adaptive learning. This is more relevant for the BLE paper. \\
+
+\textbf{monetary policy switching and indeterminacy: } this paper investigates cases where indeterminacy can arise despite having different regimes that all satisfy the Taylor principle. In other words, they identify situations where switching itself may be the cause of indeterminacy. (not very relevant for zlb paper? } \\
+
+\textbf{indeterminacy in a forward-looking regime-switching model, farmer: } \\
+
+this paper seems to be a first attempt at generalizing Davig \& Leeper results on determinacy. They use the notion of mean square stability to derive bounded and stationary equilibria of MSV-form.\\
+-one of the most important results here: if the Markov-chain is ergodic, then the MSV-solution is stationary. They find uniqueness, stationarity and boundedness conditions for the one-dimensional example of Fisher equation, which is shows it is not a trivial task in general to derive these conditions for multivariate models. \\
+
+\textbf{adaptive learning in regime-switching models, branch \& mcgough}: conditionally linear determinacy condition, which is analogous to the LRTP of Davig \& Leeper. When agents also condition on the history of regimes, the condition no longer holds, which is the result of Farmer above. This paper is the closest one to ours and explicitly considers E-stability conditions when the underlying regimes are known (hence no learning about these), and conditional on that, agents try to forecast future states. In our paper, we explicitly consider scenarios where agents have no clue that regime switches happen; instead they have a single PLM that they update each period. So in this paper, agents hold regime-specific PLMs use the relevant one each period. But is this relevant in real situations? What happens when the economy switches to ZLB? They did not experience this before, do they just abandon everything they knew up to that point and start learning a completely new model? Or do they adjust their old model? This paper implies the first scenario, while ours is doing the second case, which I think is more realistic. \\
+
+\textbf{sources of macroeconomic fluctuations, liu waggoner??}: cite as one of the earlier approaches on incorporating markov-switching into dsge models. They find strong evidence in favour of regime-switching models. \\
+
+\textbf{methods for inference in large multiple-equation markov-switching models: } \\
+provide methods that improve bayesian inference on large dsge models, the main idea is to start with a BFGS-type blockwise estimation of the posterior mode, then use that for the MCMC. It also proposes a new way of computing the MHM values (which we didnt compute yet), so read this paper in detail before starting with the posterior analysis. \\
+
+\textbf{expectations, learning and business cycle fluctuations; eusepi preston: } \\
+
+-a theory of expectations driven business cycles. This fits well with our narrative of how expectations evolve and feed back into the economy during the ZLB episode. (i.e. the great recession is partially driven by ``a wave of pessimism following the crisis. ) \\
+
+-main result is persistence and volatility amplification relative to REE benchmark with calibrated data. This is the standard results in many papers and ours; including the Hommes BLE and Wouters ZLB papers. \\
+
+-another key result is hours and consumption display negative correlation. While hours growth displays positive autocorrelation, consumption growth displays negative autocorrelation. This is a similar result to what we get for consumption dynamics in the Smets-Wouters spefication. Beaudry \& Portier (2006) type of mechanism can apparently resolve this issue, check that out. Their calibrated gain value is is only $0.0029$, which is actually kind of close to what we ended up estimating for SW under MSV-learning.
+
+\textbf{government spending multipliers and the size of government spending shock, chinese fellas: } \\
+government spending shock is larger at the zlb, standard results. Their sample is ends earlier than ours (older paper), but the main model structure is the same. They find a larger persistence coefficient for the ZLB regime, but the prior they assume also has x3 times the persistence of our parameter, and it is tighter. \\
+
+\textbf{ learning and the size of government spending shock, ewoud: } this one shows, in a small-scale New Keynesian framework (or is it RBC, check this), that government spending multipliers are larger under a standard least squares learning setup. the main reason is spending shocks stop crowding in private spending (consumption or investment??) when information set of agents is small in the sense that it does not include the government spending shocks. This also implies that Ricardian equivalence does not hold? \\
+
+his main result is that, under learning, a government spending shock crowds in private consumptions. Also take a look at his references therein. price rigidity is crucial in generating this effect. 
+
+still to be read: \\
+
+\textbf{stochastic gradient learning stuff, sergey and evans \& honkapohja:} cite these papers or no? \\
+
+\textbf{monetary \& fiscal policy mix and agents' beliefs, bianchi: } \\
+in this setup agents are aware of the possibility of regime switches and form their expectations taking that into account. \\
+
+\textbf{methods for measuring expectations and uncertainty in markov-switching models, bianchi} \\
+
+at the time this paper is written, MS-DSGE models the methods used to estimate those seem to be well established. This paper mainly highlights the importance of taking into account agents' uncertainty about economic fundamentals when we are using such models.\\
+
+He makes use of the mean-square stability concept. This is also used in the Farmer approach, could be worthwhile expanding it to the adaptive learning setup? \\
+
+\textbf{learning to believe in secular stagnation, christopher gibbs: } \\
+
+he shows that a secular stagnation equilibrium with low output and low inflation can be E-stable in an overlapping generations framework with downwardly rigid nominal prices. Since the usual ZLB equilibrium is both indeterminate and E-unstable, this result reconsiles the standard NK framework theory with the observed data. Citeable in the ZLB paper? not sure. \\
+
+\textbf{learning to live in a liquidity trap, arifovic, schmitt-grohe, uribe: } \\
+
+while the ZLB equilibrium is E-unstable under standard least squares learning, they show in this paper that it is E-stable under some form of social learning with heterogeneous agents. Given this result, one could question why we still use least squares learning while other forms of learning that make the ZLB episode E-stable are available. The answer is, these types of social learning algorithms are also excessively complex, hence they are not feasible in an estimation context. \\
+
+\textbf{challenges for the central banks' macro models, read this one again. }\\
+
+\textbf{liu mumtaz, regime switching in open economy setup: } another one of the key papers on early adoption of markov-switching DSGE models. Read their appendix again to check out the details of their algorithm, should be more or less the as others. (i.e. Kim \& Nelson filter combined with some block-wise optimization a la Sims) \\
+
+\textbf{ milani 2006 benchmark} : msv-learning in small-scale setup improves the fit. \\
+
+
+\textbf{msv solutions for markov-switching models, farmer: } \\
+
+this paper derives a new method for deriving the MSV solutions in MS models. Unlike previous approaches, this algorithm apparently finds all possible MSV solutions. They make use of Newton's method, which is actually what we used as the alternative method in the BLE paper. CITE THIS IN BLE PAPER. 
+
+
+
+
+
+
+
+
 
 \end{document}
