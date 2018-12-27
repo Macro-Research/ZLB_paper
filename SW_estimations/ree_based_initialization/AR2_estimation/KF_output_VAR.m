@@ -1,5 +1,4 @@
-
-clear;clc;%close all;
+clear;clc;close all;
 load('param_init.mat');
 param=param_init;
 forward_indices=[3 5 6 7 9 10 11];
@@ -82,17 +81,17 @@ dataset=dataset(first_obs:last_obs,:);l=7;N=length(dataset);numVar=24;burnIn=6;
 T=size(dataset,1);numObs=7;
 alpha1=0*ones(numVar,1);
 beta1_tt=0*eye(numVar);
-beta2_tt=0*eye(numVar);
-rr=100*repmat(eye(3),[1 1 numVar]);
+rr_lagged=0*eye(numVar);
+rr=100*repmat(zeros(3,3),[1 1 numVar]);
 %rr=100*ones(1,1,numVar);
 %  beta1_tt(3,3)=0.98;beta1_tt(5,5)=0.8 ;beta1_tt(6,6)=0.98;beta1_tt(7,7)=0.98;beta1_tt(9,9)=0.98;
 %  beta1_tt(10,10)=0.6;beta1_tt(11,11)=0.98;
 load('AR1_initial_beliefs.mat');
 for jj=1:length(beta1_init)
     %rr(1,1,forward_indices(jj))=rr_init(2,2,jj);
-    beta1_tt(forward_indices(jj),forward_indices(jj))=beta1_init(jj);
-    beta2_tt(forward_indices(jj),forward_indices(jj))=beta2_init(jj);
-    rr(:,:,forward_indices(jj))=rr_init(:,:,jj);
+    %beta1_tt(forward_indices(jj),forward_indices(jj))=beta1_init(jj);
+    %beta2_tt(forward_indices(jj),forward_indices(jj))=beta2_init(jj);
+    %rr(:,:,forward_indices(jj))=rr_init(:,:,jj);
 end
  
 

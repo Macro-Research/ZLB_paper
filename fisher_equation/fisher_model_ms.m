@@ -1,13 +1,13 @@
 clear;clc;close all;
 %Fisher equation with two (Markov) regimes, msv learning. 
-%rng(2);
-N=5000;
-phi_pinf1=2;
-phi_pinf2=0.5;
+rng(4);
+N=1000;
+phi_pinf1=1.5;
+phi_pinf2=2;
 rho=0.9;
 eta_sigma=0.1;
 eta=normrnd(0,eta_sigma,[N 1]);
-p_11=0.99;p_22=0.9;
+p_11=0.95;p_22=0.95;
 Q=[p_11,1-p_11;1-p_22,p_22];
 regime=zeros(N,1);
 regime(1)=1;
@@ -46,8 +46,8 @@ rr_tt=eye(2);
 forecast_errors=zeros(N,1);
 forecast=zeros(N,1);
 for jj=2:N
-    gain=1/jj;
-    %gain=0.05;
+    %gain=1/jj;
+    gain=0.05;
     regime(jj)=findRegime(regime(jj-1),p_11,p_22);
     r(jj)=rho*r(jj-1)+eta(jj);
      learning(jj,:)=[alpha_tt,beta_tt];%forecast coef for t
@@ -74,29 +74,30 @@ figure('Name','Fisher eqn-learning coef','units','normalized','outerposition',[0
 % plot(ones(N,1)*alpha_ree,'--');
 % title('alpha');
 subplot(2,1,1);
-plot(learning(10:end,2),'lineWidth',3);
+plot(learning(10:end,2),'lineWidth',7);
 hold on;
-plot(ones(N,1)*beta_ree,'--');
+plot(ones(N,1)*beta_ree,'--','lineWidth',5);
 hold on;
-plot(ones(N,1)*(1/(phi_pinf1-rho)),'--');
+plot(ones(N,1)*(1/(phi_pinf1-rho)),'--','lineWidth',5);
 hold on;
-plot(ones(N,1)*(1/(phi_pinf2-rho)),'--');
+plot(ones(N,1)*(1/(phi_pinf2-rho)),'--','lineWidth',5);
 
-legend('learning coef','unconditional','regime 1','regime 2');
+leg=legend('learning coef','unconditional','regime 1','regime 2');
+leg.FontSize=25;
 % hold on;
 % area(regime);
-title('beta');
+title('\beta','FontSize',25);
 subplot(2,1,2);
 area(regime);
 % hold on;
 % plot(forecast_errors,'lineWidth',3);
-title('regime');
+title('regime','FontSize',25);
 
 fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'fisher_simulation2_learningCoef','-dpdf'); 
+print(fig,'fisher_simulation1_learningCoef','-dpdf'); 
 
 figure('Name','simulated inflation','units','normalized','outerposition',[0 0 1 1]);
 plot(pinf,'lineWidth',3);
@@ -106,7 +107,7 @@ fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'fisher_simulation2_pinf','-dpdf'); 
+print(fig,'fisher_simulation1_pinf','-dpdf'); 
 
 
 % figure;

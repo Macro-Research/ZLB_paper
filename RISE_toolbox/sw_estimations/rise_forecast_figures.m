@@ -27,17 +27,19 @@ obs_names=[{'Output Growth','Consumption Growth','Real Investment Growth','Real 
     'Inflation','Fed Funds Rate','Hours Worked'}];
 yylim=[min(obs)',max(obs)'];
 figure('Name','Rise Forecast Errors','units','normalized','outerposition',[0 0 1 1]);
-for jj=1:length(obs(1,:));
-subplot(7,1,jj);
+% for jj=1:length(obs(1,:));
+for jj=1:4;%only growth rates
+subplot(4,1,jj);
 plot(Date(2:end),rise_forecasts(1:end-1,jj),'-','color','black','lineWidth',1);
 hold on;
-plot(Date(2:end),obs(2:end,jj),'-','color','red','lineWidth',1);
-title(obs_names(jj));
+plot(Date(2:end),obs(2:end,jj),'-','color','red','lineWidth',2);
+title(obs_names(jj),'FontSize',35);
 ylim([yylim(jj,:)]);
   xlim([startDate endDate])
   datetick('x','yyyy','keeplimits');
 end
-legend('forecast','observable');
+leg=legend('forecast','observable');
+leg.FontSize=35;
 fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;

@@ -1,7 +1,6 @@
 QWidget { /* everything, basically */
     background-color: black;
     color: white;
-highlight: green;
 }
 
 QPushButton { /* buttons */

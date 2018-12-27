@@ -18,7 +18,7 @@ sigma_r2=param2(end);
 
 [A1 B1 C1 D1 E1 F1 G1]= NKPC_sysmat(param1);
 [A2 B2 C2 D2 E2 F2 G2]= NKPC_sysmat(param2);
-N=5000;
+N=2000;
 numVar=5;
 
 A1_inv=A1^(-1);A2_inv=A2^(-1);
@@ -34,8 +34,8 @@ eps_r(:,2) = normrnd(0,sigma_r2,[N,1]);
 errors1=[eps_y(:,1) eps_pinf(:,1) eps_r(:,1)]' ; 
 errors2=[eps_y(:,2) eps_pinf(:,2) eps_r(:,2)]' ; 
 regime=nan(N,1);%regime parameter: 0 if not at ZLB, 1 if at ZLB;
-regime(1)=0;
-p_11=0.99;p_22=0.8; 
+regime(1)=1;
+p_11=.98;p_22=0.9; 
 Q=[p_11,1-p_11;1-p_22,p_22];
 ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
 alpha1=zeros(numVar,1);
@@ -69,14 +69,14 @@ rrTotal(:,:,t)=r1;
 
 end
 
-figure;
+figure('Name','state variables');
 title('state variables');
 for jj=1:numVar
     subplot(numVar,1,jj)
     plot(X(jj,:),'lineWidth',3);
 end
 
-figure;
+figure('Name','alphas');
 title('alphas');
 for jj=1:numVar
     subplot(numVar,1,jj)
@@ -84,7 +84,7 @@ for jj=1:numVar
    plot(alphaTotal(jj,:));
 end
 
-figure;
+figure('Name','betas');
  title('betas')
  for jj=1:numVar
      for ii=1:numVar
@@ -94,7 +94,7 @@ figure;
     end
  end
  
- figure;
+ figure('Name','PLM-Covar Matrix');
   for jj=1:numVar+1
      for ii=1:numVar+1
  subplot(numVar+1,numVar+1,(jj-1)*(numVar+1)+ii);
@@ -103,13 +103,13 @@ figure;
     end
  end
  
- figure;
+ figure('Name','Projection Facility');
  plot(largestEig,'lineWidth',3);
  hold on;
  plot(projectionFlag,'lineWidth',3);
  legend('largest eigenvalue','projection facility');
  
  
- figure;
+ figure('Name','Regime');
  area(regime);
  title('regime');

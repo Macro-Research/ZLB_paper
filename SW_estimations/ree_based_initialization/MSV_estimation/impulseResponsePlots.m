@@ -276,46 +276,48 @@ print(fig,'MSV_impresp_inv_riseComp','-dpdf');
 figure('Name','impulse responses-output','units','normalized','outerposition',[0 0 1 1]);
 
 index=0;
-for jj=[1 2 3 4 6 7]
+for jj=[2 3]
     index=index+1;
-subplot(3,2,index);
-plot(imp_averaged(160,1:end,8,jj),'--');
+subplot(1,2,index);
+plot(imp_averaged(160,1:end,8,jj),'--','lineWidth',5);
 hold on;
-plot(imp_averaged(180,1:end,8,jj),'lineWidth',3);
+plot(imp_averaged(180,1:end,8,jj),'lineWidth',5);
 hold on;
-plot(impREE_normal(1:periods,3,index),'*');
+plot(impREE_normal(1:periods,3,index+1),'*','lineWidth',5);
 hold on;
-plot(impREE_zlb(1:periods,3,index),'.-');
-title(shocks(jj));
+plot(impREE_zlb(1:periods,3,index+1),'.-','lineWidth',5);
+title(shocks(jj),'FontSize',35);
 end
-legend('learning-normal','learning-zlb','ree-normal','ree-zlb');
+leg=legend('learning-normal','learning-zlb','ree-normal','ree-zlb');
+leg.FontSize=25;
 fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'MSV_impresp_output_riseComp','-dpdf');
+print(fig,'MSV_impresp_output_small_riseComp','-dpdf');
 
 
 figure('Name','impulse responses-inflation','units','normalized','outerposition',[0 0 1 1]);
 index=0;
-for jj=[1 2 3 4 6 7]
+for jj=[2 3]
     index=index+1;
-subplot(3,2,index);
-plot(imp_averaged(160,1:end,10,jj),'--');
+subplot(1,2,index);
+plot(imp_averaged(160,1:end,10,jj),'--','lineWidth',5);
 hold on;
-plot(imp_averaged(180,1:end,10,jj),'lineWidth',3);
+plot(imp_averaged(180,1:end,10,jj),'lineWidth',5);
 hold on;
-plot(impREE_normal(1:periods,4,index),'*');
+plot(impREE_normal(1:periods,4,index+1),'*','lineWidth',5);
 hold on;
-plot(impREE_zlb(1:periods,4,index),'.-');
-title(shocks(jj));
+plot(impREE_zlb(1:periods,4,index+1),'.-','lineWidth',5);
+title(shocks(jj),'FontSize',35);
 end
-legend('learning-normal','learning-zlb','ree-normal','ree-zlb');
+leg=legend('learning-normal','learning-zlb','ree-normal','ree-zlb');
+leg.FontSize=35;
 fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'MSV_impresp_pinf_riseComp','-dpdf');
+print(fig,'MSV_impresp_pinf_output_riseComp','-dpdf');
 
 % figure('Name','impulse responses-consumption','units','normalized','outerposition',[0 0 1 1]);
 % 

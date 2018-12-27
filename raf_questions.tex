@@ -1,0 +1,87 @@
+\documentclass[12pt,reqno]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\graphicspath{ {figures/} }
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{pdflscape}
+\usepackage{natbib}
+\usepackage{verbatim}
+\usepackage{lipsum}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage{bm}
+\usepackage{changepage}
+%\usepackage{amsart}
+\usepackage{lscape}
+\usepackage{soul}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[color]{changebar}
+\linespread{.5}
+\numberwithin{equation}{section}
+\usepackage{appendix}
+\usepackage{authblk}
+\usepackage{hyperref}
+\usepackage[most]{tcolorbox}
+
+
+
+
+\begin{document}
+
+\textbf{Raf questions:}
+\begin{itemize}
+\item section 2, you use a Fisherian model to introduce the impact of a PLM on the determinacy properties. Would it be possible to formulate the same arguments also in a standard NKPC setting? Did you retain the Fisherian setup because there is only one parameter involved, or also because of the link with the previous literature?
+
+\textbf{why fisherian model for the initial setup:}\\
+
+-Davig \& Leeper start building on this setup, it seems to be the benchmark for MS-DSGE models. \\
+-Also one-parameter setup is always nice and easy for illustration purposes. 
+-They also had a NKPC setup, which can perhaps be linked to our framework. 
+ 
+\item section 3.3, you do not seem to refer to the  possibility of E-stability for the ZLB regime with simple learning beliefs (in contrast with the Evans HM result)?\\
+
+\textbf{why monte carlo experiment for MSV learning, but not for VAR learning? }\\
+
+-only for brevity, we can also apply a similar experiment to VAR learning (in fact the code for this is ready in any case)\\
+
+
+ 
+\item The link between the first sessions (2 and 3) and the estimation exercise in sessions (5 and 6) seems absent. What about the E-stability properties of the estimated models?
+ 
+\textbf{why not check for e-stability of the estimated models} \\
+
+-1) E-stability conditions ensure that models will lead to stable dynamics under reasonable conditions. So these conditions are mostly there to justify we don't get fully explosive dynamics.\\
+-2) If we look at the e-stability conditions on p.8 and p.9, they involve the vectors/matrices of RPE (small letters). We haven't solved these yet, so as of yet we cannot check the E-stability conditions explicitly. \\
+-Instead, this calls for another small section after the estimation, where we simulate the models under the estimated parameter values, and hope for the best. \\
+
+
+\item From the irfs it looks as if the learning of the new regime goes very quick? I seem to remember that this transition took more time in your initial exercises. It was a nice point to compare the change in the irfs under RE (normal verus ZLB regime) and the AL dynamics that gradually moved in the same direction. I was missing that argument a little bit (or missed it because I read to quick?). \\
+
+\textbf{why impulse responses move too quickly rather than gradual} \\
+
+-did we ever have gradual movement? I think we were hoping for it, but I am not sure we ever actually got it. \\
+-in any case, one thing we can observe is the gradual movement in expectations, but that graduality does  not seem to be reflected in IRFs.
+
+\end{itemize}
+
+
+
+
+\textbf{additions I have in mind:} \\
+
+-one more PLM for Smets-Wouters, with small forecasting (AR(1) or AR(2)) that includes interest rates--> so we can see how the coefficients move. Because I noticed currently we can't do this: \\
+-In ar(1) interest rates simply do not matter for PLM, and in MSV the PLM is too large and results in a too small coefficient. So Ideally we add a middle ground that combines small forecasting + interest rates. \\
+-Edward Herbst has a paper on something similar: main difference is agents also learn about the regime. (they also analyze forward guidance). they argue that \textbf{SMC} is better than \textbf{MCMC} for these kinds of models. \\
+-how would we introduce forward guidance into this framework? \\
+
+\end{document}

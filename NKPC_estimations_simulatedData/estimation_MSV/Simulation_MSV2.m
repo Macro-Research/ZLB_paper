@@ -2,7 +2,7 @@ clear;clc;close all;
  rng(2222);
 parameters=[0 0 0 0.03 2 1.5 0.5 0.5 0.5 0.9 0.3 0.3 0.3 0 0.01 0.01 0.1 0.035];  
 gain=parameters(18);
-dataset_length=200;
+dataset_length=500;
 
 numEndo=3;numExo=2;
 param1=parameters(1:13);
@@ -46,7 +46,7 @@ ergodic_states=[(1-q_22)/(2-q_11-q_22);(1-q_11)/(2-q_11-q_22)];
 alpha1=zeros(3,1);%constant. coef for learning
 beta1=zeros(3,3);%coef. on lagged endo variables
 cc1=rand(3,2);%coef on shocks
-rr=10*eye(4);%auxiliary learning matrix
+rr=0.1*eye(4);%auxiliary learning matrix
 
 
 

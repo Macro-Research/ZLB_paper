@@ -1,4 +1,5 @@
 clear;clc;%close all;
+rng(1);
 load('param_init.mat');
 param=param_init;
 forward_indices=[3 5 6 7 9 10 11];
@@ -313,15 +314,15 @@ likl=-sum(log(likl(burnIn+1:end)));
 yylim=[min(dataset)',max(dataset)'];
 
 figure('Name','Forecast Errors','units','normalized','outerposition',[0 0 1 1]);
-for jj=1:length(obs_indices)
-
-subplot(7,1,jj);
-plot(Date,obs_forecasts(jj,:),'-','color','black','lineWidth',1);
+%for jj=1:length(obs_indices)
+for jj=1:4
+subplot(4,1,jj);
+plot(Date,obs_forecasts(jj,:),'-','color','black','lineWidth',2);
 hold on;
-plot(Date,dataset(:,jj),'-','color','red','lineWidth',1);
+plot(Date,dataset(:,jj),'-','color','red','lineWidth',2);
   xlim([startDate endDate])
   datetick('x','yyyy','keeplimits');
-title(obs_names(jj));
+title(obs_names(jj),'FontSize', 35);
 grid on;
 grid minor;
 ylim([yylim(jj,:)]);
@@ -341,7 +342,8 @@ end
 %     legend('forecast error');
 % end   
 end
-
+leg=legend('forecast','observable');
+leg.FontSize=35;
 fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
@@ -350,28 +352,28 @@ print(fig,'sw_ar1_forecast_errors','-dpdf');
 %--------------------------------------------------
 figure('Name','Eigenvalues','units','normalized','outerposition',[0 0 1 1]);
 subplot(4,1,1);
-plot(Date(2:end),largest_eig1(2:end),'color','black','lineWidth',3);
+plot(Date(2:end),largest_eig1(2:end),'color','black','lineWidth',5);
 hold on;plot(Date(2:end),ones(length(largest_eig1(2:end)),1),'color','red');
   xlim([startDate endDate])
   datetick('x','yyyy','keeplimits');
-title('Largest eigenvalue: normal regime');
+title('normal regime','FontSize', 25);
 subplot(4,1,2);
-plot(Date(2:end),largest_eig2(2:end),'color','black','lineWidth',3);
+plot(Date(2:end),largest_eig2(2:end),'color','black','lineWidth',5);
 hold on;
 plot(Date(2:end),ones(length(largest_eig2(2:end)),1),'color','red');
   xlim([startDate endDate])
   datetick('x','yyyy','keeplimits');
-title('Largest eigenvalue: zlb regime','lineWidth',3);
+title(' zlb regime','FontSize', 25);
 subplot(4,1,3);
-plot(Date(2:end),average_eig(2:end),'color','black','lineWidth',3);
-title('Largest eigenvalue: weighted average','lineWidth',3);
+plot(Date(2:end),average_eig(2:end),'color','black','lineWidth',5);
+title(' weighted average','FontSize', 25);
 hold on;
 plot(Date(2:end),ones(length(average_eig(2:end)),1),'color','red');
   xlim([startDate endDate])
   datetick('x','yyyy','keeplimits');
 subplot(4,1,4);
-title('Largest eigenvalue: weighted average');
-plot(Date(2:end),pr_flag(2:end),'color','blac');title('projection facility activity');
+title('Largest eigenvalue: weighted average','FontSize', 25);
+plot(Date(2:end),pr_flag(2:end),'lineWidth',5,'color','black');title('projection facility activity','FontSize', 25);
   xlim([startDate endDate])
   datetick('x','yyyy','keeplimits');
 
@@ -383,10 +385,12 @@ print(fig,'sw_ar1_eigenvalues','-dpdf');
 %------------------------------------------------------
 
 figure('Name','Regime Probability','units','normalized','outerposition',[0 0 1 1]);
-plot(Date,1-pp_filtered,'lineWidth',3,'color','blue');
+plot(Date,1-pp_filtered,'lineWidth',5,'color','blue');
 hold on;
-plot(Date,S_filtered(:,12),'lineWidth',3);
-legend('Regime Probability','Interest Rate');
+plot(Date,dataset(:,6),'lineWidth',5);
+%plot(Date,S_filtered(:,12),'lineWidth',5);
+leg=legend('Regime Probability','Interest Rate');
+leg.FontSize=25;
   xlim([startDate endDate])
   datetick('x','yyyy','keeplimits');
 fig = gcf;
@@ -401,7 +405,7 @@ for jj=forward_indices
     index=index+1;
 plot(Date(2:end),squeeze(learning_filtered(jj,:,1)'),'color','black');
 
-text(Date(end),learning_filtered(jj,end,1),forward_names(index));
+text(Date(end),learning_filtered(jj,end,1),forward_names(index),'FontSize', 35);
 hold on;
 end
   xlim([startDate endDate])
@@ -418,7 +422,7 @@ for jj=forward_indices
     index=index+1;
 plot(Date(2:end),squeeze(learning_filtered(jj,:,2)'),'color','black');
 hold on;
-text(Date(end),learning_filtered(jj,end,2),forward_names(index));
+text(Date(end),learning_filtered(jj,end,2),forward_names(index),'FontSize', 35);
 hold on;
 end
 plot(Date,ones(T,1),'--','color','red');

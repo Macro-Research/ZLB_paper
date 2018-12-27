@@ -232,18 +232,19 @@ print(fig,'AR1_impresp_inv_3d','-dpdf');
 figure('Name','time varying impulse responses-output','units','normalized','outerposition',[0 0 1 1]);
 
 index=0;
-for jj=[1 2 3 4 6 7]
+for jj=[2 3]
     index=index+1;
-subplot(3,2,index);
+subplot(1,2,index);
 plot3(refLine1(2:end,1:end)',refLine2(2:end,1:end)',imp_averaged(2:end,1:end,8,jj));
 hold on;
-plot3(refLine1(1,1:end)',refLine2(1,1:end)',impREE_normal(1:end,3,index),'lineWidth',3,'color','black');
+plot3(refLine1(1,1:end)',refLine2(1,1:end)',impREE_normal(1:end,3,index+1),'lineWidth',3,'color','black');
 hold on
-plot3(refLine1(end,1:end)',refLine2(end,1:end)',impREE_zlb(1:end,3,index),'lineWidth',3,'color','red');
+plot3(refLine1(end,1:end)',refLine2(end,1:end)',impREE_zlb(1:end,3,index+1),'lineWidth',3,'color','red');
 
   ylim([startDate endDate])
-   datetick('y','yyyy','keeplimits');
-title(shocks(jj));
+  datetick('y','yyyy','keeplimits');
+  set(gca,'YTickLabel',[])
+title(shocks(jj),'FontSize',35);
 view([115 8])
 set(gca, 'CameraPosition', [445,757508,3.88]);;
 end
@@ -252,23 +253,24 @@ fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'AR1_impresp_output_3d','-dpdf');
+print(fig,'AR1_imp_output_small_3d','-dpdf');
 
 
 figure('Name','time varying impulse responses-inflation','units','normalized','outerposition',[0 0 1 1]);
 index=0;
-for jj=[1 2 3 4 6 7]
+for jj=[2 3]
     index=index+1;
-subplot(3,2,index);
+subplot(1,2,index);
 plot3(refLine1(2:end,1:end)',refLine2(2:end,1:end)',imp_averaged(2:end,1:end,10,jj));
 hold on;
-plot3(refLine1(1,1:end)',refLine2(1,1:end)',impREE_normal(1:end,4,index),'lineWidth',3,'color','black');
+plot3(refLine1(1,1:end)',refLine2(1,1:end)',impREE_normal(1:end,4,index+1),'lineWidth',3,'color','black');
 hold on
-plot3(refLine1(end,1:end)',refLine2(end,1:end)',impREE_zlb(1:end,4,index),'lineWidth',3,'color','red');
+plot3(refLine1(end,1:end)',refLine2(end,1:end)',impREE_zlb(1:end,4,index+1),'lineWidth',3,'color','red');
 
   ylim([startDate endDate])
    datetick('y','yyyy','keeplimits');
-title(shocks(jj));
+   set(gca,'YTickLabel',[]);
+title(shocks(jj),'FontSize',35);
 view([115 8])
 set(gca, 'CameraPosition', [424,766864,0.25]);
 end
@@ -277,7 +279,7 @@ fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'AR1_impresp_pinf_3d','-dpdf');
+print(fig,'AR1_imp_pinf_small_3d','-dpdf');
 
 
 %------------------------------compare with rise output
@@ -334,46 +336,48 @@ print(fig,'AR1_impresp_inv_riseComp','-dpdf');
 figure('Name','impulse responses-output','units','normalized','outerposition',[0 0 1 1]);
 
 index=0;
-for jj=[1 2 3 4 6 7]
+for jj=[2 3]
     index=index+1;
-subplot(3,2,index);
-plot(imp_averaged(160,1:end,8,jj),'--');
+subplot(1,2,index);
+plot(imp_averaged(160,1:end,8,jj),'--','lineWidth',5);
 hold on;
-plot(imp_averaged(180,1:end,8,jj),'lineWidth',3);
+plot(imp_averaged(180,1:end,8,jj),'lineWidth',5);
 hold on;
-plot(impREE_normal(1:end,3,index),'*');
+plot(impREE_normal(1:end,3,index+1),'*','lineWidth',5);
 hold on;
-plot(impREE_zlb(1:end,3,index),'.-');
-title(shocks(jj));
+plot(impREE_zlb(1:end,3,index+1),'.-','lineWidth',5);
+title(shocks(jj),'FontSize',35);
 end
-legend('learning-normal','learning-zlb','ree-normal','ree-zlb');
+leg=legend('learning-normal','learning-zlb','ree-normal','ree-zlb');
+leg.FontSize=25;
 fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'AR1_impresp_output_riseComp','-dpdf');
+print(fig,'AR1_impresp_small_output_riseComp','-dpdf');
 
 
 figure('Name','impulse responses-inflation','units','normalized','outerposition',[0 0 1 1]);
 index=0;
-for jj=[1 2 3 4 6 7]
+for jj=[2 3]
     index=index+1;
-subplot(3,2,index);
-plot(imp_averaged(160,1:end,10,jj),'--');
+subplot(1,2,index);
+plot(imp_averaged(160,1:end,10,jj),'--','lineWidth',5);
 hold on;
-plot(imp_averaged(180,1:end,10,jj),'lineWidth',3);
+plot(imp_averaged(180,1:end,10,jj),'lineWidth',5);
 hold on;
-plot(impREE_normal(1:end,4,index),'*');
+plot(impREE_normal(1:end,4,index+1),'*','lineWidth',5);
 hold on;
-plot(impREE_zlb(1:end,4,index),'.-');
-title(shocks(jj));
+plot(impREE_zlb(1:end,4,index+1),'.-','lineWidth',5);
+title(shocks(jj),'FontSize',35);
 end
-legend('learning-normal','learning-zlb','ree-normal','ree-zlb');
+leg=legend('learning-normal','learning-zlb','ree-normal','ree-zlb');
+leg.FontSize=25;
 fig = gcf;
 fig.PaperPositionMode = 'auto'
 fig_pos = fig.PaperPosition;
 fig.PaperSize = [fig_pos(3) fig_pos(4)];
-print(fig,'AR1_impresp_pinf_riseComp','-dpdf');
+print(fig,'AR1_impresp_small_pinf_riseComp','-dpdf');
 
 
 %---------------------------------------------------------
