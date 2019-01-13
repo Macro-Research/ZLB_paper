@@ -4,9 +4,8 @@ close all
 
 mm=rise('nkpc_estimation_ms.rs');
 
-%mm=solve(mm);
-
-%mm.print_solution
+mm=solve(mm);
+mm.print_solution
 
 load('full_dataset.mat'); 
 dataset=[gap_cbo,pinfobs,robs];
@@ -18,10 +17,10 @@ vnames=dataset.varnames;
 mm=set(mm,'data',dataset,'estim_end_date',enddate);
 
 
-mm=estimate(mm);
+%mm=estimate(mm);
 
 
-plot_priors(mm)
+%plot_priors(mm)
 % plot_posteriors(m,Results.pop)
 % plot_priors_and_posteriors(m,Results.pop)
 

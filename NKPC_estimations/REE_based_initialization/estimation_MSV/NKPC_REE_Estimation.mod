@@ -2,7 +2,7 @@ var y pi r u_y u_pi  gap_cbo pinfobs robs;
 varexo eps_y eps_pi eps_r;
 parameters y_bar pi_bar r_bar kappa tau phi_pi phi_y rho_y rho_pi rho_r ;
 
-y_bar=0;pi_bar=0;r_bar=0; kappa= 0.04 ; tau=1; phi_pi=1.5; phi_y = 0.5; rho_r =0; rho_y =0.5; rho_pi =0.5; 
+y_bar=0;pi_bar=0;r_bar=0; kappa= 0.04 ; tau=1; phi_pi=5; phi_y = 0.5; rho_r =0; rho_y =0.5; rho_pi =0.5; 
 
     
 shocks;
@@ -11,7 +11,7 @@ var eps_pi; stderr 0.1 ;
 var eps_r ; stderr 00;
 end;
 
-/*estimated_params;
+estimated_params;
 y_bar,0.8,-2,2,NORMAL_PDF,0,0.25;
 pi_bar,0.7,-2,2,GAMMA_PDF,0.62,0.25;
 r_bar,0.9,-2,2,GAMMA_PDF,0.5,0.25;
@@ -25,7 +25,7 @@ rho_r,0.5,0,1,BETA_PDF,0.5,0.2;
 stderr eps_y,0.07,0.01,3,INV_GAMMA_PDF,0.1,2;
 stderr eps_pi,1,0.01,3,INV_GAMMA_PDF,0.1,2;
 stderr eps_r,0.4,0.01,3,INV_GAMMA_PDF,0.1,2;
-end;*/
+end;
 varobs gap_cbo pinfobs robs;
 
 model(linear);
@@ -44,13 +44,13 @@ end;
 //steady;
 
 
-/*estimation(datafile=us_dataset,
+estimation(datafile=us_dataset,
 mode_compute=4,
 nograph,nodiagnostic,
 optim=('Algorithm','active-set'),
 first_obs=44,
 //nobs=79,
-mh_replic=0,mh_jscale=0.51,mh_drop=0.2,mh_nblocks=1);*/
+mh_replic=0,mh_jscale=0.51,mh_drop=0.2,mh_nblocks=1);
 stoch_simul(ar=10,irf=40,periods=10000,nograph);
 //clean_current_folder;
 

@@ -1,8 +1,8 @@
 clear;clc;close all;
- rng(2222);
+%rng(2222);
 parameters=[0 0 0 0.03 2 1.5 0.5 0.5 0.5 0.9 0.3 0.3 0.3 0 0.01 0.01 0.1 0.035];  
 gain=parameters(18);
-dataset_length=500;
+dataset_length=200;
 
 numEndo=3;numExo=2;
 param1=parameters(1:13);

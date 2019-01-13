@@ -2,6 +2,7 @@
    gain=parameters(18);
 load('us_dataset.mat');
 first_obs=24;burn_in=20;
+% first_obs=120;burn_in=20;
 dataset=[gap_cbo,pinfobs,robs];
 dataset=dataset(first_obs:end,:);
 startDate=datenum('01-01-1966');
@@ -41,7 +42,7 @@ gamma1_1_tilde=AA1_inv*(BB1+CC1*beta1^2);gamma2_1_tilde=AA1_inv*CC1*(eye(numEndo
 gamma1_2_tilde=AA2_inv*(BB2+CC2*beta1^2);gamma2_2_tilde=AA2_inv*CC2*(eye(numEndo)+beta1)*alpha1;gamma3_2_tilde=(AA2_inv*CC2)*(beta1*cc1+cc1*rho2)+AA2_inv*DD2;
 
 
-H1=0*diag(var(dataset(1:150,:)));H2=0*diag(var(dataset(150:end,:)));
+H1=0*diag(var(dataset(1:5,:)));H2=0*diag(var(dataset(5:end,:)));
 %H2(1,1)=0;H2(2,2)=0;
 
 

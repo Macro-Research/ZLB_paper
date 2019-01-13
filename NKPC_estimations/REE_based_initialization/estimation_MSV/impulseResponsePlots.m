@@ -1,7 +1,7 @@
 clear;clc;%close all;
 load('kf_output_workspace.mat');
 periods=40;
-numPeriods=50;
+numPeriods=100;
 numVar=5;numShocks=3;
 shocks={'\eta_y','\eta_{pi}','\eta_r'};
 vars={'y','pi','r','u_y','u_{\pi}'};
@@ -11,8 +11,11 @@ for jj=T-numPeriods:T-1
     index=index+1;
     beta1(:,3)=beta_tt(:,jj);
     cc1=cc_tt(:,:,jj);
-gamma1_1_tilde=AA1_inv*(BB1+CC1*beta1^2);gamma2_1_tilde=AA1_inv*CC1*(eye(numEndo)+beta1)*alpha1;gamma3_1_tilde=(AA1_inv*CC1)*(beta1*cc1+cc1*rho1)+AA1_inv*DD1;
-gamma1_2_tilde=AA2_inv*(BB2+CC2*beta1^2);gamma2_2_tilde=AA2_inv*CC2*(eye(numEndo)+beta1)*alpha1;gamma3_2_tilde=(AA2_inv*CC2)*(beta1*cc1+cc1*rho2)+AA2_inv*DD2;
+gamma1_1_tilde=AA1_inv*(BB1+CC1*beta1^2);
+gamma3_1_tilde=(AA1_inv*CC1)*(beta1*cc1+cc1*rho1)+AA1_inv*DD1;
+
+gamma1_2_tilde=AA2_inv*(BB2+CC2*beta1^2);
+gamma3_2_tilde=(AA2_inv*CC2)*(beta1*cc1+cc1*rho2)+AA2_inv*DD2;
 
 gamma1_1=[eye(numEndo),-gamma3_1_tilde;zeros(numExo,numEndo),eye(numExo)]^(-1)*[gamma1_1_tilde,zeros(numEndo,numExo),;zeros(numExo,numEndo),rho1];
 gamma3_1=[eye(numEndo),-gamma3_1_tilde;zeros(numExo,numEndo),eye(numExo)]^(-1)*[AA1_inv*EE1;FF1];
@@ -20,10 +23,13 @@ gamma3_1=[eye(numEndo),-gamma3_1_tilde;zeros(numExo,numEndo),eye(numExo)]^(-1)*[
 gamma1_2=[eye(numEndo),-gamma3_2_tilde;zeros(numExo,numEndo),eye(numExo)]^(-1)*[gamma1_2_tilde,zeros(numEndo,numExo),;zeros(numExo,numEndo),rho2];
 gamma3_2=[eye(numEndo),-gamma3_2_tilde;zeros(numExo,numEndo),eye(numExo)]^(-1)*[AA2_inv*EE2;FF2];
 
-
+gamma1_avg=pp_filtered(jj)*gamma1_1+(1-pp_filtered(jj))*gamma1_2;
+gamma3_avg=pp_filtered(jj)*gamma3_1+(1-pp_filtered(jj))*gamma3_2;
 
 imp11(index,:,:,:)=impulse_response(parameters,gamma1_1,gamma3_1,periods);
 imp22(index,:,:,:)=impulse_response(parameters,gamma1_2,gamma3_2,periods);
+imp33(index,:,:,:)=impulse_response(parameters,gamma1_avg,gamma3_avg,periods);
+
 end
 
 refLine1=linspace(1,periods,periods);refLine1=repmat(refLine1,[numPeriods 1]);
@@ -40,13 +46,15 @@ for ii=1:2
 
         index=index+1;
          subplot(2,2,index);
+ plot3(refLine1',refLine2',imp33(:,:,ii,jj)','color','red','lineWidth',0.5);
+% 
 %         subplot(numVar-2,numShocks,index);
 %  plot3(refLine1',refLine2',imp11(:,:,ii,jj)','color','red','lineWidth',0.5);
 %  hold on;
 %  plot3(refLine1',refLine2',imp22(:,:,ii,jj)','color','black','lineWidth',0.5);
-plot(imp11(5,:,ii,jj),'lineWidth',3,'color','blue');
-hold on;
-plot(imp22(5,:,ii,jj),'lineWidth',3,'color','green');
+% plot(imp11(5,:,ii,jj),'lineWidth',3,'color','blue');
+% hold on;
+% plot(imp22(5,:,ii,jj),'lineWidth',3,'color','green');
        title([vars(ii) shocks(jj)]);
     end
 end

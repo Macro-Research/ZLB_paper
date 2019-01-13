@@ -202,7 +202,7 @@ end;
 
 varobs dy dc dinve labobs pinfobs dw robs;
 
-estimation(optim=('MaxIter',500),nograph,datafile=raf_dataset,mode_compute=1,first_obs=147,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
+estimation(optim=('MaxIter',500),nograph,datafile=raf_dataset,mode_compute=1,first_obs=147,nobs=60,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
  stoch_simul(periods=10000,irf=100);
  //estimation(optim=('MaxIter',500),datafile=usmodel_data_SW_data_april2009,nograph,mode_compute=1,first_obs=71,presample=4,kalman_algo=1,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.3,mh_drop=0.2);
  //estimation(optim=('MaxIter',500),nograph,datafile=usmodel_data,mode_compute=4,first_obs=71,presample=4,lik_init=2,prefilter=0,mh_replic=0,mh_nblocks=2,mh_jscale=0.20,mh_drop=0.2);

@@ -9,12 +9,12 @@ clearvars -except bb_RPE dd_RPE;
 % param1=[-0.1 0.66 0.80 0.0121 2.6414 1.5574 0.2889 0.5 0.5 0.9 0.7396 0.2986 0.29 ];
 % param2=[0.58 0.66 0.80 0.0121 2.6414 0 0 0.5 0.5 0 0.7396 0.2986 0.029 ];
 
-param1=[0 0 0 0.03 3 1.5 0.5 0.5 0.5 0.7 0.7 0.3 0.3 ];
-param2=[0 0 0 0.03 3 0 0 0.5 0.5 0 0.7 0.3 0.01 ];
+param1=[0 0 0 0.03 3 1.5 0.5 0.9 0.9 0 0.7 0.3 0.3 ];
+param2=[0 0 0 0.03 3 0   0   0.9 0.9 0 0.7 0.3 0.03 ];
 
-numEndo=3;numExo=3;N=2000;
+numEndo=3;numExo=3;N=200;
 numVar=5;
-
+burn_in=round(N/10);
 sigma_y1 = param1(end-2);
 sigma_pinf1=param1(end-1);
 sigma_r1=param1(end);
@@ -49,21 +49,21 @@ eps_r(:,2) = normrnd(0,sigma_r2,[N,1]);
 errors1=[eps_y(:,1) eps_pinf(:,1) eps_r(:,1)]' ; 
 errors2=[eps_y(:,2) eps_pinf(:,2) eps_r(:,2)]' ; 
 regime=nan(N,1);%regime parameter: 0 if not at ZLB, 1 if at ZLB;
-regime(1)=0;
-p_11=0.95;p_22=0.95; 
+regime(1)=1;
+p_11=.99;p_22=.9; 
 Q=[p_11,1-p_11;1-p_22,p_22];
 ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
 
 aa_tt=zeros(numEndo,1);%constant. coef for learning
 cc_tt=zeros(numEndo,numEndo);%coef. on lagged endo variables
-dd_tt=rand(numEndo,numExo);%coef on shocks
-rr_tt=100*eye(numEndo+numExo+1);%auxiliary learning matrix
+dd_tt=zeros(numEndo,numExo);%coef on shocks
+rr_tt=1*eye(numEndo+numExo+1);%auxiliary learning matrix
 expectations=zeros(numEndo,N);
 
 d_REE= (eye(size(C1,1)^2)-kron(RHO',(ergodic_states(1)*...
 A1_inv*C1+ergodic_states(2)*A2_inv*C2)))^(-1)*vec(A1_inv*ergodic_states(1)+A2_inv*ergodic_states(2));
 d_REE=reshape(d_REE,[size(C1,1),size(C1,2)]);
- gain=0.02;
+ gain=0.05;
 for tt=2:N
   
 disp(tt);
@@ -84,9 +84,10 @@ X(:,tt) =  regime(tt)*(A1_inv*(B1*X(:,tt-1)+C1*expectations(:,tt)+EPS1(:,tt)))+.
 thetaOld=[aa_tt cc_tt dd_tt];
 [theta rr_tt] =l_LS_version2(X(:,tt),[1;X(:,tt-1);EPS(:,tt)],thetaOld,rr_tt,gain);
 aa_tt=theta(1,:)';cc_tt=theta(2:4,:)';dd_tt=theta(5:7,:)';
+cc_tt=zeros(3,3);
 %aa_tt=zeros(3,1);
 aa(:,tt)=aa_tt;
-cc(tt,:,:)=cc_tt;
+cc(tt,:,:)=cc_tt; 
 dd(tt,:,:)=dd_tt;
 learningCovariance(tt,:,:)=rr_tt;
 
@@ -161,11 +162,29 @@ plot(dd(:,2,2),'lineWidth',3);
 hold on;
 plot(dd_RPE(2,2)*ones(N,1),'lineWidth',3);
 
-figure;
-M1=size(rr_tt,1);
-M2=size(rr_tt,2);
 
+figure('Name','learning:-shock coefficients, frequency dist.');
 
+subplot(2,2,1);
+hist(dd(:,1,1),20);
+mm=mode(dd(burn_in:end,1,1));
+title(mm);
+subplot(2,2,2);
+hist(dd(:,1,2),20);
+mm=mode(dd(burn_in:end,1,2));
+title(mm);
+subplot(2,2,3);
+hist(dd(:,2,1),20);
+mm=mode(dd(burn_in:end,2,1));
+title(mm);
+subplot(2,2,4);
+hist(dd(:,2,2),20);
+mm=mode(dd(burn_in:end,2,2));
+title(mm);
+
+% figure;
+% M1=size(rr_tt,1);
+% M2=size(rr_tt,2);
 % 
 % for jj=1:M1
 %     for ii=1:M2

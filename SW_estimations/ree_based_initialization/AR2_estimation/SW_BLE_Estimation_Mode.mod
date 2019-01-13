@@ -74,13 +74,13 @@ rho_ga  $\rho_{\ga}$
 rho_g   $\rho_g$
 Mu_w   $\mu_w$
 Mu_p  $\mu_p$
-beta1_i beta2_i
-beta1_q beta2_q
-beta1_rk beta2_rk
-beta1_pinf beta2_pinf
-beta1_c beta2_c
-beta1_l beta2_l
-beta1_w beta2_w
+beta1_i beta2_i betar_i betac_i betainv_i betay_i betapinf_i betaw_i
+beta1_q beta2_q betar_q betac_q betainv_q betay_q betapinf_q betaw_q
+beta1_rk beta2_rk betar_rk betac_rk betainv_rk betay_rk betapinf_rk betaw_rk
+beta1_pinf beta2_pinf betar_pinf betac_pinf betainv_pinf betay_pinf betapinf_pinf betaw_pinf
+beta1_c beta2_c betar_c betac_c betainv_c betay_c betapinf_c betaw_c
+beta1_l beta2_l betar_l betac_l betainv_l betay_l betapinf_l betaw_l
+beta1_w beta2_w betar_w betac_w betainv_w betay_w betapinf_w betaw_w
 ; 
 
 varexo
@@ -95,21 +95,69 @@ eta_w  $\eta_w$
 
 
 
-beta1_rk=1.21;
-beta1_q=0.6;
-beta1_c=1.08;
-beta1_i=1.5;
-beta1_l=1.2;
-beta1_pinf=0.74;
-beta1_w=1.08;
+beta1_rk=0.9;
+beta1_q=0.9;
+beta1_c=0.9;
+beta1_i=0.9;
+beta1_l=0;
+beta1_pinf=0.9;
+beta1_w=0.9;
 
-beta2_rk=-0.3;
-beta2_q=0.16;
-beta2_c=-0.10;
-beta2_i=-0.68;
-beta2_l=-0.36;
-beta2_pinf=-0.03;
-beta2_w=-0.15;
+beta2_rk=0;
+beta2_q=0;
+beta2_c=0;
+beta2_i=0;
+beta2_l=0;
+beta2_pinf=0;
+beta2_w=0;     
+
+betar_rk=0;
+betar_q=0;
+betar_c=0;
+betar_i=0;
+betar_l=0;
+betar_pinf=0;
+betar_w=0;     
+
+betac_rk=0;
+betac_q=-0;
+betac_c=0;
+betac_i=0;
+betac_l=0;
+betac_pinf=0;
+betac_w=0; 
+
+betainv_rk=0;
+betainv_q=0;
+betainv_c=0;
+betainv_i=0;
+betainv_l=0;
+betainv_pinf=0;
+betainv_w=0; 
+
+betay_rk=0;
+betay_q=0;
+betay_c=0;
+betay_i=0;
+betay_l=0;
+betay_pinf=0;
+betay_w=0; 
+
+betapinf_rk=0;
+betapinf_q=0;
+betapinf_c=0;
+betapinf_i=0;
+betapinf_l=0;
+betapinf_pinf=0;
+betapinf_w=0; 
+
+betaw_rk=0;
+betaw_q=0;
+betaw_c=0;
+betaw_i=0;
+betaw_l=0;
+betaw_pinf=0;
+betaw_w=0; 
 
 delta = 0.025;
 phi_w = 1.5;
@@ -212,21 +260,7 @@ estimated_params;
 	stderr eta_p,0.4,0.01,3,INV_GAMMA_PDF,0.1,2;
 	stderr eta_w,0.3,0.01,3,INV_GAMMA_PDF,0.1,2;
 
-/*beta1_i,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta1_q,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta1_rk,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta1_pinf,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta1_c,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta1_l,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta1_w,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
 
-beta2_i,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta2_q,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta2_rk,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta2_pinf,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta2_c,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta2_l,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;
-beta2_w,0.5,0.01,0.99,NORMAL_PDF,0.5,0.2;*/
 end;
 
 
@@ -254,14 +288,15 @@ model(linear);
 	# WL_C = (1/phi_w)*(1-alpha)/alpha*Rk*K_Y/C_Y;
 	# r_bar=((PI_star/(beta*gamma^(-sigma_c)))-1)*100;
 	
-	
-#forecast_i=beta1_i^2*i(-1)+(beta1_i+1)*beta2_i*i(-2);
-#forecast_q=beta1_q^2*q(-1)+(beta1_q+1)*beta2_q*q(-2);
-#forecast_rk=beta1_rk^2*rk(-1)+(beta1_rk+1)*beta2_rk*rk(-2);
-#forecast_pinf=beta1_pinf^2*pinf(-1)+(beta1_pinf+1)*beta2_pinf*pinf(-2);
-#forecast_c=beta1_c^2*c(-1)+(beta1_c+1)*beta2_c*c(-2);
-#forecast_l=beta1_l^2*l(-1)+(beta1_l+1)*beta2_l*l(-2);
-#forecast_w=beta1_w^2*w(-1)+(beta1_w+1)*beta2_w*w(-2); 
+
+
+#forecast_i=beta1_i^2*i(-1)+betar_i*r(-1)+betac_i*c(-1)+betainv_i*i(-1)+betay_i*y(-1)+betapinf_i*pinf(-1)+betaw_i*w(-1);
+#forecast_q=beta1_q^2*q(-1)+betar_q*r(-1)+betac_q*c(-1)+betainv_q*i(-1)+betay_q*y(-1)+betapinf_q*pinf(-1)+betaw_q*w(-1);
+#forecast_rk=beta1_rk^2*rk(-1)+betar_rk*r(-1)+betac_rk*c(-1)+betainv_rk*i(-1)+betay_rk*y(-1)+betapinf_rk*pinf(-1)+betaw_rk*w(-1);
+#forecast_pinf=beta1_pinf^2*pinf(-1)+betar_pinf*r(-1)+betac_pinf*c(-1)+betainv_pinf*i(-1)+betay_pinf*y(-1)+betapinf_pinf*pinf(-1)+betaw_pinf*w(-1);
+#forecast_c=beta1_c^2*c(-1)+betar_c*r(-1)+betac_c*c(-1)+betainv_c*i(-1)+betay_c*y(-1)+betapinf_c*pinf(-1)+betaw_c*w(-1);
+#forecast_l=beta1_l^2*l(-1)+betar_l*r(-1)+betac_l*c(-1)+betainv_l*i(-1)+betay_l*y(-1)+betapinf_l*pinf(-1)+betaw_l*w(-1);
+#forecast_w=beta1_w^2*w(-1)+betar_w*r(-1)+betac_w*c(-1)+betainv_w*i(-1)+betay_w*y(-1)+betapinf_w*pinf(-1)+betaw_w*w(-1);
 
 	mc = alpha*rk + (1-alpha)*w - eps_a;
 	zcap =  ((1 - psi)/psi) * rk;

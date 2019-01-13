@@ -14,7 +14,7 @@ param2(3)=parameters(14);
 param2(13)=parameters(15);
 param2(6)=0;param2(7)=0;param2(10)=0;
 q_11=1-parameters(16);q_22=1-parameters(17);
-N=10000;
+N=1000;
 
 sigma_y1 = param1(end-2);
 sigma_pinf1=param1(end-1);
@@ -83,7 +83,7 @@ beta_tt(:,tt)=beta1(:,3);
 cc_tt(:,:,tt)=cc1;
 
 end
-figure;
+figure('Name','learning coef-intercept');
 subplot(3,1,1);
 plot(alpha_tt(1,:));
 subplot(3,1,2);
@@ -91,7 +91,7 @@ plot(alpha_tt(2,:));
 subplot(3,1,3);
 plot(alpha_tt(3,:));
 
-figure;
+figure('Name','learning coef-lagged int.');
 subplot(3,1,1);
 plot(beta_tt(1,:));
 subplot(3,1,2);
@@ -100,7 +100,7 @@ subplot(3,1,3);
 plot(beta_tt(3,:));
 
 
-figure;
+figure('Name','learning coef-shock coefs');
 subplot(3,2,1);
 plot(squeeze(cc_tt(1,1,:)));
 subplot(3,2,2);

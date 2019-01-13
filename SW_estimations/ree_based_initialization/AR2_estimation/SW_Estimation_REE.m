@@ -544,6 +544,7 @@ options_.presample = 4;
 options_.datafile = 'raf_dataset';
 options_.optim_opt = '''MaxIter'',500';
 options_.first_obs = 147;
+options_.nobs = 60;
 options_.order = 1;
 var_list_ = char();
 oo_recursive_=dynare_estimation(var_list_);

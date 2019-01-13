@@ -13,11 +13,9 @@ impulse=zeros(periods,numVars,numShocks);
     shock=zeros(3,1);
     shock(ii)=std(ii);
 
-
-
-    for jj=1:periods
-    impulse(jj,:,ii)=gamma1^(jj-1)*gamma3*shock;    
-    end
+        for jj=1:periods
+        impulse(jj,:,ii)=gamma1^(jj-1)*gamma3*shock;    
+        end
    
     end
 

@@ -1,6 +1,8 @@
   function[likl]=KF_MS_MSV(parameters)
 gain=parameters(18);
-burn_in=1;
+%gain=0.035;
+burn_in=50;
+
 load('simulated_dataset.mat');
 dataset=simulated_dataset;
 
@@ -40,8 +42,8 @@ gamma1_2_tilde=AA2_inv*(BB2+CC2*beta1^2);gamma2_2_tilde=AA2_inv*CC2*(eye(numEndo
 
 
 H1=zeros(3,3);H2=zeros(3,3);
-
-
+%H1=0.05*diag(var(dataset));
+%H2=H1;
 
 S_fore11=zeros(numVar,1);S_fore12=zeros(numVar,1);S_fore21=zeros(numVar,1);S_fore22=zeros(numVar,1);
 P_fore11=zeros(numVar,numVar);P_fore12=zeros(numVar,numVar);P_fore21=zeros(numVar,numVar);P_fore22=zeros(numVar,numVar);
@@ -63,7 +65,9 @@ S_filtered=zeros(T,numVar);
 
 pp_filtered=ones(T,1);
 
-
+alpha_tt(:,1)=alpha1(1:3);
+beta_tt(:,1)=beta1(1:3,3);
+cc_tt(:,:,1)=cc1;
 %----------------------------------------------------------------------------
 
 for tt=2:T
@@ -164,15 +168,9 @@ thetaOld=[alpha1 beta1(:,3) cc1];
 [theta rr largestEig(tt) pr_flag(tt)] =msv_learning2(S_filtered(tt,1:numEndo)',[1,S_filtered(tt-1,3),S_filtered(tt,4:5)]',thetaOld,rr,gain);
 alpha1=theta(1,:)';beta1(:,3)=theta(2,:)';cc1=theta(3:4,:)';
 
-alpha_tt(:,tt)=alpha1(1:3);
-beta_tt(:,tt)=beta1(1:3,3);
-cc_tt(:,:,tt)=cc1;
+
 
 
  end
 
 likl=-sum(log(likl(burn_in+1:end)));
-
-
-  end
-

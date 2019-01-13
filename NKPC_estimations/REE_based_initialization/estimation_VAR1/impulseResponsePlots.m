@@ -35,10 +35,11 @@ for ii=1:2
         index=index+1;
          subplot(2,2,index);
 %         subplot(numVar-2,numShocks,index);
+plot3(refLine1',refLine2',imp33(:,:,ii,jj)','color','black','lineWidth',0.5);
 
- plot3(refLine1',refLine2',imp11(:,:,ii,jj)','color','red','lineWidth',0.5);
- hold on;
- plot3(refLine1',refLine2',imp22(:,:,ii,jj)','color','black','lineWidth',0.5);
+ %plot3(refLine1',refLine2',imp11(:,:,ii,jj)','color','red','lineWidth',0.5);
+ %hold on;
+ %plot3(refLine1',refLine2',imp22(:,:,ii,jj)','color','black','lineWidth',0.5);
 % hold on;
 % plot(imp22(10,:,ii,jj),'lineWidth',3,'color','green');
        title([vars(ii) shocks(jj)]);

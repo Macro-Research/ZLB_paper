@@ -1,9 +1,9 @@
-% clear;clc;close all;
-% parameters=[0 0 0 0.01 2 1.5 0.5 0.5 0.5 0.9 0.3 0.3 0.3 0 0.01 0.01 0.1 0.035];      
-load('estimation_results.mat');
-parameters=x;
+clear;clc;close all;
+parameters=[0 0 0 0.03 2 1.5 0.5 0.5 0.5 0.9 0.3 0.3 0.3 0 0.01 0.01 0.1 0.035];  
+% load('estimation_results.mat');
+% parameters=x;
 gain=parameters(18);
-burn_in=1;
+burn_in=10;
 
 load('simulated_dataset.mat');
 dataset=simulated_dataset;
@@ -67,7 +67,9 @@ S_filtered=zeros(T,numVar);
 
 pp_filtered=ones(T,1);
 
-
+alpha_tt(:,1)=alpha1(1:3);
+beta_tt(:,1)=beta1(1:3,3);
+cc_tt(:,:,1)=cc1;
 %----------------------------------------------------------------------------
 
 for tt=2:T
@@ -200,116 +202,116 @@ legend('filtered','true');
 
 figure('Name','Learning: Intercepts');
 subplot(3,1,1);
-plot(alpha_tt(1,2:end),'lineWidth',3);
+plot(alpha_tt(1,1:end),'lineWidth',3);
 hold on;
-plot(alpha_simulated(1,2:end));
+plot(alpha_simulated(1,1:end),'LineStyle','--','lineWidth',3);
 legend('filtered','true');
 subplot(3,1,2);
-plot(alpha_tt(2,2:end),'lineWidth',3);
+plot(alpha_tt(2,1:end),'lineWidth',3);
 hold on;
-plot(alpha_simulated(2,2:end));
+plot(alpha_simulated(2,1:end),'LineStyle','--','lineWidth',3);
 legend('filtered','true');
 subplot(3,1,3);
-plot(alpha_tt(3,2:end),'lineWidth',3);
+plot(alpha_tt(3,1:end),'lineWidth',3);
 hold on;
-plot(alpha_simulated(3,2:end));
+plot(alpha_simulated(3,1:end),'LineStyle','--','lineWidth',3);
 legend('filtered','true');
 %------------------------------------
 
 figure('Name','Learning: First-order autocorrelation');
 subplot(3,1,1);
-plot(squeeze(beta_tt(1,2:end)),'lineWidth',3);
+plot(squeeze(beta_tt(1,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(beta_simulated(1,2:end)),'lineWidth',3);
+plot(squeeze(beta_simulated(1,1:end)),'lineWidth',3,'LineStyle','--');
 legend('filtered','true');
 
 subplot(3,1,2);
-plot(squeeze(beta_tt(2,2:end)),'lineWidth',3);
+plot(squeeze(beta_tt(2,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(beta_simulated(2,2:end)),'lineWidth',3);
+plot(squeeze(beta_simulated(2,1:end)),'lineWidth',3,'LineStyle','--');
 legend('filtered','true');
 
 subplot(3,1,3);
-plot(squeeze(beta_tt(3,2:end)),'lineWidth',3);
+plot(squeeze(beta_tt(3,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(beta_simulated(3,2:end)),'lineWidth',3);
+plot(squeeze(beta_simulated(3,1:end)),'lineWidth',3,'LineStyle','--');
 legend('filtered','true');
 %-----------------------------------------
 
 figure('Name','Learning: Shock coefficients');
 subplot(3,2,1);
-plot(squeeze(cc_tt(1,1,2:end)),'lineWidth',3);
+plot(squeeze(cc_tt(1,1,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(cc_simulated(1,1,2:end)),'lineWidth',3);
+plot(squeeze(cc_simulated(1,1,1:end)),'lineWidth',3,'LineStyle','--');
 legend('filtered','true');
 
 subplot(3,2,2);
-plot(squeeze(cc_tt(1,2,2:end)),'lineWidth',3);
+plot(squeeze(cc_tt(1,2,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(cc_simulated(1,2,2:end)),'lineWidth',3);
+plot(squeeze(cc_simulated(1,2,1:end)),'lineWidth',3,'LineStyle','--');
 legend('filtered','true');
 
 subplot(3,2,3);
-plot(squeeze(cc_tt(2,1,2:end)),'lineWidth',3);
+plot(squeeze(cc_tt(2,1,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(cc_simulated(2,1,2:end)),'lineWidth',3);
+plot(squeeze(cc_simulated(2,1,1:end)),'lineWidth',3);
 legend('filtered','true');
 
 
 
 subplot(3,2,4);
-plot(squeeze(cc_tt(2,2,2:end)),'lineWidth',3);
+plot(squeeze(cc_tt(2,2,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(cc_simulated(2,2,2:end)),'lineWidth',3);
+plot(squeeze(cc_simulated(2,2,1:end)),'lineWidth',3,'LineStyle','--');
 legend('filtered','true');
 
 subplot(3,2,5);
-plot(squeeze(cc_tt(3,1,2:end)),'lineWidth',3);
+plot(squeeze(cc_tt(3,1,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(cc_simulated(3,1,2:end)),'lineWidth',3);
+plot(squeeze(cc_simulated(3,1,1:end)),'lineWidth',3,'LineStyle','--');
 legend('filtered','true');
 
 subplot(3,2,6);
-plot(squeeze(cc_tt(3,2,2:end)),'lineWidth',3);
+plot(squeeze(cc_tt(3,2,1:end)),'lineWidth',3);
 hold on;
-plot(squeeze(cc_simulated(3,2,2:end)),'lineWidth',3);
+plot(squeeze(cc_simulated(3,2,1:end)),'lineWidth',3,'LineStyle','--');
 legend('filtered','true');
 
 
-figure('Name','model errors');
-subplot(4,3,1);
-plot(error11(1,:));
-subplot(4,3,2);
-plot(error11(2,:));
-subplot(4,3,3);
-plot(error11(3,:));
+% figure('Name','model errors');
+% subplot(4,3,1);
+% plot(error11(1,:));
+% subplot(4,3,2);
+% plot(error11(2,:));
+% subplot(4,3,3);
+% plot(error11(3,:));
 
-subplot(4,3,4);
-plot(error12(1,:));
-subplot(4,3,5);
-plot(error12(2,:));
-subplot(4,3,6);
-plot(error12(3,:));
+% subplot(4,3,4);
+% plot(error12(1,:));
+% subplot(4,3,5);
+% plot(error12(2,:));
+% subplot(4,3,6);
+% plot(error12(3,:));
 
-subplot(4,3,7);
-plot(error21(1,:));
-subplot(4,3,8);
-plot(error21(2,:));
-subplot(4,3,9);
-plot(error21(3,:));
+% subplot(4,3,7);
+% plot(error21(1,:));
+% subplot(4,3,8);
+% plot(error21(2,:));
+% subplot(4,3,9);
+% plot(error21(3,:));
 
-subplot(4,3,10);
-plot(error22(1,:));
-subplot(4,3,11);
-plot(error22(2,:));
-subplot(4,3,12);
-plot(error22(3,:));
+% subplot(4,3,10);
+% plot(error22(1,:));
+% subplot(4,3,11);
+% plot(error22(2,:));
+% subplot(4,3,12);
+% plot(error22(3,:));
 
 
-figure('Name','model errors');
-subplot(3,1,1);
-plot(errors_tot(1,:));
-subplot(3,1,2);
-plot(errors_tot(2,:));
-subplot(3,1,3);
-plot(errors_tot(3,:));
+% figure('Name','model errors');
+% subplot(3,1,1);
+% plot(errors_tot(1,:));
+% subplot(3,1,2);
+% plot(errors_tot(2,:));
+% subplot(3,1,3);
+% plot(errors_tot(3,:));

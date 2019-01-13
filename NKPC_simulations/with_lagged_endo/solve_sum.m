@@ -3,7 +3,12 @@ clear;clc;close all;
 %dd_dynare= [oo_.dr.ghu(4:5,1:2)' oo_.dr.ghu(1,1:2)']';
 %bb_dynare=[oo_.dr.ghx(4:5) oo_.dr.ghx(1)]';
 %clearvars -except bb_dynare dd_dynare;
-parameters=[0 0 0 0.03 3 1.5 0.5 0.5 0.5 0.7 0.7 0.3 0.3 0 0.01 0.01 0.10 0.01];    
+%parameter indices-------
+%y_bar=param(1); pi_bar=param(2);  r_bar=param(3);  
+%gamma=param(4);  tau=param(5);  phi_pinf=param(6);  phi_y=param(7); 
+%rho_y=param(8);  rho_pinf=param(9);  rho_r=param(10);  
+%eps_y=param(11);  eps_pinf=param(12);  eps_r=param(13); 
+parameters=[0 0 0 0.03 3 1.5 0.5 0.9 0.9 0 0.7 0.3 0.3 0 0.03  0 1];    
 param(:,1)=parameters(1:13);
 param(:,2)=parameters(1:13);
 param(3,2)=parameters(14);

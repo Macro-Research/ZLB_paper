@@ -1,6 +1,6 @@
 clear;clc;close all;
 addpath('c:\users\tolga\desktop\zlb_paper\optimization_routines');
- load('init_H2.mat');
+%  load('init_H2.mat');
 % load('param_init.mat');
 seed=round(1000*rand);
 % rng(800);
@@ -17,10 +17,13 @@ seed=round(1000*rand);
 
 
 % objective= @(param) likelihood(param);
-% H=nhess(@likelihood,param_init');
-
 param_init=[0 0 0 0.03 2 1.5 0.5 0.5 0.5 0.9 0.3 0.3 0.3 0 0.01 0.01 0.1 0.035];  
-[fh,x,gh,H,itct,fcount,retcodeh] = csminwel('likelihood',param_init',init_H2,[] ,10^(-4),9999);
+ %init_H=nhess_diagonal(@likelihood,param_init');
+ %init_H=inv(init_H);
+ %save init_H.mat init_H;
+ load init_H.mat init_H;
+%init_H=eye(length(param_init));
+[fh,x,gh,H,itct,fcount,retcodeh] = csminwel('likelihood',param_init',init_H,[] ,10^(-4),9999);
 %options=optimset('Display','iter','PlotFcns',@optimplotfval,'MaxIter',500);
 %x=fminsearch('likelihood',param_init,options);
 % 

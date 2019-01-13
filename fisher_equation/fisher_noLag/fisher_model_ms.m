@@ -1,13 +1,14 @@
 clear;clc;close all;
 %Fisher equation with two (Markov) regimes, msv learning. 
-rng(4);
-N=1000;
-phi_pinf1=1.5;
-phi_pinf2=2;
+%rng(4);
+N=50000;
+phi_pinf1=2.5;
+phi_pinf2=1.5;
 rho=0.9;
-eta_sigma=0.1;
+eta_sigma=0.1;uu_sigma=0.1;
 eta=normrnd(0,eta_sigma,[N 1]);
-p_11=0.95;p_22=0.95;
+uu=normrnd(0,uu_sigma,[N 1]);
+p_11=.99;p_22=.95;
 Q=[p_11,1-p_11;1-p_22,p_22];
 regime=zeros(N,1);
 regime(1)=1;
@@ -19,7 +20,8 @@ learning=zeros(N,2);
 learningCovariance=nan(N,2,2);
 
 ergodic_states=[(1-p_22)/(2-p_11-p_22);(1-p_11)/(2-p_11-p_22)];
-beta_ree=1/(ergodic_states(1)*phi_pinf1+ergodic_states(2)*phi_pinf2-rho);
+beta_ree=1/(ergodic_states(1)*phi_pinf1+ergodic_states(2)*phi_pinf2-rho);%plm coef
+beta_alm=zeros(N,1);
 alpha_ree=0;
 E_stabilityMarkov=rho/(phi_pinf1*ergodic_states(1)+phi_pinf2*ergodic_states(2));
 E_stabilityRegime1=rho/(phi_pinf1);
@@ -39,30 +41,31 @@ if E_stabilityRegime2<1
 else disp('REGIME 2 E-STABILITY NOT SATISFIED');
 end
 
-beta_tt=0*beta_ree;
+beta_tt=1*beta_ree;
 alpha_tt=alpha_ree;
-rr_tt=eye(2);
+rr_tt=0.1*eye(2);
 
 forecast_errors=zeros(N,1);
 forecast=zeros(N,1);
 for jj=2:N
-    %gain=1/jj;
-    gain=0.05;
+%     gain=1/jj;
+    gain=0.01;
     regime(jj)=findRegime(regime(jj-1),p_11,p_22);
     r(jj)=rho*r(jj-1)+eta(jj);
      learning(jj,:)=[alpha_tt,beta_tt];%forecast coef for t
      learningCovariance(jj,:,:)=rr_tt;
     
      forecast_errors(jj-1)=pinf(jj-1)-alpha_tt+beta_tt*r(jj-1);
-%      if jj>10
+
+    pinf(jj)=(regime(jj)*(1/phi_pinf1)+(1-regime(jj))*(1/phi_pinf2))...
+    *((alpha_tt+beta_tt*rho*r(jj))+r(jj))+uu(jj);
+
+    beta_alm(jj)=(regime(jj)*(1/phi_pinf1)+(1-regime(jj))*(1/phi_pinf2))*...
+        (beta_tt*rho+1);
+
    [alpha_tt beta_tt rr_tt] =...
        l_LS(pinf(jj-1),[1 r(jj-1)]',alpha_tt,beta_tt,rr_tt,gain);%forecast for t+1
-%      end
-    pinf(jj)=(regime(jj)*(1/phi_pinf1)+(1-regime(jj))*(1/phi_pinf2))...
-    *((alpha_tt+beta_tt*rho*r(jj))+r(jj));
-
-
-    
+    alpha_tt=0;
    
 end
 
@@ -130,12 +133,25 @@ print(fig,'fisher_simulation1_pinf','-dpdf');
 %     linspace(0,N,N),forecast_errors);
 % title('forecast errors');
 
-% figure;
-% subplot(2,2,1);
-% plot(learningCovariance(:,1,1),'lineWidth',3);
-% subplot(2,2,2);
-% plot(learningCovariance(:,1,2),'lineWidth',3);
-% subplot(2,2,3);
-% plot(learningCovariance(:,2,1),'lineWidth',3);
-% subplot(2,2,4);
-% plot(learningCovariance(:,2,2),'lineWidth',3);
+figure;
+subplot(2,2,1);
+plot(learningCovariance(:,1,1),'lineWidth',3);
+subplot(2,2,2);
+plot(learningCovariance(:,1,2),'lineWidth',3);
+subplot(2,2,3);
+plot(learningCovariance(:,2,1),'lineWidth',3);
+subplot(2,2,4);
+plot(learningCovariance(:,2,2),'lineWidth',3);
+
+figure('Name','Fisher eqn-learning coef','units','normalized','outerposition',[0 0 1 1]);
+
+plot(beta_alm,'lineWidth',3);
+hold on;
+plot(learning(:,2),'lineWidth',3,'lineStyle','--');
+legend('actual','perceived');
+
+
+figure('Name','Fisher eqn-learning coef, distribution','units','normalized','outerposition',[0 0 1 1]);
+histogram(learning(:,2),20);
+mode(learning(:,2))
+mean(learning(:,2))

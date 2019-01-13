@@ -3,7 +3,7 @@ var y pi r u_y u_pi ;
 varexo eps_y eps_pi eps_r;
 parameters y_bar pi_bar r_bar kappa tau phi_pi phi_y rho_y rho_pi rho_r ;
 
-y_bar=0;pi_bar=0;r_bar=0; kappa= 0.01 ; tau=3; phi_pi=1.5; phi_y = 0.5; rho_r =0; rho_y =0.9 ; rho_pi =0.9; 
+y_bar=0;pi_bar=0;r_bar=0; kappa= 0.03 ; tau=3; phi_pi=1.5; phi_y = 0.5; rho_r =0; rho_y =0.9 ; rho_pi =0.9; 
 
     
 shocks;

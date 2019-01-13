@@ -6,7 +6,7 @@ seed=round(1000*rand);
 % rng(800);
 %  param_init=[0.04 0.8 1.2 0.027 2.7 1.26 0.46...
 %      0.69 0.71 0.84 0.73 0.28 0.31 0.001 0.004 0.02 0.10 0.001];    
-%param_init=[0.06 0.97 1.34 0.035 3.13 1.32 0.35 0.38 0.05 0.97 0.75 0.26 0.33 0.04 0.02 0.02 0.1 0.04];
+% param_init=[0.06 0.97 1.34 0.035 3.13 1.32 0.35 0.38 0.05 0.97 0.75 0.26 0.33 0.04 0.02 0.02 0.1 0.04];
 
 %param_init=[0 0.44 0.84 0.02 2.5 1.5 0.32 0.9 0.9 0.85 0.16 0.03 0.30 0.03 0.01 0.01 0.11 0.0013];    
 %parameters: [bar_y bar_pi bar_r1 kappa tau phi_pi phi_y rho_y rho_pi rho_r 
@@ -17,7 +17,9 @@ seed=round(1000*rand);
 
 
 % objective= @(param) likelihood(param);
-% H=nhess(@likelihood,param_init');
+%  init_H7=nhess_diagonal(@likelihood,param_init');
+%  init_H7=inv(diag(diag(init_H7)));
+%  save init_H7.mat init_H7;
 
 [fh,x,gh,H,itct,fcount,retcodeh] = csminwel('likelihood',param_init',init_H6,[] ,10^(-4),9999);
 %options=optimset('Display','iter','PlotFcns',@optimplotfval,'MaxIter',500);

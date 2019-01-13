@@ -3,14 +3,15 @@ true_parameters=[0 0 0 0.03 2 1.5 0.5 0.5 0.5 0.9 0.3 0.3 0.3 0 0.01 0.01 0.1 0.
 para_names={'y^{ss}','\pi^{ss}','r_{n}^{ss}','\kappa','\tau','\phi_{\pi}','\phi_y',...
     '\rho_y','\rho_{\pi}','\rho_r','\eta_y','\eta_{\pi}','\eta_{r,n}','r_{zlb}^{ss}','\eta_{r,zlb}',...
     '1-p_{11}','1-p_{22}','gain'};
-rng(11);
+rng(1);
 tic
 load('MH_Candidate');
 Ndraws=100000;
 numVar=length(mode);
-c=0.15; %
+c=0.2; %
 recursiveAverages=nan(Ndraws,numVar);
-Nburn=round(Ndraws/2);
+%Nburn=round(Ndraws/2);
+Nburn=1;
 posteriorDraws=nan(Ndraws,numVar);
 currentDraw=mvnrnd(mode,c*Sigma);
 posteriorDraws(1,:)=currentDraw;
@@ -43,7 +44,8 @@ acceptanceRate=accept/i;
 % disp('ACCEPTANCE RATE:');
 % disp(acceptanceRate);
 counter=counter+1;
-if counter==100
+if counter==50
+    toc
      disp(['Acceptance Rate: ', num2str(acceptanceRate)]);
     disp(['Remaining Draws: ', num2str(Ndraws-i)]);
     counter=0;
